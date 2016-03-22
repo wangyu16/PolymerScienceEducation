@@ -1,2 +1,2 @@
 # Physical-Chemistry
-A collection of teaching materials on physical chemistry created with Ipython Notebook. 
+A collection of teaching materials on polymer chemistry and polymer physics created with Ipython Notebook. 
