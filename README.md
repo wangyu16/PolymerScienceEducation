@@ -1,2 +1,10 @@
 # Introduction to Polymer Science
-A collection of teaching materials on polymer chemistry and polymer physics created with Ipython Notebook. 
+Study guide for the course *Introduction to Polymer Science*.
+
+Textbook *Essentials of Polymer Science and Engineering*, by Paul C. Painter, Michael M. Coleman. 
+
+Other references: 
+
+* *Principles of Polymerization* Fourth Edition, by George Odian
+* *Polymer Physics*, by M. Rubinstein, Ralph H. Colby
+* *Introduction to Polymers* Third Edition, by Robert J. Young, Peter A. Lovell
