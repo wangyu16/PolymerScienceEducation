@@ -1,4 +1,4 @@
-Sponsored by National Science Foundation (NSF-2142043).  
+This project is sponsored by National Science Foundation (NSF-2142043).  
 
 This software is designed for polymer science education. Copyright (C) 2021 Yu Wang  
 
