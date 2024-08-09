@@ -1,6 +1,4 @@
- ### Copyright
-
-MIT License  
+### MIT License  
 
 Copyright (c) 2021 Yu Wang
 
