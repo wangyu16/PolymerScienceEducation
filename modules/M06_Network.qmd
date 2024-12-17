@@ -1,0 +1,48 @@
+---
+title: "Module 6 Network formation"
+description: "When gelation happens what causes the dramatic change of the system? What are the sol and gel fractions?"
+image: "/img/M06_network_small.png"
+---
+
+<img src="/img/M06_network.png" width="100%" />
+
+## 1. Link to the simulator
+
+<a href="https://colab.research.google.com/drive/1_33IHo4SbKEuv_MspfMF61goRRIH1qLf?usp=sharing" target="_blank">Network formation</a>
+
+## 2 Module objectives
+
+* Understand the role of the largest molecule in a gelation process.
+* Understand the significant changes of the system when gelation happens. 
+* Understand sol-gel fractions when network is formed.
+
+## 3. Classroom implementation ideas
+
+Experiments:
+
+Set the number of monomers as $10^5$ and the ratio between A and B as 1. Change the ratio between A3 and AA and perform simulations. The values of A3 to AA are set as 0.1, 0.5, 1, 1.5, and 2. 
+
+Set the number of monomers as $10^5$, ratio between A and B as 0.95, and the ratio between A3 and AA as 0.1, perform the simulation. 
+
+Questions:
+
+1. Observe the change of the mean DP and the mean DP without the largest molecule in each simulation. Conclude what happens to the system at the gelation point. 
+
+2. How do the DPs of the second, third, fifth, tenth largest molecules change with the extent of reaction? What do you observe at the gelation point?
+
+3. Compare the sol fractions under the conditions: (1) the ratio between A3 and AA is 0.1 and the ratio between A and B is 0.95; and (2) the ratio between A3 and AA is 0.1 and the ratio between A and B is 1. Explain why these two conditions lead to such different results. 
+
+## 4. Example practice questions
+
+1. Calculate the critical extent of reaction when gelation would occur based on Carothers' theory and the statistical theory, given the ratio between A and B is 1 and the ratio between A3 and AA is 0.5. 
+
+2. Based on the simulations, describe what happens to the sytem when gelation occur.
+
+3. Which of the following statement is true?
+
+(a) If the quantities of two types of functional groups are imbalanced, gelation would never occur.  
+(b) If the quantities of two types of functional groups are imbalanced, the sol fraction would be relatively large at the same extent of reaction after gelation occurs.  
+(c) When gelation occurs all molecules in the system merge into one huge molecule.  
+(d) When gelation occurs the largest molecules, i.e., the largest, the second largest, the third largest, ..., all grow bigger exponentially. 
+
+{{< include _copyright.qmd >}}

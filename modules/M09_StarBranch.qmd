@@ -1,0 +1,51 @@
+---
+title: "Module 9 Star and branched polymers"
+description: "What do star and branched polymers look like? How do their radii of gyration change with the degree of polymerization?"
+image: "/img/M09_branch_small.png"
+---
+
+<img src="/img/M09_branch.png" width="100%" />
+
+## 1. Link to the simulator
+
+<a href="https://colab.research.google.com/drive/1W7-I-zBetNG3Zaqym3i0QcMRoLz42AU-?usp=sharing" target="_blank">Star and branch polymers</a>
+
+## 2 Module objectives
+
+* Compare the radii of gyration of polymers with the same degree of polymerization but with different architectures, i.e., linear, star shapped, and branched. 
+* Derive the scaling rule between the radii of gyration and the degree of polymerization for star shapped polymers and branched polymers. 
+* Explore the influence of the number of branching points on the radii of gyration. 
+
+## 3. Classroom implementation ideas
+
+Experiments:
+
+Set the number of branching point as 10, perform simulations with different degree of polymerization ($DP$), record the root mean square (RMS) radii of gyration for linear, star and branched polymers. 
+
+| $DP$ | Linear | Star | Branched |
+|------|--------|------|----------|
+| 100  |        |      |          |
+| 200  |        |      |          |
+| 400  |        |      |          |
+| 800  |        |      |          |
+
+Questions:
+
+1. What are the scaling factors for star and branched polymers, respectively? 
+
+2. For the same $DP$, which type of polymer has the smallest $R_g$ and which has the largest? Explain why? 
+
+3. In general, the radius of gyration of which type of polymer has narrower distribution? Explain why.
+
+## 4. Example practice questions
+
+1. Which of the statements is true?
+
+(a) Given the same $DP$, introducing branching points to the polymers would result in smaller RMS radius of gyration.  
+(b) As long as the $DP$ are the same, linear, star shaped and branched polymers have the same RMS radius of gyration.  
+(c) A linear polymer always has larger radius of gyration than star shaped or branched polymers given their $DP$ are the same. 
+(d) For the same $DP$, more branching points would not affect the RMS radius of gyration of the polymers. 
+
+2. Are the scaling rules for star and branched polymers the same as that of linear polymers? Why? 
+
+{{< include _copyright.qmd >}}

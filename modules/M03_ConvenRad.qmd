@@ -1,0 +1,71 @@
+---
+title: "Module 3 Conventional Radical Polymerization"
+description: "How fast would a radical polymerization proceed? How large the resulting polymers would be?"
+image: "/img/M03_radical_small.png"
+---
+
+<img src="/img/M03_radical.png" width="100%" />
+
+## 1. Link to the simulator
+
+<a href="https://colab.research.google.com/drive/1gHO8NiHv8euvF2CIhnIYLTG99-GJNVC8?usp=sharing" target="_blank">Conventional Radical Polymerization</a>
+
+## 2 Module objectives
+
+* Predict how would the polymerization result change when the reaction condition of a radical polymerization is varied.
+* Explain the reason of the change.
+
+## 3. Classroom implementation ideas
+
+Perform the following simulations and answer the questions.
+
+First, set the default condition as: MA, bulk, AIBN 0.005 mol/L, 60 $^\circ$C, 1 h, and run the simulation. Then change one parameter at a time, run the simulation again, and compare to the results from the default condition.  
+
+I. Different monomer (MA vs VAc, same molar mass, VAc has smaller $k_p$)  
+II. Different monomer concentrations (bulk vs 50%)  
+III. Different initiator (AIBN vs ACHN) (ACHN decomposition is much slower)  
+IV. Different initiator concentrations (0.005 vs 0.01 mol/L)  
+V. Different temperatures (60 $^\circ$C vs 80 $^\circ$C)
+
+For every single reaction answer this question:  
+
+1.	Compare the number of polymers obtained from the polymerization and the number of initiator consumption  
+A. much greater; B. comparable (ratio within 0.5 to 2 and keep constant); C. much less
+
+For each pair of reactions answer the following questions (the second reaction compare to the first reaction).
+
+1.	Radical concentration  
+A. increase; B. similar; C. decrease; D. need more information to tell
+
+2.	Rate of polymerization (i.e. percent consumption of monomers vs time)  
+A. increase; B. similar; C. decrease; D. need more information to tell
+
+3.	Reason for the change in polymerization rate (the answer could be one or both of the choices)  
+A. change in radical concentration; B. change in $k_p$
+
+4.	Explain your choices for the above two questions.
+
+5.	Initial molecular weight  
+A. increase; B. similar; C. decrease; D. need more information to tell
+
+6.	Reason for the change in initial molecular weight (the answer could be one or multiple of the choices)  
+A. rate of monomer consumption; B. monomer concentration; C. number of polymers being formed.
+
+7.	Explain your choices for the above two questions.
+
+
+## 4. Example practice questions
+
+1.	In a conventional radical polymerization, adding more thermal initiator, e.g., AIBN, and keeping all other reaction conditions not changed, what would happen to the product?  
+a.	More polymers will be produced at the same reaction time.  
+b.	Higher monomer conversion is expected at the same reaction time.  
+c.	Lager average molecular weight is expected.  
+d.	Higher radical concentration is expected at the same reaction time.  
+
+2.	In a conventional radical polymerization, change the initial monomer concentration from 8 mol/L to 4 mol/L (by changing the ratio between the monomer and inert solvent) and keep all other reaction conditions not changed, what would happen to the product?  
+a.	Fewer polymers will be produced at the same reaction time.  
+b.	Lower monomer conversion is expected at the same reaction time.  
+c.	Lower average molecular weight is expected.  
+d.	Lower radical concentration is expected at the same reaction time.
+
+{{< include _copyright.qmd >}}

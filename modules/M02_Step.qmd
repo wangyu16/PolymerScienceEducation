@@ -1,0 +1,58 @@
+---
+title: "Module 2 Step Growth Polymerization"
+description: "What is the probability to find a polymer with a certain chain length in a step-growth polymerization? What are the chain end functional groups of the polymers?"
+image: "/img/M02_Step_small.png"
+---
+
+<img src="/img/M02_Step.png" width="100%" />
+
+## 1. Link to the simulator
+
+<a href="https://colab.research.google.com/drive/14ZKuOMRoWhPYQUA4UwaqcP9fam7WFdpw?usp=sharing" target="_blank">Step Growth Polymerization</a>
+
+
+
+## 2 Module objectives
+
+* Predict what types of molecules will be produced in step growth polymerization under various initial conditions.
+* Get familiar with the number fraction and weight fraction distributions of the resulting polymers from step growth polymerization.
+* Calculate the number average degree of polymerization under various conditions and compare to the simulation results.
+
+## 3. Classroom implementation ideas
+
+Perform the following series experiments. In the table 'Type' means Type_of_polymerization, '$p$' means Targeted_extend_of_reaction.
+
+| Entry | Type | $p$ | n | r_AA_BB | r_RA_N0 | r_RB_N0 |
+|-------|------------------------|-----------------------------|---|---------|---------|---------|
+| 1     | AA and BB              | 0.999                       | 6 | 1       | 0       | 0       |
+| 2     | AA and BB              | 1                           | 6 | 0.99    | 0       | 0       |
+| 3     | AA and BB              | 1                           | 6 | 1       | 0.02    | 0       |
+| 4     | AB                     | 0.999                       | 6 | 1       | 0       | 0       |
+| 5     | AB                     | 1                           | 6 | 1       | 0.02    | 0       |
+| 6     | AB                     | 1                           | 6 | 1       | 0.01    | 0.01    |
+
+
+1. For each experiment, predict the types of resulting polymers and compare to the simulation results. Compare the number fraction distribution and the weight fraction distribution and tell what are the differences. How does the number average degree of polymerization compare to the weight average one? Mark these average degree of polymerization values in the plot of the weight fraction distribution. How do the average degree of polymerization values compare to the peak value in the distribution?
+
+2. For entry 1, 4 and 5, calculate the number average degree of polymerization and compare to the simulation results.
+
+3. If you do not change the reaction condition and run the simulation several times, are the results the same or slightly different or dramatically different?
+
+4. Write down the DPw/DPn values for each experiment. Are they similar or dramatically different? What are the typical values?
+
+5. Is it possible to find a condition that results in a DPw/DPn value significantly different from 2? Try to vary the reaction conditions and see if this is possible. Explain why.
+
+
+## 4. Example practice questions
+
+For a linear condensation reaction of AA and BB type monomers
+
+1. Calculate the extent of reaction ($p$) necessary to achieve a number average degree of polymerization of 200, assuming you start with 50 moles of A and 50 moles of B monomers.
+
+2. Calculate the weight average degree of polymerization and polydispersity of this sample.
+
+3. Calculate the degree of polymerization that could be achieved at this degree of conversion (i.e., the value of $p$ calculated in part a) if there were an impurity present, such that you not only had 50 moles of B monomers, but also 1 mole of a monofunctional (RB) molecule.
+
+4. Calculate the maximum degree of polymerization that could be achieved if there is a 2\% excess of B units present in the polymerization described in part A (i.e., r = 100/102).
+
+{{< include _copyright.qmd >}}

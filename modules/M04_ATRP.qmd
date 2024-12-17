@@ -1,0 +1,82 @@
+---
+title: "Module 4 Atom Transfer Radical Polymerization"
+description: "How to choose proper reaction conditions to conduct ATRP? What would be the fraction of terminated chains?"
+image: "/img/M04_ATRP_small.png"
+---
+
+<img src="/img/M04_ATRP.png" width="100%" />
+Adapted with permission from Macromolecules 2003, 36, 6, 1843-1849, Copyright © 2003 American Chemical Society.
+
+## 1. Link to the simulator
+
+<a href="https://colab.research.google.com/drive/1o5ANmoc_0OmrgjaA0kVo_CQjkLv4hwgW?usp=sharing" target="_blank">Atom Transfer Radical Polymerization</a>
+
+## 2 Module objectives
+
+* Predict how would the polymerization result change when the reaction condition of an atom transfer radical polymerization (ATRP) is varied.
+* Explain the reason of the change.
+
+## 3. Classroom implementation ideas
+
+**Virtual experiments**
+
+Series I to IV are normal ATRP.
+
+Every time when you open the simulator, it is set at the default condition. After each series of experiments, close the simulator and reopen it to reset to the default condition.  
+
+For each series of experiments, change the parameters accordingly and observe how would the polymerization results change.
+
+I.	Increase initial CuI concentration 0 to 0.0275.  
+II.	Increase initial CuII concentration 0 to 0.0275.  
+III.	Keep [CuI]/[CuII] constant and change both in the range 0 to 0.0275.  
+IV.	Increase initial RX concentration 0.0055 to 0.135.  
+
+Series V to VII are ICAR ATRP.
+
+Before each series of experiment close and reopen the simulatior. Then, change the type of polymerization, i.e., Poly_type from 'normal' to 'icar', change both k_a_0_atrp and k_a_atrp from 9.6 to 96, change the values of both c0_CuI and c0_CuII to 0.0001.
+
+For each series of experiments, change the parameter accordingly and observe how would the polymerization results change.
+
+V.	Increase AIBN initial concentration, i.e., c0_TI, 0.00069 - 0.0069 (After each experiment, can change Poly_type to 'conven' to compare ICAR ATRP with conventional radical polymerization)  
+VI.	Increase initial CuI concentration 0 - 0.000275  
+VII.	Increase initial CuII concentration 0 - 0.000275  
+
+**Questions:**
+
+In each series experiments, how do the following results change? Explain why. 
+
+1.	Number of polymers A) increase B) no change C) decrease  
+
+2.	Rate of polymerization (percent of monomer conversion vs time) A) increase B) no change C) decrease  
+
+3.	Number average molecular weight at the same monomer conversion A) increase B) no change C) decrease  
+
+## 4. Example practice questions
+
+1.	In a conventional radical polymerization, adding more thermal initiator, e.g., AIBN, and keeping all other reaction conditions not changed, what would happen to the product? Briefly explain your choice.  
+A.	The number average molecular weight would be larger since the polymerization is faster.  
+B.	The number average molecular weight would be smaller while the polymerization is faster.  
+C.	The number average molecular weight would remain more or less the same.  
+D.	The number average molecular weight would change but you need more information to tell if it would be larger or smaller.
+
+2.	In a conventional radical polymerization, raising the reaction temperature and keeping all other reaction conditions not changed, what would happen to the product? Briefly explain your choice.  
+A.	The number average molecular weight would be larger since the polymerization is faster.  
+B.	The number average molecular weight would be smaller while the polymerization is faster.  
+C.	The number average molecular weight would remain more or less the same.  
+D.	The number average molecular weight would change but you need more information to tell if it would be larger or smaller.
+
+3.	Which of the following statement is true?   
+A. In an ICAR ATRP process, the number of polymers mainly depends on the amount of AIBN added to the system.  
+B.	In an ICAR ATRP process, the theoretical molecular weight of resulting polymers increases linearly with the monomer conversion, thus the number of polymer molecules must also increase linearly with the monomer conversion.  
+C.	In an ICAR ATRP process, the number of polymers mainly depends on the RX type initiator added to the system. The decomposition of AIBN would slightly increase the number of polymers.  
+D.	In an ICAR ATRP process, the decomposition of AIBN adds more monomer chains to the system, which would cause the actual number average molecular weight to be slightly larger than the theoretical value.  
+
+4.	How to calculate the number average molecular weight for a normal ATRP and for an ICAR ATRP, knowing the initial concentrations of RX and monomer, monomer conversion, and the molecular weight of the monomer?  
+
+5.	Comparing a conventional radical polymerization and an ICAR ATRP process, which of the following statement(s) is (are) NOT true? The common reagents and their concentrations used in the ICAR ATRP and in conventional radical polymerization are the same. In ICAR ATRP, RX and a trace amount of Cu catalyst are added while in the conventional radical polymerization, they are absent. The reaction temperature and reaction time are the same.  
+A.	The monomer conversions in both cases are more or less the same.  
+B.	The amount of termination in both cases is more or less the same.  
+C.	The numbers of polymers in both cases are more or less the same.  
+D.	The number average molecular weights of the resulting polymers in both cases are more or less the same.
+
+{{< include _copyright.qmd >}}

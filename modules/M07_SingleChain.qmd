@@ -1,0 +1,56 @@
+---
+title: "Module 7 Single chain conformation"
+description: "How to characterize the size of a polymer chain? How does the size change with increasing degree of polymerization?"
+image: "/img/M07_conformation_small.png"
+---
+
+<img src="/img/M07_conformation.png" width="100%" />
+
+## 1. Link to the simulator
+
+<a href="https://colab.research.google.com/drive/1huqqGtniBCtVNKPDb8YK-dYstuYLETVo?usp=sharing" target="_blank">Single chain conformation</a>
+
+## 2 Module objectives
+
+* Derive the correlation between the root mean square (RMS) end-to-end distance and the degree of polymerization ($DP$) for three chain models: freely hinged, freely rotation, and hindered rotation.
+* Compare the RMS end-to-end distances of polymers with the same $DP$ across the three different models.
+* Understand the universal scaling rule between chain size (RMS end-to-end distance and radius of gyration) and $DP$$, irrespective of the chain model.
+
+## 3. Classroom implementation ideas
+
+Experiments: 
+
+Set the chain type as freely hinged. Perform a series of experiments for different degree of polymerization ($DP$) and record the RMS end-to-end distance ($h$) and radius of gyration ($R_g$) in the table: 
+
+| $DP$ | $h$ | $R_g$ |
+|----|-----|-------|
+|  50 |    |       |
+| 100 |    |       |
+| 200 |    |       |
+| 400 |    |       |
+| 800 |    |       |
+
+Set the bond angle as 109.5 $^\circ$ and keep it constant. Repeat the process as described above for freely rotation and hindered rotation models. 
+
+Questions:
+
+1. In general, does the RMS end-to-end distance or the RMS radius of gyration have narrower distribution? Explain why.
+
+2. Plot $\ln{h}$ vs $\ln(DP)$ and $\ln(R_g)$ vs $\ln(DP)$, find out how do $h$ and $R_g$ change with increasing $DP$. Is the trend always the same across different models?
+
+3. Compare the $h$ and $R_g$ values for different models with the same $DP$. What trend do you find? 
+
+## 4. Example practice questions
+
+1. The sizes (the RMS end-to-end distance or the RMS radius of gyration) of a linear polystyrene sample with the average $DP$ 10000 should be roughly $\underline{\qquad}$ times larger than a sample with the average $DP$ 100 based on the freely hinged model. Based on freely rotation and hindered rotation model will the answer be the same or different?
+
+2. Why the RMS radius of gyration usually has narrower distribution than the RMS end-to-end distance?
+
+3. Which statement is true?
+
+(a) The end-to-end distance of a freely rotation chain must be greater than that of a freely hinged chain if both chains have the same $DP$.  
+(b) The radius of gyration of a freely rotation chain must be greater than that of a freely hinged chain if both chains have the same $DP$.  
+(c) If $DP$ increase by a factor of 3, the RMS end-to-end distance increase by a factor of 6. 
+(d) If the RMS end-to-end distance of freely rotation polymer chains with $DP$ 50 is $c$ times larger than that of freely hinged chians with the same $DP$, the RMS end-to-end distance of freely rotation polymer chains with $DP$ 500 should also be $c$ times larger than that of freely hinged chains with the same $DP$. 
+
+{{< include _copyright.qmd >}}

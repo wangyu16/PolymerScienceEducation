@@ -1,0 +1,52 @@
+---
+title: "Module 1 Molecular Weight Distribution"
+description: "What are the different ways to define average molecular weight? How to characterize the molecular weight distribution?"
+image: "/img/M01_MWD_small.png"
+---
+
+<img src="/img/M01_MWD.png" width="100%" />
+
+## 1. Link to the simulator
+
+<a href="https://colab.research.google.com/drive/1fuOdEPmETTN_abINkmHplE93mft_bWMm?usp=sharing" target="_blank">Molecular Weight Distribution</a>
+
+## 2 Module objectives
+
+* Understand the correlation between the average degree of polymerization and the average molecular weight.
+* Learn how to calculate number average and weight average molecular weights.
+* Understand the concept of molecular weight distribution.
+* Learn that, in step-growth polymerization and living chain-growth polymerization, how do the lowest and highest molecular weights compare to the average molecular weights.
+
+## 3. Classroom implementation ideas
+
+**Series I.** Get familar with the basic statistics of step growth polymerization and living chain growth polymerization.
+
+* Set the Type_of_polymerization as 'Step growth polymerization', maximize both the Number_of_monomers and the Number_of_polymers, set the Monomer_molar_mass as 100, perform the simulation several times. Observe the Plot of the fractions of each type of polymers. Examine the lowest molecular weight and highest molecular weight and compare whether the average molecular weight is closer to the lower molecular weight part or to the larger molecular weight part.
+* Set the Type_of_polymerization as 'Living chain growth polymerization', do the same as described above.
+* Compare step growth polymerization and living chain growth polymerization, summerize their differences.
+
+**Series II.** Calculate number average and weight average molecular weights.
+
+* Set the Number_of_polymers in the range between 5 and 20, all the other parameters can be chosen randomly, run the simulation and obtain the list of the number of each type of polymers. Use Excel to calculate the number average molecular weight ($M_n$) and the weight average molecular weight ($M_w$). Calculate the value of $M_w/M_n$.
+* Conclude what are the typical values of $M_w/M_n$ for step growth polymerization and living chain growth polymerization?
+
+## 4. Example practice questions
+
+1. Given a polymer sample with following moles of each type of molecules. Calculate the number average molecular weight and weight average molecular weight. Calculate the value of $M_w/M_n$.
+
+| Moles | Molar mass |
+|-------|------------|
+| 1     | 1700       |
+| 3     | 2200       |
+| 5     | 3100       |
+| 2     | 3500       |
+| 1     | 3900       |
+
+2. Which of the following statement is incorrect?
+
+A. If all molecules in a polymer sample have the same molecular weight, the $M_w/M_n$ value equals 0.  
+B. Weight average molecular weight is always equal or greater than number average molecular weight.  
+C. Step growth polymerization usually results in a broad molecular weight distribution with significant number fraction of oligomers.  
+D. Living chain growth polymerization usually results in a $M_w/M_n$ value close to 1.   
+
+{{< include _copyright.qmd >}}

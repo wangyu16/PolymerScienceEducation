@@ -1,0 +1,56 @@
+---
+title: "Module 8 Self-avoid chains"
+description: "Monomer units in a polymer chain cannot overlap in space. How does this factoer influence the size of the chain?"
+image: "/img/M08_avoid_small.png"
+---
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Snake_can_be_completed.gif" width="100%" />
+
+Like a snake, avoid running into yourself!
+
+## 1. Link to the simulator
+
+<a href="https://colab.research.google.com/drive/1ED9QYOoa0fRQlHOnWTEdt7X-3INu5Bic?usp=sharing" target="_blank">Self-avoid chains</a>
+
+## 2 Module objectives
+
+* Compare the root mean square (RMS) end-to-end distances and radii of gyration of polymers with the same degree of polymerization ($DP$) based on hindered rotation model and self-avoid hindered rotation model. 
+* Derive the scaling rule between the size of the polymer chain and the degree of polymerization ($DP$) for self-avoid chains given the self-avoid criteria. 
+* Explore the influence of self-avoid criteria on the scaling rule. 
+
+## 3. Classroom implementation ideas
+
+Experiments:
+
+Set the self avoid threshold as 1.5 and bond angle as 109.5 $^\circ$, perform simulations with different chain lengths, record the results in the table.
+
+| DP | $h_{nsa}$ | $h_{sa}$ | $R_{g,nsa}$ | $R_{g,sa}$ |
+|----|-----|-----|-------|-------|
+| 25 |     |     |       |       |
+| 50 |     |     |       |       |
+| 100 |     |     |       |       |
+| 200 |     |     |       |       |
+| 400 |     |     |       |       |
+
+The subscript "nsa" means non-self-avoid and "sa" means self-avoid.
+
+Questions:
+
+1. Does the self-avoid chain model have the same scaling factor as non-self-avoid model? What is the scaling factor of the self-avoid chain under the simulation conditions? 
+
+2. Change the self avoid threshold and perform the simulations again. How does the self-avoid threshold influence the scaling factor?
+
+3. Change the bond angles and perform the simulations again. How does the bond angle influence the scaling factor?
+
+## 4. Example practice questions
+
+1. Which of the statement is true?
+
+(a) Given the same $DP$, a self-avoid chain always have larger end-to-end distance than a non-self-avoid chain.
+(b) Given the same $DP$, the RMS end-to-end distance of self-avoid chains is larger than that of non-self-avoid chains.
+(c) With $DP=50$, the RMS end-to-end distance of self-avoid chains is $a$ times larger than that of non-self-avoid chains; for $DP=500$, the factor $a$ should be the same comparing the RMS end-to-end distance of self-avoid chains and non-self-avoid chains. 
+(d) Given the same $DP$, a self-avoid chain always have larger radius of gyration than a non-self-avoid chain.
+
+2. Why self-avoid chain model does not have the same scaling rule as non-self-avoid chain model, i.e., $\langle h\rangle \propto DP^{0.5}$?
+
+{{< include _copyright.qmd >}}
