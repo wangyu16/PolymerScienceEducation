@@ -1,0 +1,45 @@
+---
+title: "About"
+sidebar: false
+about:
+  id: hero-heading
+  template: marquee
+  image: "img/AP-Chemistry-11.jpg"
+  links:
+    - icon: twitter
+      text: twitter
+      href: https://twitter.com/YuWang95913822
+    - icon: github
+      text: Github
+      href: https://github.com/wangyu16/GeneralChemistry
+---
+
+:::{#hero-heading}
+
+This website is created by Dr. Yu Wang. The website includes 9 simulation tools that can be used in teaching polymer science courses. 
+
+As open educational resources (OER), this website is licensed under Creative Commons Attribution 4.0 International License. All contents can be used for free. 
+
+### Contact: 
+
+Dr. Yu Wang  
+Associate Professor  
+Department of Chemistry  
+Institute for Materials Research and Innovation  
+University of Louisiana at Lafayette  
+Lafayette, LA 70504  
+Email: yuwang@louisiana.edu  
+
+Dr. Manyu Li  
+Associate Professor  
+Department of Psychology  
+University of Louisiana at Lafayette  
+Lafayette, LA 70504  
+Email: manyu.li@louisiana.edu  
+
+### Acknlowledgement: 
+
+This project is funded by National Science Foundation under NSF-2142043. 
+:::
+
+

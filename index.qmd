@@ -1,0 +1,46 @@
+---
+title: "OVESET for Polymer Science Education"
+sidebar: false
+toc: false
+listing: 
+    id: main-listing
+    contents: "modules/*.qmd"
+    type: grid
+page-layout: full
+---
+
+::: {#main-listing}
+:::
+
+## Introduction
+
+This is a series of **O**pen **V**irtual **E**xperiment **S**imulator **E**ducation **T**ools (**OVESET**) aims at improving inductive reasoning of undergraduate polymer science students. Polymer science education does not only require students to memorize concepts and principles but also requires students to analyze and problem-solve mathematical and logical relationships through inductive reasoning, such as analyzing the relationship between reaction conditions and properties of the resulting polymers and structure-property correlations. These topics involving inductive reasoning are the most challenging; however, current educational resources could not provide students sufficient training on these topics. This project addresses this gap in polymer science education by developing of OVESET and its ancillary materials. The ultimate goal is to improve polymer science instruction by providing the field with state-of-the-art, affordable (free and open) experiment simulators that are sustainable, effective, and easily adaptable (requiring only a web browser for users).
+
+This series includes 9 modules which are: Concept of molecular weight distribution; Chain-growth polymerization kinetics; Conventional radical polymerization kinetics; Kinetics of atom transfer radical polymerization; Copolymerization statistics; Network formation; Single chain conformation; Self-avoid chians; Star and branched polymers. 
+
+## Objectives
+
+* With the help of the simulation tools, understand the related concepts in polymer science.
+* Learn how to solve reasoning and mathmatical problems related to the simulations.
+
+## Features
+
+Designed for easy in class practicing. 
+
+- **One link:** Instructors and students do not need to install anything on their own computers. Nor do they need to perform any configuration before using the simulators. The simulators run online under Google Colaboratory environment which is a free online programming platform provided by Google. Users just need to click on a link and the simulator will be open in a webpage. Users are required to sign in with their own google accounts. Then simulations can be performed within the webpage and the results are shown in place.
+- **One click:** Users just need to select or type in the reaction conditions, then choose "Run all" under the tab "Runtime". The simulations will be trigered and the results will be shown.
+- **One minute:** The simulations are fast, which usually take seconds to a few minutes to finish.
+
+For advanced users, the source code can be downloaded from GitHub. Users can modify and redistribute the simulators for free.
+
+## Supporting materials
+
+- A study guide, or eBook, titled ["Introduction to Polymer Science"](https://hackmd.io/@YW2025/HJLiqoHRR){target="_blank"} is currently under development and will be freely accessible to everyone on the internet.
+- “Polymer Chemistry” (3rd Edition) by Timothy P. Lodge and Paul C. Hiemenz is highly recommended.
+- “Principles of Polymerization” (4th Edition) by George Odian offers a more comprehensive overview of polymerization systems.
+- “Polymer Physics” by M. Rubinstein and Ralph H. Colby is essential for an in-depth understanding of the physics of polymers.
+- “Essentials of Polymer Science and Engineering” (1st Edition) by Paul Painter and Michael M. Coleman is an accessible textbook for beginners.  
+
+## Publications from this project
+
+* Yu Wang,* Manyu Li, Xiang-Sheng Wang, Amanda Gildersleeve, and Nadia Turki. ATRP Kinetic Simulator: An Online Open Resource Educational Tool Using Jupyter Notebook and Google Colaboratory. *Journal of Chemical Education* **2023** *100* (7), 2770-2775, DOI: 10.1021/acs.jchemed.2c01250.

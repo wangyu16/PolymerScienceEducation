@@ -1,0 +1,29 @@
+/* css styles */
+div.example {
+    background-color:#007acc;
+    color: #ffffff;
+    margin: auto;
+    width: 100%; 
+	padding: 1.4em; 
+	border: 3px solid #007acc; 
+	border-radius: 10px; 
+	margin-bottom: 14px; 
+	margin-top: 14px;  
+	box-shadow: 7px 7px 5px #cccccc; 
+	overflow: hidden;
+}
+div.practice {
+    background-color:#fbfbfb;
+    color: #007acc;
+    margin: auto;
+    width: 100%; 
+	padding: 1.4em; 
+	border: 3px solid #eeeeee; 
+	border-radius: 10px; 
+	margin-bottom: 14px; 
+	margin-top: 14px;  
+	box-shadow: 7px 7px 5px #cccccc; 
+	overflow: hidden;
+}
+
+

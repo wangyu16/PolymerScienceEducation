@@ -1,0 +1,30 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "OVESET"
+  sidebar: 
+    style: "floating"
+    search: true
+    contents: modules/*
+  navbar:
+    background: "#6F4E37"
+    left:
+      - href: index.qmd
+        text: Home
+      - fqa.qmd
+      - about.qmd
+  reader-mode: true
+  page-navigation: true
+
+format:
+  html:
+    theme: 
+      - custom.scss
+    fontsize: 1.3em
+    fontcolor: '#5F3E27'
+    css: styles.css
+    toc: true
+
+

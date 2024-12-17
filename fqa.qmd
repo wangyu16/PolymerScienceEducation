@@ -1,0 +1,10 @@
+---
+title: "FQA"
+sidebar: false
+---
+
+## What is Google Colab and how to use it?
+
+Google collaboratory 
+
+## 
