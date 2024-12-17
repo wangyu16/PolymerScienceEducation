@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="How to choose proper reaction conditions to conduct ATRP? What would be the fraction of terminated chains?">
+
+<title>OVESET - Module 4 Atom Transfer Radical Polymerization</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../modules/M05_RadCopoly.html" rel="next">
+<link href="../modules/M03_ConvenRad.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">OVESET</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../fqa.html">
+ <span class="menu-text">FQA</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Module 4 Atom Transfer Radical Polymerization</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M01_MWD.html" class="sidebar-item-text sidebar-link">Module 1 Molecular Weight Distribution</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M02_Step.html" class="sidebar-item-text sidebar-link">Module 2 Step Growth Polymerization</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M03_ConvenRad.html" class="sidebar-item-text sidebar-link">Module 3 Conventional Radical Polymerization</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M04_ATRP.html" class="sidebar-item-text sidebar-link active">Module 4 Atom Transfer Radical Polymerization</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M05_RadCopoly.html" class="sidebar-item-text sidebar-link">Module 5 Radical Copolymerization</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M06_Network.html" class="sidebar-item-text sidebar-link">Module 6 Network formation</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M07_SingleChain.html" class="sidebar-item-text sidebar-link">Module 7 Single chain conformation</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M08_SelfAvoid.html" class="sidebar-item-text sidebar-link">Module 8 Self-avoid chains</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M09_StarBranch.html" class="sidebar-item-text sidebar-link">Module 9 Star and branched polymers</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#link-to-the-simulator" id="toc-link-to-the-simulator" class="nav-link active" data-scroll-target="#link-to-the-simulator">1. Link to the simulator</a></li>
+  <li><a href="#module-objectives" id="toc-module-objectives" class="nav-link" data-scroll-target="#module-objectives">2 Module objectives</a></li>
+  <li><a href="#classroom-implementation-ideas" id="toc-classroom-implementation-ideas" class="nav-link" data-scroll-target="#classroom-implementation-ideas">3. Classroom implementation ideas</a></li>
+  <li><a href="#example-practice-questions" id="toc-example-practice-questions" class="nav-link" data-scroll-target="#example-practice-questions">4. Example practice questions</a></li>
+  <li><a href="#copyright" id="toc-copyright" class="nav-link" data-scroll-target="#copyright">Copyright</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Module 4 Atom Transfer Radical Polymerization</h1>
+</div>
+
+<div>
+  <div class="description">
+    How to choose proper reaction conditions to conduct ATRP? What would be the fraction of terminated chains?
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><img src="../img/M04_ATRP.png" width="100%"> Adapted with permission from Macromolecules 2003, 36, 6, 1843-1849, Copyright © 2003 American Chemical Society.</p>
+<section id="link-to-the-simulator" class="level2">
+<h2 class="anchored" data-anchor-id="link-to-the-simulator">1. Link to the simulator</h2>
+<p><a href="https://colab.research.google.com/drive/1o5ANmoc_0OmrgjaA0kVo_CQjkLv4hwgW?usp=sharing" target="_blank">Atom Transfer Radical Polymerization</a></p>
+</section>
+<section id="module-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="module-objectives">2 Module objectives</h2>
+<ul>
+<li>Predict how would the polymerization result change when the reaction condition of an atom transfer radical polymerization (ATRP) is varied.</li>
+<li>Explain the reason of the change.</li>
+</ul>
+</section>
+<section id="classroom-implementation-ideas" class="level2">
+<h2 class="anchored" data-anchor-id="classroom-implementation-ideas">3. Classroom implementation ideas</h2>
+<p><strong>Virtual experiments</strong></p>
+<p>Series I to IV are normal ATRP.</p>
+<p>Every time when you open the simulator, it is set at the default condition. After each series of experiments, close the simulator and reopen it to reset to the default condition.</p>
+<p>For each series of experiments, change the parameters accordingly and observe how would the polymerization results change.</p>
+<ol type="I">
+<li>Increase initial CuI concentration 0 to 0.0275.<br>
+</li>
+<li>Increase initial CuII concentration 0 to 0.0275.<br>
+</li>
+<li>Keep [CuI]/[CuII] constant and change both in the range 0 to 0.0275.<br>
+</li>
+<li>Increase initial RX concentration 0.0055 to 0.135.</li>
+</ol>
+<p>Series V to VII are ICAR ATRP.</p>
+<p>Before each series of experiment close and reopen the simulatior. Then, change the type of polymerization, i.e., Poly_type from ‘normal’ to ‘icar’, change both k_a_0_atrp and k_a_atrp from 9.6 to 96, change the values of both c0_CuI and c0_CuII to 0.0001.</p>
+<p>For each series of experiments, change the parameter accordingly and observe how would the polymerization results change.</p>
+<ol start="22" type="A">
+<li>Increase AIBN initial concentration, i.e., c0_TI, 0.00069 - 0.0069 (After each experiment, can change Poly_type to ‘conven’ to compare ICAR ATRP with conventional radical polymerization)<br>
+</li>
+</ol>
+<ol start="6" type="I">
+<li>Increase initial CuI concentration 0 - 0.000275<br>
+</li>
+<li>Increase initial CuII concentration 0 - 0.000275</li>
+</ol>
+<p><strong>Questions:</strong></p>
+<p>In each series experiments, how do the following results change? Explain why.</p>
+<ol type="1">
+<li><p>Number of polymers A) increase B) no change C) decrease</p></li>
+<li><p>Rate of polymerization (percent of monomer conversion vs time) A) increase B) no change C) decrease</p></li>
+<li><p>Number average molecular weight at the same monomer conversion A) increase B) no change C) decrease</p></li>
+</ol>
+</section>
+<section id="example-practice-questions" class="level2">
+<h2 class="anchored" data-anchor-id="example-practice-questions">4. Example practice questions</h2>
+<ol type="1">
+<li>In a conventional radical polymerization, adding more thermal initiator, e.g., AIBN, and keeping all other reaction conditions not changed, what would happen to the product? Briefly explain your choice.<br>
+</li>
+</ol>
+<ol type="A">
+<li>The number average molecular weight would be larger since the polymerization is faster.<br>
+</li>
+<li>The number average molecular weight would be smaller while the polymerization is faster.<br>
+</li>
+<li>The number average molecular weight would remain more or less the same.<br>
+</li>
+<li>The number average molecular weight would change but you need more information to tell if it would be larger or smaller.</li>
+</ol>
+<ol start="2" type="1">
+<li>In a conventional radical polymerization, raising the reaction temperature and keeping all other reaction conditions not changed, what would happen to the product? Briefly explain your choice.<br>
+</li>
+</ol>
+<ol type="A">
+<li>The number average molecular weight would be larger since the polymerization is faster.<br>
+</li>
+<li>The number average molecular weight would be smaller while the polymerization is faster.<br>
+</li>
+<li>The number average molecular weight would remain more or less the same.<br>
+</li>
+<li>The number average molecular weight would change but you need more information to tell if it would be larger or smaller.</li>
+</ol>
+<ol start="3" type="1">
+<li>Which of the following statement is true?<br>
+A. In an ICAR ATRP process, the number of polymers mainly depends on the amount of AIBN added to the system.<br>
+</li>
+</ol>
+<ol start="2" type="A">
+<li>In an ICAR ATRP process, the theoretical molecular weight of resulting polymers increases linearly with the monomer conversion, thus the number of polymer molecules must also increase linearly with the monomer conversion.<br>
+</li>
+<li>In an ICAR ATRP process, the number of polymers mainly depends on the RX type initiator added to the system. The decomposition of AIBN would slightly increase the number of polymers.<br>
+</li>
+<li>In an ICAR ATRP process, the decomposition of AIBN adds more monomer chains to the system, which would cause the actual number average molecular weight to be slightly larger than the theoretical value.</li>
+</ol>
+<ol start="4" type="1">
+<li><p>How to calculate the number average molecular weight for a normal ATRP and for an ICAR ATRP, knowing the initial concentrations of RX and monomer, monomer conversion, and the molecular weight of the monomer?</p></li>
+<li><p>Comparing a conventional radical polymerization and an ICAR ATRP process, which of the following statement(s) is (are) NOT true? The common reagents and their concentrations used in the ICAR ATRP and in conventional radical polymerization are the same. In ICAR ATRP, RX and a trace amount of Cu catalyst are added while in the conventional radical polymerization, they are absent. The reaction temperature and reaction time are the same.<br>
+</p></li>
+</ol>
+<ol type="A">
+<li>The monomer conversions in both cases are more or less the same.<br>
+</li>
+<li>The amount of termination in both cases is more or less the same.<br>
+</li>
+<li>The numbers of polymers in both cases are more or less the same.<br>
+</li>
+<li>The number average molecular weights of the resulting polymers in both cases are more or less the same.</li>
+</ol>
+</section>
+<section id="copyright" class="level2">
+<h2 class="anchored" data-anchor-id="copyright">Copyright</h2>
+<p>Copyright(C) 2022 – 2024 Yu Wang</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a><br>This webpage is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../modules/M03_ConvenRad.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Module 3 Conventional Radical Polymerization</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../modules/M05_RadCopoly.html" class="pagination-link">
+        <span class="nav-page-text">Module 5 Radical Copolymerization</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

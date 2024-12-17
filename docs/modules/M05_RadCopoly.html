@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="What sequence structures will you get from a radical copolymerization? Which monomer will be consumed faster?">
+
+<title>OVESET - Module 5 Radical Copolymerization</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../modules/M06_Network.html" rel="next">
+<link href="../modules/M04_ATRP.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">OVESET</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../fqa.html">
+ <span class="menu-text">FQA</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Module 5 Radical Copolymerization</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M01_MWD.html" class="sidebar-item-text sidebar-link">Module 1 Molecular Weight Distribution</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M02_Step.html" class="sidebar-item-text sidebar-link">Module 2 Step Growth Polymerization</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M03_ConvenRad.html" class="sidebar-item-text sidebar-link">Module 3 Conventional Radical Polymerization</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M04_ATRP.html" class="sidebar-item-text sidebar-link">Module 4 Atom Transfer Radical Polymerization</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M05_RadCopoly.html" class="sidebar-item-text sidebar-link active">Module 5 Radical Copolymerization</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M06_Network.html" class="sidebar-item-text sidebar-link">Module 6 Network formation</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M07_SingleChain.html" class="sidebar-item-text sidebar-link">Module 7 Single chain conformation</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M08_SelfAvoid.html" class="sidebar-item-text sidebar-link">Module 8 Self-avoid chains</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M09_StarBranch.html" class="sidebar-item-text sidebar-link">Module 9 Star and branched polymers</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#link-to-the-simulator" id="toc-link-to-the-simulator" class="nav-link active" data-scroll-target="#link-to-the-simulator">1. Link to the simulator</a></li>
+  <li><a href="#module-objectives" id="toc-module-objectives" class="nav-link" data-scroll-target="#module-objectives">2 Module objectives</a></li>
+  <li><a href="#classroom-implementation-ideas" id="toc-classroom-implementation-ideas" class="nav-link" data-scroll-target="#classroom-implementation-ideas">3. Classroom implementation ideas</a></li>
+  <li><a href="#example-practice-questions" id="toc-example-practice-questions" class="nav-link" data-scroll-target="#example-practice-questions">4. Example practice questions</a></li>
+  <li><a href="#copyright" id="toc-copyright" class="nav-link" data-scroll-target="#copyright">Copyright</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Module 5 Radical Copolymerization</h1>
+</div>
+
+<div>
+  <div class="description">
+    What sequence structures will you get from a radical copolymerization? Which monomer will be consumed faster?
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><img src="../img/M05_copolymer.png" width="100%"></p>
+<section id="link-to-the-simulator" class="level2">
+<h2 class="anchored" data-anchor-id="link-to-the-simulator">1. Link to the simulator</h2>
+<p><a href="https://colab.research.google.com/drive/1s3FA-MtXS6-_u8kZxfvj4h8s88yWcCXw?usp=sharing" target="_blank">Radical Copolymerization</a></p>
+</section>
+<section id="module-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="module-objectives">2 Module objectives</h2>
+<ul>
+<li>Given the reactivity ratio and the monomer feedstock fractions, predict which monomer is being consumed faster and what type of polymers (random, alternating, blocky, etc.) are being produced.</li>
+<li>Caculate F1 knowing f1 and predict if it is possible that f1 equals F1. If f1 equals F1, what is the value?</li>
+</ul>
+</section>
+<section id="classroom-implementation-ideas" class="level2">
+<h2 class="anchored" data-anchor-id="classroom-implementation-ideas">3. Classroom implementation ideas</h2>
+<p>Perform the following virtual experiments (f1 = 0.5 for all cases) and answer the questions for each simulation.</p>
+<p>Experiments:</p>
+<ol type="1">
+<li>MMA and Styrene (r1 = 0.46, r2 = 0.52)<br>
+</li>
+<li>MA and MMA (r1 = 0.4, r2 = 2.2)<br>
+</li>
+<li>MA and Styrene (r1 = 0.80, r2 = 0.19)<br>
+</li>
+<li>Styrene and Maleic Anhydride (r1 = 0.05, r2 = 0.005)<br>
+</li>
+<li>Acrylonitrile and Vinyl Acetate (r1 = 5.5, r2 = 0.06)</li>
+</ol>
+<p>Questions:</p>
+<ol type="1">
+<li>Select the correct answer(s).<br>
+</li>
+</ol>
+<ol type="A">
+<li>When the chain end is M1, it prefers to add to M1.<br>
+</li>
+<li>When the chain end is M1, it prefers to add to M2.<br>
+</li>
+<li>When the chain end is M2, it prefers to add to M1.<br>
+</li>
+<li>When the chain end is M2, it prefers to add to M2.</li>
+</ol>
+<ol start="2" type="1">
+<li>Select the correct answer.<br>
+</li>
+</ol>
+<ol type="A">
+<li>M1 is consumed faster.<br>
+</li>
+<li>M2 is consumed faster.<br>
+</li>
+<li>Both M1 and M2 are consumed at nearly the same rate.</li>
+</ol>
+<ol start="3" type="1">
+<li>Polymers produced at the beginning are</li>
+</ol>
+<ol type="A">
+<li>Both 1 and 2 block-wise<br>
+</li>
+<li>Alternating<br>
+</li>
+<li>Random<br>
+</li>
+<li>A block of 1 and just one or two unit of 2 and a block of 1 and …<br>
+</li>
+<li>A block of 2 and just one or two unit of 1 and a block of 2 and …</li>
+</ol>
+<ol start="4" type="1">
+<li>Polymers produced at the beginning have<br>
+</li>
+</ol>
+<ol type="A">
+<li>Larger fraction of 1<br>
+</li>
+<li>Larger fraction of 2<br>
+</li>
+<li>Nearly the same fractions of 1 and 2</li>
+</ol>
+<ol start="5" type="1">
+<li>What do you expect at the end of the polymerization<br>
+</li>
+</ol>
+<ol type="A">
+<li>Nearly the same as beginning<br>
+</li>
+<li>Nearly just 1 left<br>
+</li>
+<li>Nearly just 2 left</li>
+</ol>
+</section>
+<section id="example-practice-questions" class="level2">
+<h2 class="anchored" data-anchor-id="example-practice-questions">4. Example practice questions</h2>
+<ol type="1">
+<li><p>In a copolymerization of monomers 1 and 2, initially present in the mole ratio 1:1, what is the composition of the copolymer formed initially, if r1 = 0.46 and r2 = 0.52?<br>
+A. F1 = 0.67<br>
+B. F1 = 0.49<br>
+C. F1 = 0.75<br>
+D. F1 = 0.25<br>
+E. F1 = 0.99</p></li>
+<li><p>Two monomers M1 and M2 have reactivity ratios r1 = 1 and r2 = 1. The structure of the polymer produced from an equimolar mixture of the two monomers will be close to:<br>
+A. -M1M2M1M2M1M2M1M2M1M2M1M2- (alternating)<br>
+B. -M1M1M1M1M1M1M2M2M2M2M2M2- (block)<br>
+C. -M1M2M1M1M1M2M2M1M2M2M1M2- (random)<br>
+D. -M1M1M1M1M1M1- and -M2M2M2M2M2M2- (homopolymers)</p></li>
+<li><p>Two monomers M1 and M2 have reactivity ratios r1 = 0.01 and r2 = 0.005. The structure of the polymer produced from an equimolar mixture of the two monomers will be close to:<br>
+A. -M1M2M1M2M1M2M1M2M1M2M1M2- (alternating)<br>
+B. -M1M1M1M1M1M1M2M2M2M2M2M2- (block)<br>
+C. -M1M2M1M1M1M2M2M1M2M2M1M2- (random)<br>
+D. -M1M1M1M1M1M1- and -M2M2M2M2M2M2- (homopolymers)</p></li>
+<li><p>For the copolymerization of monomer 1 with monomer 2, the reactivity ratios are r1 = 0.7, r2 = 0.3. At what mole fraction of monomer 1 in the feed will the composition of the copolymer exactly equal this feed composition?<br>
+A. 0.3<br>
+B. 0.5<br>
+C. 0.7<br>
+D. 0.8<br>
+E. 0.9</p></li>
+</ol>
+</section>
+<section id="copyright" class="level2">
+<h2 class="anchored" data-anchor-id="copyright">Copyright</h2>
+<p>Copyright(C) 2022 – 2024 Yu Wang</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a><br>This webpage is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../modules/M04_ATRP.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Module 4 Atom Transfer Radical Polymerization</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../modules/M06_Network.html" class="pagination-link">
+        <span class="nav-page-text">Module 6 Network formation</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

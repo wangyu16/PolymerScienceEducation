@@ -1,0 +1,387 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This website is created by Dr. Yu Wang. The website includes 9 simulation tools that can be used in teaching polymer science courses.\nAs open educational resources (OER), this website is licensed under Creative Commons Attribution 4.0 International License. All contents can be used for free.\n\nContact:\nDr. Yu Wang\nAssociate Professor\nDepartment of Chemistry\nInstitute for Materials Research and Innovation\nUniversity of Louisiana at Lafayette\nLafayette, LA 70504\nEmail: yuwang@louisiana.edu\nDr. Manyu Li\nAssociate Professor\nDepartment of Psychology\nUniversity of Louisiana at Lafayette\nLafayette, LA 70504\nEmail: manyu.li@louisiana.edu\n\n\nAcknlowledgement:\nThis project is funded by National Science Foundation under NSF-2142043.\n\n \n    \n  \n    \n     twitter\n  \n  \n    \n     Github"
+  },
+  {
+    "objectID": "fqa.html",
+    "href": "fqa.html",
+    "title": "FQA",
+    "section": "",
+    "text": "Google collaboratory"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "OVESET for Polymer Science Education",
+    "section": "",
+    "text": "What are the different ways to define average molecular weight? How to characterize the molecular weight distribution?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat is the probability to find a polymer with a certain chain length in a step-growth polymerization? What are the chain end functional groups of the polymers?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow fast would a radical polymerization proceed? How large the resulting polymers would be?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow to choose proper reaction conditions to conduct ATRP? What would be the fraction of terminated chains?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat sequence structures will you get from a radical copolymerization? Which monomer will be consumed faster?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhen gelation happens what causes the dramatic change of the system? What are the sol and gel fractions?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow to characterize the size of a polymer chain? How does the size change with increasing degree of polymerization?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMonomer units in a polymer chain cannot overlap in space. How does this factoer influence the size of the chain?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat do star and branched polymers look like? How do their radii of gyration change with the degree of polymerization?\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "OVESET for Polymer Science Education",
+    "section": "Introduction",
+    "text": "Introduction\nThis is a series of Open Virtual Experiment Simulator Education Tools (OVESET) aims at improving inductive reasoning of undergraduate polymer science students. Polymer science education does not only require students to memorize concepts and principles but also requires students to analyze and problem-solve mathematical and logical relationships through inductive reasoning, such as analyzing the relationship between reaction conditions and properties of the resulting polymers and structure-property correlations. These topics involving inductive reasoning are the most challenging; however, current educational resources could not provide students sufficient training on these topics. This project addresses this gap in polymer science education by developing of OVESET and its ancillary materials. The ultimate goal is to improve polymer science instruction by providing the field with state-of-the-art, affordable (free and open) experiment simulators that are sustainable, effective, and easily adaptable (requiring only a web browser for users).\nThis series includes 9 modules which are: Concept of molecular weight distribution; Chain-growth polymerization kinetics; Conventional radical polymerization kinetics; Kinetics of atom transfer radical polymerization; Copolymerization statistics; Network formation; Single chain conformation; Self-avoid chians; Star and branched polymers."
+  },
+  {
+    "objectID": "index.html#objectives",
+    "href": "index.html#objectives",
+    "title": "OVESET for Polymer Science Education",
+    "section": "Objectives",
+    "text": "Objectives\n\nWith the help of the simulation tools, understand the related concepts in polymer science.\nLearn how to solve reasoning and mathmatical problems related to the simulations."
+  },
+  {
+    "objectID": "index.html#features",
+    "href": "index.html#features",
+    "title": "OVESET for Polymer Science Education",
+    "section": "Features",
+    "text": "Features\nDesigned for easy in class practicing.\n\nOne link: Instructors and students do not need to install anything on their own computers. Nor do they need to perform any configuration before using the simulators. The simulators run online under Google Colaboratory environment which is a free online programming platform provided by Google. Users just need to click on a link and the simulator will be open in a webpage. Users are required to sign in with their own google accounts. Then simulations can be performed within the webpage and the results are shown in place.\nOne click: Users just need to select or type in the reaction conditions, then choose “Run all” under the tab “Runtime”. The simulations will be trigered and the results will be shown.\nOne minute: The simulations are fast, which usually take seconds to a few minutes to finish.\n\nFor advanced users, the source code can be downloaded from GitHub. Users can modify and redistribute the simulators for free."
+  },
+  {
+    "objectID": "index.html#supporting-materials",
+    "href": "index.html#supporting-materials",
+    "title": "OVESET for Polymer Science Education",
+    "section": "Supporting materials",
+    "text": "Supporting materials\n\nA study guide, or eBook, titled “Introduction to Polymer Science” is currently under development and will be freely accessible to everyone on the internet.\n“Polymer Chemistry” (3rd Edition) by Timothy P. Lodge and Paul C. Hiemenz is highly recommended.\n“Principles of Polymerization” (4th Edition) by George Odian offers a more comprehensive overview of polymerization systems.\n“Polymer Physics” by M. Rubinstein and Ralph H. Colby is essential for an in-depth understanding of the physics of polymers.\n“Essentials of Polymer Science and Engineering” (1st Edition) by Paul Painter and Michael M. Coleman is an accessible textbook for beginners."
+  },
+  {
+    "objectID": "index.html#publications-from-this-project",
+    "href": "index.html#publications-from-this-project",
+    "title": "OVESET for Polymer Science Education",
+    "section": "Publications from this project",
+    "text": "Publications from this project\n\nYu Wang,* Manyu Li, Xiang-Sheng Wang, Amanda Gildersleeve, and Nadia Turki. ATRP Kinetic Simulator: An Online Open Resource Educational Tool Using Jupyter Notebook and Google Colaboratory. Journal of Chemical Education 2023 100 (7), 2770-2775, DOI: 10.1021/acs.jchemed.2c01250."
+  },
+  {
+    "objectID": "modules/M01_MWD.html#link-to-the-simulator",
+    "href": "modules/M01_MWD.html#link-to-the-simulator",
+    "title": "Module 1 Molecular Weight Distribution",
+    "section": "1. Link to the simulator",
+    "text": "1. Link to the simulator\nMolecular Weight Distribution"
+  },
+  {
+    "objectID": "modules/M01_MWD.html#module-objectives",
+    "href": "modules/M01_MWD.html#module-objectives",
+    "title": "Module 1 Molecular Weight Distribution",
+    "section": "2 Module objectives",
+    "text": "2 Module objectives\n\nUnderstand the correlation between the average degree of polymerization and the average molecular weight.\nLearn how to calculate number average and weight average molecular weights.\nUnderstand the concept of molecular weight distribution.\nLearn that, in step-growth polymerization and living chain-growth polymerization, how do the lowest and highest molecular weights compare to the average molecular weights."
+  },
+  {
+    "objectID": "modules/M01_MWD.html#classroom-implementation-ideas",
+    "href": "modules/M01_MWD.html#classroom-implementation-ideas",
+    "title": "Module 1 Molecular Weight Distribution",
+    "section": "3. Classroom implementation ideas",
+    "text": "3. Classroom implementation ideas\nSeries I. Get familar with the basic statistics of step growth polymerization and living chain growth polymerization.\n\nSet the Type_of_polymerization as ‘Step growth polymerization’, maximize both the Number_of_monomers and the Number_of_polymers, set the Monomer_molar_mass as 100, perform the simulation several times. Observe the Plot of the fractions of each type of polymers. Examine the lowest molecular weight and highest molecular weight and compare whether the average molecular weight is closer to the lower molecular weight part or to the larger molecular weight part.\nSet the Type_of_polymerization as ‘Living chain growth polymerization’, do the same as described above.\nCompare step growth polymerization and living chain growth polymerization, summerize their differences.\n\nSeries II. Calculate number average and weight average molecular weights.\n\nSet the Number_of_polymers in the range between 5 and 20, all the other parameters can be chosen randomly, run the simulation and obtain the list of the number of each type of polymers. Use Excel to calculate the number average molecular weight (\\(M_n\\)) and the weight average molecular weight (\\(M_w\\)). Calculate the value of \\(M_w/M_n\\).\nConclude what are the typical values of \\(M_w/M_n\\) for step growth polymerization and living chain growth polymerization?"
+  },
+  {
+    "objectID": "modules/M01_MWD.html#example-practice-questions",
+    "href": "modules/M01_MWD.html#example-practice-questions",
+    "title": "Module 1 Molecular Weight Distribution",
+    "section": "4. Example practice questions",
+    "text": "4. Example practice questions\n\nGiven a polymer sample with following moles of each type of molecules. Calculate the number average molecular weight and weight average molecular weight. Calculate the value of \\(M_w/M_n\\).\n\n\n\n\nMoles\nMolar mass\n\n\n\n\n1\n1700\n\n\n3\n2200\n\n\n5\n3100\n\n\n2\n3500\n\n\n1\n3900\n\n\n\n\nWhich of the following statement is incorrect?\n\nA. If all molecules in a polymer sample have the same molecular weight, the \\(M_w/M_n\\) value equals 0.\nB. Weight average molecular weight is always equal or greater than number average molecular weight.\nC. Step growth polymerization usually results in a broad molecular weight distribution with significant number fraction of oligomers.\nD. Living chain growth polymerization usually results in a \\(M_w/M_n\\) value close to 1."
+  },
+  {
+    "objectID": "modules/M01_MWD.html#copyright",
+    "href": "modules/M01_MWD.html#copyright",
+    "title": "Module 1 Molecular Weight Distribution",
+    "section": "Copyright",
+    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License."
+  },
+  {
+    "objectID": "modules/M02_Step.html#link-to-the-simulator",
+    "href": "modules/M02_Step.html#link-to-the-simulator",
+    "title": "Module 2 Step Growth Polymerization",
+    "section": "1. Link to the simulator",
+    "text": "1. Link to the simulator\nStep Growth Polymerization"
+  },
+  {
+    "objectID": "modules/M02_Step.html#module-objectives",
+    "href": "modules/M02_Step.html#module-objectives",
+    "title": "Module 2 Step Growth Polymerization",
+    "section": "2 Module objectives",
+    "text": "2 Module objectives\n\nPredict what types of molecules will be produced in step growth polymerization under various initial conditions.\nGet familiar with the number fraction and weight fraction distributions of the resulting polymers from step growth polymerization.\nCalculate the number average degree of polymerization under various conditions and compare to the simulation results."
+  },
+  {
+    "objectID": "modules/M02_Step.html#classroom-implementation-ideas",
+    "href": "modules/M02_Step.html#classroom-implementation-ideas",
+    "title": "Module 2 Step Growth Polymerization",
+    "section": "3. Classroom implementation ideas",
+    "text": "3. Classroom implementation ideas\nPerform the following series experiments. In the table ‘Type’ means Type_of_polymerization, ‘\\(p\\)’ means Targeted_extend_of_reaction.\n\n\n\n\n\n\n\n\n\n\n\n\nEntry\nType\n\\(p\\)\nn\nr_AA_BB\nr_RA_N0\nr_RB_N0\n\n\n\n\n1\nAA and BB\n0.999\n6\n1\n0\n0\n\n\n2\nAA and BB\n1\n6\n0.99\n0\n0\n\n\n3\nAA and BB\n1\n6\n1\n0.02\n0\n\n\n4\nAB\n0.999\n6\n1\n0\n0\n\n\n5\nAB\n1\n6\n1\n0.02\n0\n\n\n6\nAB\n1\n6\n1\n0.01\n0.01\n\n\n\n\nFor each experiment, predict the types of resulting polymers and compare to the simulation results. Compare the number fraction distribution and the weight fraction distribution and tell what are the differences. How does the number average degree of polymerization compare to the weight average one? Mark these average degree of polymerization values in the plot of the weight fraction distribution. How do the average degree of polymerization values compare to the peak value in the distribution?\nFor entry 1, 4 and 5, calculate the number average degree of polymerization and compare to the simulation results.\nIf you do not change the reaction condition and run the simulation several times, are the results the same or slightly different or dramatically different?\nWrite down the DPw/DPn values for each experiment. Are they similar or dramatically different? What are the typical values?\nIs it possible to find a condition that results in a DPw/DPn value significantly different from 2? Try to vary the reaction conditions and see if this is possible. Explain why."
+  },
+  {
+    "objectID": "modules/M02_Step.html#example-practice-questions",
+    "href": "modules/M02_Step.html#example-practice-questions",
+    "title": "Module 2 Step Growth Polymerization",
+    "section": "4. Example practice questions",
+    "text": "4. Example practice questions\nFor a linear condensation reaction of AA and BB type monomers\n\nCalculate the extent of reaction (\\(p\\)) necessary to achieve a number average degree of polymerization of 200, assuming you start with 50 moles of A and 50 moles of B monomers.\nCalculate the weight average degree of polymerization and polydispersity of this sample.\nCalculate the degree of polymerization that could be achieved at this degree of conversion (i.e., the value of \\(p\\) calculated in part a) if there were an impurity present, such that you not only had 50 moles of B monomers, but also 1 mole of a monofunctional (RB) molecule.\nCalculate the maximum degree of polymerization that could be achieved if there is a 2% excess of B units present in the polymerization described in part A (i.e., r = 100/102)."
+  },
+  {
+    "objectID": "modules/M02_Step.html#copyright",
+    "href": "modules/M02_Step.html#copyright",
+    "title": "Module 2 Step Growth Polymerization",
+    "section": "Copyright",
+    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License."
+  },
+  {
+    "objectID": "modules/M03_ConvenRad.html#link-to-the-simulator",
+    "href": "modules/M03_ConvenRad.html#link-to-the-simulator",
+    "title": "Module 3 Conventional Radical Polymerization",
+    "section": "1. Link to the simulator",
+    "text": "1. Link to the simulator\nConventional Radical Polymerization"
+  },
+  {
+    "objectID": "modules/M03_ConvenRad.html#module-objectives",
+    "href": "modules/M03_ConvenRad.html#module-objectives",
+    "title": "Module 3 Conventional Radical Polymerization",
+    "section": "2 Module objectives",
+    "text": "2 Module objectives\n\nPredict how would the polymerization result change when the reaction condition of a radical polymerization is varied.\nExplain the reason of the change."
+  },
+  {
+    "objectID": "modules/M03_ConvenRad.html#classroom-implementation-ideas",
+    "href": "modules/M03_ConvenRad.html#classroom-implementation-ideas",
+    "title": "Module 3 Conventional Radical Polymerization",
+    "section": "3. Classroom implementation ideas",
+    "text": "3. Classroom implementation ideas\nPerform the following simulations and answer the questions.\nFirst, set the default condition as: MA, bulk, AIBN 0.005 mol/L, 60 \\(^\\circ\\)C, 1 h, and run the simulation. Then change one parameter at a time, run the simulation again, and compare to the results from the default condition.\nI. Different monomer (MA vs VAc, same molar mass, VAc has smaller \\(k_p\\))\nII. Different monomer concentrations (bulk vs 50%)\nIII. Different initiator (AIBN vs ACHN) (ACHN decomposition is much slower)\nIV. Different initiator concentrations (0.005 vs 0.01 mol/L)\nV. Different temperatures (60 \\(^\\circ\\)C vs 80 \\(^\\circ\\)C)\nFor every single reaction answer this question:\n\nCompare the number of polymers obtained from the polymerization and the number of initiator consumption\nA. much greater; B. comparable (ratio within 0.5 to 2 and keep constant); C. much less\n\nFor each pair of reactions answer the following questions (the second reaction compare to the first reaction).\n\nRadical concentration\nA. increase; B. similar; C. decrease; D. need more information to tell\nRate of polymerization (i.e. percent consumption of monomers vs time)\nA. increase; B. similar; C. decrease; D. need more information to tell\nReason for the change in polymerization rate (the answer could be one or both of the choices)\nA. change in radical concentration; B. change in \\(k_p\\)\nExplain your choices for the above two questions.\nInitial molecular weight\nA. increase; B. similar; C. decrease; D. need more information to tell\nReason for the change in initial molecular weight (the answer could be one or multiple of the choices)\nA. rate of monomer consumption; B. monomer concentration; C. number of polymers being formed.\nExplain your choices for the above two questions."
+  },
+  {
+    "objectID": "modules/M03_ConvenRad.html#example-practice-questions",
+    "href": "modules/M03_ConvenRad.html#example-practice-questions",
+    "title": "Module 3 Conventional Radical Polymerization",
+    "section": "4. Example practice questions",
+    "text": "4. Example practice questions\n\nIn a conventional radical polymerization, adding more thermal initiator, e.g., AIBN, and keeping all other reaction conditions not changed, what would happen to the product?\n\n\n\nMore polymers will be produced at the same reaction time.\n\nHigher monomer conversion is expected at the same reaction time.\n\nLager average molecular weight is expected.\n\nHigher radical concentration is expected at the same reaction time.\n\n\nIn a conventional radical polymerization, change the initial monomer concentration from 8 mol/L to 4 mol/L (by changing the ratio between the monomer and inert solvent) and keep all other reaction conditions not changed, what would happen to the product?\n\n\n\nFewer polymers will be produced at the same reaction time.\n\nLower monomer conversion is expected at the same reaction time.\n\nLower average molecular weight is expected.\n\nLower radical concentration is expected at the same reaction time."
+  },
+  {
+    "objectID": "modules/M03_ConvenRad.html#copyright",
+    "href": "modules/M03_ConvenRad.html#copyright",
+    "title": "Module 3 Conventional Radical Polymerization",
+    "section": "Copyright",
+    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License."
+  },
+  {
+    "objectID": "modules/M04_ATRP.html",
+    "href": "modules/M04_ATRP.html",
+    "title": "Module 4 Atom Transfer Radical Polymerization",
+    "section": "",
+    "text": "Adapted with permission from Macromolecules 2003, 36, 6, 1843-1849, Copyright © 2003 American Chemical Society."
+  },
+  {
+    "objectID": "modules/M04_ATRP.html#link-to-the-simulator",
+    "href": "modules/M04_ATRP.html#link-to-the-simulator",
+    "title": "Module 4 Atom Transfer Radical Polymerization",
+    "section": "1. Link to the simulator",
+    "text": "1. Link to the simulator\nAtom Transfer Radical Polymerization"
+  },
+  {
+    "objectID": "modules/M04_ATRP.html#module-objectives",
+    "href": "modules/M04_ATRP.html#module-objectives",
+    "title": "Module 4 Atom Transfer Radical Polymerization",
+    "section": "2 Module objectives",
+    "text": "2 Module objectives\n\nPredict how would the polymerization result change when the reaction condition of an atom transfer radical polymerization (ATRP) is varied.\nExplain the reason of the change."
+  },
+  {
+    "objectID": "modules/M04_ATRP.html#classroom-implementation-ideas",
+    "href": "modules/M04_ATRP.html#classroom-implementation-ideas",
+    "title": "Module 4 Atom Transfer Radical Polymerization",
+    "section": "3. Classroom implementation ideas",
+    "text": "3. Classroom implementation ideas\nVirtual experiments\nSeries I to IV are normal ATRP.\nEvery time when you open the simulator, it is set at the default condition. After each series of experiments, close the simulator and reopen it to reset to the default condition.\nFor each series of experiments, change the parameters accordingly and observe how would the polymerization results change.\n\nIncrease initial CuI concentration 0 to 0.0275.\n\nIncrease initial CuII concentration 0 to 0.0275.\n\nKeep [CuI]/[CuII] constant and change both in the range 0 to 0.0275.\n\nIncrease initial RX concentration 0.0055 to 0.135.\n\nSeries V to VII are ICAR ATRP.\nBefore each series of experiment close and reopen the simulatior. Then, change the type of polymerization, i.e., Poly_type from ‘normal’ to ‘icar’, change both k_a_0_atrp and k_a_atrp from 9.6 to 96, change the values of both c0_CuI and c0_CuII to 0.0001.\nFor each series of experiments, change the parameter accordingly and observe how would the polymerization results change.\n\nIncrease AIBN initial concentration, i.e., c0_TI, 0.00069 - 0.0069 (After each experiment, can change Poly_type to ‘conven’ to compare ICAR ATRP with conventional radical polymerization)\n\n\n\nIncrease initial CuI concentration 0 - 0.000275\n\nIncrease initial CuII concentration 0 - 0.000275\n\nQuestions:\nIn each series experiments, how do the following results change? Explain why.\n\nNumber of polymers A) increase B) no change C) decrease\nRate of polymerization (percent of monomer conversion vs time) A) increase B) no change C) decrease\nNumber average molecular weight at the same monomer conversion A) increase B) no change C) decrease"
+  },
+  {
+    "objectID": "modules/M04_ATRP.html#example-practice-questions",
+    "href": "modules/M04_ATRP.html#example-practice-questions",
+    "title": "Module 4 Atom Transfer Radical Polymerization",
+    "section": "4. Example practice questions",
+    "text": "4. Example practice questions\n\nIn a conventional radical polymerization, adding more thermal initiator, e.g., AIBN, and keeping all other reaction conditions not changed, what would happen to the product? Briefly explain your choice.\n\n\n\nThe number average molecular weight would be larger since the polymerization is faster.\n\nThe number average molecular weight would be smaller while the polymerization is faster.\n\nThe number average molecular weight would remain more or less the same.\n\nThe number average molecular weight would change but you need more information to tell if it would be larger or smaller.\n\n\nIn a conventional radical polymerization, raising the reaction temperature and keeping all other reaction conditions not changed, what would happen to the product? Briefly explain your choice.\n\n\n\nThe number average molecular weight would be larger since the polymerization is faster.\n\nThe number average molecular weight would be smaller while the polymerization is faster.\n\nThe number average molecular weight would remain more or less the same.\n\nThe number average molecular weight would change but you need more information to tell if it would be larger or smaller.\n\n\nWhich of the following statement is true?\nA. In an ICAR ATRP process, the number of polymers mainly depends on the amount of AIBN added to the system.\n\n\n\nIn an ICAR ATRP process, the theoretical molecular weight of resulting polymers increases linearly with the monomer conversion, thus the number of polymer molecules must also increase linearly with the monomer conversion.\n\nIn an ICAR ATRP process, the number of polymers mainly depends on the RX type initiator added to the system. The decomposition of AIBN would slightly increase the number of polymers.\n\nIn an ICAR ATRP process, the decomposition of AIBN adds more monomer chains to the system, which would cause the actual number average molecular weight to be slightly larger than the theoretical value.\n\n\nHow to calculate the number average molecular weight for a normal ATRP and for an ICAR ATRP, knowing the initial concentrations of RX and monomer, monomer conversion, and the molecular weight of the monomer?\nComparing a conventional radical polymerization and an ICAR ATRP process, which of the following statement(s) is (are) NOT true? The common reagents and their concentrations used in the ICAR ATRP and in conventional radical polymerization are the same. In ICAR ATRP, RX and a trace amount of Cu catalyst are added while in the conventional radical polymerization, they are absent. The reaction temperature and reaction time are the same.\n\n\n\nThe monomer conversions in both cases are more or less the same.\n\nThe amount of termination in both cases is more or less the same.\n\nThe numbers of polymers in both cases are more or less the same.\n\nThe number average molecular weights of the resulting polymers in both cases are more or less the same."
+  },
+  {
+    "objectID": "modules/M04_ATRP.html#copyright",
+    "href": "modules/M04_ATRP.html#copyright",
+    "title": "Module 4 Atom Transfer Radical Polymerization",
+    "section": "Copyright",
+    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License."
+  },
+  {
+    "objectID": "modules/M05_RadCopoly.html#link-to-the-simulator",
+    "href": "modules/M05_RadCopoly.html#link-to-the-simulator",
+    "title": "Module 5 Radical Copolymerization",
+    "section": "1. Link to the simulator",
+    "text": "1. Link to the simulator\nRadical Copolymerization"
+  },
+  {
+    "objectID": "modules/M05_RadCopoly.html#module-objectives",
+    "href": "modules/M05_RadCopoly.html#module-objectives",
+    "title": "Module 5 Radical Copolymerization",
+    "section": "2 Module objectives",
+    "text": "2 Module objectives\n\nGiven the reactivity ratio and the monomer feedstock fractions, predict which monomer is being consumed faster and what type of polymers (random, alternating, blocky, etc.) are being produced.\nCaculate F1 knowing f1 and predict if it is possible that f1 equals F1. If f1 equals F1, what is the value?"
+  },
+  {
+    "objectID": "modules/M05_RadCopoly.html#classroom-implementation-ideas",
+    "href": "modules/M05_RadCopoly.html#classroom-implementation-ideas",
+    "title": "Module 5 Radical Copolymerization",
+    "section": "3. Classroom implementation ideas",
+    "text": "3. Classroom implementation ideas\nPerform the following virtual experiments (f1 = 0.5 for all cases) and answer the questions for each simulation.\nExperiments:\n\nMMA and Styrene (r1 = 0.46, r2 = 0.52)\n\nMA and MMA (r1 = 0.4, r2 = 2.2)\n\nMA and Styrene (r1 = 0.80, r2 = 0.19)\n\nStyrene and Maleic Anhydride (r1 = 0.05, r2 = 0.005)\n\nAcrylonitrile and Vinyl Acetate (r1 = 5.5, r2 = 0.06)\n\nQuestions:\n\nSelect the correct answer(s).\n\n\n\nWhen the chain end is M1, it prefers to add to M1.\n\nWhen the chain end is M1, it prefers to add to M2.\n\nWhen the chain end is M2, it prefers to add to M1.\n\nWhen the chain end is M2, it prefers to add to M2.\n\n\nSelect the correct answer.\n\n\n\nM1 is consumed faster.\n\nM2 is consumed faster.\n\nBoth M1 and M2 are consumed at nearly the same rate.\n\n\nPolymers produced at the beginning are\n\n\nBoth 1 and 2 block-wise\n\nAlternating\n\nRandom\n\nA block of 1 and just one or two unit of 2 and a block of 1 and …\n\nA block of 2 and just one or two unit of 1 and a block of 2 and …\n\n\nPolymers produced at the beginning have\n\n\n\nLarger fraction of 1\n\nLarger fraction of 2\n\nNearly the same fractions of 1 and 2\n\n\nWhat do you expect at the end of the polymerization\n\n\n\nNearly the same as beginning\n\nNearly just 1 left\n\nNearly just 2 left"
+  },
+  {
+    "objectID": "modules/M05_RadCopoly.html#example-practice-questions",
+    "href": "modules/M05_RadCopoly.html#example-practice-questions",
+    "title": "Module 5 Radical Copolymerization",
+    "section": "4. Example practice questions",
+    "text": "4. Example practice questions\n\nIn a copolymerization of monomers 1 and 2, initially present in the mole ratio 1:1, what is the composition of the copolymer formed initially, if r1 = 0.46 and r2 = 0.52?\nA. F1 = 0.67\nB. F1 = 0.49\nC. F1 = 0.75\nD. F1 = 0.25\nE. F1 = 0.99\nTwo monomers M1 and M2 have reactivity ratios r1 = 1 and r2 = 1. The structure of the polymer produced from an equimolar mixture of the two monomers will be close to:\nA. -M1M2M1M2M1M2M1M2M1M2M1M2- (alternating)\nB. -M1M1M1M1M1M1M2M2M2M2M2M2- (block)\nC. -M1M2M1M1M1M2M2M1M2M2M1M2- (random)\nD. -M1M1M1M1M1M1- and -M2M2M2M2M2M2- (homopolymers)\nTwo monomers M1 and M2 have reactivity ratios r1 = 0.01 and r2 = 0.005. The structure of the polymer produced from an equimolar mixture of the two monomers will be close to:\nA. -M1M2M1M2M1M2M1M2M1M2M1M2- (alternating)\nB. -M1M1M1M1M1M1M2M2M2M2M2M2- (block)\nC. -M1M2M1M1M1M2M2M1M2M2M1M2- (random)\nD. -M1M1M1M1M1M1- and -M2M2M2M2M2M2- (homopolymers)\nFor the copolymerization of monomer 1 with monomer 2, the reactivity ratios are r1 = 0.7, r2 = 0.3. At what mole fraction of monomer 1 in the feed will the composition of the copolymer exactly equal this feed composition?\nA. 0.3\nB. 0.5\nC. 0.7\nD. 0.8\nE. 0.9"
+  },
+  {
+    "objectID": "modules/M05_RadCopoly.html#copyright",
+    "href": "modules/M05_RadCopoly.html#copyright",
+    "title": "Module 5 Radical Copolymerization",
+    "section": "Copyright",
+    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License."
+  },
+  {
+    "objectID": "modules/M06_Network.html#link-to-the-simulator",
+    "href": "modules/M06_Network.html#link-to-the-simulator",
+    "title": "Module 6 Network formation",
+    "section": "1. Link to the simulator",
+    "text": "1. Link to the simulator\nNetwork formation"
+  },
+  {
+    "objectID": "modules/M06_Network.html#module-objectives",
+    "href": "modules/M06_Network.html#module-objectives",
+    "title": "Module 6 Network formation",
+    "section": "2 Module objectives",
+    "text": "2 Module objectives\n\nUnderstand the role of the largest molecule in a gelation process.\nUnderstand the significant changes of the system when gelation happens.\nUnderstand sol-gel fractions when network is formed."
+  },
+  {
+    "objectID": "modules/M06_Network.html#classroom-implementation-ideas",
+    "href": "modules/M06_Network.html#classroom-implementation-ideas",
+    "title": "Module 6 Network formation",
+    "section": "3. Classroom implementation ideas",
+    "text": "3. Classroom implementation ideas\nExperiments:\nSet the number of monomers as \\(10^5\\) and the ratio between A and B as 1. Change the ratio between A3 and AA and perform simulations. The values of A3 to AA are set as 0.1, 0.5, 1, 1.5, and 2.\nSet the number of monomers as \\(10^5\\), ratio between A and B as 0.95, and the ratio between A3 and AA as 0.1, perform the simulation.\nQuestions:\n\nObserve the change of the mean DP and the mean DP without the largest molecule in each simulation. Conclude what happens to the system at the gelation point.\nHow do the DPs of the second, third, fifth, tenth largest molecules change with the extent of reaction? What do you observe at the gelation point?\nCompare the sol fractions under the conditions: (1) the ratio between A3 and AA is 0.1 and the ratio between A and B is 0.95; and (2) the ratio between A3 and AA is 0.1 and the ratio between A and B is 1. Explain why these two conditions lead to such different results."
+  },
+  {
+    "objectID": "modules/M06_Network.html#example-practice-questions",
+    "href": "modules/M06_Network.html#example-practice-questions",
+    "title": "Module 6 Network formation",
+    "section": "4. Example practice questions",
+    "text": "4. Example practice questions\n\nCalculate the critical extent of reaction when gelation would occur based on Carothers’ theory and the statistical theory, given the ratio between A and B is 1 and the ratio between A3 and AA is 0.5.\nBased on the simulations, describe what happens to the sytem when gelation occur.\nWhich of the following statement is true?\n\n\nIf the quantities of two types of functional groups are imbalanced, gelation would never occur.\n\nIf the quantities of two types of functional groups are imbalanced, the sol fraction would be relatively large at the same extent of reaction after gelation occurs.\n\nWhen gelation occurs all molecules in the system merge into one huge molecule.\n\nWhen gelation occurs the largest molecules, i.e., the largest, the second largest, the third largest, …, all grow bigger exponentially."
+  },
+  {
+    "objectID": "modules/M06_Network.html#copyright",
+    "href": "modules/M06_Network.html#copyright",
+    "title": "Module 6 Network formation",
+    "section": "Copyright",
+    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License."
+  },
+  {
+    "objectID": "modules/M07_SingleChain.html#link-to-the-simulator",
+    "href": "modules/M07_SingleChain.html#link-to-the-simulator",
+    "title": "Module 7 Single chain conformation",
+    "section": "1. Link to the simulator",
+    "text": "1. Link to the simulator\nSingle chain conformation"
+  },
+  {
+    "objectID": "modules/M07_SingleChain.html#module-objectives",
+    "href": "modules/M07_SingleChain.html#module-objectives",
+    "title": "Module 7 Single chain conformation",
+    "section": "2 Module objectives",
+    "text": "2 Module objectives\n\nDerive the correlation between the root mean square (RMS) end-to-end distance and the degree of polymerization (\\(DP\\)) for three chain models: freely hinged, freely rotation, and hindered rotation.\nCompare the RMS end-to-end distances of polymers with the same \\(DP\\) across the three different models.\nUnderstand the universal scaling rule between chain size (RMS end-to-end distance and radius of gyration) and \\(DP\\)$, irrespective of the chain model."
+  },
+  {
+    "objectID": "modules/M07_SingleChain.html#classroom-implementation-ideas",
+    "href": "modules/M07_SingleChain.html#classroom-implementation-ideas",
+    "title": "Module 7 Single chain conformation",
+    "section": "3. Classroom implementation ideas",
+    "text": "3. Classroom implementation ideas\nExperiments:\nSet the chain type as freely hinged. Perform a series of experiments for different degree of polymerization (\\(DP\\)) and record the RMS end-to-end distance (\\(h\\)) and radius of gyration (\\(R_g\\)) in the table:\n\n\n\n\\(DP\\)\n\\(h\\)\n\\(R_g\\)\n\n\n\n\n50\n\n\n\n\n100\n\n\n\n\n200\n\n\n\n\n400\n\n\n\n\n800\n\n\n\n\n\nSet the bond angle as 109.5 \\(^\\circ\\) and keep it constant. Repeat the process as described above for freely rotation and hindered rotation models.\nQuestions:\n\nIn general, does the RMS end-to-end distance or the RMS radius of gyration have narrower distribution? Explain why.\nPlot \\(\\ln{h}\\) vs \\(\\ln(DP)\\) and \\(\\ln(R_g)\\) vs \\(\\ln(DP)\\), find out how do \\(h\\) and \\(R_g\\) change with increasing \\(DP\\). Is the trend always the same across different models?\nCompare the \\(h\\) and \\(R_g\\) values for different models with the same \\(DP\\). What trend do you find?"
+  },
+  {
+    "objectID": "modules/M07_SingleChain.html#example-practice-questions",
+    "href": "modules/M07_SingleChain.html#example-practice-questions",
+    "title": "Module 7 Single chain conformation",
+    "section": "4. Example practice questions",
+    "text": "4. Example practice questions\n\nThe sizes (the RMS end-to-end distance or the RMS radius of gyration) of a linear polystyrene sample with the average \\(DP\\) 10000 should be roughly \\(\\underline{\\qquad}\\) times larger than a sample with the average \\(DP\\) 100 based on the freely hinged model. Based on freely rotation and hindered rotation model will the answer be the same or different?\nWhy the RMS radius of gyration usually has narrower distribution than the RMS end-to-end distance?\nWhich statement is true?\n\n\nThe end-to-end distance of a freely rotation chain must be greater than that of a freely hinged chain if both chains have the same \\(DP\\).\n\nThe radius of gyration of a freely rotation chain must be greater than that of a freely hinged chain if both chains have the same \\(DP\\).\n\nIf \\(DP\\) increase by a factor of 3, the RMS end-to-end distance increase by a factor of 6.\nIf the RMS end-to-end distance of freely rotation polymer chains with \\(DP\\) 50 is \\(c\\) times larger than that of freely hinged chians with the same \\(DP\\), the RMS end-to-end distance of freely rotation polymer chains with \\(DP\\) 500 should also be \\(c\\) times larger than that of freely hinged chains with the same \\(DP\\)."
+  },
+  {
+    "objectID": "modules/M07_SingleChain.html#copyright",
+    "href": "modules/M07_SingleChain.html#copyright",
+    "title": "Module 7 Single chain conformation",
+    "section": "Copyright",
+    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License."
+  },
+  {
+    "objectID": "modules/M08_SelfAvoid.html",
+    "href": "modules/M08_SelfAvoid.html",
+    "title": "Module 8 Self-avoid chains",
+    "section": "",
+    "text": "Like a snake, avoid running into yourself!"
+  },
+  {
+    "objectID": "modules/M08_SelfAvoid.html#link-to-the-simulator",
+    "href": "modules/M08_SelfAvoid.html#link-to-the-simulator",
+    "title": "Module 8 Self-avoid chains",
+    "section": "1. Link to the simulator",
+    "text": "1. Link to the simulator\nSelf-avoid chains"
+  },
+  {
+    "objectID": "modules/M08_SelfAvoid.html#module-objectives",
+    "href": "modules/M08_SelfAvoid.html#module-objectives",
+    "title": "Module 8 Self-avoid chains",
+    "section": "2 Module objectives",
+    "text": "2 Module objectives\n\nCompare the root mean square (RMS) end-to-end distances and radii of gyration of polymers with the same degree of polymerization (\\(DP\\)) based on hindered rotation model and self-avoid hindered rotation model.\nDerive the scaling rule between the size of the polymer chain and the degree of polymerization (\\(DP\\)) for self-avoid chains given the self-avoid criteria.\nExplore the influence of self-avoid criteria on the scaling rule."
+  },
+  {
+    "objectID": "modules/M08_SelfAvoid.html#classroom-implementation-ideas",
+    "href": "modules/M08_SelfAvoid.html#classroom-implementation-ideas",
+    "title": "Module 8 Self-avoid chains",
+    "section": "3. Classroom implementation ideas",
+    "text": "3. Classroom implementation ideas\nExperiments:\nSet the self avoid threshold as 1.5 and bond angle as 109.5 \\(^\\circ\\), perform simulations with different chain lengths, record the results in the table.\n\n\n\nDP\n\\(h_{nsa}\\)\n\\(h_{sa}\\)\n\\(R_{g,nsa}\\)\n\\(R_{g,sa}\\)\n\n\n\n\n25\n\n\n\n\n\n\n50\n\n\n\n\n\n\n100\n\n\n\n\n\n\n200\n\n\n\n\n\n\n400\n\n\n\n\n\n\n\nThe subscript “nsa” means non-self-avoid and “sa” means self-avoid.\nQuestions:\n\nDoes the self-avoid chain model have the same scaling factor as non-self-avoid model? What is the scaling factor of the self-avoid chain under the simulation conditions?\nChange the self avoid threshold and perform the simulations again. How does the self-avoid threshold influence the scaling factor?\nChange the bond angles and perform the simulations again. How does the bond angle influence the scaling factor?"
+  },
+  {
+    "objectID": "modules/M08_SelfAvoid.html#example-practice-questions",
+    "href": "modules/M08_SelfAvoid.html#example-practice-questions",
+    "title": "Module 8 Self-avoid chains",
+    "section": "4. Example practice questions",
+    "text": "4. Example practice questions\n\nWhich of the statement is true?\n\n\nGiven the same \\(DP\\), a self-avoid chain always have larger end-to-end distance than a non-self-avoid chain.\nGiven the same \\(DP\\), the RMS end-to-end distance of self-avoid chains is larger than that of non-self-avoid chains.\nWith \\(DP=50\\), the RMS end-to-end distance of self-avoid chains is \\(a\\) times larger than that of non-self-avoid chains; for \\(DP=500\\), the factor \\(a\\) should be the same comparing the RMS end-to-end distance of self-avoid chains and non-self-avoid chains.\nGiven the same \\(DP\\), a self-avoid chain always have larger radius of gyration than a non-self-avoid chain.\n\n\nWhy self-avoid chain model does not have the same scaling rule as non-self-avoid chain model, i.e., \\(\\langle h\\rangle \\propto DP^{0.5}\\)?"
+  },
+  {
+    "objectID": "modules/M08_SelfAvoid.html#copyright",
+    "href": "modules/M08_SelfAvoid.html#copyright",
+    "title": "Module 8 Self-avoid chains",
+    "section": "Copyright",
+    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License."
+  },
+  {
+    "objectID": "modules/M09_StarBranch.html#link-to-the-simulator",
+    "href": "modules/M09_StarBranch.html#link-to-the-simulator",
+    "title": "Module 9 Star and branched polymers",
+    "section": "1. Link to the simulator",
+    "text": "1. Link to the simulator\nStar and branch polymers"
+  },
+  {
+    "objectID": "modules/M09_StarBranch.html#module-objectives",
+    "href": "modules/M09_StarBranch.html#module-objectives",
+    "title": "Module 9 Star and branched polymers",
+    "section": "2 Module objectives",
+    "text": "2 Module objectives\n\nCompare the radii of gyration of polymers with the same degree of polymerization but with different architectures, i.e., linear, star shapped, and branched.\nDerive the scaling rule between the radii of gyration and the degree of polymerization for star shapped polymers and branched polymers.\nExplore the influence of the number of branching points on the radii of gyration."
+  },
+  {
+    "objectID": "modules/M09_StarBranch.html#classroom-implementation-ideas",
+    "href": "modules/M09_StarBranch.html#classroom-implementation-ideas",
+    "title": "Module 9 Star and branched polymers",
+    "section": "3. Classroom implementation ideas",
+    "text": "3. Classroom implementation ideas\nExperiments:\nSet the number of branching point as 10, perform simulations with different degree of polymerization (\\(DP\\)), record the root mean square (RMS) radii of gyration for linear, star and branched polymers.\n\n\n\n\\(DP\\)\nLinear\nStar\nBranched\n\n\n\n\n100\n\n\n\n\n\n200\n\n\n\n\n\n400\n\n\n\n\n\n800\n\n\n\n\n\n\nQuestions:\n\nWhat are the scaling factors for star and branched polymers, respectively?\nFor the same \\(DP\\), which type of polymer has the smallest \\(R_g\\) and which has the largest? Explain why?\nIn general, the radius of gyration of which type of polymer has narrower distribution? Explain why."
+  },
+  {
+    "objectID": "modules/M09_StarBranch.html#example-practice-questions",
+    "href": "modules/M09_StarBranch.html#example-practice-questions",
+    "title": "Module 9 Star and branched polymers",
+    "section": "4. Example practice questions",
+    "text": "4. Example practice questions\n\nWhich of the statements is true?\n\n\nGiven the same \\(DP\\), introducing branching points to the polymers would result in smaller RMS radius of gyration.\n\nAs long as the \\(DP\\) are the same, linear, star shaped and branched polymers have the same RMS radius of gyration.\n\nA linear polymer always has larger radius of gyration than star shaped or branched polymers given their \\(DP\\) are the same.\nFor the same \\(DP\\), more branching points would not affect the RMS radius of gyration of the polymers.\n\n\nAre the scaling rules for star and branched polymers the same as that of linear polymers? Why?"
+  },
+  {
+    "objectID": "modules/M09_StarBranch.html#copyright",
+    "href": "modules/M09_StarBranch.html#copyright",
+    "title": "Module 9 Star and branched polymers",
+    "section": "Copyright",
+    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License."
+  }
+]
