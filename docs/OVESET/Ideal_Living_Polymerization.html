@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="What sequence structures will you get from a radical copolymerization? Which monomer will be consumed faster?">
 
-<title>Module 5 Radical Copolymerization – OVESET</title>
+<title>Ideal Living Polymerization – OVESET</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -31,8 +64,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../modules/M06_Network.html" rel="next">
-<link href="../modules/M04_ATRP.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -70,6 +101,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -119,7 +179,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/M05_RadCopoly.html">Module 5 Radical Copolymerization</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Ideal Living Polymerization</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,7 +225,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/M05_RadCopoly.html" class="sidebar-item-text sidebar-link active">
+  <a href="../modules/M05_RadCopoly.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Module 5 Radical Copolymerization</span></a>
   </div>
 </li>
@@ -203,11 +263,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#link-to-the-simulator" id="toc-link-to-the-simulator" class="nav-link active" data-scroll-target="#link-to-the-simulator">1. Link to the simulator</a></li>
-  <li><a href="#module-objectives" id="toc-module-objectives" class="nav-link" data-scroll-target="#module-objectives">2 Module objectives</a></li>
-  <li><a href="#classroom-implementation-ideas" id="toc-classroom-implementation-ideas" class="nav-link" data-scroll-target="#classroom-implementation-ideas">3. Classroom implementation ideas</a></li>
-  <li><a href="#example-practice-questions" id="toc-example-practice-questions" class="nav-link" data-scroll-target="#example-practice-questions">4. Example practice questions</a></li>
-  <li><a href="#copyright" id="toc-copyright" class="nav-link" data-scroll-target="#copyright">Copyright</a></li>
+  <li><a href="#simulation" id="toc-simulation" class="nav-link active" data-scroll-target="#simulation">1. Simulation</a></li>
+  <li><a href="#derivation" id="toc-derivation" class="nav-link" data-scroll-target="#derivation">2. Derivation</a></li>
   </ul>
 </nav>
     </div>
@@ -216,14 +273,9 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Module 5 Radical Copolymerization</h1>
+<h1 class="title">Ideal Living Polymerization</h1>
 </div>
 
-<div>
-  <div class="description">
-    What sequence structures will you get from a radical copolymerization? Which monomer will be consumed faster?
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -238,126 +290,69 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><img src="../img/M05_copolymer.png" width="100%"></p>
-<section id="link-to-the-simulator" class="level2">
-<h2 class="anchored" data-anchor-id="link-to-the-simulator">1. Link to the simulator</h2>
-<p><a href="https://colab.research.google.com/drive/1s3FA-MtXS6-_u8kZxfvj4h8s88yWcCXw?usp=sharing" target="_blank">Radical Copolymerization</a></p>
+<section id="simulation" class="level2">
+<h2 class="anchored" data-anchor-id="simulation">1. Simulation</h2>
+<div id="cell-2" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib <span class="im">as</span> mpl</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of polymer chains (Feel free to change the value, but keep it &gt; or = 100).</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>NPoly <span class="op">=</span> <span class="dv">10000</span>  </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Different targeted degree of polymerization (Feel free to add or to delete numbers, or to change the values).</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>DP_Targ <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">100</span>])  </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of monomers.</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>NMon <span class="op">=</span> NPoly<span class="op">*</span>DP_Targ.<span class="bu">max</span>()  </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Each monomer goes to one polymer chain randomly.</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>polym <span class="op">=</span> np.random.randint(<span class="dv">1</span>, NPoly, NMon)  </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>mpl.rcParams[<span class="st">'figure.figsize'</span>] <span class="op">=</span> (<span class="fl">12.0</span>, <span class="fl">4.0</span><span class="op">*</span><span class="bu">len</span>(DP_Targ))</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the degree of polymerization of each chain.</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>DP <span class="op">=</span> np.zeros((<span class="bu">len</span>(DP_Targ), NPoly))  </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>plt.subplots(<span class="bu">len</span>(DP_Targ), <span class="dv">2</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>index <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">100</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> k <span class="op">&lt;</span> <span class="bu">len</span>(DP_Targ):</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> polym[<span class="dv">0</span>:NPoly<span class="op">*</span>DP_Targ[k]]:</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        DP[k, i<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> DP[k, i<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> <span class="dv">1</span>            </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="bu">len</span>(DP_Targ), <span class="dv">2</span>, <span class="dv">2</span><span class="op">*</span>k<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    plt.bar(index,DP[k, <span class="dv">0</span>:<span class="dv">99</span>], <span class="fl">0.5</span>, alpha<span class="op">=</span><span class="fl">0.65</span>,color<span class="op">=</span><span class="st">'b'</span>)  </span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'Polymer Chains'</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'DP'</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">'Targeted DP = </span><span class="sc">%r</span><span class="st">'</span> <span class="op">%</span>DP_Targ[k])</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="bu">len</span>(DP_Targ), <span class="dv">2</span>, <span class="dv">2</span><span class="op">*</span>(k<span class="op">+</span><span class="dv">1</span>))</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    plt.hist(DP[k], <span class="dv">200</span>, density<span class="op">=</span><span class="dv">1</span>, facecolor<span class="op">=</span><span class="st">'green'</span>, alpha<span class="op">=</span><span class="fl">0.65</span>)  </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'DP'</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'Fraction'</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">'Targeted DP = </span><span class="sc">%r</span><span class="st">'</span> <span class="op">%</span>DP_Targ[k])</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> k <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Display 100 polymer chains to illustrate the deviation of chain lengths (left side).</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the chain length distribution (right side).</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Ideal_Living_Polymerization_files/figure-html/cell-2-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="module-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="module-objectives">2 Module objectives</h2>
-<ul>
-<li>Given the reactivity ratio and the monomer feedstock fractions, predict which monomer is being consumed faster and what type of polymers (random, alternating, blocky, etc.) are being produced.</li>
-<li>Caculate F1 knowing f1 and predict if it is possible that f1 equals F1. If f1 equals F1, what is the value?</li>
-</ul>
-</section>
-<section id="classroom-implementation-ideas" class="level2">
-<h2 class="anchored" data-anchor-id="classroom-implementation-ideas">3. Classroom implementation ideas</h2>
-<p>Perform the following virtual experiments (f1 = 0.5 for all cases) and answer the questions for each simulation.</p>
-<p>Experiments:</p>
-<ol type="1">
-<li>MMA and Styrene (r1 = 0.46, r2 = 0.52)<br>
-</li>
-<li>MA and MMA (r1 = 0.4, r2 = 2.2)<br>
-</li>
-<li>MA and Styrene (r1 = 0.80, r2 = 0.19)<br>
-</li>
-<li>Styrene and Maleic Anhydride (r1 = 0.05, r2 = 0.005)<br>
-</li>
-<li>Acrylonitrile and Vinyl Acetate (r1 = 5.5, r2 = 0.06)</li>
-</ol>
-<p>Questions:</p>
-<ol type="1">
-<li>Select the correct answer(s).<br>
-</li>
-</ol>
-<ol type="A">
-<li>When the chain end is M1, it prefers to add to M1.<br>
-</li>
-<li>When the chain end is M1, it prefers to add to M2.<br>
-</li>
-<li>When the chain end is M2, it prefers to add to M1.<br>
-</li>
-<li>When the chain end is M2, it prefers to add to M2.</li>
-</ol>
-<ol start="2" type="1">
-<li>Select the correct answer.<br>
-</li>
-</ol>
-<ol type="A">
-<li>M1 is consumed faster.<br>
-</li>
-<li>M2 is consumed faster.<br>
-</li>
-<li>Both M1 and M2 are consumed at nearly the same rate.</li>
-</ol>
-<ol start="3" type="1">
-<li>Polymers produced at the beginning are</li>
-</ol>
-<ol type="A">
-<li>Both 1 and 2 block-wise<br>
-</li>
-<li>Alternating<br>
-</li>
-<li>Random<br>
-</li>
-<li>A block of 1 and just one or two unit of 2 and a block of 1 and …<br>
-</li>
-<li>A block of 2 and just one or two unit of 1 and a block of 2 and …</li>
-</ol>
-<ol start="4" type="1">
-<li>Polymers produced at the beginning have<br>
-</li>
-</ol>
-<ol type="A">
-<li>Larger fraction of 1<br>
-</li>
-<li>Larger fraction of 2<br>
-</li>
-<li>Nearly the same fractions of 1 and 2</li>
-</ol>
-<ol start="5" type="1">
-<li>What do you expect at the end of the polymerization<br>
-</li>
-</ol>
-<ol type="A">
-<li>Nearly the same as beginning<br>
-</li>
-<li>Nearly just 1 left<br>
-</li>
-<li>Nearly just 2 left</li>
-</ol>
-</section>
-<section id="example-practice-questions" class="level2">
-<h2 class="anchored" data-anchor-id="example-practice-questions">4. Example practice questions</h2>
-<ol type="1">
-<li><p>In a copolymerization of monomers 1 and 2, initially present in the mole ratio 1:1, what is the composition of the copolymer formed initially, if r1 = 0.46 and r2 = 0.52?<br>
-A. F1 = 0.67<br>
-B. F1 = 0.49<br>
-C. F1 = 0.75<br>
-D. F1 = 0.25<br>
-E. F1 = 0.99</p></li>
-<li><p>Two monomers M1 and M2 have reactivity ratios r1 = 1 and r2 = 1. The structure of the polymer produced from an equimolar mixture of the two monomers will be close to:<br>
-A. -M1M2M1M2M1M2M1M2M1M2M1M2- (alternating)<br>
-B. -M1M1M1M1M1M1M2M2M2M2M2M2- (block)<br>
-C. -M1M2M1M1M1M2M2M1M2M2M1M2- (random)<br>
-D. -M1M1M1M1M1M1- and -M2M2M2M2M2M2- (homopolymers)</p></li>
-<li><p>Two monomers M1 and M2 have reactivity ratios r1 = 0.01 and r2 = 0.005. The structure of the polymer produced from an equimolar mixture of the two monomers will be close to:<br>
-A. -M1M2M1M2M1M2M1M2M1M2M1M2- (alternating)<br>
-B. -M1M1M1M1M1M1M2M2M2M2M2M2- (block)<br>
-C. -M1M2M1M1M1M2M2M1M2M2M1M2- (random)<br>
-D. -M1M1M1M1M1M1- and -M2M2M2M2M2M2- (homopolymers)</p></li>
-<li><p>For the copolymerization of monomer 1 with monomer 2, the reactivity ratios are r1 = 0.7, r2 = 0.3. At what mole fraction of monomer 1 in the feed will the composition of the copolymer exactly equal this feed composition?<br>
-A. 0.3<br>
-B. 0.5<br>
-C. 0.7<br>
-D. 0.8<br>
-E. 0.9</p></li>
-</ol>
-</section>
-<section id="copyright" class="level2">
-<h2 class="anchored" data-anchor-id="copyright">Copyright</h2>
-<p>Copyright(C) 2022 – 2024 Yu Wang</p>
-<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a><br>This webpage is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+<section id="derivation" class="level2">
+<h2 class="anchored" data-anchor-id="derivation">2. Derivation</h2>
+<p>Given the number of monomers <span class="math inline">\(N_{mon}\)</span> and the number of polymers <span class="math inline">\(N_{poly}\)</span>. The number average degree of polymerization <span class="math inline">\(\langle DP\rangle = N_{mon}/N_{poly}\)</span>. The fraction of polymers with a given <span class="math inline">\(DP\)</span> (<span class="math inline">\(x_{DP}\)</span>) can be calculated as following.</p>
+<p><span class="math display">\[x_{DP}=\frac{N_{mon}!}{(N_{mon}-DP)!DP!}\left(\frac{1}{N_{poly}}\right)^{DP}\left(1-\frac{1}{N_{poly}}\right)^{N_{mon}-DP}\]</span></p>
+<p>Considering one monomer to be added to one perticular polymer chain, the propability is <span class="math inline">\(1/N_{poly}\)</span>. The propability that this monomer will not be added to this perticular polymer chain is <span class="math inline">\(1-1/N_{poly}\)</span>.</p>
+<p>If a polymer chain contains <span class="math inline">\(n\)</span> monomer units after polymerization, <span class="math inline">\(n\)</span> monomers should have been added to this polymer chain with the propability <span class="math inline">\((1/N_{poly})^n\)</span>, and the rest <span class="math inline">\(N_{mon}-n\)</span> monomers should NOT have been added to this polymer chain the propability of which is <span class="math inline">\((1-1/N_{poly})^{N_{mon}-n}\)</span>. Finally, the possible ways to pick out <span class="math inline">\(n\)</span> monomers from <span class="math inline">\(N_{mon}\)</span> there are</p>
+<p>See <em>Polymer Physics</em> by Rubinstein 2003 Page 25</p>
+<p>The number fraction distribution function (the probability that a given chain has degree of polymerization <em>N</em>) is given by the <strong>Poisson distribution</strong> function:</p>
+<p><span class="math display">\[n_N=\frac{(N_n-1)^{N-1}}{(N-1)!}\exp(1-N_n)\]</span></p>
+<p>The weight fraction distribution function is determined following equation:</p>
+<p><span class="math display">\[w_N=\frac{N}{N_n}n_N=\frac{N(N_n-1)^{N-1}}{N_n(N-1)!}\exp(1-N_n)\]</span></p>
+<p>The dispersity for the Poisson distribution is :</p>
+<p><span class="math display">\[\frac{N_w}{N_n}=1+\frac{1}{N_n}-\frac{1}{N_n^2}\]</span></p>
 
 
 </section>
@@ -783,18 +778,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../modules/M04_ATRP.html" class="pagination-link" aria-label="Module 4 Atom Transfer Radical Polymerization">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Module 4 Atom Transfer Radical Polymerization</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../modules/M06_Network.html" class="pagination-link" aria-label="Module 6 Network formation">
-        <span class="nav-page-text">Module 6 Network formation</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 

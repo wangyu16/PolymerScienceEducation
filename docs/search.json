@@ -60,328 +60,642 @@
     "href": "modules/M01_MWD.html#link-to-the-simulator",
     "title": "Module 1 Molecular Weight Distribution",
     "section": "1. Link to the simulator",
-    "text": "1. Link to the simulator\nMolecular Weight Distribution"
+    "text": "1. Link to the simulator\nMolecular Weight Distribution",
+    "crumbs": [
+      "Home",
+      "Module 1 Molecular Weight Distribution"
+    ]
   },
   {
     "objectID": "modules/M01_MWD.html#module-objectives",
     "href": "modules/M01_MWD.html#module-objectives",
     "title": "Module 1 Molecular Weight Distribution",
     "section": "2 Module objectives",
-    "text": "2 Module objectives\n\nUnderstand the correlation between the average degree of polymerization and the average molecular weight.\nLearn how to calculate number average and weight average molecular weights.\nUnderstand the concept of molecular weight distribution.\nLearn that, in step-growth polymerization and living chain-growth polymerization, how do the lowest and highest molecular weights compare to the average molecular weights."
+    "text": "2 Module objectives\n\nUnderstand the correlation between the average degree of polymerization and the average molecular weight.\nLearn how to calculate number average and weight average molecular weights.\nUnderstand the concept of molecular weight distribution.\nLearn that, in step-growth polymerization and living chain-growth polymerization, how do the lowest and highest molecular weights compare to the average molecular weights.",
+    "crumbs": [
+      "Home",
+      "Module 1 Molecular Weight Distribution"
+    ]
   },
   {
     "objectID": "modules/M01_MWD.html#classroom-implementation-ideas",
     "href": "modules/M01_MWD.html#classroom-implementation-ideas",
     "title": "Module 1 Molecular Weight Distribution",
     "section": "3. Classroom implementation ideas",
-    "text": "3. Classroom implementation ideas\nSeries I. Get familar with the basic statistics of step growth polymerization and living chain growth polymerization.\n\nSet the Type_of_polymerization as ‘Step growth polymerization’, maximize both the Number_of_monomers and the Number_of_polymers, set the Monomer_molar_mass as 100, perform the simulation several times. Observe the Plot of the fractions of each type of polymers. Examine the lowest molecular weight and highest molecular weight and compare whether the average molecular weight is closer to the lower molecular weight part or to the larger molecular weight part.\nSet the Type_of_polymerization as ‘Living chain growth polymerization’, do the same as described above.\nCompare step growth polymerization and living chain growth polymerization, summerize their differences.\n\nSeries II. Calculate number average and weight average molecular weights.\n\nSet the Number_of_polymers in the range between 5 and 20, all the other parameters can be chosen randomly, run the simulation and obtain the list of the number of each type of polymers. Use Excel to calculate the number average molecular weight (\\(M_n\\)) and the weight average molecular weight (\\(M_w\\)). Calculate the value of \\(M_w/M_n\\).\nConclude what are the typical values of \\(M_w/M_n\\) for step growth polymerization and living chain growth polymerization?"
+    "text": "3. Classroom implementation ideas\nSeries I. Get familar with the basic statistics of step growth polymerization and living chain growth polymerization.\n\nSet the Type_of_polymerization as ‘Step growth polymerization’, maximize both the Number_of_monomers and the Number_of_polymers, set the Monomer_molar_mass as 100, perform the simulation several times. Observe the Plot of the fractions of each type of polymers. Examine the lowest molecular weight and highest molecular weight and compare whether the average molecular weight is closer to the lower molecular weight part or to the larger molecular weight part.\nSet the Type_of_polymerization as ‘Living chain growth polymerization’, do the same as described above.\nCompare step growth polymerization and living chain growth polymerization, summerize their differences.\n\nSeries II. Calculate number average and weight average molecular weights.\n\nSet the Number_of_polymers in the range between 5 and 20, all the other parameters can be chosen randomly, run the simulation and obtain the list of the number of each type of polymers. Use Excel to calculate the number average molecular weight (\\(M_n\\)) and the weight average molecular weight (\\(M_w\\)). Calculate the value of \\(M_w/M_n\\).\nConclude what are the typical values of \\(M_w/M_n\\) for step growth polymerization and living chain growth polymerization?",
+    "crumbs": [
+      "Home",
+      "Module 1 Molecular Weight Distribution"
+    ]
   },
   {
     "objectID": "modules/M01_MWD.html#example-practice-questions",
     "href": "modules/M01_MWD.html#example-practice-questions",
     "title": "Module 1 Molecular Weight Distribution",
     "section": "4. Example practice questions",
-    "text": "4. Example practice questions\n\nGiven a polymer sample with following moles of each type of molecules. Calculate the number average molecular weight and weight average molecular weight. Calculate the value of \\(M_w/M_n\\).\n\n\n\n\nMoles\nMolar mass\n\n\n\n\n1\n1700\n\n\n3\n2200\n\n\n5\n3100\n\n\n2\n3500\n\n\n1\n3900\n\n\n\n\nWhich of the following statement is incorrect?\n\nA. If all molecules in a polymer sample have the same molecular weight, the \\(M_w/M_n\\) value equals 0.\nB. Weight average molecular weight is always equal or greater than number average molecular weight.\nC. Step growth polymerization usually results in a broad molecular weight distribution with significant number fraction of oligomers.\nD. Living chain growth polymerization usually results in a \\(M_w/M_n\\) value close to 1."
+    "text": "4. Example practice questions\n\nGiven a polymer sample with following moles of each type of molecules. Calculate the number average molecular weight and weight average molecular weight. Calculate the value of \\(M_w/M_n\\).\n\n\n\n\nMoles\nMolar mass\n\n\n\n\n1\n1700\n\n\n3\n2200\n\n\n5\n3100\n\n\n2\n3500\n\n\n1\n3900\n\n\n\n\nWhich of the following statement is incorrect?\n\nA. If all molecules in a polymer sample have the same molecular weight, the \\(M_w/M_n\\) value equals 0.\nB. Weight average molecular weight is always equal or greater than number average molecular weight.\nC. Step growth polymerization usually results in a broad molecular weight distribution with significant number fraction of oligomers.\nD. Living chain growth polymerization usually results in a \\(M_w/M_n\\) value close to 1.",
+    "crumbs": [
+      "Home",
+      "Module 1 Molecular Weight Distribution"
+    ]
   },
   {
     "objectID": "modules/M01_MWD.html#copyright",
     "href": "modules/M01_MWD.html#copyright",
     "title": "Module 1 Molecular Weight Distribution",
     "section": "Copyright",
-    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License."
+    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License.",
+    "crumbs": [
+      "Home",
+      "Module 1 Molecular Weight Distribution"
+    ]
   },
   {
     "objectID": "modules/M02_Step.html#link-to-the-simulator",
     "href": "modules/M02_Step.html#link-to-the-simulator",
     "title": "Module 2 Step Growth Polymerization",
     "section": "1. Link to the simulator",
-    "text": "1. Link to the simulator\nStep Growth Polymerization"
+    "text": "1. Link to the simulator\nStep Growth Polymerization",
+    "crumbs": [
+      "Home",
+      "Module 2 Step Growth Polymerization"
+    ]
   },
   {
     "objectID": "modules/M02_Step.html#module-objectives",
     "href": "modules/M02_Step.html#module-objectives",
     "title": "Module 2 Step Growth Polymerization",
     "section": "2 Module objectives",
-    "text": "2 Module objectives\n\nPredict what types of molecules will be produced in step growth polymerization under various initial conditions.\nGet familiar with the number fraction and weight fraction distributions of the resulting polymers from step growth polymerization.\nCalculate the number average degree of polymerization under various conditions and compare to the simulation results."
+    "text": "2 Module objectives\n\nPredict what types of molecules will be produced in step growth polymerization under various initial conditions.\nGet familiar with the number fraction and weight fraction distributions of the resulting polymers from step growth polymerization.\nCalculate the number average degree of polymerization under various conditions and compare to the simulation results.",
+    "crumbs": [
+      "Home",
+      "Module 2 Step Growth Polymerization"
+    ]
   },
   {
     "objectID": "modules/M02_Step.html#classroom-implementation-ideas",
     "href": "modules/M02_Step.html#classroom-implementation-ideas",
     "title": "Module 2 Step Growth Polymerization",
     "section": "3. Classroom implementation ideas",
-    "text": "3. Classroom implementation ideas\nPerform the following series experiments. In the table ‘Type’ means Type_of_polymerization, ‘\\(p\\)’ means Targeted_extend_of_reaction.\n\n\n\n\n\n\n\n\n\n\n\n\nEntry\nType\n\\(p\\)\nn\nr_AA_BB\nr_RA_N0\nr_RB_N0\n\n\n\n\n1\nAA and BB\n0.999\n6\n1\n0\n0\n\n\n2\nAA and BB\n1\n6\n0.99\n0\n0\n\n\n3\nAA and BB\n1\n6\n1\n0.02\n0\n\n\n4\nAB\n0.999\n6\n1\n0\n0\n\n\n5\nAB\n1\n6\n1\n0.02\n0\n\n\n6\nAB\n1\n6\n1\n0.01\n0.01\n\n\n\n\nFor each experiment, predict the types of resulting polymers and compare to the simulation results. Compare the number fraction distribution and the weight fraction distribution and tell what are the differences. How does the number average degree of polymerization compare to the weight average one? Mark these average degree of polymerization values in the plot of the weight fraction distribution. How do the average degree of polymerization values compare to the peak value in the distribution?\nFor entry 1, 4 and 5, calculate the number average degree of polymerization and compare to the simulation results.\nIf you do not change the reaction condition and run the simulation several times, are the results the same or slightly different or dramatically different?\nWrite down the DPw/DPn values for each experiment. Are they similar or dramatically different? What are the typical values?\nIs it possible to find a condition that results in a DPw/DPn value significantly different from 2? Try to vary the reaction conditions and see if this is possible. Explain why."
+    "text": "3. Classroom implementation ideas\nPerform the following series experiments. In the table ‘Type’ means Type_of_polymerization, ‘\\(p\\)’ means Targeted_extend_of_reaction.\n\n\n\n\n\n\n\n\n\n\n\n\nEntry\nType\n\\(p\\)\nn\nr_AA_BB\nr_RA_N0\nr_RB_N0\n\n\n\n\n1\nAA and BB\n0.999\n6\n1\n0\n0\n\n\n2\nAA and BB\n1\n6\n0.99\n0\n0\n\n\n3\nAA and BB\n1\n6\n1\n0.02\n0\n\n\n4\nAB\n0.999\n6\n1\n0\n0\n\n\n5\nAB\n1\n6\n1\n0.02\n0\n\n\n6\nAB\n1\n6\n1\n0.01\n0.01\n\n\n\n\nFor each experiment, predict the types of resulting polymers and compare to the simulation results. Compare the number fraction distribution and the weight fraction distribution and tell what are the differences. How does the number average degree of polymerization compare to the weight average one? Mark these average degree of polymerization values in the plot of the weight fraction distribution. How do the average degree of polymerization values compare to the peak value in the distribution?\nFor entry 1, 4 and 5, calculate the number average degree of polymerization and compare to the simulation results.\nIf you do not change the reaction condition and run the simulation several times, are the results the same or slightly different or dramatically different?\nWrite down the DPw/DPn values for each experiment. Are they similar or dramatically different? What are the typical values?\nIs it possible to find a condition that results in a DPw/DPn value significantly different from 2? Try to vary the reaction conditions and see if this is possible. Explain why.",
+    "crumbs": [
+      "Home",
+      "Module 2 Step Growth Polymerization"
+    ]
   },
   {
     "objectID": "modules/M02_Step.html#example-practice-questions",
     "href": "modules/M02_Step.html#example-practice-questions",
     "title": "Module 2 Step Growth Polymerization",
     "section": "4. Example practice questions",
-    "text": "4. Example practice questions\nFor a linear condensation reaction of AA and BB type monomers\n\nCalculate the extent of reaction (\\(p\\)) necessary to achieve a number average degree of polymerization of 200, assuming you start with 50 moles of A and 50 moles of B monomers.\nCalculate the weight average degree of polymerization and polydispersity of this sample.\nCalculate the degree of polymerization that could be achieved at this degree of conversion (i.e., the value of \\(p\\) calculated in part a) if there were an impurity present, such that you not only had 50 moles of B monomers, but also 1 mole of a monofunctional (RB) molecule.\nCalculate the maximum degree of polymerization that could be achieved if there is a 2% excess of B units present in the polymerization described in part A (i.e., r = 100/102)."
+    "text": "4. Example practice questions\nFor a linear condensation reaction of AA and BB type monomers\n\nCalculate the extent of reaction (\\(p\\)) necessary to achieve a number average degree of polymerization of 200, assuming you start with 50 moles of A and 50 moles of B monomers.\nCalculate the weight average degree of polymerization and polydispersity of this sample.\nCalculate the degree of polymerization that could be achieved at this degree of conversion (i.e., the value of \\(p\\) calculated in part a) if there were an impurity present, such that you not only had 50 moles of B monomers, but also 1 mole of a monofunctional (RB) molecule.\nCalculate the maximum degree of polymerization that could be achieved if there is a 2% excess of B units present in the polymerization described in part A (i.e., r = 100/102).",
+    "crumbs": [
+      "Home",
+      "Module 2 Step Growth Polymerization"
+    ]
   },
   {
     "objectID": "modules/M02_Step.html#copyright",
     "href": "modules/M02_Step.html#copyright",
     "title": "Module 2 Step Growth Polymerization",
     "section": "Copyright",
-    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License."
+    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License.",
+    "crumbs": [
+      "Home",
+      "Module 2 Step Growth Polymerization"
+    ]
   },
   {
     "objectID": "modules/M03_ConvenRad.html#link-to-the-simulator",
     "href": "modules/M03_ConvenRad.html#link-to-the-simulator",
     "title": "Module 3 Conventional Radical Polymerization",
     "section": "1. Link to the simulator",
-    "text": "1. Link to the simulator\nConventional Radical Polymerization"
+    "text": "1. Link to the simulator\nConventional Radical Polymerization",
+    "crumbs": [
+      "Home",
+      "Module 3 Conventional Radical Polymerization"
+    ]
   },
   {
     "objectID": "modules/M03_ConvenRad.html#module-objectives",
     "href": "modules/M03_ConvenRad.html#module-objectives",
     "title": "Module 3 Conventional Radical Polymerization",
     "section": "2 Module objectives",
-    "text": "2 Module objectives\n\nPredict how would the polymerization result change when the reaction condition of a radical polymerization is varied.\nExplain the reason of the change."
+    "text": "2 Module objectives\n\nPredict how would the polymerization result change when the reaction condition of a radical polymerization is varied.\nExplain the reason of the change.",
+    "crumbs": [
+      "Home",
+      "Module 3 Conventional Radical Polymerization"
+    ]
   },
   {
     "objectID": "modules/M03_ConvenRad.html#classroom-implementation-ideas",
     "href": "modules/M03_ConvenRad.html#classroom-implementation-ideas",
     "title": "Module 3 Conventional Radical Polymerization",
     "section": "3. Classroom implementation ideas",
-    "text": "3. Classroom implementation ideas\nPerform the following simulations and answer the questions.\nFirst, set the default condition as: MA, bulk, AIBN 0.005 mol/L, 60 \\(^\\circ\\)C, 1 h, and run the simulation. Then change one parameter at a time, run the simulation again, and compare to the results from the default condition.\nI. Different monomer (MA vs VAc, same molar mass, VAc has smaller \\(k_p\\))\nII. Different monomer concentrations (bulk vs 50%)\nIII. Different initiator (AIBN vs ACHN) (ACHN decomposition is much slower)\nIV. Different initiator concentrations (0.005 vs 0.01 mol/L)\nV. Different temperatures (60 \\(^\\circ\\)C vs 80 \\(^\\circ\\)C)\nFor every single reaction answer this question:\n\nCompare the number of polymers obtained from the polymerization and the number of initiator consumption\nA. much greater; B. comparable (ratio within 0.5 to 2 and keep constant); C. much less\n\nFor each pair of reactions answer the following questions (the second reaction compare to the first reaction).\n\nRadical concentration\nA. increase; B. similar; C. decrease; D. need more information to tell\nRate of polymerization (i.e. percent consumption of monomers vs time)\nA. increase; B. similar; C. decrease; D. need more information to tell\nReason for the change in polymerization rate (the answer could be one or both of the choices)\nA. change in radical concentration; B. change in \\(k_p\\)\nExplain your choices for the above two questions.\nInitial molecular weight\nA. increase; B. similar; C. decrease; D. need more information to tell\nReason for the change in initial molecular weight (the answer could be one or multiple of the choices)\nA. rate of monomer consumption; B. monomer concentration; C. number of polymers being formed.\nExplain your choices for the above two questions."
+    "text": "3. Classroom implementation ideas\nPerform the following simulations and answer the questions.\nFirst, set the default condition as: MA, bulk, AIBN 0.005 mol/L, 60 \\(^\\circ\\)C, 1 h, and run the simulation. Then change one parameter at a time, run the simulation again, and compare to the results from the default condition.\nI. Different monomer (MA vs VAc, same molar mass, VAc has smaller \\(k_p\\))\nII. Different monomer concentrations (bulk vs 50%)\nIII. Different initiator (AIBN vs ACHN) (ACHN decomposition is much slower)\nIV. Different initiator concentrations (0.005 vs 0.01 mol/L)\nV. Different temperatures (60 \\(^\\circ\\)C vs 80 \\(^\\circ\\)C)\nFor every single reaction answer this question:\n\nCompare the number of polymers obtained from the polymerization and the number of initiator consumption\nA. much greater; B. comparable (ratio within 0.5 to 2 and keep constant); C. much less\n\nFor each pair of reactions answer the following questions (the second reaction compare to the first reaction).\n\nRadical concentration\nA. increase; B. similar; C. decrease; D. need more information to tell\nRate of polymerization (i.e. percent consumption of monomers vs time)\nA. increase; B. similar; C. decrease; D. need more information to tell\nReason for the change in polymerization rate (the answer could be one or both of the choices)\nA. change in radical concentration; B. change in \\(k_p\\)\nExplain your choices for the above two questions.\nInitial molecular weight\nA. increase; B. similar; C. decrease; D. need more information to tell\nReason for the change in initial molecular weight (the answer could be one or multiple of the choices)\nA. rate of monomer consumption; B. monomer concentration; C. number of polymers being formed.\nExplain your choices for the above two questions.",
+    "crumbs": [
+      "Home",
+      "Module 3 Conventional Radical Polymerization"
+    ]
   },
   {
     "objectID": "modules/M03_ConvenRad.html#example-practice-questions",
     "href": "modules/M03_ConvenRad.html#example-practice-questions",
     "title": "Module 3 Conventional Radical Polymerization",
     "section": "4. Example practice questions",
-    "text": "4. Example practice questions\n\nIn a conventional radical polymerization, adding more thermal initiator, e.g., AIBN, and keeping all other reaction conditions not changed, what would happen to the product?\n\n\n\nMore polymers will be produced at the same reaction time.\n\nHigher monomer conversion is expected at the same reaction time.\n\nLager average molecular weight is expected.\n\nHigher radical concentration is expected at the same reaction time.\n\n\nIn a conventional radical polymerization, change the initial monomer concentration from 8 mol/L to 4 mol/L (by changing the ratio between the monomer and inert solvent) and keep all other reaction conditions not changed, what would happen to the product?\n\n\n\nFewer polymers will be produced at the same reaction time.\n\nLower monomer conversion is expected at the same reaction time.\n\nLower average molecular weight is expected.\n\nLower radical concentration is expected at the same reaction time."
+    "text": "4. Example practice questions\n\nIn a conventional radical polymerization, adding more thermal initiator, e.g., AIBN, and keeping all other reaction conditions not changed, what would happen to the product?\n\n\n\nMore polymers will be produced at the same reaction time.\n\nHigher monomer conversion is expected at the same reaction time.\n\nLager average molecular weight is expected.\n\nHigher radical concentration is expected at the same reaction time.\n\n\nIn a conventional radical polymerization, change the initial monomer concentration from 8 mol/L to 4 mol/L (by changing the ratio between the monomer and inert solvent) and keep all other reaction conditions not changed, what would happen to the product?\n\n\n\nFewer polymers will be produced at the same reaction time.\n\nLower monomer conversion is expected at the same reaction time.\n\nLower average molecular weight is expected.\n\nLower radical concentration is expected at the same reaction time.",
+    "crumbs": [
+      "Home",
+      "Module 3 Conventional Radical Polymerization"
+    ]
   },
   {
     "objectID": "modules/M03_ConvenRad.html#copyright",
     "href": "modules/M03_ConvenRad.html#copyright",
     "title": "Module 3 Conventional Radical Polymerization",
     "section": "Copyright",
-    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License."
+    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License.",
+    "crumbs": [
+      "Home",
+      "Module 3 Conventional Radical Polymerization"
+    ]
   },
   {
     "objectID": "modules/M04_ATRP.html",
     "href": "modules/M04_ATRP.html",
     "title": "Module 4 Atom Transfer Radical Polymerization",
     "section": "",
-    "text": "Adapted with permission from Macromolecules 2003, 36, 6, 1843-1849, Copyright © 2003 American Chemical Society."
+    "text": "Adapted with permission from Macromolecules 2003, 36, 6, 1843-1849, Copyright © 2003 American Chemical Society.",
+    "crumbs": [
+      "Home",
+      "Module 4 Atom Transfer Radical Polymerization"
+    ]
   },
   {
     "objectID": "modules/M04_ATRP.html#link-to-the-simulator",
     "href": "modules/M04_ATRP.html#link-to-the-simulator",
     "title": "Module 4 Atom Transfer Radical Polymerization",
     "section": "1. Link to the simulator",
-    "text": "1. Link to the simulator\nAtom Transfer Radical Polymerization"
+    "text": "1. Link to the simulator\nAtom Transfer Radical Polymerization",
+    "crumbs": [
+      "Home",
+      "Module 4 Atom Transfer Radical Polymerization"
+    ]
   },
   {
     "objectID": "modules/M04_ATRP.html#module-objectives",
     "href": "modules/M04_ATRP.html#module-objectives",
     "title": "Module 4 Atom Transfer Radical Polymerization",
     "section": "2 Module objectives",
-    "text": "2 Module objectives\n\nPredict how would the polymerization result change when the reaction condition of an atom transfer radical polymerization (ATRP) is varied.\nExplain the reason of the change."
+    "text": "2 Module objectives\n\nPredict how would the polymerization result change when the reaction condition of an atom transfer radical polymerization (ATRP) is varied.\nExplain the reason of the change.",
+    "crumbs": [
+      "Home",
+      "Module 4 Atom Transfer Radical Polymerization"
+    ]
   },
   {
     "objectID": "modules/M04_ATRP.html#classroom-implementation-ideas",
     "href": "modules/M04_ATRP.html#classroom-implementation-ideas",
     "title": "Module 4 Atom Transfer Radical Polymerization",
     "section": "3. Classroom implementation ideas",
-    "text": "3. Classroom implementation ideas\nVirtual experiments\nSeries I to IV are normal ATRP.\nEvery time when you open the simulator, it is set at the default condition. After each series of experiments, close the simulator and reopen it to reset to the default condition.\nFor each series of experiments, change the parameters accordingly and observe how would the polymerization results change.\n\nIncrease initial CuI concentration 0 to 0.0275.\n\nIncrease initial CuII concentration 0 to 0.0275.\n\nKeep [CuI]/[CuII] constant and change both in the range 0 to 0.0275.\n\nIncrease initial RX concentration 0.0055 to 0.135.\n\nSeries V to VII are ICAR ATRP.\nBefore each series of experiment close and reopen the simulatior. Then, change the type of polymerization, i.e., Poly_type from ‘normal’ to ‘icar’, change both k_a_0_atrp and k_a_atrp from 9.6 to 96, change the values of both c0_CuI and c0_CuII to 0.0001.\nFor each series of experiments, change the parameter accordingly and observe how would the polymerization results change.\n\nIncrease AIBN initial concentration, i.e., c0_TI, 0.00069 - 0.0069 (After each experiment, can change Poly_type to ‘conven’ to compare ICAR ATRP with conventional radical polymerization)\n\n\n\nIncrease initial CuI concentration 0 - 0.000275\n\nIncrease initial CuII concentration 0 - 0.000275\n\nQuestions:\nIn each series experiments, how do the following results change? Explain why.\n\nNumber of polymers A) increase B) no change C) decrease\nRate of polymerization (percent of monomer conversion vs time) A) increase B) no change C) decrease\nNumber average molecular weight at the same monomer conversion A) increase B) no change C) decrease"
+    "text": "3. Classroom implementation ideas\nVirtual experiments\nSeries I to IV are normal ATRP.\nEvery time when you open the simulator, it is set at the default condition. After each series of experiments, close the simulator and reopen it to reset to the default condition.\nFor each series of experiments, change the parameters accordingly and observe how would the polymerization results change.\n\nIncrease initial CuI concentration 0 to 0.0275.\n\nIncrease initial CuII concentration 0 to 0.0275.\n\nKeep [CuI]/[CuII] constant and change both in the range 0 to 0.0275.\n\nIncrease initial RX concentration 0.0055 to 0.135.\n\nSeries V to VII are ICAR ATRP.\nBefore each series of experiment close and reopen the simulatior. Then, change the type of polymerization, i.e., Poly_type from ‘normal’ to ‘icar’, change both k_a_0_atrp and k_a_atrp from 9.6 to 96, change the values of both c0_CuI and c0_CuII to 0.0001.\nFor each series of experiments, change the parameter accordingly and observe how would the polymerization results change.\n\nIncrease AIBN initial concentration, i.e., c0_TI, 0.00069 - 0.0069 (After each experiment, can change Poly_type to ‘conven’ to compare ICAR ATRP with conventional radical polymerization)\n\n\n\nIncrease initial CuI concentration 0 - 0.000275\n\nIncrease initial CuII concentration 0 - 0.000275\n\nQuestions:\nIn each series experiments, how do the following results change? Explain why.\n\nNumber of polymers A) increase B) no change C) decrease\nRate of polymerization (percent of monomer conversion vs time) A) increase B) no change C) decrease\nNumber average molecular weight at the same monomer conversion A) increase B) no change C) decrease",
+    "crumbs": [
+      "Home",
+      "Module 4 Atom Transfer Radical Polymerization"
+    ]
   },
   {
     "objectID": "modules/M04_ATRP.html#example-practice-questions",
     "href": "modules/M04_ATRP.html#example-practice-questions",
     "title": "Module 4 Atom Transfer Radical Polymerization",
     "section": "4. Example practice questions",
-    "text": "4. Example practice questions\n\nIn a conventional radical polymerization, adding more thermal initiator, e.g., AIBN, and keeping all other reaction conditions not changed, what would happen to the product? Briefly explain your choice.\n\n\n\nThe number average molecular weight would be larger since the polymerization is faster.\n\nThe number average molecular weight would be smaller while the polymerization is faster.\n\nThe number average molecular weight would remain more or less the same.\n\nThe number average molecular weight would change but you need more information to tell if it would be larger or smaller.\n\n\nIn a conventional radical polymerization, raising the reaction temperature and keeping all other reaction conditions not changed, what would happen to the product? Briefly explain your choice.\n\n\n\nThe number average molecular weight would be larger since the polymerization is faster.\n\nThe number average molecular weight would be smaller while the polymerization is faster.\n\nThe number average molecular weight would remain more or less the same.\n\nThe number average molecular weight would change but you need more information to tell if it would be larger or smaller.\n\n\nWhich of the following statement is true?\nA. In an ICAR ATRP process, the number of polymers mainly depends on the amount of AIBN added to the system.\n\n\n\nIn an ICAR ATRP process, the theoretical molecular weight of resulting polymers increases linearly with the monomer conversion, thus the number of polymer molecules must also increase linearly with the monomer conversion.\n\nIn an ICAR ATRP process, the number of polymers mainly depends on the RX type initiator added to the system. The decomposition of AIBN would slightly increase the number of polymers.\n\nIn an ICAR ATRP process, the decomposition of AIBN adds more monomer chains to the system, which would cause the actual number average molecular weight to be slightly larger than the theoretical value.\n\n\nHow to calculate the number average molecular weight for a normal ATRP and for an ICAR ATRP, knowing the initial concentrations of RX and monomer, monomer conversion, and the molecular weight of the monomer?\nComparing a conventional radical polymerization and an ICAR ATRP process, which of the following statement(s) is (are) NOT true? The common reagents and their concentrations used in the ICAR ATRP and in conventional radical polymerization are the same. In ICAR ATRP, RX and a trace amount of Cu catalyst are added while in the conventional radical polymerization, they are absent. The reaction temperature and reaction time are the same.\n\n\n\nThe monomer conversions in both cases are more or less the same.\n\nThe amount of termination in both cases is more or less the same.\n\nThe numbers of polymers in both cases are more or less the same.\n\nThe number average molecular weights of the resulting polymers in both cases are more or less the same."
+    "text": "4. Example practice questions\n\nIn a conventional radical polymerization, adding more thermal initiator, e.g., AIBN, and keeping all other reaction conditions not changed, what would happen to the product? Briefly explain your choice.\n\n\n\nThe number average molecular weight would be larger since the polymerization is faster.\n\nThe number average molecular weight would be smaller while the polymerization is faster.\n\nThe number average molecular weight would remain more or less the same.\n\nThe number average molecular weight would change but you need more information to tell if it would be larger or smaller.\n\n\nIn a conventional radical polymerization, raising the reaction temperature and keeping all other reaction conditions not changed, what would happen to the product? Briefly explain your choice.\n\n\n\nThe number average molecular weight would be larger since the polymerization is faster.\n\nThe number average molecular weight would be smaller while the polymerization is faster.\n\nThe number average molecular weight would remain more or less the same.\n\nThe number average molecular weight would change but you need more information to tell if it would be larger or smaller.\n\n\nWhich of the following statement is true?\nA. In an ICAR ATRP process, the number of polymers mainly depends on the amount of AIBN added to the system.\n\n\n\nIn an ICAR ATRP process, the theoretical molecular weight of resulting polymers increases linearly with the monomer conversion, thus the number of polymer molecules must also increase linearly with the monomer conversion.\n\nIn an ICAR ATRP process, the number of polymers mainly depends on the RX type initiator added to the system. The decomposition of AIBN would slightly increase the number of polymers.\n\nIn an ICAR ATRP process, the decomposition of AIBN adds more monomer chains to the system, which would cause the actual number average molecular weight to be slightly larger than the theoretical value.\n\n\nHow to calculate the number average molecular weight for a normal ATRP and for an ICAR ATRP, knowing the initial concentrations of RX and monomer, monomer conversion, and the molecular weight of the monomer?\nComparing a conventional radical polymerization and an ICAR ATRP process, which of the following statement(s) is (are) NOT true? The common reagents and their concentrations used in the ICAR ATRP and in conventional radical polymerization are the same. In ICAR ATRP, RX and a trace amount of Cu catalyst are added while in the conventional radical polymerization, they are absent. The reaction temperature and reaction time are the same.\n\n\n\nThe monomer conversions in both cases are more or less the same.\n\nThe amount of termination in both cases is more or less the same.\n\nThe numbers of polymers in both cases are more or less the same.\n\nThe number average molecular weights of the resulting polymers in both cases are more or less the same.",
+    "crumbs": [
+      "Home",
+      "Module 4 Atom Transfer Radical Polymerization"
+    ]
   },
   {
     "objectID": "modules/M04_ATRP.html#copyright",
     "href": "modules/M04_ATRP.html#copyright",
     "title": "Module 4 Atom Transfer Radical Polymerization",
     "section": "Copyright",
-    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License."
+    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License.",
+    "crumbs": [
+      "Home",
+      "Module 4 Atom Transfer Radical Polymerization"
+    ]
   },
   {
     "objectID": "modules/M05_RadCopoly.html#link-to-the-simulator",
     "href": "modules/M05_RadCopoly.html#link-to-the-simulator",
     "title": "Module 5 Radical Copolymerization",
     "section": "1. Link to the simulator",
-    "text": "1. Link to the simulator\nRadical Copolymerization"
+    "text": "1. Link to the simulator\nRadical Copolymerization",
+    "crumbs": [
+      "Home",
+      "Module 5 Radical Copolymerization"
+    ]
   },
   {
     "objectID": "modules/M05_RadCopoly.html#module-objectives",
     "href": "modules/M05_RadCopoly.html#module-objectives",
     "title": "Module 5 Radical Copolymerization",
     "section": "2 Module objectives",
-    "text": "2 Module objectives\n\nGiven the reactivity ratio and the monomer feedstock fractions, predict which monomer is being consumed faster and what type of polymers (random, alternating, blocky, etc.) are being produced.\nCaculate F1 knowing f1 and predict if it is possible that f1 equals F1. If f1 equals F1, what is the value?"
+    "text": "2 Module objectives\n\nGiven the reactivity ratio and the monomer feedstock fractions, predict which monomer is being consumed faster and what type of polymers (random, alternating, blocky, etc.) are being produced.\nCaculate F1 knowing f1 and predict if it is possible that f1 equals F1. If f1 equals F1, what is the value?",
+    "crumbs": [
+      "Home",
+      "Module 5 Radical Copolymerization"
+    ]
   },
   {
     "objectID": "modules/M05_RadCopoly.html#classroom-implementation-ideas",
     "href": "modules/M05_RadCopoly.html#classroom-implementation-ideas",
     "title": "Module 5 Radical Copolymerization",
     "section": "3. Classroom implementation ideas",
-    "text": "3. Classroom implementation ideas\nPerform the following virtual experiments (f1 = 0.5 for all cases) and answer the questions for each simulation.\nExperiments:\n\nMMA and Styrene (r1 = 0.46, r2 = 0.52)\n\nMA and MMA (r1 = 0.4, r2 = 2.2)\n\nMA and Styrene (r1 = 0.80, r2 = 0.19)\n\nStyrene and Maleic Anhydride (r1 = 0.05, r2 = 0.005)\n\nAcrylonitrile and Vinyl Acetate (r1 = 5.5, r2 = 0.06)\n\nQuestions:\n\nSelect the correct answer(s).\n\n\n\nWhen the chain end is M1, it prefers to add to M1.\n\nWhen the chain end is M1, it prefers to add to M2.\n\nWhen the chain end is M2, it prefers to add to M1.\n\nWhen the chain end is M2, it prefers to add to M2.\n\n\nSelect the correct answer.\n\n\n\nM1 is consumed faster.\n\nM2 is consumed faster.\n\nBoth M1 and M2 are consumed at nearly the same rate.\n\n\nPolymers produced at the beginning are\n\n\nBoth 1 and 2 block-wise\n\nAlternating\n\nRandom\n\nA block of 1 and just one or two unit of 2 and a block of 1 and …\n\nA block of 2 and just one or two unit of 1 and a block of 2 and …\n\n\nPolymers produced at the beginning have\n\n\n\nLarger fraction of 1\n\nLarger fraction of 2\n\nNearly the same fractions of 1 and 2\n\n\nWhat do you expect at the end of the polymerization\n\n\n\nNearly the same as beginning\n\nNearly just 1 left\n\nNearly just 2 left"
+    "text": "3. Classroom implementation ideas\nPerform the following virtual experiments (f1 = 0.5 for all cases) and answer the questions for each simulation.\nExperiments:\n\nMMA and Styrene (r1 = 0.46, r2 = 0.52)\n\nMA and MMA (r1 = 0.4, r2 = 2.2)\n\nMA and Styrene (r1 = 0.80, r2 = 0.19)\n\nStyrene and Maleic Anhydride (r1 = 0.05, r2 = 0.005)\n\nAcrylonitrile and Vinyl Acetate (r1 = 5.5, r2 = 0.06)\n\nQuestions:\n\nSelect the correct answer(s).\n\n\n\nWhen the chain end is M1, it prefers to add to M1.\n\nWhen the chain end is M1, it prefers to add to M2.\n\nWhen the chain end is M2, it prefers to add to M1.\n\nWhen the chain end is M2, it prefers to add to M2.\n\n\nSelect the correct answer.\n\n\n\nM1 is consumed faster.\n\nM2 is consumed faster.\n\nBoth M1 and M2 are consumed at nearly the same rate.\n\n\nPolymers produced at the beginning are\n\n\nBoth 1 and 2 block-wise\n\nAlternating\n\nRandom\n\nA block of 1 and just one or two unit of 2 and a block of 1 and …\n\nA block of 2 and just one or two unit of 1 and a block of 2 and …\n\n\nPolymers produced at the beginning have\n\n\n\nLarger fraction of 1\n\nLarger fraction of 2\n\nNearly the same fractions of 1 and 2\n\n\nWhat do you expect at the end of the polymerization\n\n\n\nNearly the same as beginning\n\nNearly just 1 left\n\nNearly just 2 left",
+    "crumbs": [
+      "Home",
+      "Module 5 Radical Copolymerization"
+    ]
   },
   {
     "objectID": "modules/M05_RadCopoly.html#example-practice-questions",
     "href": "modules/M05_RadCopoly.html#example-practice-questions",
     "title": "Module 5 Radical Copolymerization",
     "section": "4. Example practice questions",
-    "text": "4. Example practice questions\n\nIn a copolymerization of monomers 1 and 2, initially present in the mole ratio 1:1, what is the composition of the copolymer formed initially, if r1 = 0.46 and r2 = 0.52?\nA. F1 = 0.67\nB. F1 = 0.49\nC. F1 = 0.75\nD. F1 = 0.25\nE. F1 = 0.99\nTwo monomers M1 and M2 have reactivity ratios r1 = 1 and r2 = 1. The structure of the polymer produced from an equimolar mixture of the two monomers will be close to:\nA. -M1M2M1M2M1M2M1M2M1M2M1M2- (alternating)\nB. -M1M1M1M1M1M1M2M2M2M2M2M2- (block)\nC. -M1M2M1M1M1M2M2M1M2M2M1M2- (random)\nD. -M1M1M1M1M1M1- and -M2M2M2M2M2M2- (homopolymers)\nTwo monomers M1 and M2 have reactivity ratios r1 = 0.01 and r2 = 0.005. The structure of the polymer produced from an equimolar mixture of the two monomers will be close to:\nA. -M1M2M1M2M1M2M1M2M1M2M1M2- (alternating)\nB. -M1M1M1M1M1M1M2M2M2M2M2M2- (block)\nC. -M1M2M1M1M1M2M2M1M2M2M1M2- (random)\nD. -M1M1M1M1M1M1- and -M2M2M2M2M2M2- (homopolymers)\nFor the copolymerization of monomer 1 with monomer 2, the reactivity ratios are r1 = 0.7, r2 = 0.3. At what mole fraction of monomer 1 in the feed will the composition of the copolymer exactly equal this feed composition?\nA. 0.3\nB. 0.5\nC. 0.7\nD. 0.8\nE. 0.9"
+    "text": "4. Example practice questions\n\nIn a copolymerization of monomers 1 and 2, initially present in the mole ratio 1:1, what is the composition of the copolymer formed initially, if r1 = 0.46 and r2 = 0.52?\nA. F1 = 0.67\nB. F1 = 0.49\nC. F1 = 0.75\nD. F1 = 0.25\nE. F1 = 0.99\nTwo monomers M1 and M2 have reactivity ratios r1 = 1 and r2 = 1. The structure of the polymer produced from an equimolar mixture of the two monomers will be close to:\nA. -M1M2M1M2M1M2M1M2M1M2M1M2- (alternating)\nB. -M1M1M1M1M1M1M2M2M2M2M2M2- (block)\nC. -M1M2M1M1M1M2M2M1M2M2M1M2- (random)\nD. -M1M1M1M1M1M1- and -M2M2M2M2M2M2- (homopolymers)\nTwo monomers M1 and M2 have reactivity ratios r1 = 0.01 and r2 = 0.005. The structure of the polymer produced from an equimolar mixture of the two monomers will be close to:\nA. -M1M2M1M2M1M2M1M2M1M2M1M2- (alternating)\nB. -M1M1M1M1M1M1M2M2M2M2M2M2- (block)\nC. -M1M2M1M1M1M2M2M1M2M2M1M2- (random)\nD. -M1M1M1M1M1M1- and -M2M2M2M2M2M2- (homopolymers)\nFor the copolymerization of monomer 1 with monomer 2, the reactivity ratios are r1 = 0.7, r2 = 0.3. At what mole fraction of monomer 1 in the feed will the composition of the copolymer exactly equal this feed composition?\nA. 0.3\nB. 0.5\nC. 0.7\nD. 0.8\nE. 0.9",
+    "crumbs": [
+      "Home",
+      "Module 5 Radical Copolymerization"
+    ]
   },
   {
     "objectID": "modules/M05_RadCopoly.html#copyright",
     "href": "modules/M05_RadCopoly.html#copyright",
     "title": "Module 5 Radical Copolymerization",
     "section": "Copyright",
-    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License."
+    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License.",
+    "crumbs": [
+      "Home",
+      "Module 5 Radical Copolymerization"
+    ]
   },
   {
     "objectID": "modules/M06_Network.html#link-to-the-simulator",
     "href": "modules/M06_Network.html#link-to-the-simulator",
     "title": "Module 6 Network formation",
     "section": "1. Link to the simulator",
-    "text": "1. Link to the simulator\nNetwork formation"
+    "text": "1. Link to the simulator\nNetwork formation",
+    "crumbs": [
+      "Home",
+      "Module 6 Network formation"
+    ]
   },
   {
     "objectID": "modules/M06_Network.html#module-objectives",
     "href": "modules/M06_Network.html#module-objectives",
     "title": "Module 6 Network formation",
     "section": "2 Module objectives",
-    "text": "2 Module objectives\n\nUnderstand the role of the largest molecule in a gelation process.\nUnderstand the significant changes of the system when gelation happens.\nUnderstand sol-gel fractions when network is formed."
+    "text": "2 Module objectives\n\nUnderstand the role of the largest molecule in a gelation process.\nUnderstand the significant changes of the system when gelation happens.\nUnderstand sol-gel fractions when network is formed.",
+    "crumbs": [
+      "Home",
+      "Module 6 Network formation"
+    ]
   },
   {
     "objectID": "modules/M06_Network.html#classroom-implementation-ideas",
     "href": "modules/M06_Network.html#classroom-implementation-ideas",
     "title": "Module 6 Network formation",
     "section": "3. Classroom implementation ideas",
-    "text": "3. Classroom implementation ideas\nExperiments:\nSet the number of monomers as \\(10^5\\) and the ratio between A and B as 1. Change the ratio between A3 and AA and perform simulations. The values of A3 to AA are set as 0.1, 0.5, 1, 1.5, and 2.\nSet the number of monomers as \\(10^5\\), ratio between A and B as 0.95, and the ratio between A3 and AA as 0.1, perform the simulation.\nQuestions:\n\nObserve the change of the mean DP and the mean DP without the largest molecule in each simulation. Conclude what happens to the system at the gelation point.\nHow do the DPs of the second, third, fifth, tenth largest molecules change with the extent of reaction? What do you observe at the gelation point?\nCompare the sol fractions under the conditions: (1) the ratio between A3 and AA is 0.1 and the ratio between A and B is 0.95; and (2) the ratio between A3 and AA is 0.1 and the ratio between A and B is 1. Explain why these two conditions lead to such different results."
+    "text": "3. Classroom implementation ideas\nExperiments:\nSet the number of monomers as \\(10^5\\) and the ratio between A and B as 1. Change the ratio between A3 and AA and perform simulations. The values of A3 to AA are set as 0.1, 0.5, 1, 1.5, and 2.\nSet the number of monomers as \\(10^5\\), ratio between A and B as 0.95, and the ratio between A3 and AA as 0.1, perform the simulation.\nQuestions:\n\nObserve the change of the mean DP and the mean DP without the largest molecule in each simulation. Conclude what happens to the system at the gelation point.\nHow do the DPs of the second, third, fifth, tenth largest molecules change with the extent of reaction? What do you observe at the gelation point?\nCompare the sol fractions under the conditions: (1) the ratio between A3 and AA is 0.1 and the ratio between A and B is 0.95; and (2) the ratio between A3 and AA is 0.1 and the ratio between A and B is 1. Explain why these two conditions lead to such different results.",
+    "crumbs": [
+      "Home",
+      "Module 6 Network formation"
+    ]
   },
   {
     "objectID": "modules/M06_Network.html#example-practice-questions",
     "href": "modules/M06_Network.html#example-practice-questions",
     "title": "Module 6 Network formation",
     "section": "4. Example practice questions",
-    "text": "4. Example practice questions\n\nCalculate the critical extent of reaction when gelation would occur based on Carothers’ theory and the statistical theory, given the ratio between A and B is 1 and the ratio between A3 and AA is 0.5.\nBased on the simulations, describe what happens to the sytem when gelation occur.\nWhich of the following statement is true?\n\n\nIf the quantities of two types of functional groups are imbalanced, gelation would never occur.\n\nIf the quantities of two types of functional groups are imbalanced, the sol fraction would be relatively large at the same extent of reaction after gelation occurs.\n\nWhen gelation occurs all molecules in the system merge into one huge molecule.\n\nWhen gelation occurs the largest molecules, i.e., the largest, the second largest, the third largest, …, all grow bigger exponentially."
+    "text": "4. Example practice questions\n\nCalculate the critical extent of reaction when gelation would occur based on Carothers’ theory and the statistical theory, given the ratio between A and B is 1 and the ratio between A3 and AA is 0.5.\nBased on the simulations, describe what happens to the sytem when gelation occur.\nWhich of the following statement is true?\n\n\nIf the quantities of two types of functional groups are imbalanced, gelation would never occur.\n\nIf the quantities of two types of functional groups are imbalanced, the sol fraction would be relatively large at the same extent of reaction after gelation occurs.\n\nWhen gelation occurs all molecules in the system merge into one huge molecule.\n\nWhen gelation occurs the largest molecules, i.e., the largest, the second largest, the third largest, …, all grow bigger exponentially.",
+    "crumbs": [
+      "Home",
+      "Module 6 Network formation"
+    ]
   },
   {
     "objectID": "modules/M06_Network.html#copyright",
     "href": "modules/M06_Network.html#copyright",
     "title": "Module 6 Network formation",
     "section": "Copyright",
-    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License."
+    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License.",
+    "crumbs": [
+      "Home",
+      "Module 6 Network formation"
+    ]
   },
   {
     "objectID": "modules/M07_SingleChain.html#link-to-the-simulator",
     "href": "modules/M07_SingleChain.html#link-to-the-simulator",
     "title": "Module 7 Single chain conformation",
     "section": "1. Link to the simulator",
-    "text": "1. Link to the simulator\nSingle chain conformation"
+    "text": "1. Link to the simulator\nSingle chain conformation",
+    "crumbs": [
+      "Home",
+      "Module 7 Single chain conformation"
+    ]
   },
   {
     "objectID": "modules/M07_SingleChain.html#module-objectives",
     "href": "modules/M07_SingleChain.html#module-objectives",
     "title": "Module 7 Single chain conformation",
     "section": "2 Module objectives",
-    "text": "2 Module objectives\n\nDerive the correlation between the root mean square (RMS) end-to-end distance and the degree of polymerization (\\(DP\\)) for three chain models: freely hinged, freely rotation, and hindered rotation.\nCompare the RMS end-to-end distances of polymers with the same \\(DP\\) across the three different models.\nUnderstand the universal scaling rule between chain size (RMS end-to-end distance and radius of gyration) and \\(DP\\)$, irrespective of the chain model."
+    "text": "2 Module objectives\n\nDerive the correlation between the root mean square (RMS) end-to-end distance and the degree of polymerization (\\(DP\\)) for three chain models: freely hinged, freely rotation, and hindered rotation.\nCompare the RMS end-to-end distances of polymers with the same \\(DP\\) across the three different models.\nUnderstand the universal scaling rule between chain size (RMS end-to-end distance and radius of gyration) and \\(DP\\)$, irrespective of the chain model.",
+    "crumbs": [
+      "Home",
+      "Module 7 Single chain conformation"
+    ]
   },
   {
     "objectID": "modules/M07_SingleChain.html#classroom-implementation-ideas",
     "href": "modules/M07_SingleChain.html#classroom-implementation-ideas",
     "title": "Module 7 Single chain conformation",
     "section": "3. Classroom implementation ideas",
-    "text": "3. Classroom implementation ideas\nExperiments:\nSet the chain type as freely hinged. Perform a series of experiments for different degree of polymerization (\\(DP\\)) and record the RMS end-to-end distance (\\(h\\)) and radius of gyration (\\(R_g\\)) in the table:\n\n\n\n\\(DP\\)\n\\(h\\)\n\\(R_g\\)\n\n\n\n\n50\n\n\n\n\n100\n\n\n\n\n200\n\n\n\n\n400\n\n\n\n\n800\n\n\n\n\n\nSet the bond angle as 109.5 \\(^\\circ\\) and keep it constant. Repeat the process as described above for freely rotation and hindered rotation models.\nQuestions:\n\nIn general, does the RMS end-to-end distance or the RMS radius of gyration have narrower distribution? Explain why.\nPlot \\(\\ln{h}\\) vs \\(\\ln(DP)\\) and \\(\\ln(R_g)\\) vs \\(\\ln(DP)\\), find out how do \\(h\\) and \\(R_g\\) change with increasing \\(DP\\). Is the trend always the same across different models?\nCompare the \\(h\\) and \\(R_g\\) values for different models with the same \\(DP\\). What trend do you find?"
+    "text": "3. Classroom implementation ideas\nExperiments:\nSet the chain type as freely hinged. Perform a series of experiments for different degree of polymerization (\\(DP\\)) and record the RMS end-to-end distance (\\(h\\)) and radius of gyration (\\(R_g\\)) in the table:\n\n\n\n\\(DP\\)\n\\(h\\)\n\\(R_g\\)\n\n\n\n\n50\n\n\n\n\n100\n\n\n\n\n200\n\n\n\n\n400\n\n\n\n\n800\n\n\n\n\n\nSet the bond angle as 109.5 \\(^\\circ\\) and keep it constant. Repeat the process as described above for freely rotation and hindered rotation models.\nQuestions:\n\nIn general, does the RMS end-to-end distance or the RMS radius of gyration have narrower distribution? Explain why.\nPlot \\(\\ln{h}\\) vs \\(\\ln(DP)\\) and \\(\\ln(R_g)\\) vs \\(\\ln(DP)\\), find out how do \\(h\\) and \\(R_g\\) change with increasing \\(DP\\). Is the trend always the same across different models?\nCompare the \\(h\\) and \\(R_g\\) values for different models with the same \\(DP\\). What trend do you find?",
+    "crumbs": [
+      "Home",
+      "Module 7 Single chain conformation"
+    ]
   },
   {
     "objectID": "modules/M07_SingleChain.html#example-practice-questions",
     "href": "modules/M07_SingleChain.html#example-practice-questions",
     "title": "Module 7 Single chain conformation",
     "section": "4. Example practice questions",
-    "text": "4. Example practice questions\n\nThe sizes (the RMS end-to-end distance or the RMS radius of gyration) of a linear polystyrene sample with the average \\(DP\\) 10000 should be roughly \\(\\underline{\\qquad}\\) times larger than a sample with the average \\(DP\\) 100 based on the freely hinged model. Based on freely rotation and hindered rotation model will the answer be the same or different?\nWhy the RMS radius of gyration usually has narrower distribution than the RMS end-to-end distance?\nWhich statement is true?\n\n\nThe end-to-end distance of a freely rotation chain must be greater than that of a freely hinged chain if both chains have the same \\(DP\\).\n\nThe radius of gyration of a freely rotation chain must be greater than that of a freely hinged chain if both chains have the same \\(DP\\).\n\nIf \\(DP\\) increase by a factor of 3, the RMS end-to-end distance increase by a factor of 6.\nIf the RMS end-to-end distance of freely rotation polymer chains with \\(DP\\) 50 is \\(c\\) times larger than that of freely hinged chians with the same \\(DP\\), the RMS end-to-end distance of freely rotation polymer chains with \\(DP\\) 500 should also be \\(c\\) times larger than that of freely hinged chains with the same \\(DP\\)."
+    "text": "4. Example practice questions\n\nThe sizes (the RMS end-to-end distance or the RMS radius of gyration) of a linear polystyrene sample with the average \\(DP\\) 10000 should be roughly \\(\\underline{\\qquad}\\) times larger than a sample with the average \\(DP\\) 100 based on the freely hinged model. Based on freely rotation and hindered rotation model will the answer be the same or different?\nWhy the RMS radius of gyration usually has narrower distribution than the RMS end-to-end distance?\nWhich statement is true?\n\n\nThe end-to-end distance of a freely rotation chain must be greater than that of a freely hinged chain if both chains have the same \\(DP\\).\n\nThe radius of gyration of a freely rotation chain must be greater than that of a freely hinged chain if both chains have the same \\(DP\\).\n\nIf \\(DP\\) increase by a factor of 3, the RMS end-to-end distance increase by a factor of 6.\nIf the RMS end-to-end distance of freely rotation polymer chains with \\(DP\\) 50 is \\(c\\) times larger than that of freely hinged chians with the same \\(DP\\), the RMS end-to-end distance of freely rotation polymer chains with \\(DP\\) 500 should also be \\(c\\) times larger than that of freely hinged chains with the same \\(DP\\).",
+    "crumbs": [
+      "Home",
+      "Module 7 Single chain conformation"
+    ]
   },
   {
     "objectID": "modules/M07_SingleChain.html#copyright",
     "href": "modules/M07_SingleChain.html#copyright",
     "title": "Module 7 Single chain conformation",
     "section": "Copyright",
-    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License."
+    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License.",
+    "crumbs": [
+      "Home",
+      "Module 7 Single chain conformation"
+    ]
   },
   {
     "objectID": "modules/M08_SelfAvoid.html",
     "href": "modules/M08_SelfAvoid.html",
     "title": "Module 8 Self-avoid chains",
     "section": "",
-    "text": "Like a snake, avoid running into yourself!"
+    "text": "Like a snake, avoid running into yourself!",
+    "crumbs": [
+      "Home",
+      "Module 8 Self-avoid chains"
+    ]
   },
   {
     "objectID": "modules/M08_SelfAvoid.html#link-to-the-simulator",
     "href": "modules/M08_SelfAvoid.html#link-to-the-simulator",
     "title": "Module 8 Self-avoid chains",
     "section": "1. Link to the simulator",
-    "text": "1. Link to the simulator\nSelf-avoid chains"
+    "text": "1. Link to the simulator\nSelf-avoid chains",
+    "crumbs": [
+      "Home",
+      "Module 8 Self-avoid chains"
+    ]
   },
   {
     "objectID": "modules/M08_SelfAvoid.html#module-objectives",
     "href": "modules/M08_SelfAvoid.html#module-objectives",
     "title": "Module 8 Self-avoid chains",
     "section": "2 Module objectives",
-    "text": "2 Module objectives\n\nCompare the root mean square (RMS) end-to-end distances and radii of gyration of polymers with the same degree of polymerization (\\(DP\\)) based on hindered rotation model and self-avoid hindered rotation model.\nDerive the scaling rule between the size of the polymer chain and the degree of polymerization (\\(DP\\)) for self-avoid chains given the self-avoid criteria.\nExplore the influence of self-avoid criteria on the scaling rule."
+    "text": "2 Module objectives\n\nCompare the root mean square (RMS) end-to-end distances and radii of gyration of polymers with the same degree of polymerization (\\(DP\\)) based on hindered rotation model and self-avoid hindered rotation model.\nDerive the scaling rule between the size of the polymer chain and the degree of polymerization (\\(DP\\)) for self-avoid chains given the self-avoid criteria.\nExplore the influence of self-avoid criteria on the scaling rule.",
+    "crumbs": [
+      "Home",
+      "Module 8 Self-avoid chains"
+    ]
   },
   {
     "objectID": "modules/M08_SelfAvoid.html#classroom-implementation-ideas",
     "href": "modules/M08_SelfAvoid.html#classroom-implementation-ideas",
     "title": "Module 8 Self-avoid chains",
     "section": "3. Classroom implementation ideas",
-    "text": "3. Classroom implementation ideas\nExperiments:\nSet the self avoid threshold as 1.5 and bond angle as 109.5 \\(^\\circ\\), perform simulations with different chain lengths, record the results in the table.\n\n\n\nDP\n\\(h_{nsa}\\)\n\\(h_{sa}\\)\n\\(R_{g,nsa}\\)\n\\(R_{g,sa}\\)\n\n\n\n\n25\n\n\n\n\n\n\n50\n\n\n\n\n\n\n100\n\n\n\n\n\n\n200\n\n\n\n\n\n\n400\n\n\n\n\n\n\n\nThe subscript “nsa” means non-self-avoid and “sa” means self-avoid.\nQuestions:\n\nDoes the self-avoid chain model have the same scaling factor as non-self-avoid model? What is the scaling factor of the self-avoid chain under the simulation conditions?\nChange the self avoid threshold and perform the simulations again. How does the self-avoid threshold influence the scaling factor?\nChange the bond angles and perform the simulations again. How does the bond angle influence the scaling factor?"
+    "text": "3. Classroom implementation ideas\nExperiments:\nSet the self avoid threshold as 1.5 and bond angle as 109.5 \\(^\\circ\\), perform simulations with different chain lengths, record the results in the table.\n\n\n\nDP\n\\(h_{nsa}\\)\n\\(h_{sa}\\)\n\\(R_{g,nsa}\\)\n\\(R_{g,sa}\\)\n\n\n\n\n25\n\n\n\n\n\n\n50\n\n\n\n\n\n\n100\n\n\n\n\n\n\n200\n\n\n\n\n\n\n400\n\n\n\n\n\n\n\nThe subscript “nsa” means non-self-avoid and “sa” means self-avoid.\nQuestions:\n\nDoes the self-avoid chain model have the same scaling factor as non-self-avoid model? What is the scaling factor of the self-avoid chain under the simulation conditions?\nChange the self avoid threshold and perform the simulations again. How does the self-avoid threshold influence the scaling factor?\nChange the bond angles and perform the simulations again. How does the bond angle influence the scaling factor?",
+    "crumbs": [
+      "Home",
+      "Module 8 Self-avoid chains"
+    ]
   },
   {
     "objectID": "modules/M08_SelfAvoid.html#example-practice-questions",
     "href": "modules/M08_SelfAvoid.html#example-practice-questions",
     "title": "Module 8 Self-avoid chains",
     "section": "4. Example practice questions",
-    "text": "4. Example practice questions\n\nWhich of the statement is true?\n\n\nGiven the same \\(DP\\), a self-avoid chain always have larger end-to-end distance than a non-self-avoid chain.\nGiven the same \\(DP\\), the RMS end-to-end distance of self-avoid chains is larger than that of non-self-avoid chains.\nWith \\(DP=50\\), the RMS end-to-end distance of self-avoid chains is \\(a\\) times larger than that of non-self-avoid chains; for \\(DP=500\\), the factor \\(a\\) should be the same comparing the RMS end-to-end distance of self-avoid chains and non-self-avoid chains.\nGiven the same \\(DP\\), a self-avoid chain always have larger radius of gyration than a non-self-avoid chain.\n\n\nWhy self-avoid chain model does not have the same scaling rule as non-self-avoid chain model, i.e., \\(\\langle h\\rangle \\propto DP^{0.5}\\)?"
+    "text": "4. Example practice questions\n\nWhich of the statement is true?\n\n\nGiven the same \\(DP\\), a self-avoid chain always have larger end-to-end distance than a non-self-avoid chain.\nGiven the same \\(DP\\), the RMS end-to-end distance of self-avoid chains is larger than that of non-self-avoid chains.\nWith \\(DP=50\\), the RMS end-to-end distance of self-avoid chains is \\(a\\) times larger than that of non-self-avoid chains; for \\(DP=500\\), the factor \\(a\\) should be the same comparing the RMS end-to-end distance of self-avoid chains and non-self-avoid chains.\nGiven the same \\(DP\\), a self-avoid chain always have larger radius of gyration than a non-self-avoid chain.\n\n\nWhy self-avoid chain model does not have the same scaling rule as non-self-avoid chain model, i.e., \\(\\langle h\\rangle \\propto DP^{0.5}\\)?",
+    "crumbs": [
+      "Home",
+      "Module 8 Self-avoid chains"
+    ]
   },
   {
     "objectID": "modules/M08_SelfAvoid.html#copyright",
     "href": "modules/M08_SelfAvoid.html#copyright",
     "title": "Module 8 Self-avoid chains",
     "section": "Copyright",
-    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License."
+    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License.",
+    "crumbs": [
+      "Home",
+      "Module 8 Self-avoid chains"
+    ]
   },
   {
     "objectID": "modules/M09_StarBranch.html#link-to-the-simulator",
     "href": "modules/M09_StarBranch.html#link-to-the-simulator",
     "title": "Module 9 Star and branched polymers",
     "section": "1. Link to the simulator",
-    "text": "1. Link to the simulator\nStar and branch polymers"
+    "text": "1. Link to the simulator\nStar and branch polymers",
+    "crumbs": [
+      "Home",
+      "Module 9 Star and branched polymers"
+    ]
   },
   {
     "objectID": "modules/M09_StarBranch.html#module-objectives",
     "href": "modules/M09_StarBranch.html#module-objectives",
     "title": "Module 9 Star and branched polymers",
     "section": "2 Module objectives",
-    "text": "2 Module objectives\n\nCompare the radii of gyration of polymers with the same degree of polymerization but with different architectures, i.e., linear, star shapped, and branched.\nDerive the scaling rule between the radii of gyration and the degree of polymerization for star shapped polymers and branched polymers.\nExplore the influence of the number of branching points on the radii of gyration."
+    "text": "2 Module objectives\n\nCompare the radii of gyration of polymers with the same degree of polymerization but with different architectures, i.e., linear, star shapped, and branched.\nDerive the scaling rule between the radii of gyration and the degree of polymerization for star shapped polymers and branched polymers.\nExplore the influence of the number of branching points on the radii of gyration.",
+    "crumbs": [
+      "Home",
+      "Module 9 Star and branched polymers"
+    ]
   },
   {
     "objectID": "modules/M09_StarBranch.html#classroom-implementation-ideas",
     "href": "modules/M09_StarBranch.html#classroom-implementation-ideas",
     "title": "Module 9 Star and branched polymers",
     "section": "3. Classroom implementation ideas",
-    "text": "3. Classroom implementation ideas\nExperiments:\nSet the number of branching point as 10, perform simulations with different degree of polymerization (\\(DP\\)), record the root mean square (RMS) radii of gyration for linear, star and branched polymers.\n\n\n\n\\(DP\\)\nLinear\nStar\nBranched\n\n\n\n\n100\n\n\n\n\n\n200\n\n\n\n\n\n400\n\n\n\n\n\n800\n\n\n\n\n\n\nQuestions:\n\nWhat are the scaling factors for star and branched polymers, respectively?\nFor the same \\(DP\\), which type of polymer has the smallest \\(R_g\\) and which has the largest? Explain why?\nIn general, the radius of gyration of which type of polymer has narrower distribution? Explain why."
+    "text": "3. Classroom implementation ideas\nExperiments:\nSet the number of branching point as 10, perform simulations with different degree of polymerization (\\(DP\\)), record the root mean square (RMS) radii of gyration for linear, star and branched polymers.\n\n\n\n\\(DP\\)\nLinear\nStar\nBranched\n\n\n\n\n100\n\n\n\n\n\n200\n\n\n\n\n\n400\n\n\n\n\n\n800\n\n\n\n\n\n\nQuestions:\n\nWhat are the scaling factors for star and branched polymers, respectively?\nFor the same \\(DP\\), which type of polymer has the smallest \\(R_g\\) and which has the largest? Explain why?\nIn general, the radius of gyration of which type of polymer has narrower distribution? Explain why.",
+    "crumbs": [
+      "Home",
+      "Module 9 Star and branched polymers"
+    ]
   },
   {
     "objectID": "modules/M09_StarBranch.html#example-practice-questions",
     "href": "modules/M09_StarBranch.html#example-practice-questions",
     "title": "Module 9 Star and branched polymers",
     "section": "4. Example practice questions",
-    "text": "4. Example practice questions\n\nWhich of the statements is true?\n\n\nGiven the same \\(DP\\), introducing branching points to the polymers would result in smaller RMS radius of gyration.\n\nAs long as the \\(DP\\) are the same, linear, star shaped and branched polymers have the same RMS radius of gyration.\n\nA linear polymer always has larger radius of gyration than star shaped or branched polymers given their \\(DP\\) are the same.\nFor the same \\(DP\\), more branching points would not affect the RMS radius of gyration of the polymers.\n\n\nAre the scaling rules for star and branched polymers the same as that of linear polymers? Why?"
+    "text": "4. Example practice questions\n\nWhich of the statements is true?\n\n\nGiven the same \\(DP\\), introducing branching points to the polymers would result in smaller RMS radius of gyration.\n\nAs long as the \\(DP\\) are the same, linear, star shaped and branched polymers have the same RMS radius of gyration.\n\nA linear polymer always has larger radius of gyration than star shaped or branched polymers given their \\(DP\\) are the same.\nFor the same \\(DP\\), more branching points would not affect the RMS radius of gyration of the polymers.\n\n\nAre the scaling rules for star and branched polymers the same as that of linear polymers? Why?",
+    "crumbs": [
+      "Home",
+      "Module 9 Star and branched polymers"
+    ]
   },
   {
     "objectID": "modules/M09_StarBranch.html#copyright",
     "href": "modules/M09_StarBranch.html#copyright",
     "title": "Module 9 Star and branched polymers",
     "section": "Copyright",
-    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License."
+    "text": "Copyright\nCopyright(C) 2022 – 2024 Yu Wang\nThis webpage is licensed under a Creative Commons Attribution 4.0 International License.",
+    "crumbs": [
+      "Home",
+      "Module 9 Star and branched polymers"
+    ]
+  },
+  {
+    "objectID": "OVESET/ATRP_Kinetic_Simulator_Moments.html#about-this-program",
+    "href": "OVESET/ATRP_Kinetic_Simulator_Moments.html#about-this-program",
+    "title": "OVESET",
+    "section": "About this program",
+    "text": "About this program\nThis is an atom transfer radical polymerization (ATRP) kinetic simulator based on the method of moments.[1,2] The types of polymerizations supported are conventional radical polymerization, normal atom transfer radical polymerization, activators generated by electron transfer (AGET) ATRP, activators regenerated by electron transfer (ARGET) ATRP, supplemental activator and reducing agent (SARA) ATRP, electrochemically mediated ATRP (eATRP), ATRP by continuous feeding of activators (CFA), and initiators for continuous activator regeneration (ICAR) ATRP. The input includes the reaction time, the initial concentrations of reagents, and the rate coefficients of all reactions involved. The results provide the concentration changes of all species vs. time, the monomer conversion vs. time, the number average molecular weight (\\(M_n\\)) vs. time, molecular weight distribution (\\(M_w/M_n\\)) vs. time, and the mole percent of end group loss (\\(T_\\text{mol%}\\)) vs. time.\n[1]: Shiping Zhu, Modeling of molecular weight development in atom transfer radical polymerization, Macromol. Theory Simul. 1999, 8, 29–37, DOI: 10.1002/(SICI)1521-3919(19990101)8:1&lt;29::AID-MATS29&gt;3.0.CO;2-7.\n[2]: Erlita Mastan and Shiping Zhu, Method of moments: A versatile tool for deterministic modeling of polymerization kinetics, Eur. Polym. J. 2015, 68, 139–160, DOI: 10.1016/j.eurpolymj.2015.04.018.\nSystem requirement\na. To run this program online using Google Colaboratory service\nAs long as you have a google account, you can use this simulator as an online app without installing anything to your local computer. This program is available freely at https://bit.ly/ATRP-Simulator.\nb. To deploy a modified version online\nInstructors may want to modify this program and deploy it online, so your students can use the modified program as an online app. To do so, download this “ATRP_Kinetic_Simulator_Moments.ipynb” file at https://github.com/wangyu16/PolymerScienceEducation/tree/master/OVESET; then modify it and place the modified version into your Google Drive or GitHub. Next, go to https://colab.research.google.com/ and open the program you just saved in Google Drive or GitHub. Finally, in the top-right corner, you can find the options for sharing this program.\nc. To run this program on your own computer\nThis program is written in Python and runs in Jupyter Notebook. The easiest way to set up the Jupyter Notebook is to install Anaconda which includes python, Jupyter Notebook, and many python packages for scientific programming. Make sure you choose Python 3.6 or above because it is required for this program. After installing Anaconda, you also need to install a python package named ‘ChemPy’. If you use Linux, the simplest way to install ChemPy is to use the conda package manager:\nconda install -c bjodah chempy pytest\npytest -rs -W ignore::chempy.ChemPyDeprecationWarning --pyargs chempy  \nIf you use Windows or OS X, you will need to use pip instead. Open “Anaconda Prompt” and type:\npython3 -m pip install chempy pytest\npython3 -m pytest -rs -W ignore::chempy.ChemPyDeprecationWarning --pyargs chempy\nAfter installation of Anaconda, Jupyter Notebook should appear as an app on your computer. Click on the icon of Jupyter Notebook and it will open a new tab in your browser. Download this “ATRP_Kinetic_Simulator_Moments.ipynb” file at https://github.com/wangyu16/PolymerScienceEducation/tree/master/OVESET, and navigate to the folder where you save it. Click on it and open it.\nNot sure what you can change in the code?\nNo worries! If you are not familiar with programming, all that you may change are located in the section “2. Reaction conditions”. For example, in the following code block, you can change the red-colored word ‘normal’, and the green-colored number 90000.\n# 'sara' for SARA ATRP;\n# 'cfa' for ATRP by continuous feeding of activators;\n# 'icar' for ICAR ATRP.\nPoly_type = 'normal' \n\n############################    \n# 2. Set the reaction time #\n############################ \n# This is a required section.\n# Set reaction time limit in seconds. \nreact_time = 90000 \nSimilarly, in the following code, only change the green-colored numbers.\n# Set the rate coefficients for the addition of the first monomer to the primary radical;\n# the termination between primary radicals; the termination between a primary radical and a propagating radical. \nk_p_R = 1.3e3 \nk_t_R = 1e9 \nk_t_R_Pn = 1e9\nIn addition, you can change the font size of the plots under “1. Import packages” and “5.1. Concentration changes”. Change the green-colored numbers only in the following code lines.\nplt.rcParams.update({'font.size': 18}) # Feel free to change the font size in the plots.\n     _ = ax.legend(loc='best',prop={'size': 12}) # Set the font size of the legend here. \nHow to run the simulation?\nAfter specifying the initial reaction conditions, move to the first code cell, i.e., the one under “1. Import packages”. Run the code cells one-by-one by using Shift+Enter. Alternatively, you can select “Run All” under “Cell” dropdown menu if you use Anaconda, or under “Runtime” dropdown menu if you use Google Colab."
+  },
+  {
+    "objectID": "OVESET/ATRP_Kinetic_Simulator_Moments.html#import-packages",
+    "href": "OVESET/ATRP_Kinetic_Simulator_Moments.html#import-packages",
+    "title": "OVESET",
+    "section": "1. Import packages",
+    "text": "1. Import packages\n\n%%capture\n#@title { display-mode: \"form\" } \n\nimport sys\nif 'google.colab' in sys.modules: \n    if not 'chempy' in sys.modules:\n        !pip install chempy\nfrom chempy import ReactionSystem, Substance\nfrom chempy.kinetics.ode import get_odesys \nfrom collections import defaultdict\nimport numpy as np\nimport matplotlib.pyplot as plt\nplt.rcParams.update({'font.size': 12}) # Feel free to change the font size in the plots.\nfrom ipywidgets import interact\nimport datetime\nimport csv"
+  },
+  {
+    "objectID": "OVESET/ATRP_Kinetic_Simulator_Moments.html#reaction-conditions",
+    "href": "OVESET/ATRP_Kinetic_Simulator_Moments.html#reaction-conditions",
+    "title": "OVESET",
+    "section": "2. Reaction conditions",
+    "text": "2. Reaction conditions\n\n##################################\n# 1. Select the type of reaction # \n# This is a required section.    #\n##################################\n# Choose the type of polymerization you want to simulate\n# by setting the value of Poly_type as:\n# 'conven' for conventional radical polymerization initiated by a thermal initiator, such as AIBN;\n# 'normal' for normal ATRP;\n# 'arget' for ARGET and AGET ATRP;\n# 'eatrp' for electrochemically mediated ATRP;\n# 'sara' for SARA ATRP;\n# 'cfa' for ATRP by continuous feeding of activators;\n# 'icar' for ICAR ATRP. \nPoly_type = 'normal'\n\n############\n# Optional #\n############\nMonomer = 'MA'\nSolvent = 'MeCN' # For bulk polymerization, the value can be set as 'none'.\nLigand = 'TPMA' # For conventional radical polymerization, this value could be set as 'none'.\nInitiator = 'MBrP' # For ICAR ATRP, this value could be set in the form of 'EBrP-AIBN'.\nTemperature = 60\n# The name of the monomer, ligand, initiator ,and the temperature will not be used in the simulation.\n# They are used only as a record in the exported file. \n\n##############################    \n# 2. Set the reaction time   #\n# This is a required section.#\n##############################\n# Set reaction time limit in seconds. \n# For a 10 hour reaction, you can set the time as 36000 or 10*3600.\nreact_time = 5*3600\n\n###########################################################\n# 3. Set the initial concentrations and rate coefficients #\n###########################################################\n   \n##############################\n# 3.1. Monomer concentration #\n# This is a required section.#\n##############################\n# Set the initial concentration of the monomer. All the concentrations are in mol/L unless otherwise specified.\nc0_M = 5.5\n# Set the molecular weight of the monomer. \nMM = 86.09\n\n##################################################################\n# 3.2. Common reactions for all kinds of radical polymerizations #\n# This is a required section.                                    #\n##################################################################\n\n# Set the rate coefficients for propagation and termination (by coupling or by disproportionation).\nk_p = 27254\nk_tc = 1e8\nk_td = 1e7\n\n# Set the rate coefficients for the addition of the first monomer to the primary radical;\n# the termination between primary radicals; the termination between a primary radical and a propagating radical. \nk_p_R = k_p\nk_t_R = 2.5e9\nk_t_R_Pn = 1e8 \n\n# Set the rate coefficient for chain transfer to monomer.\nk_tr_M = 0\n\n# If syrenic type of monomers is used,\n# set the rate coefficient of the thermal initiation of the monomer. \n# Leave this value as 0 when you do not want to consider thermal initiation. \n# For styrene, the value can be calculated as 2.2e5*exp(-13810/T), where T is the temperature in K. \nk_th_S = 0\n\n##############################################################\n# 3.3. For conventional radical polymerization and ICAR ATRP #\n##############################################################\n# If a thermal initiator (TI), e.g., AIBN, BPO, is used in your reaction,\n# set the initial concentration of the initiator.\nc0_TI = 0.00138\n\n# Set the decomposition rate coefficient and the initiation efficiency for the initiator.\nk_d_TI = 9.7e-6\nf_TI = 0.8\n\n##############################\n# 3.4. For all kinds of ATRP #\n##############################\n# Set the initial concentration of RX. \nc0_RX = 0.0275 \n\n# Set the initial concentration of Cu(I) and Cu(II).\n# Assume there is a sufficient amount of ligand to coordinate with all Cu(I) and Cu(II),\n# and the concentration of free ligand does not affect the reaction kinetics. \nc0_CuI = 0.00275\nc0_CuII = 0.00275\n\n# Set the rate coefficients for activation of RX; deactivation of radical R;  \nk_a_0_atrp = 9.6\nk_d_0_atrp = 1e8\n# Set the rate coefficient for activation of a polymer with a halogen chain end; \n# deactivation of a propagating radical. \nk_a_atrp = 9.6\nk_d_atrp = 1e8\n\n##################################   \n# 3.4.1. For AGET and ARGET ATRP #\n##################################\n# Set the initial concentration of the reducing agent. \nc0_Reduc = 2.5e-3 \n\n# Set the reduction rate coefficient\nk_reduc = 1e-1 \n\n####################\n# 3.4.2. For eATRP #\n####################\n# Set the rate coefficient of electronic reduction. \n# This will mimic an eATRP process with constant voltage. \n# CuII is converted to CuI at a rate of k_e_reduc*[CuII].\nk_e_reduc = 1e-7 \n\n###################\n# 3.4.3. For SARA #\n###################\n# set the initial concentration of Cu(0) in cm^2/mL (surface area per unit volume). \n# Assume the Cu(0) wire or foil is thick enough that there is no apparent consumption during the polymerization.\nc0_Cu0 = 2 \n\n# Set the rate coefficients of Cu(0) activation and comproportionation.\n# Deactivation by Cu(I) and disproportionation are neglected. \nk_comp = 1e-4 \nk_a_Cu0 = 1e-4 \n\n#######################################################\n# 3.4.4. For ATRP by continuous feeding of Activators #\n#######################################################\n# Set the rate coefficient to minic different feeding rate. \n# CuI concentration will increase at a constant rate of k_cfa.\n# Volume change is neglected. \nk_cfa = 1.4e-8"
+  },
+  {
+    "objectID": "OVESET/ATRP_Kinetic_Simulator_Moments.html#construct-the-reaction-system",
+    "href": "OVESET/ATRP_Kinetic_Simulator_Moments.html#construct-the-reaction-system",
+    "title": "OVESET",
+    "section": "3. Construct the reaction system",
+    "text": "3. Construct the reaction system\n\n#@title { display-mode: \"form\" }\n\n# Initiate the reaction system with null value. \n# The rsys_orig is the system of the actual reactions.\n# The rsys_pseudo includes the pseudo reactions with pseudo species \n# which are used to introduce 1st and 2nd order moments\n# and to adjust the reactions to take into account the initiation efficiency, etc. \nrsys_orig = ReactionSystem.from_string(\"\"\"\n    \"\"\", substance_factory=Substance)\nrsys_pseudo =  ReactionSystem.from_string(\"\"\"\n    \"\"\", substance_factory=Substance)\n\n# Initial concentrations of monomer, dead chains, radicals, and pseudo species of moments.\nc0 = defaultdict(float, {'M': c0_M, 'D': 0, 'PnD': 0, 'PnDPn': 0, 'R': 0, 'Pn': 0, 'M1_Pn': 0, \\\n                         'M1_PnX': 0, 'M1_PnD': 0, 'M1_PnDPn': 0, 'M2_total': 0}) \n\n# Add propagation and termination reactions to the reaction system. \nrsys_orig += ReactionSystem.from_string(f\"\"\"\n    R + M -&gt; Pn; {k_p_R}\n    Pn + M -&gt; Pn; {k_p}      \n    R + R -&gt; D + D; {k_t_R}\n    Pn + R -&gt; PnD + D; {k_t_R_Pn}\n    Pn + Pn -&gt; PnD + PnD; {k_td}\n    Pn + Pn -&gt; PnDPn; {k_tc}\n    \"\"\", substance_factory=Substance)\nrsys_pseudo += ReactionSystem.from_string(f\"\"\"\n    R + M -&gt; R + M + M1_Pn + M2_total; {k_p_R}\n    Pn + M -&gt; Pn + M + M1_Pn + M2_total; {k_p}\n    M1_Pn + M -&gt; M1_Pn + M + M2_total; {2*k_p}\n    M1_Pn + R -&gt; M1_PnD + R; {k_t_R_Pn}\n    M1_Pn + Pn -&gt; M1_PnD + Pn; {2*k_td}\n    M1_Pn + Pn -&gt; M1_PnDPn + Pn; {2*k_tc}\n    M1_Pn + M1_Pn -&gt; M1_Pn + M1_Pn + M2_total; {2*k_tc}\n    \"\"\", substance_factory=Substance)\n\n# To include chain transfer to monomer\nif k_tr_M !=0:\n        rsys_orig += ReactionSystem.from_string(f\"\"\"\n        Pn + M -&gt; PnD + R; {k_tr_M}            \n        \"\"\", substance_factory=Substance) \n        rsys_pseudo += ReactionSystem.from_string(f\"\"\"\n        M1_Pn + M -&gt; M1_PnD + M; {k_tr_M}\n    \"\"\", substance_factory=Substance)\n\n# To include the thermal initiaion for styrenic monomers\nif k_th_S != 0:\n    rsys_orig += ReactionSystem.from_string(f\"\"\"\n        M + M + M -&gt; R + R; {k_th_S}            \n        \"\"\", substance_factory=Substance) \n\n# For all kinds of ATRP \nif Poly_type != 'conven':\n    c0.update({'RX': c0_RX, 'PnX':0, 'CuI': c0_CuI, 'CuII': c0_CuII})\n    rsys_orig += ReactionSystem.from_string(f\"\"\"\n        CuI + RX -&gt; CuII + R; {k_a_0_atrp}     \n        CuII + R -&gt; CuI + RX; {k_d_0_atrp}\n        CuI + PnX -&gt; CuII + Pn; {k_a_atrp}\n        CuII + Pn -&gt; CuI + PnX; {k_d_atrp}        \n        \"\"\", substance_factory=Substance)  \n    rsys_pseudo += ReactionSystem.from_string(f\"\"\"\n        M1_PnX + CuI -&gt; M1_Pn + CuI; {k_a_atrp}\n        M1_Pn + CuII -&gt; M1_PnX + CuII; {k_d_atrp}\n        \"\"\", substance_factory=Substance) \n    \n# For AGET and ARGET ATRP\nif Poly_type == 'arget':\n    c0.update({'Reduc': c0_Reduc, 'ReducX':0})\n\n    rsys_orig += ReactionSystem.from_string(f\"\"\"\n        Reduc + CuII -&gt; ReducX + CuI; {k_reduc}\n        \"\"\", substance_factory=Substance)    \n      \n# For eATRP \nif Poly_type == 'eatrp':\n    c0.update({'elec': 1})    \n\n    rsys_orig += ReactionSystem.from_string(f\"\"\"\n        elec + CuII -&gt; CuI + elec; {k_e_reduc}\n        \"\"\", substance_factory=Substance)   \n\n# For SARA ATRP\nif Poly_type == 'sara':\n    c0.update({'Cu0': c0_Cu0})    \n\n    rsys_orig += ReactionSystem.from_string(f\"\"\"\n        Cu0 + CuII -&gt; CuI + CuI + Cu0; {k_comp}\n        Cu0 + RX -&gt; CuI + R + Cu0; {k_a_Cu0}\n        \"\"\", substance_factory=Substance)\n\n# For ATRP by continuous feeding of activators\nif Poly_type == 'cfa':\n    c0.update({'CuIsour': 1})    \n\n    rsys_orig += ReactionSystem.from_string(f\"\"\"\n        CuIsour -&gt; CuI + CuIsour; {k_cfa}\n        \"\"\", substance_factory=Substance)  \n\n# For conventional radical polymerization and ICAR ATRP \n# The thermal initiator is consumed with a rate coefficient k_d_TI;\n# however, not all of the primary radicals would involve in propagation.\n# To take into account the initiation efficiency, pseudo reactions and a pseudo species 'PR' are introduced. \nif Poly_type == 'conven' or Poly_type == 'icar':\n    c0.update({'TI': c0_TI, 'PR': 0})   \n    rsys_orig += ReactionSystem.from_string(f\"\"\"\n        TI -&gt; R + R; {k_d_TI}\n        \"\"\", substance_factory=Substance)\n    rsys_pseudo += ReactionSystem.from_string(f\"\"\"\n        TI -&gt; R + R; {-k_d_TI}\n        TI -&gt; PR + PR; {k_d_TI}    \n        TI -&gt; TI + R + R; {f_TI*k_d_TI}\n        \"\"\", substance_factory=Substance)  \n\nprint(\"The initial concentrations of the reagents are:\")\nfor key in c0:\n    if c0[key] != 0:\n        print(key, ': ', c0[key])\nprint(\"The reactions and the rate coefficients are:\")\nrsys_orig\n\nThe initial concentrations of the reagents are:\nM :  5.5\nRX :  0.0275\nCuI :  0.00275\nCuII :  0.00275\nThe reactions and the rate coefficients are:\n\n\n\n\n\n\n\n\nM + R\n→\nPn\n 27254\n\n\n\nM + Pn\n→\nPn\n 27254\n\n\n\n2 R\n→\n2 D\n 2.5⋅109\n\n\n\nPn + R\n→\nD + PnD\n 108\n\n\n\n2 Pn\n→\n2 PnD\n 107\n\n\n\n2 Pn\n→\nPnDPn\n 108\n\n\n\nCuI + RX\n→\nCuII + R\n 9.6\n\n\n\nCuII + R\n→\nCuI + RX\n 108\n\n\n\nCuI + PnX\n→\nCuII + Pn\n 9.6\n\n\n\nCuII + Pn\n→\nCuI + PnX\n 108"
+  },
+  {
+    "objectID": "OVESET/ATRP_Kinetic_Simulator_Moments.html#simulation",
+    "href": "OVESET/ATRP_Kinetic_Simulator_Moments.html#simulation",
+    "title": "OVESET",
+    "section": "4. Simulation",
+    "text": "4. Simulation\nList of the differential equations\n\n#@title { display-mode: \"form\" }\n\n# Combine the actual and the pseudo reaction systems\nrsys = rsys_orig + rsys_pseudo\n\n# Get the differential equation system from the reactions.\nodesys, extra = get_odesys(rsys)\n\n# List the differential equations\nprint(\"The differnetial equations are:\")\nfor index, exp in enumerate(odesys.exprs):\n    if odesys.names[index] != 'PR':\n        print(odesys.names[index], ': ', f'dy_{index}/dt', '= ',  exp)\n# Integration\ntout = sorted(np.concatenate((np.linspace(0, react_time), np.logspace(0, np.floor(np.log10(react_time))))))\nresult = odesys.integrate(tout, c0, integrator='scipy', method='lsoda', atol=1e-12, rtol=1e-6)\n\nThe differnetioal equations are:\nD :  dy_0/dt =  100000000.0*y_2*y_5 + 5000000000.0*y_5**2\nM :  dy_1/dt =  -27254*y_1*y_2 - 27254*y_1*y_5\nPn :  dy_2/dt =  27254*y_1*y_5 - 220000000.0*y_2**2 - 100000000.0*y_2*y_5 - 100000000.0*y_2*y_7 + 9.6*y_6*y_8\nPnD :  dy_3/dt =  20000000.0*y_2**2 + 100000000.0*y_2*y_5\nPnDPn :  dy_4/dt =  100000000.0*y_2**2\nR :  dy_5/dt =  -27254*y_1*y_5 - 100000000.0*y_2*y_5 - 5000000000.0*y_5**2 - 100000000.0*y_5*y_7 + 9.6*y_6*y_9\nCuI :  dy_6/dt =  100000000.0*y_2*y_7 + 100000000.0*y_5*y_7 - 9.6*y_6*y_8 - 9.6*y_6*y_9\nCuII :  dy_7/dt =  -100000000.0*y_2*y_7 - 100000000.0*y_5*y_7 + 9.6*y_6*y_8 + 9.6*y_6*y_9\nPnX :  dy_8/dt =  100000000.0*y_2*y_7 - 9.6*y_6*y_8\nRX :  dy_9/dt =  100000000.0*y_5*y_7 - 9.6*y_6*y_9\nM1_Pn :  dy_10/dt =  27254*y_1*y_2 + 27254*y_1*y_5 - 220000000.0*y_10*y_2 - 100000000.0*y_10*y_5 - 100000000.0*y_10*y_7 + 9.6*y_14*y_6\nM1_PnD :  dy_11/dt =  20000000.0*y_10*y_2 + 100000000.0*y_10*y_5\nM1_PnDPn :  dy_12/dt =  200000000.0*y_10*y_2\nM2_total :  dy_13/dt =  54508*y_1*y_10 + 27254*y_1*y_2 + 27254*y_1*y_5 + 200000000.0*y_10**2\nM1_PnX :  dy_14/dt =  100000000.0*y_10*y_7 - 9.6*y_14*y_6\n\n\nThe differential equation system includes not only the real species, i.e., those taht appear in the actual reactions, but also the pseudo species, e.g., the 1st and 2nd order moments.\n\nAbout the integrator and the integration method\nIf you are not familiar with the ode integrators and the numerical methods, just leave the default setting without any change.\nFor advanced users, the following information could be helpful.\nBy default, the program uses scipy.integrate.ode as the ODE integrator with “lsoda” as the selected method. The “lsoda” method automatically switches for stiff and non-stiff ODEs. This subroutine uses the Adams method for non-stiff ODEs and a backward differentiation formula (BDF) method for stiff ODEs. Other available methods can be found on the official website of scipy. For more options, please visit the website of pyodesys. You can install packages and use integrators other than scipy."
+  },
+  {
+    "objectID": "OVESET/ATRP_Kinetic_Simulator_Moments.html#results",
+    "href": "OVESET/ATRP_Kinetic_Simulator_Moments.html#results",
+    "title": "OVESET",
+    "section": "5. Results",
+    "text": "5. Results\n\n5.1. Concentration changes\nPlot the concentrations of species in the reaction system vs time. The change of monomer concentration is not included here since monomer conversion will be plotted later.\n\n#@title { display-mode: \"form\" }\n\nlabels=['(a)','(b)','(c)']\ni=0\nfig1, axes = plt.subplots(1, 2, figsize=(12, 5))\nfor ax in axes:\n     _ = result.plot(names=[k for k in rsys_orig.substances if k != 'CuIsour' \\\n                            and k != 'M' and k!= 'elec' and k != 'Cu0'], ax=ax) \n     _ = ax.legend(loc='best',prop={'size': 12}) # Set the font size of the legend here.    \n     _ = ax.set_xlabel('Time (s)')\n     _ = ax.set_ylabel('Concentration')\n     _ = ax.text(-0.1, 1, labels[i], transform=ax.transAxes, fontweight='bold', va='top', ha='right')\n     i+=1\naxes[0].ticklabel_format(axis=\"x\", style=\"sci\", scilimits=(0,0))\n_ = axes[1].set_ylim([1e-10, 1e1])\n_ = axes[1].set_xscale('log')\n_ = axes[1].set_yscale('log')\n_ = fig1.tight_layout()\n\n\n\n\n\n\n\n\n\nMeanings of the species produced during the polymerization\nR: primary radical either from RX or from the thermal initiator\nD: termination product from primary radicals\nPn: propagating polymer chain with a chain end radical\nPnD: dead polymer chain produced by termination through disproportionation\nPnDPn: dead polymer chain produced by termination through coupling\nPnX: dormant polymer chain with an active halogen chain-end\n\n\n\n5.2. Monomer conversion vs time\n\n#@title { display-mode: \"form\" }\n\n# Get concentrations and calculate conversion, Mn and Mw/Mn.\nConcM = result[1][:,result.odesys.names.index('M')]\nConcD = result[1][:,result.odesys.names.index('D')]\nConcPnD = result[1][:,result.odesys.names.index('PnD')]\nConcPnDPn = result[1][:,result.odesys.names.index('PnDPn')]\nConcPn = result[1][:,result.odesys.names.index('Pn')]\nConcM2_total = result[1][:,result.odesys.names.index('M2_total')]\n\nif Poly_type != 'conven':\n    ConcPnX = result[1][:,result.odesys.names.index('PnX')]\nelse:\n    ConcPnX = np.zeros(len(result[0]))\n\nConvM =(ConcM[0]-ConcM)/ConcM[0]\nLnM0_M = np.log(ConcM[0]/ConcM)\n\nMn = np.zeros(len(result[0]))\nMw = np.zeros(len(result[0]))\nMw_Mn = np.ones(len(result[0]))\n\nMn[1:] = (ConcM[0]-ConcM[1:])/(ConcPnX[1:] + ConcPnD[1:] + ConcPnDPn[1:] + ConcPn[1:])*MM\nMw[1:] = ConcM2_total[1:]/(ConcM[0]-ConcM[1:])*MM    \nMw_Mn[1:] = Mw[1:]/Mn[1:]\n\n# Get mole percent of end group loss, i.e., Tmol%.\nif Poly_type != 'conven':\n    x=result.odesys.names.index('RX')\n    Tmol = 100*(ConcD + ConcPnD + 2*ConcPnDPn)/result[1][0,x]\nelse:\n    Tmol = 100*np.ones(len(result[0]))\n    \nresult_cal = [result[0],ConcM,ConvM,LnM0_M,Mn,Mw_Mn,Tmol]\n\n# Monomer conversion vs. time and first order kinetic plots. \nfig2, axes = plt.subplots(1, 2, figsize=(10, 5))\ni=0\nfor ax in axes:\n    ax.ticklabel_format(axis=\"x\", style=\"sci\", scilimits=(0,0))\n    _ = ax.plot(result_cal[0], result_cal[i+2])\n    _ = ax.text(-0.1, 1, labels[i], transform=ax.transAxes, fontweight='bold', va='top', ha='right')\n    _ = ax.grid()\n    i += 1\n_ = axes[0].set(xlabel = 'Time (s)', ylabel='Conversion')\n_ = axes[1].set(xlabel = 'Time (s)', ylabel='Ln([M]0/[M])')\n_ = fig2.tight_layout()\n\n\n\n\n\n\n\n\n\n\n5.3. Molecular weight, molecular weight distribution and mole percent loss of chain-ends.\n\n#@title { display-mode: \"form\" }\n\n# Plot Mn, Mw/Mn and Tmol% vs. conversion. \nfig3, axes = plt.subplots(1, 3, figsize=(15, 5))\ni=0\nfor ax in axes:\n    _ = ax.plot(result_cal[2][1:], result_cal[i+4][1:])\n    _ = ax.text(-0.1, 1, labels[i], transform=ax.transAxes, fontweight='bold', va='top', ha='right')\n    _ = ax.grid()\n    i += 1\n_ = axes[0].set(xlabel = 'Conversion', ylabel='Mn')\naxes[0].ticklabel_format(axis=\"y\", style=\"sci\", scilimits=(0,0))\n_ = axes[1].set(xlabel = 'Conversion', ylabel='Mw/Mn')\n_ = axes[2].set(xlabel = 'Conversion', ylabel='Tmol% (%)')\n_ = fig3.tight_layout()\n\nif Poly_type == 'conven':\n    print('Tmol% does not apply to conventional radical polymerization.')\n\n\n\n\n\n\n\n\nNote: the meaning of mole percent loss of the chain end, i.e., \\(T_\\text{mol%}\\), can be found in the following article.[3] This calculated \\(T_\\text{mol%}\\) values could be significantly different from the experimental values because in the simulation only direct termination between two radicals is taken into account for the loss of chain-end functionalities, while other possible reactions causing the loss of chain ends, e.g., Cu(I) induced catalytic radical termination,[4] are not included.\n[3]: Yu Wang, Mingjiang Zhong, Yaozhong Zhang, Andrew J. D. Magenau, and Krzysztof Matyjaszewski, Halogen Conservation in Atom Transfer Radical Polymerization, Macromolecules 2012, 45, 8929-8932, DOI: 10.1021/ma3018958\n[4]: Yu Wang, Nicolai Soerensen, Mingjiang Zhong, Hendrik Schroeder, Michael Buback, and Krzysztof Matyjaszewski, Improving the “Livingness” of ATRP by Reducing Cu Catalyst Concentration, Macromolecules 2013, 46, 683-691, DOI: 10.1021/ma3024393."
+  },
+  {
+    "objectID": "OVESET/ATRP_Kinetic_Simulator_Moments.html#export-the-results",
+    "href": "OVESET/ATRP_Kinetic_Simulator_Moments.html#export-the-results",
+    "title": "OVESET",
+    "section": "6. Export the results",
+    "text": "6. Export the results\nExport the result to a CSV file. If you run this program on your own computer, the CSV file is saved in the same folder as this ipynb file. If you run this program online using Google Colab, you can find the a menu bar on the left side. Click on the fourth one called “Files” and you will see the exported files.\n\n#@title { display-mode: \"form\" } \n\nnow = datetime.datetime.now()\nfilename = f'{now.strftime(\"%Y-%m-%d-%Hh%Mm%Ss\")}-ATRP-Simulation-{Poly_type}-{Monomer}-{Solvent}-{Ligand}-{Initiator}-{Temperature}C.csv'\n\nwith open(filename, 'w', newline='') as f:\n    thewriter = csv.writer(f)\n    for rxn in rsys_orig.rxns:\n        thewriter.writerow([rxn])\n    if Poly_type == 'conven' or Poly_type == 'icar':\n        thewriter.writerow([f'The initiation efficiency of the thermal initiator is {f_TI}.'])\n    for index, exp in enumerate(odesys.exprs):\n        if odesys.names[index] != 'PR':\n            thewriter.writerow([f'{odesys.names[index]}:',f'dy_{index}/dt = {exp}'])    \n    if Poly_type == 'conven':\n        thewriter.writerow(['Tmol% does not apply to conventional radical polymerization.'])\n    thewriter.writerow(['time (s)']+[k for k in rsys.substances if k != 'PR']+['conversion']+['ln([M]0/[M])']\\\n                       +['Mn']+['Mw/Mn']+['Tmol% (%)'])\n    i=0\n    for concen in result[1]:\n        thewriter.writerow([result_cal[0][i]]+[concen[result.odesys.names.index(k)] for k in rsys.substances \\\n                                               if k != 'PR'] +[ConvM[i]]+[LnM0_M[i]]+[Mn[i]]+[Mw_Mn[i]]+[Tmol[i]])\n        i+=1\n\nExport the plots as pdf and png files.\n\n#@title { display-mode: \"form\" }\n\nfig1.savefig(f'{now.strftime(\"%Y-%m-%d-%Hh%Mm%Ss\")}-concentration.pdf', bbox_inches='tight')\nfig1.savefig(f'{now.strftime(\"%Y-%m-%d-%Hh%Mm%Ss\")}-concentration.png', bbox_inches='tight', dpi=600)\n\nfig2.savefig(f'{now.strftime(\"%Y-%m-%d-%Hh%Mm%Ss\")}-conversion.pdf', bbox_inches='tight')\nfig2.savefig(f'{now.strftime(\"%Y-%m-%d-%Hh%Mm%Ss\")}-conversion.png', bbox_inches='tight', dpi=600)\n\nfig3.savefig(f'{now.strftime(\"%Y-%m-%d-%Hh%Mm%Ss\")}-molecular_weight.pdf', bbox_inches='tight')\nfig3.savefig(f'{now.strftime(\"%Y-%m-%d-%Hh%Mm%Ss\")}-molecular_weight.png', bbox_inches='tight', dpi=600)\n\n\n\n\n\n\n#@title { display-mode: \"form\" }\n\nfrom IPython.display import Markdown\nimport requests\ncopyright = requests.get(\"https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/master/copyright.md\")\nMarkdown(copyright.text)\n\n### Copyright\nThis software is designed for polymer science education. Copyright (C) 2021 Yu Wang\nThis program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\nYou should have received a copy of the GNU General Public License along with this program. If not, see https://www.gnu.org/licenses/.\n\nContact\nDr. Yu Wang\nDepartment of Chemistry\nInstitute for Materials Research and Innovation\nUniversity of Louisiana at Lafayette\nLafayette, LA 70504\nEmail: yuwang@louisiana.edu\n\n\nAcknowledgement\nThis project is sponsored by National Science Foundation (NSF-2142043)."
+  },
+  {
+    "objectID": "copyright.html",
+    "href": "copyright.html",
+    "title": "OVESET",
+    "section": "",
+    "text": "MIT License\nCopyright (c) 2021 – 2024 Yu Wang\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n\nContact\nDr. Yu Wang\nDepartment of Chemistry\nInstitute for Materials Research and Innovation\nUniversity of Louisiana at Lafayette\nLafayette, LA 70504\nEmail: yuwang@louisiana.edu\n\n\nAcknowledgement\nThis project is sponsored by National Science Foundation (NSF-2142043)."
+  },
+  {
+    "objectID": "fqa.html#what-is-google-colab-and-how-to-use-it",
+    "href": "fqa.html#what-is-google-colab-and-how-to-use-it",
+    "title": "FQA",
+    "section": "",
+    "text": "Google collaboratory"
+  },
+  {
+    "objectID": "OVESET/Ideal_Living_Polymerization.html",
+    "href": "OVESET/Ideal_Living_Polymerization.html",
+    "title": "Ideal Living Polymerization",
+    "section": "",
+    "text": "import matplotlib as mpl\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Number of polymer chains (Feel free to change the value, but keep it &gt; or = 100).\nNPoly = 10000  \n# Different targeted degree of polymerization (Feel free to add or to delete numbers, or to change the values).\nDP_Targ = np.array([1, 5, 10, 20, 30, 100])  \n# Number of monomers.\nNMon = NPoly*DP_Targ.max()  \n# Each monomer goes to one polymer chain randomly.\npolym = np.random.randint(1, NPoly, NMon)  \n\nmpl.rcParams['figure.figsize'] = (12.0, 4.0*len(DP_Targ))\n# Calculate the degree of polymerization of each chain.\nDP = np.zeros((len(DP_Targ), NPoly))  \nplt.subplots(len(DP_Targ), 2)\nk = 0\nindex = np.arange(1, 100)\nwhile k &lt; len(DP_Targ):\n    for i in polym[0:NPoly*DP_Targ[k]]:\n        DP[k, i-1] = DP[k, i-1] + 1            \n    plt.subplot(len(DP_Targ), 2, 2*k+1)\n    plt.bar(index,DP[k, 0:99], 0.5, alpha=0.65,color='b')  \n    plt.xlabel('Polymer Chains')\n    plt.ylabel('DP')\n    plt.title('Targeted DP = %r' %DP_Targ[k])\n    plt.subplot(len(DP_Targ), 2, 2*(k+1))\n    plt.hist(DP[k], 200, density=1, facecolor='green', alpha=0.65)  \n    plt.xlabel('DP')\n    plt.ylabel('Fraction')\n    plt.title('Targeted DP = %r' %DP_Targ[k])\n    k = k + 1\n# Display 100 polymer chains to illustrate the deviation of chain lengths (left side).\n# Display the chain length distribution (right side).\nplt.tight_layout()\nplt.show()"
+  },
+  {
+    "objectID": "OVESET/Ideal_Living_Polymerization.html#simulation",
+    "href": "OVESET/Ideal_Living_Polymerization.html#simulation",
+    "title": "Ideal Living Polymerization",
+    "section": "",
+    "text": "import matplotlib as mpl\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Number of polymer chains (Feel free to change the value, but keep it &gt; or = 100).\nNPoly = 10000  \n# Different targeted degree of polymerization (Feel free to add or to delete numbers, or to change the values).\nDP_Targ = np.array([1, 5, 10, 20, 30, 100])  \n# Number of monomers.\nNMon = NPoly*DP_Targ.max()  \n# Each monomer goes to one polymer chain randomly.\npolym = np.random.randint(1, NPoly, NMon)  \n\nmpl.rcParams['figure.figsize'] = (12.0, 4.0*len(DP_Targ))\n# Calculate the degree of polymerization of each chain.\nDP = np.zeros((len(DP_Targ), NPoly))  \nplt.subplots(len(DP_Targ), 2)\nk = 0\nindex = np.arange(1, 100)\nwhile k &lt; len(DP_Targ):\n    for i in polym[0:NPoly*DP_Targ[k]]:\n        DP[k, i-1] = DP[k, i-1] + 1            \n    plt.subplot(len(DP_Targ), 2, 2*k+1)\n    plt.bar(index,DP[k, 0:99], 0.5, alpha=0.65,color='b')  \n    plt.xlabel('Polymer Chains')\n    plt.ylabel('DP')\n    plt.title('Targeted DP = %r' %DP_Targ[k])\n    plt.subplot(len(DP_Targ), 2, 2*(k+1))\n    plt.hist(DP[k], 200, density=1, facecolor='green', alpha=0.65)  \n    plt.xlabel('DP')\n    plt.ylabel('Fraction')\n    plt.title('Targeted DP = %r' %DP_Targ[k])\n    k = k + 1\n# Display 100 polymer chains to illustrate the deviation of chain lengths (left side).\n# Display the chain length distribution (right side).\nplt.tight_layout()\nplt.show()"
+  },
+  {
+    "objectID": "OVESET/Ideal_Living_Polymerization.html#derivation",
+    "href": "OVESET/Ideal_Living_Polymerization.html#derivation",
+    "title": "Ideal Living Polymerization",
+    "section": "2. Derivation",
+    "text": "2. Derivation\nGiven the number of monomers \\(N_{mon}\\) and the number of polymers \\(N_{poly}\\). The number average degree of polymerization \\(\\langle DP\\rangle = N_{mon}/N_{poly}\\). The fraction of polymers with a given \\(DP\\) (\\(x_{DP}\\)) can be calculated as following.\n\\[x_{DP}=\\frac{N_{mon}!}{(N_{mon}-DP)!DP!}\\left(\\frac{1}{N_{poly}}\\right)^{DP}\\left(1-\\frac{1}{N_{poly}}\\right)^{N_{mon}-DP}\\]\nConsidering one monomer to be added to one perticular polymer chain, the propability is \\(1/N_{poly}\\). The propability that this monomer will not be added to this perticular polymer chain is \\(1-1/N_{poly}\\).\nIf a polymer chain contains \\(n\\) monomer units after polymerization, \\(n\\) monomers should have been added to this polymer chain with the propability \\((1/N_{poly})^n\\), and the rest \\(N_{mon}-n\\) monomers should NOT have been added to this polymer chain the propability of which is \\((1-1/N_{poly})^{N_{mon}-n}\\). Finally, the possible ways to pick out \\(n\\) monomers from \\(N_{mon}\\) there are\nSee Polymer Physics by Rubinstein 2003 Page 25\nThe number fraction distribution function (the probability that a given chain has degree of polymerization N) is given by the Poisson distribution function:\n\\[n_N=\\frac{(N_n-1)^{N-1}}{(N-1)!}\\exp(1-N_n)\\]\nThe weight fraction distribution function is determined following equation:\n\\[w_N=\\frac{N}{N_n}n_N=\\frac{N(N_n-1)^{N-1}}{N_n(N-1)!}\\exp(1-N_n)\\]\nThe dispersity for the Poisson distribution is :\n\\[\\frac{N_w}{N_n}=1+\\frac{1}{N_n}-\\frac{1}{N_n^2}\\]"
+  },
+  {
+    "objectID": "OVESET/RadicalPolymerization_Kinetics.html#import-packages-and-set-the-values-of-parameters",
+    "href": "OVESET/RadicalPolymerization_Kinetics.html#import-packages-and-set-the-values-of-parameters",
+    "title": "OVESET",
+    "section": "1. Import packages and set the values of parameters",
+    "text": "1. Import packages and set the values of parameters\n\n#@title { display-mode: \"form\" }\n\n%%capture\nimport sys\nif not 'chempy' in sys.modules:\n    !pip install chempy\nfrom chempy import ReactionSystem, Substance\nfrom chempy.kinetics.ode import get_odesys \nfrom collections import defaultdict\nimport numpy as np\nimport matplotlib.pyplot as plt\nplt.rcParams.update({'font.size': 12}) # Feel free to change the font size in the plots.\nfrom ipywidgets import interact\nimport datetime\nimport csv\n\ndensity = {'St': 0.909, 'MMA':0.940, 'MA':0.950, 'VAc':0.934, 'AN':0.810} # g/mL\nmolar_mass ={'St': 104.15, 'MMA': 100.12, 'MA':86.09, 'VAc':86.09, 'AN':53.06} # g/mol\n\n# Propagation rate coefficients of monomers. \n# For AN, 'Determination of the propagation rate coefficient of acrylonitrile' Polym. Chem., 2010,1, 438-441, DOI: 10.1039/C0PY00019A\n# For the rest, \"Rate coefficients of free-radical polymerization deduced from pulsed laser experiments\" Prog. Polym. Sci., 2002, 27, 191-254, DOI: 10.1016/S0079-6700(01)00049-1\nkp_Ea = {'St':31.5, 'MMA': 22.4, 'MA': 17.7, 'VAc': 20.7, 'AN': 14.4} # kJ/mol\nkp_A = {'St':2.88e7, 'MMA':2.67e6, 'MA':1.66e7, 'VAc':1.47e7, 'AN': 1.79e6} # /mol.s\n\n# Decomposition rate coefficients of initiators.\n# For AIBN, ACHN, VR-110, \"A Critical Assessment of the Kinetics and Mechanism of Initiation of Radical Polymerization with Commercially Available Dialkyldiazene Initiators\" Prog. Polym. Sci. 2019, 88, 130-188, DOI: 10.1016/j.progpolymsci.2018.08.003\n# For BPO, it is calculated from Sigma Aldrich \"Applications: Free Radical Initiators\"\nkd_Ea = {'AIBN':131, 'BPO': 141, 'ACHN': 150, 'VR-110': 147}\nkd_A = {'AIBN':3.2e15, 'BPO': 3.4e16, 'ACHN': 7.9e16, 'VR-110': 2.0e15}"
+  },
+  {
+    "objectID": "OVESET/RadicalPolymerization_Kinetics.html#select-reaction-conditions",
+    "href": "OVESET/RadicalPolymerization_Kinetics.html#select-reaction-conditions",
+    "title": "OVESET",
+    "section": "2. Select reaction conditions",
+    "text": "2. Select reaction conditions\nCompounds used in this simulator:\n\n\n\n\n#@title { display-mode: \"form\" }\nPoly_type = \"conven\"\n\n#@markdown ###2.1. Choose the monomer and set the volume fraction of the monomer\n#@markdown **St**: styrene; **MMA**: methyl methacrylate; **MA**: methyl acrylate; **VAc**: vinyl acetate; **AN**: acrylonitrile\nMonomer = \"MA\" #@param [\"St\", \"MMA\", \"MA\", \"VAc\", \"AN\"]\nFraction_of_Monomer = 1 #@param {type:\"slider\", min:0, max:1, step:0.01}\n#@markdown Suppose you want to do bulk polymerization, you can set the fraction as 1. If you want to do a solution polymerization with half monomer and half solvent by volume, then set the fraction as 0.5. Solvent effect on reaction rate is not taken into account, thus there is no need to select a specific solvent for the simulation.\n\n#@markdown ###2.2. Choose the thermal initiator (TI) and set the concentration (mol/L)\n#@markdown **AIBN**: azobis(isobutyronitrile); **BPO**: benzoyl peroxide; **ACHN**: 1,1’-azobis-(1-cyclohexanenitrile); **VR-110**: 2,2'-Azobis(2,4,4-trimethylpentane)\nTI = \"AIBN\" #@param [\"AIBN\", \"BPO\", \"ACHN\", \"VR-110\"]\nc0_TI = 0.005 #@param {type:\"slider\", min:0, max:0.1, step:0.001}\n\n#@markdown ###2.3. Select the reaction temperature ($^\\circ$C) and reaction time (h)\nTemperature = 60 #@param {type:\"slider\", min:0, max:130, step:1}\nTemperature = Temperature + 273.15\nreact_time = 4 #@param {type:\"slider\", min:0, max:72, step:0.1}\nreact_time = react_time*3600\n#@markdown Be careful of the bolling temperatures of the monomers (styrene 145 $^\\circ$C, MMA 101 $^\\circ$C, MA 80 $^\\circ$C, VAc 72 $^\\circ$C, AN 77$^\\circ$C). Choosing a temperature above the boiling point will cause some problems in the real world experiments. \n\n# Rate coefficient of decomposition of the initiator\nk_d_TI = kd_A[TI]*np.exp(-kd_Ea[TI]*1000/8.314/Temperature)\n# Initiation efficiency\nf_TI = 0.8\n# Propagation rate coefficient\nk_p = kp_A[Monomer]*np.exp(-kp_Ea[Monomer]*1000/8.314/Temperature)\n# Initial monomer concentration\nc0_M = density[Monomer]*1000/molar_mass[Monomer]*Fraction_of_Monomer\nMM = molar_mass[Monomer]\n# Rate coefficient of termination between propagating chains\nk_tc = 5e7 # Termination by coupling\nk_td = 5e7 # Termination by disproportionation\n# Self initiation of the monomer, only styrene needs to be considered.\nif Monomer == \"styrene\":\n  k_th_S = 2.2e5*np.exp(-13810/Temperature)\nelse:\n  k_th_S = 0\n# Set the rate coefficients for the addition of the first monomer to the primary radical;\nk_p_R = k_p\n# the termination between primary radicals; the termination between a primary radical and a propagating radical. \nk_t_R = 2.5e9\nk_t_R_Pn = 1e8"
+  },
+  {
+    "objectID": "OVESET/RadicalPolymerization_Kinetics.html#construct-the-reaction-system",
+    "href": "OVESET/RadicalPolymerization_Kinetics.html#construct-the-reaction-system",
+    "title": "OVESET",
+    "section": "3. Construct the reaction system",
+    "text": "3. Construct the reaction system\n\n#@title { display-mode: \"form\" }\n# Initiate the reaction system with null value. \n# The rsys_orig is the system of the actual reactions.\n# The rsys_pseudo includes the pseudo reactions with pseudo species \n# which are used to introduce 1st and 2nd order moments\n# and to adjust the reactions to take into account the initiation efficiency, etc. \nrsys_orig = ReactionSystem.from_string(\"\"\"\n    \"\"\", substance_factory=Substance)\nrsys_pseudo =  ReactionSystem.from_string(\"\"\"\n    \"\"\", substance_factory=Substance)\n\n# Initial concentrations of monomer, dead chains, radicals, and pseudo species of moments.\nc0 = defaultdict(float, {'M': c0_M, 'D': 0, 'PnD': 0, 'PnDPn': 0, 'R': 0, 'Pn': 0, 'M1_Pn': 0, \\\n                         'M1_PnD': 0, 'M1_PnDPn': 0, 'M2_total': 0}) \n\n# Add propagation and termination reactions to the reaction system. \nrsys_orig += ReactionSystem.from_string(f\"\"\"\n    R + M -&gt; Pn; {k_p_R}\n    Pn + M -&gt; Pn; {k_p}      \n    R + R -&gt; D + D; {k_t_R}\n    Pn + R -&gt; PnD + D; {k_t_R_Pn}\n    Pn + Pn -&gt; PnD + PnD; {k_td}\n    Pn + Pn -&gt; PnDPn; {k_tc}\n    \"\"\", substance_factory=Substance)\nrsys_pseudo += ReactionSystem.from_string(f\"\"\"\n    R + M -&gt; R + M + M1_Pn + M2_total; {k_p_R}\n    Pn + M -&gt; Pn + M + M1_Pn + M2_total; {k_p}\n    M1_Pn + M -&gt; M1_Pn + M + M2_total; {2*k_p}\n    M1_Pn + R -&gt; M1_PnD + R; {k_t_R_Pn}\n    M1_Pn + Pn -&gt; M1_PnD + Pn; {2*k_td}\n    M1_Pn + Pn -&gt; M1_PnDPn + Pn; {2*k_tc}\n    M1_Pn + M1_Pn -&gt; M1_Pn + M1_Pn + M2_total; {2*k_tc}\n    \"\"\", substance_factory=Substance)\n\n# To include the thermal initiaion for styrenic monomers\nif k_th_S != 0:\n    rsys_orig += ReactionSystem.from_string(f\"\"\"\n        M + M + M -&gt; R + R; {k_th_S}            \n        \"\"\", substance_factory=Substance) \n\n\n# The thermal initiator is consumed with a rate coefficient k_d_TI;\n# however, not all of the primary radicals would involve in propagation.\n# To take into account the initiation efficiency, pseudo reactions and a pseudo species 'PR' are introduced. \n\nc0.update({'TI': c0_TI, 'PR': 0})   \nrsys_orig += ReactionSystem.from_string(f\"\"\"\n    TI -&gt; R + R; {k_d_TI}\n    \"\"\", substance_factory=Substance)\nrsys_pseudo += ReactionSystem.from_string(f\"\"\"\n    TI -&gt; R + R; {-k_d_TI}\n    TI -&gt; PR + PR; {k_d_TI}    \n    TI -&gt; TI + R + R; {f_TI*k_d_TI}\n    \"\"\", substance_factory=Substance)  \n\n# List the initial concentrations of reagents\nprint(\"The reagents and their concentrations (mol/L) are as follows:\")\nfor key in c0:\n    if c0[key] != 0:\n        print(key, ': ', c0[key])\nprint(\"where 'M' means the monomer, 'TI' means the thermal initiator.\")\n# Show the reactions and the rate coefficients in the system\nprint(\"The reactions involved are listed below with their rate coefficients.\")\nrsys_orig\n\nThe reagents and their concentrations (mol/L) are as follows:\nM :  11.034963410384481\nTI :  0.005\nwhere 'M' means the monomer, 'TI' means the thermal initiator.\nThe reactions involved are listed below with their rate coefficients.\n\n\n\n\n\n\n\n\nM + R\n→\nPn\n 27850\n\n\n\nM + Pn\n→\nPn\n 27850\n\n\n\n2 R\n→\n2 D\n 2.5⋅109\n\n\n\nPn + R\n→\nD + PnD\n 108\n\n\n\n2 Pn\n→\n2 PnD\n 5⋅107\n\n\n\n2 Pn\n→\nPnDPn\n 5⋅107\n\n\n\nTI\n→\n2 R\n 9.2235⋅10-6"
+  },
+  {
+    "objectID": "OVESET/RadicalPolymerization_Kinetics.html#simulation",
+    "href": "OVESET/RadicalPolymerization_Kinetics.html#simulation",
+    "title": "OVESET",
+    "section": "4. Simulation",
+    "text": "4. Simulation\nList of the differential equations\n\n#@title { display-mode: \"form\" }\n# Combine the actual and the pseudo reaction systems\nrsys = rsys_orig + rsys_pseudo\n\n# Get the differential equation system from the reactions.\nodesys, extra = get_odesys(rsys)\n\n# List the differential equations\nfor index, exp in enumerate(odesys.exprs):\n    if odesys.names[index] != 'PR':\n        print(odesys.names[index], ': ', f'dy_{index}/dt', '= ',  exp)\n\nD :  dy_0/dt =  100000000.0*y_2*y_5 + 5000000000.0*y_5**2\nM :  dy_1/dt =  -27849.8025138658*y_1*y_2 - 27849.8025138658*y_1*y_5\nPn :  dy_2/dt =  27849.8025138658*y_1*y_5 - 200000000.0*y_2**2 - 100000000.0*y_2*y_5\nPnD :  dy_3/dt =  100000000.0*y_2**2 + 100000000.0*y_2*y_5\nPnDPn :  dy_4/dt =  50000000.0*y_2**2\nR :  dy_5/dt =  -27849.8025138658*y_1*y_5 - 100000000.0*y_2*y_5 - 5000000000.0*y_5**2 + 1.47576729074005e-5*y_6\nTI :  dy_6/dt =  -9.22354556712529e-6*y_6\nM1_Pn :  dy_7/dt =  27849.8025138658*y_1*y_2 + 27849.8025138658*y_1*y_5 - 200000000.0*y_2*y_7 - 100000000.0*y_5*y_7\nM1_PnD :  dy_8/dt =  100000000.0*y_2*y_7 + 100000000.0*y_5*y_7\nM1_PnDPn :  dy_9/dt =  100000000.0*y_2*y_7\nM2_total :  dy_10/dt =  27849.8025138658*y_1*y_2 + 27849.8025138658*y_1*y_5 + 55699.6050277317*y_1*y_7 + 100000000.0*y_7**2\n\n\nThe differential equation system includes not only the real species, i.e., those taht appear in the actual reactions, but also the pseudo species, e.g., the 1st and 2nd order moments.\n\n#@title { display-mode: \"form\" }\n# Integration\ntout = sorted(np.concatenate((np.linspace(0, react_time), np.logspace(0, np.floor(np.log10(react_time))))))\nresult = odesys.integrate(tout, c0, integrator='scipy', method='lsoda', atol=1e-12, rtol=1e-6)"
+  },
+  {
+    "objectID": "OVESET/RadicalPolymerization_Kinetics.html#results",
+    "href": "OVESET/RadicalPolymerization_Kinetics.html#results",
+    "title": "OVESET",
+    "section": "5. Results",
+    "text": "5. Results\n\n5.1. Concentration changes\n\n#@title { display-mode: \"form\" }\n# Plot the concentrations of species in the reaction system vs time. \n# The change of monomer concentration is not included here since monomer conversion will be plotted later.\nlabels=['(a)','(b)','(c)']\ni=0\nfig1, axes = plt.subplots(1, 2, figsize=(12, 6))\nfor ax in axes:\n     _ = result.plot(names=[k for k in rsys_orig.substances if k != 'CuIsour' \\\n                            and k != 'M' and k!= 'elec' and k != 'Cu0'], ax=ax) \n     _ = ax.legend(loc='best',prop={'size': 12}) # Set the font size of the legend here.    \n     _ = ax.set_xlabel('Time (s)')\n     _ = ax.set_ylabel('Concentration')\n     _ = ax.text(-0.1, 1, labels[i], transform=ax.transAxes, fontweight='bold', va='top', ha='right')\n     i+=1\naxes[0].ticklabel_format(axis=\"x\", style=\"sci\", scilimits=(0,0))\n_ = axes[1].set_ylim([1e-10, 1e1])\n_ = axes[1].set_xscale('log')\n_ = axes[1].set_yscale('log')\n_ = fig1.tight_layout()\n\n\n\n\n\n\n\n\n\nMeanings of the species produced during the polymerization\nR: primary radical either from the thermal initiator\nD: termination product from primary radicals\nPn: propagating polymer chain with a chain end radical\nPnD: dead polymer chain produced by termination through disproportionation\nPnDPn: dead polymer chain produced by termination through coupling\nNote: The choice of monomer affects the relative reaction rates of termination by coupling and disproportionation. Additionally, the rate coefficients of termination change with chain length and viscosity. Considering all these factors can be very complicated. To keep things simple for educational purposes, this simulator sets the rate coefficients of termination as constants.\n\n\n\n5.2. Monomer conversion vs time\n\n#@title { display-mode: \"form\" }\n# Get concentrations and calculate conversion, Mn and Mw/Mn.\nConcM = result[1][:,result.odesys.names.index('M')]\nConcD = result[1][:,result.odesys.names.index('D')]\nConcPnD = result[1][:,result.odesys.names.index('PnD')]\nConcPnDPn = result[1][:,result.odesys.names.index('PnDPn')]\nConcPn = result[1][:,result.odesys.names.index('Pn')]\nConcM2_total = result[1][:,result.odesys.names.index('M2_total')]\n\nConvM =(ConcM[0]-ConcM)/ConcM[0]\nLnM0_M = np.log(ConcM[0]/ConcM)\n\nMn = np.zeros(len(result[0]))\nMw = np.zeros(len(result[0]))\nMw_Mn = np.ones(len(result[0]))\n\nMn[1:] = (ConcM[0]-ConcM[1:])/(ConcPnD[1:] + ConcPnDPn[1:] + ConcPn[1:])*MM\nMw[1:] = ConcM2_total[1:]/(ConcM[0]-ConcM[1:])*MM    \nMw_Mn[1:] = Mw[1:]/Mn[1:]\n\n    \nresult_cal = [result[0],ConcM,ConvM,LnM0_M,Mn,Mw_Mn]\n\n\n#@title { display-mode: \"form\" }\n# Monomer conversion vs. time and first order kinetic plots. \nfig2, axes = plt.subplots(1, 2, figsize=(12, 6))\ni=0\nfor ax in axes:\n    ax.ticklabel_format(axis=\"x\", style=\"sci\", scilimits=(0,0))\n    _ = ax.plot(result_cal[0], result_cal[i+2])\n    _ = ax.text(-0.1, 1, labels[i], transform=ax.transAxes, fontweight='bold', va='top', ha='right')\n    _ = ax.grid()\n    i += 1\n_ = axes[0].set(xlabel = 'Time (s)', ylabel='Conversion')\n_ = axes[1].set(xlabel = 'Time (s)', ylabel='Ln([M]0/[M])')\n_ = fig2.tight_layout()\n\n\n\n\n\n\n\n\n\n\n5.3. Molecular weight and molecular weight distribution.\n\n#@title { display-mode: \"form\" }\n# Plot Mn, Mw/Mn and Tmol% vs. conversion. \nfig3, axes = plt.subplots(1, 2, figsize=(12, 6))\ni=0\nfor ax in axes:\n    _ = ax.plot(result_cal[2][1:], result_cal[i+4][1:])\n    _ = ax.text(-0.1, 1, labels[i], transform=ax.transAxes, fontweight='bold', va='top', ha='right')\n    _ = ax.grid()\n    i += 1\n_ = axes[0].set(xlabel = 'Conversion', ylabel='Mn')\naxes[0].ticklabel_format(axis=\"y\", style=\"sci\", scilimits=(0,0))\n_ = axes[1].set(xlabel = 'Conversion', ylabel='Mw/Mn')\n_ = fig3.tight_layout()"
+  },
+  {
+    "objectID": "OVESET/RadicalPolymerization_Kinetics.html#export-the-results",
+    "href": "OVESET/RadicalPolymerization_Kinetics.html#export-the-results",
+    "title": "OVESET",
+    "section": "6. Export the results",
+    "text": "6. Export the results\n\n#@title Export the result to a CSV file { display-mode: \"form\" }\n# If you run this program on your own computer, the CSV file is saved in the same folder as this ipynb file. \n# If you run this program online at https://colab.research.google.com/, \n# you can find the a menu bar on the left side. \n# Click on the fourth one called \"Files\" and you will see the exported files. \n\nnow = datetime.datetime.now()\nfilename = f'{now.strftime(\"%Y-%m-%d-%Hh%Mm%Ss\")}-ConvenRadicalPolymerization-Simulation-{Monomer}-{TI}-{Temperature-273.15}C.csv'\n\nwith open(filename, 'w', newline='') as f:\n    thewriter = csv.writer(f)\n    for rxn in rsys_orig.rxns:\n        thewriter.writerow([rxn])\n\n    thewriter.writerow([f'The initiation efficiency of the thermal initiator is {f_TI}.'])\n    for index, exp in enumerate(odesys.exprs):\n        if odesys.names[index] != 'PR':\n            thewriter.writerow([f'{odesys.names[index]}:',f'dy_{index}/dt = {exp}'])    \n    thewriter.writerow(['time (s)']+[k for k in rsys.substances if k != 'PR']+['conversion']+['ln([M]0/[M])']\\\n                       +['Mn']+['Mw/Mn'])\n    i=0\n    for concen in result[1]:\n        thewriter.writerow([result_cal[0][i]]+[concen[result.odesys.names.index(k)] for k in rsys.substances \\\n                                               if k != 'PR'] +[ConvM[i]]+[LnM0_M[i]]+[Mn[i]]+[Mw_Mn[i]])\n        i+=1\n\n\n#@title Export the plots as pdf and png files { display-mode: \"form\" }\n\nfig1.savefig(f'{now.strftime(\"%Y-%m-%d-%Hh%Mm%Ss\")}-concentration.pdf', bbox_inches='tight')\nfig1.savefig(f'{now.strftime(\"%Y-%m-%d-%Hh%Mm%Ss\")}-concentration.png', bbox_inches='tight', dpi=600)\n\nfig2.savefig(f'{now.strftime(\"%Y-%m-%d-%Hh%Mm%Ss\")}-conversion.pdf', bbox_inches='tight')\nfig2.savefig(f'{now.strftime(\"%Y-%m-%d-%Hh%Mm%Ss\")}-conversion.png', bbox_inches='tight', dpi=600)\n\nfig3.savefig(f'{now.strftime(\"%Y-%m-%d-%Hh%Mm%Ss\")}-molecular_weight.pdf', bbox_inches='tight')\nfig3.savefig(f'{now.strftime(\"%Y-%m-%d-%Hh%Mm%Ss\")}-molecular_weight.png', bbox_inches='tight', dpi=600)\n\n\n#@title Copyright { display-mode: \"form\" }\nimport requests\nfrom IPython.display import Markdown\ncopyright = requests.get(\"https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/master/copyright.md\")\nMarkdown(copyright.text)\n\n### Copyright\nThis software is designed for polymer science education. Copyright (C) 2021 Yu Wang\nThis program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\nYou should have received a copy of the GNU General Public License along with this program. If not, see https://www.gnu.org/licenses/.\n\nContact\nDr. Yu Wang\nDepartment of Chemistry\nInstitute for Materials Research and Innovation\nUniversity of Louisiana at Lafayette\nLafayette, LA 70504\nEmail: yuwang@louisiana.edu\n\n\nAcknowledgement\nThis project is sponsored by National Science Foundation (NSF-2142043)."
   }
 ]
