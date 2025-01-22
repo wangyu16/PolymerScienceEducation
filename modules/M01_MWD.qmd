@@ -8,7 +8,9 @@ image: "/img/M01_MWD_small.png"
 
 ## 1. Link to the simulator
 
-<a href="https://colab.research.google.com/drive/1fuOdEPmETTN_abINkmHplE93mft_bWMm?usp=sharing" target="_blank">Molecular Weight Distribution</a>
+<a href="https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/01_Molecular_Weight_Distribution.ipynb" target="_blank">Molecular Weight Distribution</a>
+
+{{< qrcode https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/01_Molecular_Weight_Distribution.ipynb width=250 height=250 >}}
 
 ## 2 Module objectives
 

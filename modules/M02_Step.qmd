@@ -8,9 +8,9 @@ image: "/img/M02_Step_small.png"
 
 ## 1. Link to the simulator
 
-<a href="https://colab.research.google.com/drive/14ZKuOMRoWhPYQUA4UwaqcP9fam7WFdpw?usp=sharing" target="_blank">Step Growth Polymerization</a>
+<a href="https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/02_Step_Growth_Polymerization.ipynb" target="_blank">Step Growth Polymerization</a>
 
-
+{{< qrcode https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/02_Step_Growth_Polymerization.ipynb width=250 height=250 >}}
 
 ## 2 Module objectives
 

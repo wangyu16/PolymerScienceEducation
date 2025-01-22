@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>self_avoid_chains – OVESET</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-1fbc47131a039e0df962caa6cecbb2e1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-b1ed65af9ea3b9097db30d7cb3d87607.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">OVESET</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../fqa.html"> 
+<span class="menu-text">FQA</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M01_MWD.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 1 Molecular Weight Distribution</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M02_Step.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 2 Step Growth Polymerization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M03_ConvenRad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 3 Conventional Radical Polymerization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M04_ATRP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 4 Atom Transfer Radical Polymerization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M05_RadCopoly.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 5 Radical Copolymerization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M06_Network.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 6 Network formation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M07_SingleChain.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 7 Single chain conformation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M08_SelfAvoid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 8 Self-avoid chains</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M09_StarBranch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 9 Star and branched polymers</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#self-avoid-chains" id="toc-self-avoid-chains" class="nav-link active" data-scroll-target="#self-avoid-chains">Self Avoid Chains</a>
+  <ul class="collapse">
+  <li><a href="#what-does-this-simulator-do" id="toc-what-does-this-simulator-do" class="nav-link" data-scroll-target="#what-does-this-simulator-do">What does this simulator do?</a>
+  <ul class="collapse">
+  <li><a href="#defination" id="toc-defination" class="nav-link" data-scroll-target="#defination">Defination</a></li>
+  </ul></li>
+  <li><a href="#how-to-use-this-simulator" id="toc-how-to-use-this-simulator" class="nav-link" data-scroll-target="#how-to-use-this-simulator">How to use this simulator?</a></li>
+  <li><a href="#simulation-conditions" id="toc-simulation-conditions" class="nav-link" data-scroll-target="#simulation-conditions">Simulation conditions</a></li>
+  <li><a href="#simulation" id="toc-simulation" class="nav-link" data-scroll-target="#simulation">3. Simulation</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">4. Results</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<p><a href="https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/08_Self_Avoid_Chains.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></p>
+<center>
+<a href="https://wangyu16.github.io/PolymerScienceEducation/"><img src="https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/master/Fig/Logo_black.svg" width="150"></a>
+</center>
+<section id="self-avoid-chains" class="level1">
+<h1>Self Avoid Chains</h1>
+<hr>
+<p>To learn the background knowledge, please visit this <a href="https://hackmd.io/@YW2025/SyiT4N3A0">study guide</a>.</p>
+<section id="what-does-this-simulator-do" class="level2">
+<h2 class="anchored" data-anchor-id="what-does-this-simulator-do">What does this simulator do?</h2>
+<p>Given chain length (the number of bonds <span class="math inline">\(n\)</span> in each chain), 1. generate chains based on hindered rotation and self-avoid hindered rotation models;<br>
+2. calculate end to end distances <span class="math inline">\(h\)</span> and radius of gyrations (<span class="math inline">\(R_g\)</span>) from two models;<br>
+3. plot the distributions of <span class="math inline">\(h\)</span> and <span class="math inline">\(R_g\)</span>, and calculate the mean values <span class="math inline">\(\langle h^2\rangle\)</span> of and <span class="math inline">\(\langle R_g^2\rangle\)</span>.</p>
+<section id="defination" class="level3">
+<h3 class="anchored" data-anchor-id="defination">Defination</h3>
+<p>The <strong>self-avoid threshold</strong> refers to the minimum allowable distance between two points along a chain, with the following exceptions:</p>
+<ul>
+<li><em>Adjacent points</em>: These points have a fixed distance equal to the bond length (which is 1 in this simulation).</li>
+<li><em>Two points two bonds apart</em>: The distance between these points is fixed at <span class="math inline">\(2\sin\frac{\theta}{2}\)</span>​, where <span class="math inline">\(\theta\)</span> represents the bond angle.</li>
+<li><em>Two points three bonds apart</em>: The minimum distance between these points is given by <span class="math inline">\([2\cos(\pi - \theta) + 1]\)</span>, and all torsion angles should be allowed.</li>
+</ul>
+<p>To visualize this concept, consider a model chain resembling polyethylene. Notably, the self-avoid threshold should be greater than the bond length. Taking into account repulsive interactions between H atoms, the actual threshold could be as large as two bond lengths. For study purposes, you can set the threshold arbitrarily within this range.</p>
+</section>
+</section>
+<section id="how-to-use-this-simulator" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-use-this-simulator">How to use this simulator?</h2>
+<p>Simply set the values in “Section 2. Simulation conditions” and run all cells. The results compare self-avoid chains and non-self-avoid chains by showing the difference of their end-to-end distances and radii of gyration.</p>
+</section>
+<section id="simulation-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="simulation-conditions">Simulation conditions</h2>
+<div id="cell-4" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title 1. Install and import packages {display-mode: "form" }</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>capture</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objs <span class="im">as</span> go</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotly.subplots <span class="im">import</span> make_subplots</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'fivethirtyeight'</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> curve_fit</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.spatial.transform <span class="im">import</span> Rotation <span class="im">as</span> R</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.spatial.distance <span class="im">import</span> cdist</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> concurrent.futures</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install sigfig</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sigfig <span class="im">import</span> <span class="bu">round</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-5" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title 2. Simulation conditions. {display-mode: "form" }</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown For self avoid chain, set the minimum allowed distance between two points.</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>selfAvoidThreshold <span class="op">=</span> <span class="fl">1.5</span> <span class="co">#@param {type:"slider", min:1, max:2,step:0.1}</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown The default value 109.5 is the bond angle found in polyethylene.</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>bondAngle <span class="op">=</span> <span class="fl">109.5</span> <span class="co">#@param {type:"slider", min:105, max:175, step:0.1}</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown The value of chainLength defines the number of bonds in each chain.</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>chainLength <span class="op">=</span> <span class="dv">300</span> <span class="co">#@param {type:"slider", min:25, max:400, step:1}</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>numberOfChains <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>temperature <span class="op">=</span> <span class="dv">298</span> <span class="co"># K</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>NA <span class="op">=</span> <span class="fl">6.02e23</span> <span class="co"># Avogadro constant (/mol)</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="fl">1.38e-23</span> <span class="co"># Boltzmann constant (J/K)</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Energy levels associated with each degree of torsion angle.</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># The conformaitonal energy is calculated from butane.</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>ELevels <span class="op">=</span> np.array([<span class="fl">0.00000000e+00</span>, <span class="fl">7.54592315e-03</span>, <span class="fl">2.92783051e-02</span>, <span class="fl">6.51911715e-02</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.15278548e-01</span>, <span class="fl">1.79534461e-01</span>, <span class="fl">2.57952936e-01</span>, <span class="fl">3.50527998e-01</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>       <span class="fl">4.57253674e-01</span>, <span class="fl">5.78123989e-01</span>, <span class="fl">7.13132969e-01</span>, <span class="fl">8.62274640e-01</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.02554303e+00</span>, <span class="fl">1.20293216e+00</span>, <span class="fl">1.39443605e+00</span>, <span class="fl">1.60004875e+00</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.81976426e+00</span>, <span class="fl">2.05357661e+00</span>, <span class="fl">2.30147984e+00</span>, <span class="fl">2.56346797e+00</span>,</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>       <span class="fl">2.83953501e+00</span>, <span class="fl">3.12967501e+00</span>, <span class="fl">3.43388198e+00</span>, <span class="fl">3.75214995e+00</span>,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>       <span class="fl">4.08447295e+00</span>, <span class="fl">4.43084499e+00</span>, <span class="fl">4.79096456e+00</span>, <span class="fl">5.16331162e+00</span>,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>       <span class="fl">5.54605216e+00</span>, <span class="fl">5.93735218e+00</span>, <span class="fl">6.33537767e+00</span>, <span class="fl">6.73829465e+00</span>,</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>       <span class="fl">7.14426909e+00</span>, <span class="fl">7.55146701e+00</span>, <span class="fl">7.95805439e+00</span>, <span class="fl">8.36219723e+00</span>,</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>       <span class="fl">8.76206154e+00</span>, <span class="fl">9.15581330e+00</span>, <span class="fl">9.54161852e+00</span>, <span class="fl">9.91764319e+00</span>,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.02820533e+01</span>, <span class="fl">1.06330149e+01</span>, <span class="fl">1.09686939e+01</span>, <span class="fl">1.12872563e+01</span>,</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.15868794e+01</span>, <span class="fl">1.18664989e+01</span>, <span class="fl">1.21262807e+01</span>, <span class="fl">1.23665032e+01</span>,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.25874446e+01</span>, <span class="fl">1.27893832e+01</span>, <span class="fl">1.29725974e+01</span>, <span class="fl">1.31373654e+01</span>,</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.32839655e+01</span>, <span class="fl">1.34126761e+01</span>, <span class="fl">1.35237754e+01</span>, <span class="fl">1.36175417e+01</span>,</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.36942534e+01</span>, <span class="fl">1.37540310e+01</span>, <span class="fl">1.37964215e+01</span>, <span class="fl">1.38208411e+01</span>,</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.38267062e+01</span>, <span class="fl">1.38134329e+01</span>, <span class="fl">1.37804378e+01</span>, <span class="fl">1.37271369e+01</span>,</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.36529467e+01</span>, <span class="fl">1.35572834e+01</span>, <span class="fl">1.34396658e+01</span>, <span class="fl">1.33006901e+01</span>,</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.31415972e+01</span>, <span class="fl">1.29636368e+01</span>, <span class="fl">1.27680585e+01</span>, <span class="fl">1.25561121e+01</span>,</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.23290470e+01</span>, <span class="fl">1.20881131e+01</span>, <span class="fl">1.18345599e+01</span>, <span class="fl">1.15696370e+01</span>,</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.12945942e+01</span>, <span class="fl">1.10106810e+01</span>, <span class="fl">1.07191471e+01</span>, <span class="fl">1.04212423e+01</span>,</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.01182160e+01</span>, <span class="fl">9.81131794e+00</span>, <span class="fl">9.50179781e+00</span>, <span class="fl">9.19090523e+00</span>,</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>       <span class="fl">8.87988984e+00</span>, <span class="fl">8.57000130e+00</span>, <span class="fl">8.26248925e+00</span>, <span class="fl">7.95860333e+00</span>,</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>       <span class="fl">7.65959320e+00</span>, <span class="fl">7.36670850e+00</span>, <span class="fl">7.08115647e+00</span>, <span class="fl">6.80354801e+00</span>,</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>       <span class="fl">6.53405378e+00</span>, <span class="fl">6.27283418e+00</span>, <span class="fl">6.02004959e+00</span>, <span class="fl">5.77586037e+00</span>,</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>       <span class="fl">5.54042692e+00</span>, <span class="fl">5.31390962e+00</span>, <span class="fl">5.09646885e+00</span>, <span class="fl">4.88826499e+00</span>,</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>       <span class="fl">4.68945841e+00</span>, <span class="fl">4.50020951e+00</span>, <span class="fl">4.32067866e+00</span>, <span class="fl">4.15102624e+00</span>,</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>       <span class="fl">3.99141264e+00</span>, <span class="fl">3.84199823e+00</span>, <span class="fl">3.70294340e+00</span>, <span class="fl">3.57440853e+00</span>,</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>       <span class="fl">3.45655399e+00</span>, <span class="fl">3.34954018e+00</span>, <span class="fl">3.25352747e+00</span>, <span class="fl">3.16867625e+00</span>,</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>       <span class="fl">3.09514688e+00</span>, <span class="fl">3.03309976e+00</span>, <span class="fl">2.98269527e+00</span>, <span class="fl">2.94409379e+00</span>,</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>       <span class="fl">2.91745569e+00</span>, <span class="fl">2.90294137e+00</span>, <span class="fl">2.90071119e+00</span>, <span class="fl">2.91092555e+00</span>,</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>       <span class="fl">2.93374482e+00</span>, <span class="fl">2.96932938e+00</span>, <span class="fl">3.01783962e+00</span>, <span class="fl">3.07943666e+00</span>,</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>       <span class="fl">3.15443734e+00</span>, <span class="fl">3.24350566e+00</span>, <span class="fl">3.34735249e+00</span>, <span class="fl">3.46668873e+00</span>,</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>       <span class="fl">3.60222527e+00</span>, <span class="fl">3.75467301e+00</span>, <span class="fl">3.92474283e+00</span>, <span class="fl">4.11314564e+00</span>,</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>       <span class="fl">4.32059231e+00</span>, <span class="fl">4.54779374e+00</span>, <span class="fl">4.79546083e+00</span>, <span class="fl">5.06430447e+00</span>,</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>       <span class="fl">5.35503554e+00</span>, <span class="fl">5.66836495e+00</span>, <span class="fl">6.00500357e+00</span>, <span class="fl">6.36566231e+00</span>,</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>       <span class="fl">6.75105206e+00</span>, <span class="fl">7.16188370e+00</span>, <span class="fl">7.59886814e+00</span>, <span class="fl">8.06271625e+00</span>,</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>       <span class="fl">8.55413894e+00</span>, <span class="fl">9.07372111e+00</span>, <span class="fl">9.61999247e+00</span>, <span class="fl">1.01898089e+01</span>,</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.07799775e+01</span>, <span class="fl">1.13873056e+01</span>, <span class="fl">1.20086002e+01</span>, <span class="fl">1.26406685e+01</span>,</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.32803176e+01</span>, <span class="fl">1.39243549e+01</span>, <span class="fl">1.45695873e+01</span>, <span class="fl">1.52128221e+01</span>,</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.58508664e+01</span>, <span class="fl">1.64805274e+01</span>, <span class="fl">1.70986122e+01</span>, <span class="fl">1.77019281e+01</span>,</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.82872822e+01</span>, <span class="fl">1.88515041e+01</span>, <span class="fl">1.93925323e+01</span>, <span class="fl">1.99098968e+01</span>,</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>       <span class="fl">2.04032505e+01</span>, <span class="fl">2.08722464e+01</span>, <span class="fl">2.13165376e+01</span>, <span class="fl">2.17357771e+01</span>,</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>       <span class="fl">2.21296178e+01</span>, <span class="fl">2.24977128e+01</span>, <span class="fl">2.28397151e+01</span>, <span class="fl">2.31552777e+01</span>,</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>       <span class="fl">2.34440537e+01</span>, <span class="fl">2.37056959e+01</span>, <span class="fl">2.39398574e+01</span>, <span class="fl">2.41461913e+01</span>,</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>       <span class="fl">2.43243505e+01</span>, <span class="fl">2.44739881e+01</span>, <span class="fl">2.45947570e+01</span>, <span class="fl">2.46863103e+01</span>,</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>       <span class="fl">2.47483009e+01</span>, <span class="fl">2.46863103e+01</span>, <span class="fl">2.45947570e+01</span>, <span class="fl">2.44739881e+01</span>,</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>       <span class="fl">2.43243505e+01</span>, <span class="fl">2.41461913e+01</span>, <span class="fl">2.39398574e+01</span>, <span class="fl">2.37056959e+01</span>,</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>       <span class="fl">2.34440537e+01</span>, <span class="fl">2.31552777e+01</span>, <span class="fl">2.28397151e+01</span>, <span class="fl">2.24977128e+01</span>,</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>       <span class="fl">2.21296178e+01</span>, <span class="fl">2.17357771e+01</span>, <span class="fl">2.13165376e+01</span>, <span class="fl">2.08722464e+01</span>,</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>       <span class="fl">2.04032505e+01</span>, <span class="fl">1.99098968e+01</span>, <span class="fl">1.93925323e+01</span>, <span class="fl">1.88515041e+01</span>,</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.82872822e+01</span>, <span class="fl">1.77019281e+01</span>, <span class="fl">1.70986122e+01</span>, <span class="fl">1.64805274e+01</span>,</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.58508664e+01</span>, <span class="fl">1.52128221e+01</span>, <span class="fl">1.45695873e+01</span>, <span class="fl">1.39243549e+01</span>,</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.32803176e+01</span>, <span class="fl">1.26406685e+01</span>, <span class="fl">1.20086002e+01</span>, <span class="fl">1.13873056e+01</span>,</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.07799775e+01</span>, <span class="fl">1.01898089e+01</span>, <span class="fl">9.61999247e+00</span>, <span class="fl">9.07372111e+00</span>,</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>       <span class="fl">8.55413894e+00</span>, <span class="fl">8.06271625e+00</span>, <span class="fl">7.59886814e+00</span>, <span class="fl">7.16188370e+00</span>,</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>       <span class="fl">6.75105206e+00</span>, <span class="fl">6.36566231e+00</span>, <span class="fl">6.00500357e+00</span>, <span class="fl">5.66836495e+00</span>,</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>       <span class="fl">5.35503554e+00</span>, <span class="fl">5.06430447e+00</span>, <span class="fl">4.79546083e+00</span>, <span class="fl">4.54779374e+00</span>,</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>       <span class="fl">4.32059231e+00</span>, <span class="fl">4.11314564e+00</span>, <span class="fl">3.92474283e+00</span>, <span class="fl">3.75467301e+00</span>,</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>       <span class="fl">3.60222527e+00</span>, <span class="fl">3.46668873e+00</span>, <span class="fl">3.34735249e+00</span>, <span class="fl">3.24350566e+00</span>,</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>       <span class="fl">3.15443734e+00</span>, <span class="fl">3.07943666e+00</span>, <span class="fl">3.01783962e+00</span>, <span class="fl">2.96932938e+00</span>,</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>       <span class="fl">2.93374482e+00</span>, <span class="fl">2.91092555e+00</span>, <span class="fl">2.90071119e+00</span>, <span class="fl">2.90294137e+00</span>,</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>       <span class="fl">2.91745569e+00</span>, <span class="fl">2.94409379e+00</span>, <span class="fl">2.98269527e+00</span>, <span class="fl">3.03309976e+00</span>,</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>       <span class="fl">3.09514688e+00</span>, <span class="fl">3.16867625e+00</span>, <span class="fl">3.25352747e+00</span>, <span class="fl">3.34954018e+00</span>,</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>       <span class="fl">3.45655399e+00</span>, <span class="fl">3.57440853e+00</span>, <span class="fl">3.70294340e+00</span>, <span class="fl">3.84199823e+00</span>,</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>       <span class="fl">3.99141264e+00</span>, <span class="fl">4.15102624e+00</span>, <span class="fl">4.32067866e+00</span>, <span class="fl">4.50020951e+00</span>,</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>       <span class="fl">4.68945841e+00</span>, <span class="fl">4.88826499e+00</span>, <span class="fl">5.09646885e+00</span>, <span class="fl">5.31390962e+00</span>,</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>       <span class="fl">5.54042692e+00</span>, <span class="fl">5.77586037e+00</span>, <span class="fl">6.02004959e+00</span>, <span class="fl">6.27283418e+00</span>,</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>       <span class="fl">6.53405378e+00</span>, <span class="fl">6.80354801e+00</span>, <span class="fl">7.08115647e+00</span>, <span class="fl">7.36670850e+00</span>,</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>       <span class="fl">7.65959320e+00</span>, <span class="fl">7.95860333e+00</span>, <span class="fl">8.26248925e+00</span>, <span class="fl">8.57000130e+00</span>,</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>       <span class="fl">8.87988984e+00</span>, <span class="fl">9.19090523e+00</span>, <span class="fl">9.50179781e+00</span>, <span class="fl">9.81131794e+00</span>,</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.01182160e+01</span>, <span class="fl">1.04212423e+01</span>, <span class="fl">1.07191471e+01</span>, <span class="fl">1.10106810e+01</span>,</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.12945942e+01</span>, <span class="fl">1.15696370e+01</span>, <span class="fl">1.18345599e+01</span>, <span class="fl">1.20881131e+01</span>,</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.23290470e+01</span>, <span class="fl">1.25561121e+01</span>, <span class="fl">1.27680585e+01</span>, <span class="fl">1.29636368e+01</span>,</span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.31415972e+01</span>, <span class="fl">1.33006901e+01</span>, <span class="fl">1.34396658e+01</span>, <span class="fl">1.35572834e+01</span>,</span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.36529467e+01</span>, <span class="fl">1.37271369e+01</span>, <span class="fl">1.37804378e+01</span>, <span class="fl">1.38134329e+01</span>,</span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.38267062e+01</span>, <span class="fl">1.38208411e+01</span>, <span class="fl">1.37964215e+01</span>, <span class="fl">1.37540310e+01</span>,</span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.36942534e+01</span>, <span class="fl">1.36175417e+01</span>, <span class="fl">1.35237754e+01</span>, <span class="fl">1.34126761e+01</span>,</span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.32839655e+01</span>, <span class="fl">1.31373654e+01</span>, <span class="fl">1.29725974e+01</span>, <span class="fl">1.27893832e+01</span>,</span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.25874446e+01</span>, <span class="fl">1.23665032e+01</span>, <span class="fl">1.21262807e+01</span>, <span class="fl">1.18664989e+01</span>,</span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.15868794e+01</span>, <span class="fl">1.12872563e+01</span>, <span class="fl">1.09686939e+01</span>, <span class="fl">1.06330149e+01</span>,</span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.02820533e+01</span>, <span class="fl">9.91764319e+00</span>, <span class="fl">9.54161852e+00</span>, <span class="fl">9.15581330e+00</span>,</span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>       <span class="fl">8.76206154e+00</span>, <span class="fl">8.36219723e+00</span>, <span class="fl">7.95805439e+00</span>, <span class="fl">7.55146701e+00</span>,</span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>       <span class="fl">7.14426909e+00</span>, <span class="fl">6.73829465e+00</span>, <span class="fl">6.33537767e+00</span>, <span class="fl">5.93735218e+00</span>,</span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>       <span class="fl">5.54605216e+00</span>, <span class="fl">5.16331162e+00</span>, <span class="fl">4.79096456e+00</span>, <span class="fl">4.43084499e+00</span>,</span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>       <span class="fl">4.08447295e+00</span>, <span class="fl">3.75214995e+00</span>, <span class="fl">3.43388198e+00</span>, <span class="fl">3.12967501e+00</span>,</span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>       <span class="fl">2.83953501e+00</span>, <span class="fl">2.56346797e+00</span>, <span class="fl">2.30147984e+00</span>, <span class="fl">2.05357661e+00</span>,</span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.81976426e+00</span>, <span class="fl">1.60004875e+00</span>, <span class="fl">1.39443605e+00</span>, <span class="fl">1.20293216e+00</span>,</span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.02554303e+00</span>, <span class="fl">8.62274640e-01</span>, <span class="fl">7.13132969e-01</span>, <span class="fl">5.78123989e-01</span>,</span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>       <span class="fl">4.57253674e-01</span>, <span class="fl">3.50527998e-01</span>, <span class="fl">2.57952936e-01</span>, <span class="fl">1.79534461e-01</span>,</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>       <span class="fl">1.15278548e-01</span>, <span class="fl">6.51911715e-02</span>, <span class="fl">2.92783051e-02</span>, <span class="fl">7.54592315e-03</span>,</span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>       ]) <span class="co"># kJ/mo</span></span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>relativeProbs <span class="op">=</span> np.exp(<span class="op">-</span><span class="dv">1000</span><span class="op">*</span>ELevels<span class="op">/</span>NA<span class="op">/</span>temperature<span class="op">/</span>k)</span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>probs <span class="op">=</span> relativeProbs<span class="op">/</span>relativeProbs.<span class="bu">sum</span>() <span class="co"># Normalized probabilities</span></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.plot(probs)</span></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.show()</span></span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>bondAngle <span class="op">=</span> bondAngle<span class="op">/</span><span class="dv">180</span><span class="op">*</span>np.pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-6" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title {display-mode: "form"}</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> chain:</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">  A class to represent a chain of n points in 3D space.</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">  """</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, points):</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">    Initialize a chain object.</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">      points: A series of n points in 3D space with their coordinates stored in a (n, 3) numpy array.</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.length <span class="op">=</span> <span class="bu">len</span>(points) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.coordinates <span class="op">=</span> points</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">@property</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> e2eDistance(<span class="va">self</span>):</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the end-to-end distance of the chain.</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">      The end-to-end distance of the chain.</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.linalg.norm(<span class="va">self</span>.coordinates[<span class="op">-</span><span class="dv">1</span>] <span class="op">-</span> <span class="va">self</span>.coordinates[<span class="dv">0</span>])</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">@property</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> massCenter(<span class="va">self</span>):</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the mass center of the chain.</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="co">      The mass center of the chain.</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.mean(<span class="va">self</span>.coordinates, axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  <span class="at">@property</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> radiusGyration(<span class="va">self</span>):</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="co">    An alternative way to calculates the radius of gyration of the chain.</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="co">      The radius of gyration.</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    massCenter <span class="op">=</span> <span class="va">self</span>.massCenter</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    squaredDistances <span class="op">=</span> np.<span class="bu">sum</span>((<span class="va">self</span>.coordinates <span class="op">-</span> massCenter)<span class="op">**</span><span class="dv">2</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.sqrt(np.mean(squaredDistances))</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>  <span class="at">@classmethod</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> fromAngles(cls, thetas, phis, chainLength):</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="co">    An alternative constructor from given bond angles and torsion angles.</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="co">      thetas: The bond angles in radians.</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="co">      phis: The torsion angles in radians.</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="co">      chainLength: number of bonds in each chain</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="co">      A chain object.</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> rotateVectorZ(vectors, phi):</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>      <span class="co">"""</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="co">      Rotate the vectors anticlockwise around z axis.</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="co">      Args:</span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a><span class="co">        vectors: (3, n) array which contains n 3D vectors.</span></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="co">        phi: rotation angle in radians.</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="co">      Returns: (3, n) array which contains n 3D vectors rotated anticlockwise around z axis.</span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="co">      """</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>      rotationMatrix <span class="op">=</span> np.array([[np.cos(phi), <span class="op">-</span>np.sin(phi), <span class="dv">0</span>],</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>                                [np.sin(phi), np.cos(phi), <span class="dv">0</span>],</span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>                                [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>]])</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> np.matmul(rotationMatrix, vectors)</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> rotateVectorY(vectors, theta):</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>      <span class="co">"""</span></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="co">      Rotate the vectors anticlockwise around y axis.</span></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="co">      Args:</span></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="co">        vectors: (3, n) array which contains n 3D vectors.</span></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a><span class="co">      Returns: (3, n) array which contains n 3D vectors rotated anticlockwise around y axis.</span></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="co">      """</span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>      rotationMatrix <span class="op">=</span> np.array([[np.cos(theta), <span class="dv">0</span>, np.sin(theta)],</span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>                                [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>],</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>                                [<span class="op">-</span>np.sin(theta), <span class="dv">0</span>, np.cos(theta)]])</span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> np.matmul(rotationMatrix, vectors)</span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>    points <span class="op">=</span> np.array([[<span class="dv">0</span>],[<span class="dv">0</span>],[<span class="dv">0</span>]])</span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(chainLength):</span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>      points <span class="op">=</span> np.append(points, np.array([[<span class="dv">0</span>],[<span class="dv">0</span>],[<span class="dv">1</span>]]), axis <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>      points <span class="op">=</span> points <span class="op">-</span> np.array([[<span class="dv">0</span>],[<span class="dv">0</span>],[<span class="dv">1</span>]])</span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>      points <span class="op">=</span> rotateVectorY(points, thetas[i] <span class="op">-</span> np.pi)</span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>      points <span class="op">=</span> rotateVectorZ(points, phis[i])</span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>    points <span class="op">=</span> points.T <span class="co"># convert from (3, n) array to (n, 3) array</span></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>    points <span class="op">=</span> points <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>np.sqrt(chainLength)<span class="op">*</span>np.random.rand(<span class="dv">3</span>) <span class="co"># randomize the positions of the chains</span></span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> cls(points)</span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> copy(<span class="va">self</span>):</span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a><span class="co">    Create a duplicate of the chain instance.</span></span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a><span class="co">        A new chain instance with the same coordinates.</span></span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> chain(points<span class="op">=</span><span class="va">self</span>.coordinates.copy())</span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> plot(<span class="va">self</span>):</span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a><span class="co">    Plot the chain.</span></span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a>    massCenter <span class="op">=</span> <span class="va">self</span>.massCenter</span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a>    distances <span class="op">=</span> np.linalg.norm(<span class="va">self</span>.coordinates <span class="op">-</span> massCenter, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a>    farthestDistance <span class="op">=</span> np.<span class="bu">max</span>(distances)</span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a>    half_side <span class="op">=</span> farthestDistance<span class="op">/</span>np.sqrt(<span class="dv">3</span>)<span class="op">*</span><span class="fl">1.5</span></span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create the cube vertices</span></span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a>    cube_vertices <span class="op">=</span> np.array([</span>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a>    massCenter <span class="op">+</span> [<span class="op">-</span>half_side, <span class="op">-</span>half_side, <span class="op">-</span>half_side],</span>
+<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a>    massCenter <span class="op">+</span> [<span class="op">-</span>half_side, <span class="op">-</span>half_side, half_side],</span>
+<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a>    massCenter <span class="op">+</span> [<span class="op">-</span>half_side, half_side, <span class="op">-</span>half_side],</span>
+<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a>    massCenter <span class="op">+</span> [<span class="op">-</span>half_side, half_side, half_side],</span>
+<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a>    massCenter <span class="op">+</span> [half_side, <span class="op">-</span>half_side, <span class="op">-</span>half_side],</span>
+<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a>    massCenter <span class="op">+</span> [half_side, <span class="op">-</span>half_side, half_side],</span>
+<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a>    massCenter <span class="op">+</span> [half_side, half_side, <span class="op">-</span>half_side],</span>
+<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a>    massCenter <span class="op">+</span> [half_side, half_side, half_side],</span>
+<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a>    ])</span>
+<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define the edges of the cube</span></span>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a>    edges <span class="op">=</span> [</span>
+<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">0</span>, <span class="dv">1</span>), (<span class="dv">1</span>, <span class="dv">3</span>), (<span class="dv">3</span>, <span class="dv">2</span>), (<span class="dv">2</span>, <span class="dv">0</span>),</span>
+<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">4</span>, <span class="dv">5</span>), (<span class="dv">5</span>, <span class="dv">7</span>), (<span class="dv">7</span>, <span class="dv">6</span>), (<span class="dv">6</span>, <span class="dv">4</span>),</span>
+<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">0</span>, <span class="dv">4</span>), (<span class="dv">1</span>, <span class="dv">5</span>), (<span class="dv">2</span>, <span class="dv">6</span>), (<span class="dv">3</span>, <span class="dv">7</span>)</span>
+<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create a Plotly figure</span></span>
+<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a>    fig <span class="op">=</span> go.Figure()</span>
+<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add the cube edges as line segments</span></span>
+<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> edge <span class="kw">in</span> edges:</span>
+<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a>        point1 <span class="op">=</span> cube_vertices[edge[<span class="dv">0</span>]]</span>
+<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a>        point2 <span class="op">=</span> cube_vertices[edge[<span class="dv">1</span>]]</span>
+<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a>        fig.add_trace(go.Scatter3d(</span>
+<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>[point1[<span class="dv">0</span>], point2[<span class="dv">0</span>]],</span>
+<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a>            y<span class="op">=</span>[point1[<span class="dv">1</span>], point2[<span class="dv">1</span>]],</span>
+<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a>            z<span class="op">=</span>[point1[<span class="dv">2</span>], point2[<span class="dv">2</span>]],</span>
+<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a>            mode<span class="op">=</span><span class="st">'lines'</span>,</span>
+<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a>            showlegend<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a>            line<span class="op">=</span><span class="bu">dict</span>(color<span class="op">=</span><span class="st">'blue'</span>, width<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a>        ))</span>
+<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extract x, y, and z coordinates from the points array.</span></span>
+<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> <span class="va">self</span>.coordinates[:, <span class="dv">0</span>]</span>
+<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> <span class="va">self</span>.coordinates[:, <span class="dv">1</span>]</span>
+<span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a>    z <span class="op">=</span> <span class="va">self</span>.coordinates[:, <span class="dv">2</span>]</span>
+<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create a scatter plot object.</span></span>
+<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a>    scatter <span class="op">=</span> go.Scatter3d(x<span class="op">=</span>x, y<span class="op">=</span>y, z<span class="op">=</span>z, mode<span class="op">=</span><span class="st">'lines+markers'</span>, marker<span class="op">=</span><span class="bu">dict</span>(size<span class="op">=</span><span class="dv">3</span>),showlegend<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-152"><a href="#cb3-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-153"><a href="#cb3-153" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create a figure and add the scatter plot.</span></span>
+<span id="cb3-154"><a href="#cb3-154" aria-hidden="true" tabindex="-1"></a>    fig.add_trace(scatter)</span>
+<span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-156"><a href="#cb3-156" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Set the axis labels.</span></span>
+<span id="cb3-157"><a href="#cb3-157" aria-hidden="true" tabindex="-1"></a>    fig.update_layout(width<span class="op">=</span><span class="dv">800</span>, height<span class="op">=</span><span class="dv">800</span>, scene<span class="op">=</span><span class="bu">dict</span>(xaxis_title<span class="op">=</span><span class="st">'X'</span>, yaxis_title<span class="op">=</span><span class="st">'Y'</span>, zaxis_title<span class="op">=</span><span class="st">'Z'</span>, aspectmode<span class="op">=</span><span class="st">'cube'</span>))</span>
+<span id="cb3-158"><a href="#cb3-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-159"><a href="#cb3-159" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Display the plot.</span></span>
+<span id="cb3-160"><a href="#cb3-160" aria-hidden="true" tabindex="-1"></a>    fig.show()</span>
+<span id="cb3-161"><a href="#cb3-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-162"><a href="#cb3-162" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> distances(<span class="va">self</span>):</span>
+<span id="cb3-163"><a href="#cb3-163" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-164"><a href="#cb3-164" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the pairwise distances between all points in the chain.</span></span>
+<span id="cb3-165"><a href="#cb3-165" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-166"><a href="#cb3-166" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> cdist(<span class="va">self</span>.coordinates, <span class="va">self</span>.coordinates)</span>
+<span id="cb3-167"><a href="#cb3-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-168"><a href="#cb3-168" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> selfAvoidCheck(<span class="va">self</span>, threshold):</span>
+<span id="cb3-169"><a href="#cb3-169" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-170"><a href="#cb3-170" aria-hidden="true" tabindex="-1"></a><span class="co">    Check if the chain is self-avoiding.</span></span>
+<span id="cb3-171"><a href="#cb3-171" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb3-172"><a href="#cb3-172" aria-hidden="true" tabindex="-1"></a><span class="co">      True if the chain is self-avoiding, False otherwise.</span></span>
+<span id="cb3-173"><a href="#cb3-173" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-174"><a href="#cb3-174" aria-hidden="true" tabindex="-1"></a>    distances <span class="op">=</span> <span class="va">self</span>.distances()</span>
+<span id="cb3-175"><a href="#cb3-175" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create a boolean mask to filter out adjacent, two bonds apart, and three bonds apart distances</span></span>
+<span id="cb3-176"><a href="#cb3-176" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">=</span> np.tril(np.ones(distances.shape, dtype<span class="op">=</span><span class="bu">bool</span>), k<span class="op">=-</span><span class="dv">3</span>)</span>
+<span id="cb3-177"><a href="#cb3-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-178"><a href="#cb3-178" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Apply the mask to the matrix</span></span>
+<span id="cb3-179"><a href="#cb3-179" aria-hidden="true" tabindex="-1"></a>    filteredDistances <span class="op">=</span> distances[mask]</span>
+<span id="cb3-180"><a href="#cb3-180" aria-hidden="true" tabindex="-1"></a>    <span class="co"># print(filteredDistances)</span></span>
+<span id="cb3-181"><a href="#cb3-181" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">not</span> np.<span class="bu">any</span>(filteredDistances <span class="op">&lt;</span> threshold)</span>
+<span id="cb3-182"><a href="#cb3-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-183"><a href="#cb3-183" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> translate(<span class="va">self</span>, vector):</span>
+<span id="cb3-184"><a href="#cb3-184" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-185"><a href="#cb3-185" aria-hidden="true" tabindex="-1"></a><span class="co">    Translates the chain by the given vector.</span></span>
+<span id="cb3-186"><a href="#cb3-186" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb3-187"><a href="#cb3-187" aria-hidden="true" tabindex="-1"></a><span class="co">      vector: A 1D numpy array of shape (3,) representing the translation vector.</span></span>
+<span id="cb3-188"><a href="#cb3-188" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-189"><a href="#cb3-189" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.coordinates <span class="op">+=</span> vector</span>
+<span id="cb3-190"><a href="#cb3-190" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">self</span></span>
+<span id="cb3-191"><a href="#cb3-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-192"><a href="#cb3-192" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> conformChange(<span class="va">self</span>, angle, i):</span>
+<span id="cb3-193"><a href="#cb3-193" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-194"><a href="#cb3-194" aria-hidden="true" tabindex="-1"></a><span class="co">    Rotates the [0:i] points of the chain around the bond between i and i+1 by the given angle.</span></span>
+<span id="cb3-195"><a href="#cb3-195" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb3-196"><a href="#cb3-196" aria-hidden="true" tabindex="-1"></a><span class="co">      angle: The angle of rotation in radians.</span></span>
+<span id="cb3-197"><a href="#cb3-197" aria-hidden="true" tabindex="-1"></a><span class="co">      i: Locate the bond to be used as the axis.</span></span>
+<span id="cb3-198"><a href="#cb3-198" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-199"><a href="#cb3-199" aria-hidden="true" tabindex="-1"></a>    points <span class="op">=</span> <span class="va">self</span>.coordinates</span>
+<span id="cb3-200"><a href="#cb3-200" aria-hidden="true" tabindex="-1"></a>    points <span class="op">-=</span> points[i]</span>
+<span id="cb3-201"><a href="#cb3-201" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate the rotation axis vector.</span></span>
+<span id="cb3-202"><a href="#cb3-202" aria-hidden="true" tabindex="-1"></a>    axis <span class="op">=</span> points[i <span class="op">+</span> <span class="dv">1</span>] <span class="op">-</span> points[i]</span>
+<span id="cb3-203"><a href="#cb3-203" aria-hidden="true" tabindex="-1"></a>    axis <span class="op">=</span> axis <span class="op">/</span> np.linalg.norm(axis)</span>
+<span id="cb3-204"><a href="#cb3-204" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create a rotation matrix.</span></span>
+<span id="cb3-205"><a href="#cb3-205" aria-hidden="true" tabindex="-1"></a>    rotation_vector <span class="op">=</span> angle <span class="op">*</span> axis</span>
+<span id="cb3-206"><a href="#cb3-206" aria-hidden="true" tabindex="-1"></a>    rotation <span class="op">=</span> R.from_rotvec(rotation_vector) <span class="co"># Rotation object</span></span>
+<span id="cb3-207"><a href="#cb3-207" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Rotate all points with indexes &lt; i.</span></span>
+<span id="cb3-208"><a href="#cb3-208" aria-hidden="true" tabindex="-1"></a>    points[:i] <span class="op">=</span> rotation.<span class="bu">apply</span>(points[:i])</span>
+<span id="cb3-209"><a href="#cb3-209" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.coordinates <span class="op">=</span> points</span>
+<span id="cb3-210"><a href="#cb3-210" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">self</span></span>
+<span id="cb3-211"><a href="#cb3-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-212"><a href="#cb3-212" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> relax(<span class="va">self</span>, probs):</span>
+<span id="cb3-213"><a href="#cb3-213" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-214"><a href="#cb3-214" aria-hidden="true" tabindex="-1"></a><span class="co">    Rotate the chain around every bond.</span></span>
+<span id="cb3-215"><a href="#cb3-215" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb3-216"><a href="#cb3-216" aria-hidden="true" tabindex="-1"></a><span class="co">      probs: A list of probabilities for the torsion angles.</span></span>
+<span id="cb3-217"><a href="#cb3-217" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-218"><a href="#cb3-218" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="va">self</span>.length):</span>
+<span id="cb3-219"><a href="#cb3-219" aria-hidden="true" tabindex="-1"></a>      phi <span class="op">=</span> np.random.choice(np.arange(<span class="dv">360</span>), p<span class="op">=</span>probs)<span class="op">/</span><span class="dv">180</span><span class="op">*</span>np.pi</span>
+<span id="cb3-220"><a href="#cb3-220" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.conformChange(phi, i)</span>
+<span id="cb3-221"><a href="#cb3-221" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">self</span></span>
+<span id="cb3-222"><a href="#cb3-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-223"><a href="#cb3-223" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> selfAvoidRelax(<span class="va">self</span>, probs, threshold):</span>
+<span id="cb3-224"><a href="#cb3-224" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-225"><a href="#cb3-225" aria-hidden="true" tabindex="-1"></a><span class="co">    Rotate the chain around every bond.</span></span>
+<span id="cb3-226"><a href="#cb3-226" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb3-227"><a href="#cb3-227" aria-hidden="true" tabindex="-1"></a><span class="co">      probs: A list of probabilities for the torsion angles.</span></span>
+<span id="cb3-228"><a href="#cb3-228" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-229"><a href="#cb3-229" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb3-230"><a href="#cb3-230" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> i <span class="op">&lt;</span> <span class="va">self</span>.length:</span>
+<span id="cb3-231"><a href="#cb3-231" aria-hidden="true" tabindex="-1"></a>      phi <span class="op">=</span> np.random.choice(np.arange(<span class="dv">360</span>), p<span class="op">=</span>probs)<span class="op">/</span><span class="dv">180</span><span class="op">*</span>np.pi</span>
+<span id="cb3-232"><a href="#cb3-232" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.conformChange(phi, i)</span>
+<span id="cb3-233"><a href="#cb3-233" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> <span class="va">self</span>.selfAvoidCheck(threshold <span class="op">=</span> threshold) <span class="kw">is</span> <span class="va">False</span>:</span>
+<span id="cb3-234"><a href="#cb3-234" aria-hidden="true" tabindex="-1"></a>        <span class="co"># print(i)</span></span>
+<span id="cb3-235"><a href="#cb3-235" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.conformChange(<span class="op">-</span>phi, i)</span>
+<span id="cb3-236"><a href="#cb3-236" aria-hidden="true" tabindex="-1"></a>        i <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb3-237"><a href="#cb3-237" aria-hidden="true" tabindex="-1"></a>      i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb3-238"><a href="#cb3-238" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">self</span></span>
+<span id="cb3-239"><a href="#cb3-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-240"><a href="#cb3-240" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gaussian(x, amplitude, mean, stddev):</span>
+<span id="cb3-241"><a href="#cb3-241" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""</span></span>
+<span id="cb3-242"><a href="#cb3-242" aria-hidden="true" tabindex="-1"></a><span class="co">  Gaussian function for fitting.</span></span>
+<span id="cb3-243"><a href="#cb3-243" aria-hidden="true" tabindex="-1"></a><span class="co">  """</span></span>
+<span id="cb3-244"><a href="#cb3-244" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> amplitude <span class="op">*</span> np.exp(<span class="op">-</span>((x <span class="op">-</span> mean) <span class="op">/</span> <span class="dv">4</span> <span class="op">/</span> stddev)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb3-245"><a href="#cb3-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-246"><a href="#cb3-246" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate one fully extended chain.</span></span>
+<span id="cb3-247"><a href="#cb3-247" aria-hidden="true" tabindex="-1"></a>thetas <span class="op">=</span> np.ones(chainLength)<span class="op">*</span>bondAngle</span>
+<span id="cb3-248"><a href="#cb3-248" aria-hidden="true" tabindex="-1"></a>phis <span class="op">=</span> np.ones(chainLength)<span class="op">*</span>np.pi</span>
+<span id="cb3-249"><a href="#cb3-249" aria-hidden="true" tabindex="-1"></a>extendedChain <span class="op">=</span> chain.fromAngles(thetas, phis, chainLength)</span>
+<span id="cb3-250"><a href="#cb3-250" aria-hidden="true" tabindex="-1"></a><span class="co"># extendedChain.plot()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="simulation" class="level2">
+<h2 class="anchored" data-anchor-id="simulation">3. Simulation</h2>
+<div id="cell-8" class="cell" data-outputid="20782efc-0c56-4672-801c-696cea5884eb">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Sample a chain may or may not fulfill the self-avoid criterion {display-mode: "form"}</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>chain1 <span class="op">=</span> extendedChain.copy()</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>chain1.relax(probs<span class="op">=</span>probs)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Is it a self-avoid chain? </span><span class="sc">{</span>chain1<span class="sc">.</span>selfAvoidCheck(threshold <span class="op">=</span> selfAvoidThreshold)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>chain1.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Is it a self-avoid chain? False</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+
+<meta charset="utf-8">
+
+    <div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>                <div id="1cc56c2d-978c-4817-96b3-40501d36894e" class="plotly-graph-div" style="height:800px; width:800px;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("1cc56c2d-978c-4817-96b3-40501d36894e")) {                    Plotly.newPlot(                        "1cc56c2d-978c-4817-96b3-40501d36894e",                        [{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[-29.974317507594773,-29.974317507594773],"y":[-14.611160591757635,-14.611160591757635],"z":[-28.972882561299294,10.233029337067753],"type":"scatter3d"},{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[-29.974317507594773,-29.974317507594773],"y":[-14.611160591757635,24.594751306609414],"z":[10.233029337067753,10.233029337067753],"type":"scatter3d"},{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[-29.974317507594773,-29.974317507594773],"y":[24.594751306609414,24.594751306609414],"z":[10.233029337067753,-28.972882561299294],"type":"scatter3d"},{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[-29.974317507594773,-29.974317507594773],"y":[24.594751306609414,-14.611160591757635],"z":[-28.972882561299294,-28.972882561299294],"type":"scatter3d"},{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[9.231594390772276,9.231594390772276],"y":[-14.611160591757635,-14.611160591757635],"z":[-28.972882561299294,10.233029337067753],"type":"scatter3d"},{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[9.231594390772276,9.231594390772276],"y":[-14.611160591757635,24.594751306609414],"z":[10.233029337067753,10.233029337067753],"type":"scatter3d"},{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[9.231594390772276,9.231594390772276],"y":[24.594751306609414,24.594751306609414],"z":[10.233029337067753,-28.972882561299294],"type":"scatter3d"},{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[9.231594390772276,9.231594390772276],"y":[24.594751306609414,-14.611160591757635],"z":[-28.972882561299294,-28.972882561299294],"type":"scatter3d"},{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[-29.974317507594773,9.231594390772276],"y":[-14.611160591757635,-14.611160591757635],"z":[-28.972882561299294,-28.972882561299294],"type":"scatter3d"},{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[-29.974317507594773,9.231594390772276],"y":[-14.611160591757635,-14.611160591757635],"z":[10.233029337067753,10.233029337067753],"type":"scatter3d"},{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[-29.974317507594773,9.231594390772276],"y":[24.594751306609414,24.594751306609414],"z":[-28.972882561299294,-28.972882561299294],"type":"scatter3d"},{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[-29.974317507594773,9.231594390772276],"y":[24.594751306609414,24.594751306609414],"z":[10.233029337067753,10.233029337067753],"type":"scatter3d"},{"marker":{"size":3},"mode":"lines+markers","showlegend":false,"x":[-19.675451435098363,-20.01552969450302,-20.259618100359837,-20.348002882877807,-20.732446653944628,-21.543037491201044,-22.12948407813652,-23.00332682603093,-22.919699149403733,-23.791324331298544,-23.681470808820023,-24.566919831709527,-25.121611067549438,-24.597282610249724,-25.13347438328565,-24.720056235254948,-25.338246176285903,-25.09079129597882,-25.72899521144368,-26.659981854763387,-26.825799022694174,-27.020431912746723,-27.97740849173311,-28.15659264775909,-28.909177703326762,-28.961751992283133,-29.440515386715276,-28.934600350582166,-29.523787762836243,-29.198225588894836,-29.15894543823962,-28.641504026110038,-28.75156468836494,-28.31612438377966,-27.329481574619106,-26.857065712242015,-27.06554169718824,-26.632899558585247,-25.65276496177336,-25.183762792583842,-24.19469017366548,-23.72745500202377,-22.738326520654862,-22.274011101420356,-22.58102752262478,-22.28766589074296,-22.622531850840137,-22.201473945873794,-22.20619263741296,-21.814797671473205,-20.816833539856855,-20.42889488823327,-19.479762493363452,-19.10192421779275,-18.23117031995981,-18.33290361077627,-17.462149712943354,-17.54571684501882,-17.924384823435933,-18.27932376132361,-17.545886440420833,-17.939756220606412,-18.537970874266232,-18.90624618429749,-19.61379502742604,-19.189452533048275,-18.955586487315603,-18.826376144605646,-18.34767059193126,-17.51732054442819,-17.072943525106282,-16.383319258025153,-16.824778646420793,-16.126705013991675,-15.567993041160587,-15.028134135301261,-14.506213799102616,-14.043213238997714,-14.724028759458468,-15.213414001241283,-15.94793117726401,-16.67262446309599,-16.944876578968007,-17.57310079833208,-18.431011328394415,-19.1692304779682,-20.020682359668164,-20.765452161362,-21.544029506092794,-22.184572162200404,-23.03917465463609,-23.64257267904562,-24.35986411097855,-23.942535941829902,-24.65982737376285,-24.266810231394498,-24.847415864013985,-24.30777840071228,-24.80396299819011,-24.84880813827713,-25.15897610214255,-24.974377825010066,-25.17836015211894,-24.67967882568868,-24.69755756474171,-24.481489154227067,-24.43525427874522,-24.26761045582802,-24.334550171313047,-23.94970632188562,-24.10419629662448,-23.792720034405036,-22.820479708571508,-22.71136104716143,-21.824999544572492,-21.508832221014785,-20.69074424898856,-19.932757801855846,-19.102758988187247,-19.28027794850345,-18.445803852736294,-17.71924009296137,-16.945800951141862,-16.120596412800673,-15.36151415390087,-14.498154093100549,-13.744900744517796,-12.873606218002225,-12.121111532165974,-12.182668359041083,-12.256543981557645,-11.420755354062607,-11.487969443873405,-12.19987638795879,-12.057040580027534,-12.85835894620808,-12.68953792476028,-12.836100418844516,-12.731056788975586,-13.148006302241043,-13.278790731430954,-13.168895648202874,-13.088018123661083,-13.997086642850103,-14.513777219746347,-15.329773550683356,-15.617732394470629,-14.8273908815842,-14.035271186992096,-13.671704677201092,-12.98819012328989,-12.7678426971888,-12.108711420953089,-11.251682828743995,-10.521265826937897,-9.664237234728832,-9.278650310673004,-8.405473746273582,-7.696993896913876,-6.834783602199976,-6.0744036222539926,-5.962636995624868,-6.839769744496458,-6.701204076889113,-5.989538850339966,-6.358830144298288,-5.607621280590311,-5.9542681269493825,-6.568799865966514,-6.084587288031257,-6.747527417579788,-7.122280426866923,-7.916685869321719,-8.534097206022583,-8.055132050963863,-8.632921604843297,-8.147515436898779,-8.801312712795607,-8.386423737869936,-8.962988137550422,-8.451561599257776,-8.013134897732785,-8.711358643068696,-9.501797757865878,-9.335129081598248,-8.463022547365828,-8.528598762918858,-8.854954199653205,-9.013795512043489,-8.141108692407938,-8.310008424918125,-7.4669806177677644,-7.647457647816607,-8.316401466098462,-8.328958043991575,-9.094252547048933,-9.258993701864254,-9.767370180545285,-9.763452287483279,-10.064855234509148,-9.309105220748627,-9.417559305684437,-8.613786109400905,-7.822648204663609,-6.995893583694549,-6.318009129609024,-6.724556167143831,-7.521399729600275,-7.220689224722117,-6.59972353122439,-6.04255360942701,-5.355945344947051,-4.699265126866932,-3.846030841251645,-3.5453385928267567,-2.6182186581926032,-2.3847509861369005,-1.3954337655436846,-1.1104587156350205,-0.11631397490552331,0.1492530374816341,1.1192444026762667,1.350850675743819,2.177234065038127,2.022466427032016,2.7734978343528973,2.643998837233685,3.2404277656459923,3.3115186054886485,4.01755303240831,4.261694946395692,4.979283801807452,5.177619196617603,6.050578945223788,5.9117845349290645,6.795442271414395,7.192751737809859,6.556333936502149,7.067002232317785,7.189581770310145,7.958985741973871,8.808580216805403,9.587976122407053,9.679377560587739,8.92191777786911,8.96754678795318,8.166119115148648,8.027900959299446,7.057255518755478,6.581636337572869,6.184183102625792,5.405094508841506,5.735966692638617,5.014321753156757,4.267635760521224,4.544935214838147,4.591367793850475,4.349574926825234,4.3801799033324365,5.322279986123008,5.625199290259262,5.412983354962149,5.829440439034233,6.677317192293892,7.285030240779141,6.902022192242705,7.621380180190979,7.272431005754555,8.032969026786654,8.799932369860757,9.58763293606916,9.36474767470635,10.17254042768551,10.845752289744464,11.437495421207503,12.188549631796434,11.848115510065394,11.145001697253445,10.269554113909159,10.195377531727694,9.474055322715444,9.821142573355397,9.15455396307813,9.438833469316819,8.640107369488538,8.238559678849828,7.490376990191601,6.622972432918404,5.931793684746252,5.034323542187524,4.3209759383875825,3.4313859259856727,2.7039783917999642,2.652006146042388,1.9579181079966386,1.905945862239062,1.4471904541644394,0.45700166332483194,0.0,0.0,0.9426414910921892],"y":[-2.044968026980319,-2.698075992746528,-2.212470883090525,-2.867161922212082,-2.407285024098078,-1.8879675938416813,-1.7450438454877037,-1.3574607273827404,-0.36371556741309696,0.06344766961485959,1.0571712096847907,1.4872279180702836,1.4620248444970834,1.8409569934632195,1.7710024416063508,2.343603385839442,2.403921704738581,3.1943947021714365,3.2736930483035724,3.375603255899909,4.333761639982681,4.851351676277551,4.719956004864841,3.7450820202063078,3.628989471127369,2.671131680538867,2.6070571062117605,3.117662512815391,3.2765196441241216,4.077190696318809,4.864566855396319,5.601953211212821,6.443381844690358,7.20188675911257,7.178619258595287,7.633498448884172,7.161882986862675,7.645343793823299,7.736192482229074,7.991428586527329,7.955379582245885,8.318710396706862,8.237658017800658,8.509520680494077,9.421861110770696,9.608053869756631,10.507055940295551,11.213721740391469,12.084506146396452,12.798049436394027,12.760355969427817,13.567064220917835,13.383177436492362,14.178051123925403,13.930369730934096,13.064233022662515,12.8165516296712,11.919585776730708,12.027608442096446,11.149245712256942,10.469548498977485,9.552582674573397,9.500935538341524,8.574852688141128,8.558420221539993,8.415572718011335,7.449317191649154,7.243514571719906,6.370713625888355,6.382927135031931,5.488145682259664,5.422487416926081,5.174960442413463,4.950477597407943,4.191079239787102,3.8175283607250137,4.552480579686415,4.199041267492595,3.9234122007953167,3.115125238774392,2.887888544444137,3.5737248300530666,3.6797599209239173,4.453196023248957,4.238933592792437,4.790526192767105,4.600163775094369,5.127253509661734,5.147447388858817,5.860181076711457,5.765247822465243,6.533622011305235,6.597414662708841,6.691279349458428,6.755072000862048,7.089215000251917,6.8101556746466,6.798529514062961,6.295517356047671,5.32771047870576,5.239404515228564,4.31246583059338,4.256154445696115,3.487890103636123,2.712209919346721,3.0282435082896058,2.2440490516331995,2.5640527506837163,1.7938879722304755,2.0559230618193585,1.3221659465785915,1.6163796120697782,1.8467897840737173,2.769904833139197,3.138599057506223,3.800290005829848,4.263733807147952,3.6130091693103097,4.087106995746734,4.570825527111293,5.031550915952403,4.356400178474985,4.782924678282918,4.239849790632768,4.629525248122317,4.2512696856599455,4.590598188526009,4.31983754058724,4.631011310419582,5.621388175729571,6.065596655350813,5.9023556981316725,6.36018801243711,5.922057213221101,4.932316597531099,4.480747489306423,3.497149471999254,3.0748553899728335,2.083425034564549,1.7693724324321174,0.778665410042306,0.3926886961589737,-0.6019524665759448,-1.0045242530422716,-0.8933819914971863,-1.4707680142233706,-1.6869340569428024,-1.9927167038474467,-1.4246520546518635,-1.6944418936463608,-1.027825101053259,-1.1826225774399948,-0.4957570016787267,-0.6080040809586471,-0.11289900048754742,-0.22514607976745715,-1.1270518570310357,-1.226824654979529,-0.7198868761127328,-0.7791638029057246,-0.5706819866728816,0.42068829606996383,0.8401249297029927,1.8075238728501486,1.897981685821868,1.6331325142448463,1.392329900715619,0.8185945164587638,1.3555722729172572,2.159358513191374,2.854897253152323,3.3012677730896254,3.8512770868083805,3.3024048238549804,3.0024634073352514,3.1662137515391544,2.881329361140668,2.7648914292289466,2.2129042033607513,2.2446413916679915,1.8922012554971297,1.0284948577612338,0.32369299959168885,0.716757503279597,0.7226950355060806,1.174282614771847,1.6816105399763508,1.0727709936139296,1.6005622691764825,1.9385346165553197,2.6320827835770304,3.1400153347006734,3.8653085507041545,4.505333314956583,5.33944753008684,5.916571164495477,6.618674559714708,6.221122039125737,6.857924269032282,6.382945538681443,5.841336845364931,5.746221522742839,5.289750064285127,5.898028175802848,5.39880270316287,6.039790836785333,6.574385545239086,7.07057435086099,7.796483211692286,7.41540784566203,8.148490572779568,7.756269239013801,8.463505847637514,8.033808078175088,7.377852733300822,7.069364556165219,6.2888863435254105,6.14415678341653,5.897451617486581,5.975055978850464,6.936983798156624,7.0004547415957905,7.950753621184013,7.977461781160577,7.465812362505845,7.638765209832875,7.089515715107002,7.4321594183106665,6.746987347108043,7.0230339769091525,6.243882539071025,6.515512337742933,5.756457303681385,5.920160781290237,6.546723397027588,6.901757229588791,7.471414780042836,8.206638546188612,8.99090842443606,8.893031299373236,9.45777611717259,9.092399156730396,9.574439142173684,10.473917397960134,11.05932002337029,11.930212827162366,12.483338195506201,12.479178798090574,12.609527822813268,11.732423643808419,11.63697194193312,11.011270692950498,10.068995026909066,9.444993866015668,9.454073955888427,8.953405219777148,9.582833680465713,9.096363971945483,9.72962541639833,10.030562181483354,10.575738491309583,10.090078261233906,10.569534504574534,10.108228924327408,10.052767451090077,9.417572934677136,9.122096996129772,8.391466825453035,7.963734542158444,7.830227667809819,7.478210869092656,6.58195812633217,6.201138542208431,5.936709975539843,5.219540159360079,5.046715150201267,4.528436213778958,5.060425489903924,4.947666721059869,5.622699963667925,5.347022195062129,4.635143828161231,4.463326016120636,3.6661384926719833,3.257893171305377,2.570551488420695,2.1053842635309934,2.544103072798859,2.3030618711684583,2.617553136027591,2.1871557428287822,2.574081995356672,1.9820174475942585,2.0651572979220485,1.4369996162078473,1.5201394665356376,0.7162804242107543,0.8244528248764688,0.0,0.0,0.0],"z":[-21.78378054524443,-22.460387345781434,-23.299796976177742,-24.05050848768738,-24.850956003436348,-24.580305119108058,-25.377583742192833,-25.084022541568046,-25.010015996326654,-25.25043461294861,-25.27154692001669,-25.447703825747034,-24.616029347381424,-23.853474368809074,-23.012281915679065,-22.304317514355063,-21.52060653624313,-20.96032221329491,-20.19454970491805,-20.545089545089986,-20.778407306589504,-19.945209495479858,-19.686499223543734,-19.554159689522116,-18.90597896303889,-18.623588458330588,-17.747985773846107,-17.052764877323767,-16.26053851757965,-15.757611945328968,-16.37283211232667,-15.938648110699669,-16.467689229506114,-15.982857262800266,-16.144085642905203,-15.38916301427597,-14.532356957059546,-13.77137967222259,-13.947682502452569,-13.102169938171002,-13.245123860104517,-12.439095316165822,-12.561795598228924,-11.718882860103431,-11.44800307792427,-10.51030845309123,-10.228067304541296,-10.7966916863964,-10.305049283619148,-10.886139598403666,-10.834692591151772,-11.280478862311298,-11.536082750235993,-12.010860654671609,-12.435644808065497,-12.924988797631235,-13.349772951025091,-13.783902877539425,-14.703109962960749,-15.02326190376386,-15.014240010000169,-15.077803152869869,-15.877472960644065,-15.959593911600775,-16.666067271769975,-17.560230589179483,-17.668197854718237,-18.63822361157574,-18.733405032001013,-18.176296758138587,-18.21983084217983,-17.498646148466676,-16.63618223311369,-15.956255284092386,-16.28965454302675,-15.53532563431633,-15.102377140259613,-14.289535744944125,-13.610920357046604,-13.938295176102809,-13.2988829437539,-13.365578002132619,-14.321943698353028,-14.40638850769351,-13.939396930357335,-14.327698476653143,-13.839035153814883,-14.24829589490622,-13.621072230241992,-13.906931978906535,-13.396400631033767,-13.609735883777219,-12.915888999153221,-12.011993750899117,-11.31814686627514,-10.461475411303443,-9.69660745396492,-8.854790228795846,-8.147132391903888,-8.394799025870153,-9.341370677149573,-9.668032813012356,-10.645386504445598,-11.046742749430944,-10.41586986018097,-9.492053204865893,-8.873262941175138,-7.94079675882231,-7.306474058203101,-6.4214696382243135,-5.759855442836509,-4.856295341287104,-4.897037229562594,-5.265753548595105,-4.985703810786508,-5.665559172183956,-5.325042046262545,-5.28016452767919,-4.986339375119112,-4.1293076364169945,-3.827007951384383,-3.6994282325205385,-3.230526595751102,-3.385791325502785,-2.864305791615341,-3.1982700634785672,-2.634829241393814,-3.0441390502082917,-2.463688679585181,-2.339735374974847,-3.2326078289291216,-3.756830834944788,-4.643324962454167,-5.192169116783349,-5.195552255294864,-5.587947740129902,-5.651464691148793,-4.7569328898061904,-4.834596820938592,-5.687547034304826,-5.650196949044532,-6.566136383189669,-6.501733095872339,-6.394353469495718,-7.243281172804529,-7.215435730488514,-8.148362279719326,-8.679264592636011,-8.455995822375609,-7.564349684194239,-7.26697802040562,-6.30391792201358,-5.997712694230108,-6.500606903114301,-6.0301157100359575,-6.533009918920138,-6.338359737991036,-6.815442619860775,-6.32445342302564,-6.827523650369066,-6.212415839983276,-6.143909025239773,-5.910005089352486,-5.698017258196282,-5.001346611912762,-4.110572310239453,-3.495999821102434,-2.7539326592087363,-2.176000456602422,-1.83036212059887,-1.5533490417602027,-2.365945830432869,-2.1082449421519,-1.5447358647860847,-0.7197343333355466,0.07985622201193743,0.9064285033211239,1.6540857309608965,2.377395651370869,3.193830733847985,3.977558267079962,3.7289757135891097,3.603524758352263,3.1337308655234724,2.147735785382484,1.9593243971863261,1.100069990004474,0.37701637117725495,-0.45737311037088657,-0.8097825416317799,-1.5101137635395165,-1.6870562397296918,-2.3514189361870637,-1.9734209611579467,-2.5248697878583584,-2.2398213109335665,-2.9325775265908227,-3.6964527449984,-4.467469975739712,-5.294241691050804,-5.662347572591598,-6.651888267491625,-7.033440959199598,-6.969421003433559,-7.228748449288547,-7.588758003973342,-8.329654760589879,-7.984927323116123,-7.366356779020695,-6.681387310428272,-6.291321426959584,-5.679168246385648,-5.4172761491305925,-5.121723986611821,-5.8140438240194,-5.601244220233481,-6.181198188837391,-6.1637399109037485,-5.2374970798745455,-5.162305341118783,-5.2268733856656375,-5.461582121733846,-5.669645991084366,-6.23212013990289,-7.0772602765762445,-7.714472280401529,-8.540035725745676,-9.26589234106844,-9.990796007312683,-10.642956759106001,-11.220293543616878,-11.861607419236531,-12.481686870945182,-12.941189263465816,-13.708102166102936,-14.013225063451735,-13.293756187736292,-13.060478679448245,-12.708145527839548,-11.720524990763181,-11.42206089048165,-11.80244083884087,-11.402216558261589,-11.829515802896871,-11.540451028621721,-12.029801330289068,-11.802279876009244,-10.811886802120508,-10.609756743729779,-10.676649595839752,-11.589294049413665,-11.55032085276762,-11.498938295654204,-11.798690080509468,-11.133575368320827,-10.313553521467792,-9.537883599090033,-8.698310235918026,-7.924977656504435,-7.777043558250666,-8.558722959530932,-9.406719738846046,-10.179173755501981,-10.44052059958993,-9.648302904958527,-8.97760717582702,-8.348943470087159,-7.762075488887801,-7.273580849825933,-7.90122975238393,-7.395648906805405,-7.01217376893916,-6.562232314322945,-7.25278522461492,-6.884671762314189,-7.521891574440142,-8.306424271542156,-8.778248790109261,-8.308273270677205,-7.574224255944582,-6.938853467599497,-6.3283130257107505,-5.602959136830185,-5.070345566978183,-4.628336093057779,-5.233580558635101,-4.7604609994531355,-4.995269731011981,-4.3139687129651065,-4.623230070950422,-4.0701538735955145,-4.312883527613094,-3.965986063666273,-2.9708043461099334,-2.619151502604786,-1.6239697850484456,-1.245348449628978,-1.333806859233789,-1.0,0.0,0.33380685923376063],"type":"scatter3d"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"scene":{"xaxis":{"title":{"text":"X"}},"yaxis":{"title":{"text":"Y"}},"zaxis":{"title":{"text":"Z"}},"aspectmode":"cube"},"width":800,"height":800},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('1cc56c2d-978c-4817-96b3-40501d36894e');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                            </script>        </div>
+
+
+</div>
+</div>
+<div id="cell-9" class="cell" data-outputid="73e466de-c9d8-4657-ecb2-c76e6cd451b5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Sample a self-avoid chain {display-mode: "form"}</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>chain2 <span class="op">=</span> extendedChain.copy()</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>chain2.selfAvoidRelax(probs<span class="op">=</span>probs, threshold <span class="op">=</span> selfAvoidThreshold)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Is it a self-avoid chain? </span><span class="sc">{</span>chain2<span class="sc">.</span>selfAvoidCheck(threshold <span class="op">=</span> selfAvoidThreshold)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>chain2.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Is it a self-avoid chain? True</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+
+<meta charset="utf-8">
+
+    <div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>                <div id="75c2a7e6-fcf6-4e23-9d93-1519476ef933" class="plotly-graph-div" style="height:800px; width:800px;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("75c2a7e6-fcf6-4e23-9d93-1519476ef933")) {                    Plotly.newPlot(                        "75c2a7e6-fcf6-4e23-9d93-1519476ef933",                        [{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[-13.057658544358622,-13.057658544358622],"y":[-4.170779424114794,-4.170779424114794],"z":[-13.09987982551741,43.978374342638865],"type":"scatter3d"},{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[-13.057658544358622,-13.057658544358622],"y":[-4.170779424114794,52.90747474404148],"z":[43.978374342638865,43.978374342638865],"type":"scatter3d"},{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[-13.057658544358622,-13.057658544358622],"y":[52.90747474404148,52.90747474404148],"z":[43.978374342638865,-13.09987982551741],"type":"scatter3d"},{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[-13.057658544358622,-13.057658544358622],"y":[52.90747474404148,-4.170779424114794],"z":[-13.09987982551741,-13.09987982551741],"type":"scatter3d"},{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[44.020595623797654,44.020595623797654],"y":[-4.170779424114794,-4.170779424114794],"z":[-13.09987982551741,43.978374342638865],"type":"scatter3d"},{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[44.020595623797654,44.020595623797654],"y":[-4.170779424114794,52.90747474404148],"z":[43.978374342638865,43.978374342638865],"type":"scatter3d"},{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[44.020595623797654,44.020595623797654],"y":[52.90747474404148,52.90747474404148],"z":[43.978374342638865,-13.09987982551741],"type":"scatter3d"},{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[44.020595623797654,44.020595623797654],"y":[52.90747474404148,-4.170779424114794],"z":[-13.09987982551741,-13.09987982551741],"type":"scatter3d"},{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[-13.057658544358622,44.020595623797654],"y":[-4.170779424114794,-4.170779424114794],"z":[-13.09987982551741,-13.09987982551741],"type":"scatter3d"},{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[-13.057658544358622,44.020595623797654],"y":[-4.170779424114794,-4.170779424114794],"z":[43.978374342638865,43.978374342638865],"type":"scatter3d"},{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[-13.057658544358622,44.020595623797654],"y":[52.90747474404148,52.90747474404148],"z":[-13.09987982551741,-13.09987982551741],"type":"scatter3d"},{"line":{"color":"blue","width":1},"mode":"lines","showlegend":false,"x":[-13.057658544358622,44.020595623797654],"y":[52.90747474404148,52.90747474404148],"z":[43.978374342638865,43.978374342638865],"type":"scatter3d"},{"marker":{"size":3},"mode":"lines+markers","showlegend":false,"x":[27.854149123285232,27.21325858902713,27.491884862308687,26.763334099135506,25.921097420302985,25.21525353552803,24.855607671112637,24.149763786337722,23.50955134591396,23.930323718370985,24.129125625945264,24.474193325077884,24.7797123315981,25.279197343471154,25.788272322012094,26.37565599136469,25.847101437924014,26.346713449298324,25.75974573426266,26.320794579349794,26.979206525770884,26.499752498285357,27.166922874939495,26.690584173025844,27.360386104355715,26.887255237326997,27.55889824761886,27.09962243282042,26.4644625635381,26.977910346647455,26.38743023983814,26.75628236732852,27.74081626869016,28.2329616577915,29.21777630781067,29.707615895212918,29.87103461425073,30.117491204694744,30.760997543350605,30.3044095423469,30.9904058041839,30.53409079286751,31.17438507785098,30.708900750902643,30.344632302123976,29.59088519068875,29.08259910459364,28.239824343821883,27.788534393194546,27.599231278581044,27.16266574887674,27.032548913547924,26.55214519747846,26.450843479887254,26.029050847579818,25.050286671565566,24.659150216913943,23.665603887508105,23.27760438144435,23.762457106995363,24.64654003908875,24.51924122063311,24.22978848328887,24.228289998444914,24.034209493611694,23.88761329809463,24.497507916712824,24.283855457438662,25.015680511874283,24.868611512606517,25.591426808869876,25.530951708810356,26.10486052738958,26.17491515358712,26.651816723062446,26.03841630345759,25.713413983176068,26.496360331720524,26.19192112052887,26.987708101703046,26.68470976230816,26.721028110293666,26.254428842010988,26.117868895032768,25.36968567953698,25.189942261209367,24.361959616480874,23.559447933165362,22.741853324817455,21.96103784046963,21.71101959773579,21.15990160469943,20.77478353972856,19.933089440908205,19.556682254359146,18.595539439670276,18.36655274600194,17.373474574636283,17.150587302066725,16.226235123522294,16.19805219770472,15.307972613343253,15.383890928034685,14.526617471425174,13.764449002662083,13.933373969654895,13.171205500891825,13.340130467884645,12.500070059908705,12.614158221701546,11.99388361191108,11.899216426520367,11.073087537683037,11.23207493976247,10.52411704593662,9.76624350170456,9.99310227422019,10.64371616603999,10.820620743403946,10.023230152352586,9.38505912246493,8.527540098544245,7.807198031810362,7.033168581310997,6.340311794246514,6.785039927330837,6.099177661293346,5.797020116735105,5.172830429759394,4.960393026739622,4.4024944744768275,3.5126517737316845,2.915023753334853,2.7548565209666886,2.1184731084591357,2.3722491459774795,3.10989157042119,3.2530399942347072,3.879232458045615,4.124895235572334,4.65757513072235,4.903237908249039,5.865984850447928,6.133148641321936,6.019326760354307,6.708969180479148,6.497994230487986,5.727714360367724,5.9890547414413176,6.349398819667467,6.534557627393936,6.894901705620085,7.742183523642193,8.178952166862613,9.017812380713305,9.471537260094607,8.978705519807175,9.557054006829784,9.257004752263516,9.835353239286103,9.525080637858473,10.160465497579702,9.956516496443907,10.602218290771795,10.591118846352522,11.066494435136374,11.01314372891293,11.760735228791932,11.583830400019355,11.052413448669292,11.46811470711102,11.478926054883837,11.772635411481433,12.770115798010476,13.073822655640173,12.697135893952808,12.593632715815353,12.201763439213936,12.913155479763818,12.659861560020705,13.386299533575107,13.079800110428694,13.064066658231553,12.900985554533158,12.723307378317607,12.592460555056583,13.368068855242543,13.18533602502432,13.829236305316249,14.762123841104172,15.349355825966082,16.266639871258256,16.734602812284276,17.589524918780757,17.38590291194419,16.972809735324518,16.769187728487925,16.172396992065377,16.190105842331093,15.686114029307056,15.75866235577676,15.176267353430038,15.31310010731505,14.83298426890175,15.04738529950654,16.039476868646066,16.40183850267425,17.398709339733674,17.77140392911984,18.769938819585192,19.14427635196922,18.899990532306862,19.43108071792174,19.210727507239326,18.375948865070836,18.182506449296405,18.268788222740568,17.83244975802064,17.832181961178154,18.72029384461832,18.742771518883103,18.633204114057893,18.541281177158943,18.448049545641044,17.551184371843224,16.849777208937248,16.976986010926115,16.54193567788979,16.697032483503882,16.348166681080002,16.428962940429948,15.834333016948877,15.996032485279704,15.401402561798648,14.48904692868925,13.903476660329833,13.08400550472807,12.723348745686888,11.974066455908991,11.808680037687612,12.600795914584168,12.330504395265638,12.375008785751152,12.073568715920104,12.164296234860888,11.847580167586354,10.859515581716021,10.390701163707506,10.734052759542962,10.31311081383626,10.901372097910006,10.47271897494232,9.807369510712698,9.462239378053205,8.859371286593637,9.274421062534891,9.246780359531959,9.509284105772553,9.387963943006397,9.19939642125144,8.316180531371309,7.982120295409574,6.982131836624629,6.6473674460996754,5.661641875817698,5.368121159856049,4.369508217463799,4.079722412216103,4.254450825654456,5.160860750809498,5.296872715951999,6.196839620548072,6.4859124842298,7.338538033969271,7.576102942143598,8.453328956309493,8.72235991426962,8.004295782864617,8.219049583595899,8.435910735742832,7.764782045586228,6.8933570311353005,6.596974245317625,5.827964519440694,5.367388309499668,5.262335682258538,4.588005936119692,4.3863616052373775,3.801338546156733,2.843888175165273,2.5353425839618384,1.6380742916693836,0.9590991902404622,1.22432350421593,0.4724725035141478,0.3170648108517612,-0.26542400335382343,0.03347100306043299,-0.32564167798103816,0.0,0.9426414910921892],"y":[37.98798483939543,38.273896811919364,37.881651066613415,38.01482690746417,37.590297670165484,37.65200547171072,38.5845539040688,38.64626170561415,37.884697692902655,37.04669826391927,37.15214238332078,36.28775345839558,36.42237451961774,37.285952646497975,37.30939895049413,38.118498823037285,38.90767495671294,39.74824669849387,40.538297210772335,41.36375206826389,41.26455941595794,41.30909539737221,41.34110805476164,41.467576723071744,41.58112030673198,41.80456072468652,41.950117719897804,41.93050533411817,41.15872131626754,40.30810699125622,39.614096868619185,38.704831374338816,38.69995985988942,38.85651156564889,38.835430858546275,39.103873240552076,40.09034006470324,40.40030075844524,39.753402869941404,38.87587244332197,38.16225304323661,37.29781313418117,36.68751461749411,35.83562016419809,35.409522874877,34.79881664446102,34.551710935063205,34.07842933362521,33.73137415906296,34.490643079465826,34.141491560951565,34.89061487769214,34.551478582603295,35.29285962632397,34.938636632651885,34.80189753222323,34.29932163212372,34.41271333073148,33.93716160741686,34.215901443072326,33.750470547721896,32.77515271275925,32.646125355789486,31.670344606312955,31.54670955399566,30.576020991469747,30.027753693526428,29.058006639556105,28.5041936722535,28.41342729267919,27.84609478190668,27.874563450064997,27.15441328961151,27.28232708704992,26.501997680040233,25.712642658793104,25.512265318589062,25.388534350490893,25.448394255644512,25.455480580241343,25.38383816435798,26.285542077481068,26.252239595588374,27.182465137415026,27.188524027325627,28.127946313388318,28.150790922233767,28.21760982069109,28.355072744140486,28.551600202646092,27.726734884868815,27.978174823665775,27.153135260144794,27.38567694114946,26.563573850987616,26.71688255734468,26.21220944507197,26.118786656267815,25.46819552386099,25.113871208595697,24.583783058276524,24.13579883258689,23.184035663137024,22.705551968084617,23.214509581001018,23.35666675191316,23.865624364829497,24.00778153574164,24.32248818239755,24.29338510713421,24.951556986643094,24.739003281451794,25.174203547867116,25.467769291739266,26.12023919973918,25.630796988183054,25.43906385854572,24.68086034697076,24.446318274732292,23.97931802809664,24.655487865600776,24.20478238394118,24.890851820823087,24.491604321684584,25.194859781895275,26.041391258434313,26.76270495666214,27.059291950686532,27.834931678359244,28.20360127995945,29.027723088002976,28.784546492803077,29.586281711603288,29.874018105577548,30.64531905721388,31.297248509975677,31.885465880216834,32.63660923726546,32.34226607077039,33.126921380973606,32.81490331011408,33.5995586203173,33.533374804914644,34.35710597320705,34.20336673140091,33.55285829646586,33.27432343380193,32.63665308214934,31.80262252692205,32.04074522008213,31.204907739438436,31.44303043259851,31.96352444076643,32.07534557433215,32.609771608216384,32.69392488744849,33.3551507988654,33.63584401734556,33.170656924757296,33.45135014323751,32.998665306562586,33.20161434287939,32.61303447613471,32.804595935081586,33.782702395060795,33.94569218189636,34.916860397334986,35.408483348446424,36.391937138963144,36.667557790637204,36.283785701843236,35.28596119834998,34.89767926595709,34.93207966610003,34.40173894992438,33.47693749160967,33.10490385640647,32.1863849004047,31.53448646169497,30.619506954924393,29.973296457513538,29.041611822996227,28.895522650990124,27.927761469585878,27.806470899727717,26.83490662997229,26.314358821682248,25.33578144846802,24.81968658789113,24.98873433042613,24.224524439394113,24.362154338430145,25.077533079936114,25.318222712738606,25.771373216608865,25.114448089427288,25.567598593297575,24.98314452166599,25.289270317800604,24.639521053233924,24.910206790254875,24.319397771921686,23.3658578393908,22.76657909187813,23.04009877427775,23.093584739368154,22.183770825705533,22.228415915674788,21.302134074025187,21.345474830404843,20.418204194244808,19.965488970526103,20.36099119233434,19.886349351418,20.273487617091725,19.832388009713643,18.84105069831803,18.38865734112279,17.399425129106007,17.022772162557025,16.04470535083252,15.909379339551338,14.932803631051293,14.796240834299908,15.122324286063886,14.798956430177418,13.821475177649797,13.572402632430302,12.60186394017779,12.057270583637596,11.085029966527383,10.867068236269118,11.52041331228083,11.302451582022563,11.068100785650302,10.818616584616109,10.35641250444964,9.752508259155626,9.206366577616263,8.41677331705411,7.807050972084331,6.894300095744163,6.850343106567243,5.9480296409463955,5.887257085679806,4.9907952994317295,4.920185086390609,5.547726538089306,6.476227969643664,7.0927317459785435,7.8900389015248535,8.514312943434653,9.089733927100205,9.788588941627678,10.413343652650102,10.650525302067035,9.856666783519364,10.134217299190922,9.364553803056701,9.70942743638685,10.17835535206317,10.248934496935751,10.244131036823342,10.460848434752425,10.297981652635123,10.275197967660404,10.243206223916209,10.089427975208052,9.137610669954274,8.867346673225736,7.89044267031543,7.616792616650449,6.777222877842335,6.450012928390563,5.561141427950264,5.256519562657551,4.399686800217446,3.7164907811149206,2.8984823170510845,3.160740276761932,3.827641639539687,3.368024617888354,2.8944358235997423,2.2927611260140974,2.0231774011047254,2.8221068973447583,2.6239875035686286,3.4596729959419505,3.2406088783467815,3.245145713753904,4.188982907627118,4.19404629404755,3.7998539594994942,2.864611132839201,2.415494727769631,2.873272789093493,2.3009626595445205,1.3488324834035335,0.9420672593651301,0.0,0.0],"z":[42.777827285802516,42.06542735102872,41.18877994464091,40.51685883253536,40.849142301139686,40.14346776032499,40.11171443742542,39.406039896610864,39.50677859656935,39.15934865024879,38.18499792323704,37.81926568582577,36.876644178257564,36.80774177127403,35.9473389952137,35.928959081494135,35.61617942410956,35.825528379229155,35.64864115652999,35.586605105158995,34.84051226473072,33.96407608229228,33.219859125832755,32.349740101219005,31.615932750890504,30.763746408422655,30.037310707296278,29.149233525816584,29.11887944465373,29.005624669454548,28.59369847079794,28.786530960168236,28.61140453321763,29.46772484677441,29.295400417585046,30.12485557981904,30.111531649579803,31.02978189725831,31.438955105030846,31.585473867298724,31.727447387954182,31.938445620362533,32.40487776885472,32.64487814762288,31.816778155316634,32.05947795369724,31.234502788577277,31.49089161116197,30.668766264105777,30.04613070673072,29.21697224455771,28.56744636710593,27.75862077222157,27.095226387240324,26.260590510893618,26.413309554123792,25.64231685734795,25.639485954515067,24.849988049675012,24.020999546410653,23.978910939467646,24.159327489771286,25.107783632140148,25.326529337227587,26.299692803189068,26.490148231153995,25.917931904764732,26.036013562789915,25.63886965065263,24.653916771681605,24.25936402526082,23.261600377292975,22.87171268275035,21.88240463680455,21.477866740448853,21.45220401143414,22.37644554552808,22.986105830305032,23.93675484989317,24.542290038463925,25.49258439842312,25.923410384939732,26.807252037917067,27.147886478651706,27.811350996092862,28.10320382204547,28.663492019203957,28.070609035006484,28.62975391880421,28.03670743036006,27.529668885643403,26.734026431440917,26.320512471993297,25.833197983591294,25.406039770442554,25.176472938502314,24.34408472145948,24.27289533960332,23.546911564192264,23.688429512283044,24.53590356827739,24.619977744075513,24.322684490245067,24.512778083408392,24.112701373916607,23.13737799457793,22.737301285086183,21.76197790574746,21.320097562779097,20.327053302764035,19.900357643689638,18.927804793496087,18.569877723912953,17.627252581024877,17.35692196913613,16.92555899842569,15.970690680628874,15.927923885023027,14.972050050849443,14.589847205563053,14.22170037689035,13.97365664603621,13.871597669605826,13.380191682471697,13.22087680462754,12.928299726113268,12.831865806900382,13.737811154723348,13.644161554996849,14.54912181636424,14.451282913620503,14.065219302958251,14.073054363383203,15.017275855014358,15.027811237785134,14.313258432596326,14.644745957259598,14.000314280569683,13.278341221097211,12.709161246126435,11.922461269794901,11.353281294824122,11.091101913740378,10.591011450694438,9.609477536383862,9.29130759996201,8.354340204180824,8.361081443731827,8.846976739209726,9.748891218686289,10.26570058573811,11.167615065214687,11.061787335812678,11.954384213685037,11.85093202219019,12.738091511473218,13.303686039236842,14.069665376202202,14.902474726367924,15.668454063333286,16.504401042182984,17.249449878632717,18.031740454696696,18.770911206450222,18.978720145816347,19.843273428717833,20.075622303187252,19.629064554123282,19.668094330899955,18.8670766780429,18.042509247451143,18.107542892495513,17.23406023392451,17.172015967792362,16.380497888785293,16.43387715693717,15.511446635763367,15.563995636908285,15.826578557621229,15.512485112272518,15.746365131971046,15.551373220817599,14.56222691601505,14.370282003648018,13.393696593476314,13.196359373020815,13.553377221268017,13.458535050301961,14.023370003121004,13.705339019857814,13.97206329397618,13.598368242973653,14.117255458105838,13.657715805317277,12.78984905334784,12.159132473014278,11.291265721044837,10.741489170914232,9.78966282458671,9.220612610985292,8.260682419721432,7.702327008627629,7.970726700380805,7.330138092548679,6.392471210646814,6.278921353840926,6.076603068235578,6.011370023218836,5.955686157759552,5.92328783434954,5.9169176566447526,5.059378523703753,4.310031336287729,3.457881358060067,3.0663860428512457,2.19002357894136,2.2890477709663575,1.511263099883486,1.6576173242612278,1.3941978388731169,1.6012728638342466,2.5859971168464986,2.7805480336767223,3.7667825217311175,4.065617664434047,3.4304316904047725,3.262062092039758,2.3967909929367903,2.212401113254967,2.975100744768803,2.7555098822170727,1.9816184568583761,1.2420283720189733,0.4681369466602767,0.8038256461621129,0.03255066650323446,0.37142293361014733,-0.3393698383520922,0.035203671002966175,-0.555719179750616,-0.5275926866709488,-0.8339067939607201,-1.831948447565415,-2.140111219586194,-3.134130944658698,-3.444045769291272,-3.307142255957258,-3.9287569017525654,-3.787354026114347,-4.452734347516683,-4.587826765418535,-5.240925854965948,-4.765320154824824,-5.391807872342291,-4.8955905657566,-4.017252049766903,-3.409778063437584,-2.4856257521489633,-1.8588087766091936,-0.9392956082571313,-0.933270513842011,0.0066349830342598,0.0067302083952265335,0.9237723951409071,0.9664281259986309,1.9221092930205257,1.9639269880657486,2.9085837708716475,3.1606032124962162,2.835982788535016,3.000783621166107,2.661408874372962,3.121364886574677,2.7139789259535037,3.1057318711998234,2.734679261377243,3.1745200972125387,3.041752997854169,3.5753661140642254,4.515680956687592,4.839453799239095,5.0108324373406985,4.1814526098821485,4.397349807158786,3.5516582735010593,2.959479579568744,2.2481230590517263,1.7372714938590754,0.9564008690266801,1.244963174626013,1.3631620308407557,1.8046186807674958,1.1852599680467348,0.9507883952352143,0.4680726119412278,-0.4073059893690396,-0.984512968658986,-0.9204044448703743,-0.08041626946064095,0.0,0.33380685923376063],"type":"scatter3d"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"scene":{"xaxis":{"title":{"text":"X"}},"yaxis":{"title":{"text":"Y"}},"zaxis":{"title":{"text":"Z"}},"aspectmode":"cube"},"width":800,"height":800},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('75c2a7e6-fcf6-4e23-9d93-1519476ef933');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                            </script>        </div>
+
+
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>CPU times: user 486 ms, sys: 9.82 ms, total: 496 ms
+Wall time: 747 ms</code></pre>
+</div>
+</div>
+<div id="cell-10" class="cell" data-outputid="ab9df74f-3824-4802-a60e-35e998ac54fd">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title {display-mode: "form"}</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>chainList <span class="op">=</span> []</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> newChainResult():</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  newChain <span class="op">=</span> extendedChain.copy()</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  newChain.relax(probs<span class="op">=</span>probs)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {<span class="st">'e2eDistance'</span>:newChain.e2eDistance, <span class="st">'radiusGyration'</span>:newChain.radiusGyration}</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> concurrent.futures.ProcessPoolExecutor(max_workers<span class="op">=</span><span class="dv">5</span>) <span class="im">as</span> executor:</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Submit tasks and store futures</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    futures <span class="op">=</span> {executor.submit(newChainResult): i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(numberOfChains)}</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> future <span class="kw">in</span> concurrent.futures.as_completed(futures):</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>        i <span class="op">=</span> futures[future]  <span class="co"># Get the index associated with the completed future</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>            result <span class="op">=</span> future.result()  <span class="co"># Get the result of the completed future</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Process the result (e.g., export, analyze)</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>            chainList.append(result)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>            <span class="kw">del</span> futures[future]  <span class="co"># Delete the future to release resources</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>            <span class="kw">del</span> result  <span class="co"># Explicitly delete the chainInstance object</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"Task </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> generated an exception: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>chains <span class="op">=</span> pd.DataFrame(chainList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>CPU times: user 682 ms, sys: 220 ms, total: 902 ms
+Wall time: 33.2 s</code></pre>
+</div>
+</div>
+<div id="cell-11" class="cell" data-outputid="2eba3b1d-54b8-4577-d891-d0784f244257">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title {display-mode: "form"}</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>selfAvoidChainList <span class="op">=</span> []</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> newSelfAvoidChainResult():</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  newChain <span class="op">=</span> extendedChain.copy()</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  newChain.selfAvoidRelax(probs<span class="op">=</span>probs, threshold <span class="op">=</span> selfAvoidThreshold)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {<span class="st">'e2eDistance'</span>:newChain.e2eDistance, <span class="st">'radiusGyration'</span>:newChain.radiusGyration}</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> concurrent.futures.ProcessPoolExecutor(max_workers<span class="op">=</span><span class="dv">5</span>) <span class="im">as</span> executor:</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Submit tasks and store futures</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    futures <span class="op">=</span> {executor.submit(newSelfAvoidChainResult): i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(numberOfChains)}</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> future <span class="kw">in</span> concurrent.futures.as_completed(futures):</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        i <span class="op">=</span> futures[future]  <span class="co"># Get the index associated with the completed future</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>            result <span class="op">=</span> future.result()  <span class="co"># Get the result of the completed future</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Process the result (e.g., export, analyze)</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>            selfAvoidChainList.append(result)</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>            <span class="kw">del</span> futures[future]  <span class="co"># Delete the future to release resources</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>            <span class="kw">del</span> result  <span class="co"># Explicitly delete the chainInstance object</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"Task </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> generated an exception: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>selfAvoidChains <span class="op">=</span> pd.DataFrame(selfAvoidChainList)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>CPU times: user 1.56 s, sys: 331 ms, total: 1.89 s
+Wall time: 5min 6s</code></pre>
+</div>
+</div>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">4. Results</h2>
+<div id="cell-13" class="cell" data-outputid="2d2bfc9a-2a48-4ee7-89ff-45890c5b3004">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title End-to-End Distance {display-mode: "form" }</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>hist1, bin_edges1 <span class="op">=</span> np.histogram(chains[<span class="st">'e2eDistance'</span>], bins<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>bin_centers1 <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> (bin_edges1[:<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> bin_edges1[<span class="dv">1</span>:])</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>initial_guess1 <span class="op">=</span> [<span class="dv">1</span>, np.mean(bin_centers1), np.std(bin_centers1)]</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>popt1, pcov1 <span class="op">=</span> curve_fit(gaussian, bin_centers1, hist1, p0<span class="op">=</span>initial_guess1)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>x_fit1 <span class="op">=</span> np.linspace(bin_edges1[<span class="dv">0</span>], bin_edges1[<span class="op">-</span><span class="dv">1</span>], <span class="dv">100</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>y_fit1 <span class="op">=</span> gaussian(x_fit1, <span class="op">*</span>popt1)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>plt.plot(x_fit1, y_fit1, <span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'Non self-avoid Gaussian fit'</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>plt.plot(bin_edges1[<span class="dv">1</span>:], hist1, <span class="st">'x'</span>, label<span class="op">=</span><span class="st">'Non self-avoid original data'</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>hist2, bin_edges2 <span class="op">=</span> np.histogram(selfAvoidChains[<span class="st">'e2eDistance'</span>], bins<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>bin_centers2 <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> (bin_edges2[:<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> bin_edges2[<span class="dv">1</span>:])</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>initial_guess2 <span class="op">=</span> [<span class="dv">1</span>, np.mean(bin_centers2), np.std(bin_centers2)]</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>popt2, pcov2 <span class="op">=</span> curve_fit(gaussian, bin_centers2, hist2, p0<span class="op">=</span>initial_guess2)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>x_fit2 <span class="op">=</span> np.linspace(bin_edges2[<span class="dv">0</span>], bin_edges2[<span class="op">-</span><span class="dv">1</span>], <span class="dv">100</span>)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>y_fit2 <span class="op">=</span> gaussian(x_fit2, <span class="op">*</span>popt2)</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>plt.plot(x_fit2, y_fit2, <span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'Self-avoid Gaussian fit'</span>)</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>plt.plot(bin_edges2[<span class="dv">1</span>:], hist2, <span class="st">'x'</span>, label<span class="op">=</span><span class="st">'Self-avoid original data'</span>)</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'End-to-End Distance'</span>)</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Density'</span>)</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Chain length: </span><span class="sc">{</span>chainLength<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span>(<span class="dv">1</span>,<span class="fl">0.5</span>))</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The root sqare mean value of the end-to-end distance is </span><span class="sc">{</span><span class="bu">round</span>(np.sqrt((chains[<span class="st">'e2eDistance'</span>]<span class="op">**</span><span class="dv">2</span>).mean()), sigfigs <span class="op">=</span> <span class="dv">4</span>)<span class="sc">}</span><span class="ss"> for non self-avoid chains."</span>)</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The root sqare mean value of the end-to-end distance is </span><span class="sc">{</span><span class="bu">round</span>(np.sqrt((selfAvoidChains[<span class="st">'e2eDistance'</span>]<span class="op">**</span><span class="dv">2</span>).mean()), sigfigs <span class="op">=</span> <span class="dv">4</span>)<span class="sc">}</span><span class="ss"> for self-avoid chains."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08_Self_Avoid_Chains_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The root sqare mean value of the end-to-end distance is 39.25 for non self-avoid chains.
+The root sqare mean value of the end-to-end distance is 46.31 for self-avoid chains.</code></pre>
+</div>
+</div>
+<div id="cell-14" class="cell" data-outputid="b7c24a27-66c4-4af5-d316-5b7981126b78">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title Radius of Gyration {display-mode: "form" }</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>hist1, bin_edges1 <span class="op">=</span> np.histogram(chains[<span class="st">'radiusGyration'</span>], bins<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>bin_centers1 <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> (bin_edges1[:<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> bin_edges1[<span class="dv">1</span>:])</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>initial_guess1 <span class="op">=</span> [<span class="dv">1</span>, np.mean(bin_centers1), np.std(bin_centers1)]</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>popt1, pcov1 <span class="op">=</span> curve_fit(gaussian, bin_centers1, hist1, p0<span class="op">=</span>initial_guess1)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>x_fit1 <span class="op">=</span> np.linspace(bin_edges1[<span class="dv">0</span>], bin_edges1[<span class="op">-</span><span class="dv">1</span>], <span class="dv">100</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>y_fit1 <span class="op">=</span> gaussian(x_fit1, <span class="op">*</span>popt1)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>plt.plot(x_fit1, y_fit1, <span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'Non self-avoid Gaussian fit'</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>plt.plot(bin_edges1[<span class="dv">1</span>:], hist1, <span class="st">'x'</span>, label<span class="op">=</span><span class="st">'Non self-avoid original data'</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>hist2, bin_edges2 <span class="op">=</span> np.histogram(selfAvoidChains[<span class="st">'radiusGyration'</span>], bins<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>bin_centers2 <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> (bin_edges2[:<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> bin_edges2[<span class="dv">1</span>:])</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>initial_guess2 <span class="op">=</span> [<span class="dv">1</span>, np.mean(bin_centers2), np.std(bin_centers2)]</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>popt2, pcov2 <span class="op">=</span> curve_fit(gaussian, bin_centers2, hist2, p0<span class="op">=</span>initial_guess2)</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>x_fit2 <span class="op">=</span> np.linspace(bin_edges2[<span class="dv">0</span>], bin_edges2[<span class="op">-</span><span class="dv">1</span>], <span class="dv">100</span>)</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>y_fit2 <span class="op">=</span> gaussian(x_fit2, <span class="op">*</span>popt2)</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>plt.plot(x_fit2, y_fit2, <span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'Self-avoid Gaussian fit'</span>)</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>plt.plot(bin_edges2[<span class="dv">1</span>:], hist2, <span class="st">'x'</span>, label<span class="op">=</span><span class="st">'Self-avoid original data'</span>)</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Radius of Gyration'</span>)</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Density'</span>)</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f"Chain length: </span><span class="sc">{</span>chainLength<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span>(<span class="dv">1</span>,<span class="fl">0.5</span>))</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The root sqare mean value of the radius of gyration is </span><span class="sc">{</span><span class="bu">round</span>(np.sqrt((chains[<span class="st">'radiusGyration'</span>]<span class="op">**</span><span class="dv">2</span>).mean()), sigfigs <span class="op">=</span> <span class="dv">4</span>)<span class="sc">}</span><span class="ss"> for non self-avoid chains."</span>)</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The root sqare mean value of the radius of gyration is </span><span class="sc">{</span><span class="bu">round</span>(np.sqrt((selfAvoidChains[<span class="st">'radiusGyration'</span>]<span class="op">**</span><span class="dv">2</span>).mean()), sigfigs <span class="op">=</span> <span class="dv">4</span>)<span class="sc">}</span><span class="ss"> for self-avoid chains."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08_Self_Avoid_Chains_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The root sqare mean value of the radius of gyration is 15.7 for non self-avoid chains.
+The root sqare mean value of the radius of gyration is 18.33 for self-avoid chains.</code></pre>
+</div>
+</div>
+<hr>
+<div id="cell-16" class="cell" data-outputid="4f37353f-8022-4ab8-8312-cf70a5f13285">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title Copyright { display-mode: "form" }</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>copyright <span class="op">=</span> requests.get(<span class="st">"https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/master/copyright.md"</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>Markdown(copyright.text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="10">
+<section id="mit-license" class="level3">
+<h3 class="anchored" data-anchor-id="mit-license">MIT License</h3>
+<p>Copyright (c) 2021 – 2024 Yu Wang</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</section>
+<section id="contact" class="level3">
+<h3 class="anchored" data-anchor-id="contact">Contact</h3>
+<p>Dr.&nbsp;Yu Wang<br>
+Department of Chemistry<br>
+Institute for Materials Research and Innovation<br>
+University of Louisiana at Lafayette<br>
+Lafayette, LA 70504<br>
+Email: yuwang@louisiana.edu</p>
+</section>
+<section id="acknowledgement" class="level3">
+<h3 class="anchored" data-anchor-id="acknowledgement">Acknowledgement</h3>
+<p>This project is sponsored by National Science Foundation (NSF-2142043).</p>
+</section>
+</div>
+</div>
+<div id="cell-17" class="cell" data-outputid="bf7f8eb2-8bf4-4c05-d85e-542c20f10ede">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title {display-mode: "form" }</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>links <span class="op">=</span> requests.get(<span class="st">"https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/refs/heads/master/links.md"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>Markdown(links.text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="11">
+<hr>
+<section id="links" class="level3">
+<h3 class="anchored" data-anchor-id="links">Links</h3>
+<p><strong><a href="https://wangyu16.github.io/PolymerScienceEducation/">Home page of OVESET</a>:</strong></p>
+<p><img src="https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/refs/heads/master/img/QR_OVESET.svg" alt="OVESET Home Page" width="300"></p>
+<p><strong><a href="https://hackmd.io/@YW2025/HJLiqoHRR">Home page of Study Guide</a></strong></p>
+<p><img src="https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/refs/heads/master/img/QR_PolymerStudyGuide.svg" alt="Introduction to Polymer Science" width="300"></p>
+</section>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

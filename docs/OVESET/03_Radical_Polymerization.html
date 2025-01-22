@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>radical_polymerization – OVESET</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-1fbc47131a039e0df962caa6cecbb2e1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-b1ed65af9ea3b9097db30d7cb3d87607.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">OVESET</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../fqa.html"> 
+<span class="menu-text">FQA</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M01_MWD.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 1 Molecular Weight Distribution</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M02_Step.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 2 Step Growth Polymerization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M03_ConvenRad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 3 Conventional Radical Polymerization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M04_ATRP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 4 Atom Transfer Radical Polymerization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M05_RadCopoly.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 5 Radical Copolymerization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M06_Network.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 6 Network formation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M07_SingleChain.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 7 Single chain conformation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M08_SelfAvoid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 8 Self-avoid chains</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M09_StarBranch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 9 Star and branched polymers</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#conventional-radical-polymerization" id="toc-conventional-radical-polymerization" class="nav-link active" data-scroll-target="#conventional-radical-polymerization">Conventional Radical Polymerization</a>
+  <ul class="collapse">
+  <li><a href="#what-does-this-simulator-do-and-how-to-use-it" id="toc-what-does-this-simulator-do-and-how-to-use-it" class="nav-link" data-scroll-target="#what-does-this-simulator-do-and-how-to-use-it">What does this simulator do and how to use it?</a></li>
+  <li><a href="#import-packages-and-set-the-values-of-parameters" id="toc-import-packages-and-set-the-values-of-parameters" class="nav-link" data-scroll-target="#import-packages-and-set-the-values-of-parameters">1. Import packages and set the values of parameters</a></li>
+  <li><a href="#reaction-conditions" id="toc-reaction-conditions" class="nav-link" data-scroll-target="#reaction-conditions">2. Reaction conditions</a></li>
+  <li><a href="#simulation" id="toc-simulation" class="nav-link" data-scroll-target="#simulation">3. Simulation</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">4. Results</a>
+  <ul class="collapse">
+  <li><a href="#concentration-changes" id="toc-concentration-changes" class="nav-link" data-scroll-target="#concentration-changes">Concentration changes</a></li>
+  <li><a href="#monomer-conversion-vs-time" id="toc-monomer-conversion-vs-time" class="nav-link" data-scroll-target="#monomer-conversion-vs-time">Monomer conversion vs time</a></li>
+  <li><a href="#molecular-weight-and-molecular-weight-distribution." id="toc-molecular-weight-and-molecular-weight-distribution." class="nav-link" data-scroll-target="#molecular-weight-and-molecular-weight-distribution.">Molecular weight and molecular weight distribution.</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<p><a href="https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/03_Radical_Polymerization.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></p>
+<center>
+<a href="https://wangyu16.github.io/PolymerScienceEducation/"><img src="https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/master/Fig/Logo_black.svg" width="150"></a>
+</center>
+<section id="conventional-radical-polymerization" class="level1">
+<h1>Conventional Radical Polymerization</h1>
+<hr>
+<p>To learn the background knowledge, please visit this <a href="https://hackmd.io/@YW2025/rJUFjZAnR">study guide</a>.</p>
+<section id="what-does-this-simulator-do-and-how-to-use-it" class="level2">
+<h2 class="anchored" data-anchor-id="what-does-this-simulator-do-and-how-to-use-it">What does this simulator do and how to use it?</h2>
+<p>The simulator provides kinetic reaction results of conventional radical polymerization. Users simply select the initial conditions and run the simulation. The results will be shown below.</p>
+</section>
+<section id="import-packages-and-set-the-values-of-parameters" class="level2">
+<h2 class="anchored" data-anchor-id="import-packages-and-set-the-values-of-parameters">1. Import packages and set the values of parameters</h2>
+<div id="cell-4" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title { display-mode: "form" }</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>capture</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> <span class="st">'chempy'</span> <span class="kw">in</span> sys.modules:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>pip install chempy</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> chempy <span class="im">import</span> ReactionSystem, Substance</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> chempy.kinetics.ode <span class="im">import</span> get_odesys</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> defaultdict</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.rcParams.update({<span class="st">'font.size'</span>: <span class="dv">12</span>}) <span class="co"># Feel free to change the font size in the plots.</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interact</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> datetime</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>density <span class="op">=</span> {<span class="st">'St'</span>: <span class="fl">0.909</span>, <span class="st">'MMA'</span>:<span class="fl">0.940</span>, <span class="st">'MA'</span>:<span class="fl">0.950</span>, <span class="st">'VAc'</span>:<span class="fl">0.934</span>, <span class="st">'AN'</span>:<span class="fl">0.810</span>} <span class="co"># g/mL</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>molar_mass <span class="op">=</span>{<span class="st">'St'</span>: <span class="fl">104.15</span>, <span class="st">'MMA'</span>: <span class="fl">100.12</span>, <span class="st">'MA'</span>:<span class="fl">86.09</span>, <span class="st">'VAc'</span>:<span class="fl">86.09</span>, <span class="st">'AN'</span>:<span class="fl">53.06</span>} <span class="co"># g/mol</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Propagation rate coefficients of monomers.</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># For AN, 'Determination of the propagation rate coefficient of acrylonitrile' Polym. Chem., 2010,1, 438-441, DOI: 10.1039/C0PY00019A</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># For the rest, "Rate coefficients of free-radical polymerization deduced from pulsed laser experiments" Prog. Polym. Sci., 2002, 27, 191-254, DOI: 10.1016/S0079-6700(01)00049-1</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>kp_Ea <span class="op">=</span> {<span class="st">'St'</span>:<span class="fl">31.5</span>, <span class="st">'MMA'</span>: <span class="fl">22.4</span>, <span class="st">'MA'</span>: <span class="fl">17.7</span>, <span class="st">'VAc'</span>: <span class="fl">20.7</span>, <span class="st">'AN'</span>: <span class="fl">14.4</span>} <span class="co"># kJ/mol</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>kp_A <span class="op">=</span> {<span class="st">'St'</span>:<span class="fl">2.88e7</span>, <span class="st">'MMA'</span>:<span class="fl">2.67e6</span>, <span class="st">'MA'</span>:<span class="fl">1.66e7</span>, <span class="st">'VAc'</span>:<span class="fl">1.47e7</span>, <span class="st">'AN'</span>: <span class="fl">1.79e6</span>} <span class="co"># /mol.s</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Decomposition rate coefficients of initiators.</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># For AIBN, ACHN, VR-110, "A Critical Assessment of the Kinetics and Mechanism of Initiation of Radical Polymerization with Commercially Available Dialkyldiazene Initiators" Prog. Polym. Sci. 2019, 88, 130-188, DOI: 10.1016/j.progpolymsci.2018.08.003</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># For BPO, it is calculated from Sigma Aldrich "Applications: Free Radical Initiators"</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>kd_Ea <span class="op">=</span> {<span class="st">'AIBN'</span>:<span class="dv">131</span>, <span class="st">'BPO'</span>: <span class="dv">141</span>, <span class="st">'ACHN'</span>: <span class="dv">150</span>, <span class="st">'VR-110'</span>: <span class="dv">147</span>}</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>kd_A <span class="op">=</span> {<span class="st">'AIBN'</span>:<span class="fl">3.2e15</span>, <span class="st">'BPO'</span>: <span class="fl">3.4e16</span>, <span class="st">'ACHN'</span>: <span class="fl">7.9e16</span>, <span class="st">'VR-110'</span>: <span class="fl">2.0e15</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="reaction-conditions" class="level2">
+<h2 class="anchored" data-anchor-id="reaction-conditions">2. Reaction conditions</h2>
+<p>Compounds used in this simulator:</p>
+<center>
+<img src="https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/master/OVESET/img/radicalpolymerizationkinetics.svg" width="450">
+</center>
+<div id="cell-7" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title { display-mode: "form" }</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Poly_type <span class="op">=</span> <span class="st">"conven"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown </span><span class="al">###</span><span class="co"> Choose the monomer and set the volume fraction of the monomer</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown **St**: styrene; **MMA**: methyl methacrylate; **MA**: methyl acrylate; **VAc**: vinyl acetate; **AN**: acrylonitrile</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>Monomer <span class="op">=</span> <span class="st">"St"</span> <span class="co">#@param ["St", "MMA", "MA", "VAc", "AN"]</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>Fraction_of_Monomer <span class="op">=</span> <span class="fl">0.33</span> <span class="co">#@param {type:"slider", min:0, max:1, step:0.01}</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown Suppose you want to do bulk polymerization, you can set the fraction as 1. If you want to do a solution polymerization with half monomer and half solvent by volume, then set the fraction as 0.5. Solvent effect on reaction rate is not taken into account, thus there is no need to select a specific solvent for the simulation.</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown </span><span class="al">###</span><span class="co"> Choose the thermal initiator (TI) and set the concentration (mol/L)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown **AIBN**: azobis(isobutyronitrile); **BPO**: benzoyl peroxide; **ACHN**: 1,1’-azobis-(1-cyclohexanenitrile); **VR-110**: 2,2'-Azobis(2,4,4-trimethylpentane)</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>TI <span class="op">=</span> <span class="st">"AIBN"</span> <span class="co">#@param ["AIBN", "BPO", "ACHN", "VR-110"]</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>c0_TI <span class="op">=</span> <span class="fl">0.01</span> <span class="co">#@param {type:"slider", min:0, max:0.1, step:0.0001}</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown </span><span class="al">###</span><span class="co"> Select the reaction temperature ($^\circ$C) and reaction time (h)</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>Temperature <span class="op">=</span> <span class="dv">60</span> <span class="co">#@param {type:"slider", min:0, max:130, step:1}</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>Temperature <span class="op">=</span> Temperature <span class="op">+</span> <span class="fl">273.15</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>react_time <span class="op">=</span> <span class="dv">24</span> <span class="co">#@param {type:"slider", min:0, max:72, step:0.1}</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>react_time <span class="op">=</span> react_time<span class="op">*</span><span class="dv">3600</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown Be careful of the bolling temperatures of the monomers (styrene 145 $^\circ$C, MMA 101 $^\circ$C, MA 80 $^\circ$C, VAc 72 $^\circ$C, AN 77$^\circ$C). Choosing a temperature above the boiling point may cause problems in the real world experiments.</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Rate coefficient of decomposition of the initiator</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>k_d_TI <span class="op">=</span> kd_A[TI]<span class="op">*</span>np.exp(<span class="op">-</span>kd_Ea[TI]<span class="op">*</span><span class="dv">1000</span><span class="op">/</span><span class="fl">8.314</span><span class="op">/</span>Temperature)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Initiation efficiency</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>f_TI <span class="op">=</span> <span class="fl">0.8</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Propagation rate coefficient</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>k_p <span class="op">=</span> kp_A[Monomer]<span class="op">*</span>np.exp(<span class="op">-</span>kp_Ea[Monomer]<span class="op">*</span><span class="dv">1000</span><span class="op">/</span><span class="fl">8.314</span><span class="op">/</span>Temperature)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial monomer concentration</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>c0_M <span class="op">=</span> density[Monomer]<span class="op">*</span><span class="dv">1000</span><span class="op">/</span>molar_mass[Monomer]<span class="op">*</span>Fraction_of_Monomer</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>MM <span class="op">=</span> molar_mass[Monomer]</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Rate coefficient of termination between propagating chains</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>k_tc <span class="op">=</span> <span class="fl">5e7</span> <span class="co"># Termination by coupling</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>k_td <span class="op">=</span> <span class="fl">5e7</span> <span class="co"># Termination by disproportionation</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Self initiation of the monomer, only styrene needs to be considered.</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> Monomer <span class="op">==</span> <span class="st">"styrene"</span>:</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  k_th_S <span class="op">=</span> <span class="fl">2.2e5</span><span class="op">*</span>np.exp(<span class="op">-</span><span class="dv">13810</span><span class="op">/</span>Temperature)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  k_th_S <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the rate coefficients for the addition of the first monomer to the primary radical;</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>k_p_R <span class="op">=</span> k_p</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co"># the termination between primary radicals; the termination between a primary radical and a propagating radical.</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>k_t_R <span class="op">=</span> <span class="fl">2.5e9</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>k_t_R_Pn <span class="op">=</span> <span class="fl">1e8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-8" class="cell" data-outputid="8aa1e632-c0dd-46e5-fce6-1d7780a7ec3d" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title Construct the reaction system { display-mode: "form" }</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Initiate the reaction system with null value.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The rsys_orig is the system of the actual reactions.</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The rsys_pseudo includes the pseudo reactions with pseudo species</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># which are used to introduce 1st and 2nd order moments</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># and to adjust the reactions to take into account the initiation efficiency, etc.</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>rsys_orig <span class="op">=</span> ReactionSystem.from_string(<span class="st">"""</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="st">    """</span>, substance_factory<span class="op">=</span>Substance)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>rsys_pseudo <span class="op">=</span>  ReactionSystem.from_string(<span class="st">"""</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="st">    """</span>, substance_factory<span class="op">=</span>Substance)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial concentrations of monomer, dead chains, radicals, and pseudo species of moments.</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>c0 <span class="op">=</span> defaultdict(<span class="bu">float</span>, {<span class="st">'M'</span>: c0_M, <span class="st">'D'</span>: <span class="dv">0</span>, <span class="st">'PnD'</span>: <span class="dv">0</span>, <span class="st">'PnDPn'</span>: <span class="dv">0</span>, <span class="st">'R'</span>: <span class="dv">0</span>, <span class="st">'Pn'</span>: <span class="dv">0</span>, <span class="st">'M1_Pn'</span>: <span class="dv">0</span>, <span class="op">\</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                         <span class="st">'M1_PnD'</span>: <span class="dv">0</span>, <span class="st">'M1_PnDPn'</span>: <span class="dv">0</span>, <span class="st">'M2_total'</span>: <span class="dv">0</span>})</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Add propagation and termination reactions to the reaction system.</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>rsys_orig <span class="op">+=</span> ReactionSystem.from_string(<span class="ss">f"""</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="ss">    R + M -&gt; Pn; </span><span class="sc">{</span>k_p_R<span class="sc">}</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="ss">    Pn + M -&gt; Pn; </span><span class="sc">{</span>k_p<span class="sc">}</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="ss">    R + R -&gt; D + D; </span><span class="sc">{</span>k_t_R<span class="sc">}</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="ss">    Pn + R -&gt; PnD + D; </span><span class="sc">{</span>k_t_R_Pn<span class="sc">}</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="ss">    Pn + Pn -&gt; PnD + PnD; </span><span class="sc">{</span>k_td<span class="sc">}</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="ss">    Pn + Pn -&gt; PnDPn; </span><span class="sc">{</span>k_tc<span class="sc">}</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="ss">    """</span>, substance_factory<span class="op">=</span>Substance)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>rsys_pseudo <span class="op">+=</span> ReactionSystem.from_string(<span class="ss">f"""</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="ss">    R + M -&gt; R + M + M1_Pn + M2_total; </span><span class="sc">{</span>k_p_R<span class="sc">}</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="ss">    Pn + M -&gt; Pn + M + M1_Pn + M2_total; </span><span class="sc">{</span>k_p<span class="sc">}</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="ss">    M1_Pn + M -&gt; M1_Pn + M + M2_total; </span><span class="sc">{</span><span class="dv">2</span><span class="op">*</span>k_p<span class="sc">}</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="ss">    M1_Pn + R -&gt; M1_PnD + R; </span><span class="sc">{</span>k_t_R_Pn<span class="sc">}</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="ss">    M1_Pn + Pn -&gt; M1_PnD + Pn; </span><span class="sc">{</span><span class="dv">2</span><span class="op">*</span>k_td<span class="sc">}</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="ss">    M1_Pn + Pn -&gt; M1_PnDPn + Pn; </span><span class="sc">{</span><span class="dv">2</span><span class="op">*</span>k_tc<span class="sc">}</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="ss">    M1_Pn + M1_Pn -&gt; M1_Pn + M1_Pn + M2_total; </span><span class="sc">{</span><span class="dv">2</span><span class="op">*</span>k_tc<span class="sc">}</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="ss">    """</span>, substance_factory<span class="op">=</span>Substance)</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="co"># To include the thermal initiaion for styrenic monomers</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> k_th_S <span class="op">!=</span> <span class="dv">0</span>:</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    rsys_orig <span class="op">+=</span> ReactionSystem.from_string(<span class="ss">f"""</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="ss">        M + M + M -&gt; R + R; </span><span class="sc">{</span>k_th_S<span class="sc">}</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="ss">        """</span>, substance_factory<span class="op">=</span>Substance)</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="co"># The thermal initiator is consumed with a rate coefficient k_d_TI;</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="co"># however, not all of the primary radicals would involve in propagation.</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="co"># To take into account the initiation efficiency, pseudo reactions and a pseudo species 'PR' are introduced.</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>c0.update({<span class="st">'TI'</span>: c0_TI, <span class="st">'PR'</span>: <span class="dv">0</span>})</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>rsys_orig <span class="op">+=</span> ReactionSystem.from_string(<span class="ss">f"""</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="ss">    TI -&gt; R + R; </span><span class="sc">{</span>k_d_TI<span class="sc">}</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="ss">    """</span>, substance_factory<span class="op">=</span>Substance)</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>rsys_pseudo <span class="op">+=</span> ReactionSystem.from_string(<span class="ss">f"""</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="ss">    TI -&gt; R + R; </span><span class="sc">{</span><span class="op">-</span>k_d_TI<span class="sc">}</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="ss">    TI -&gt; PR + PR; </span><span class="sc">{</span>k_d_TI<span class="sc">}</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="ss">    TI -&gt; TI + R + R; </span><span class="sc">{</span>f_TI<span class="op">*</span>k_d_TI<span class="sc">}</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="ss">    """</span>, substance_factory<span class="op">=</span>Substance)</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="co"># List the initial concentrations of reagents</span></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The reagents and their concentrations (mol/L) are as follows:"</span>)</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key <span class="kw">in</span> c0:</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> c0[key] <span class="op">!=</span> <span class="dv">0</span>:</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(key, <span class="st">': '</span>, c0[key])</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"where 'M' means the monomer, 'TI' means the thermal initiator."</span>)</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the reactions and the rate coefficients in the system</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The reactions involved are listed below with their rate coefficients."</span>)</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>rsys_orig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The reagents and their concentrations (mol/L) are as follows:
+M :  2.8801728276524243
+TI :  0.01
+where 'M' means the monomer, 'TI' means the thermal initiator.
+The reactions involved are listed below with their rate coefficients.</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<table class="chempy_ReactionSystem chempy_139951329135120 caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<tbody>
+<tr class="odd">
+<td colspan="5" style="text-align: center;" data-quarto-table-cell-role="th"></td>
+</tr>
+<tr class="chempy_139951329135120_0 even">
+<td style="text-align: right;"><span class="chempy_M" style="background-color:#ffb6c1; border: 1px solid #c71585; border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">M</span> + <span class="chempy_R" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">R</span></td>
+<td style="text-align: center;">→</td>
+<td style="text-align: left;"><span class="chempy_Pn" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">Pn</span></td>
+<td style="text-align: left;">&nbsp;331.38</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="chempy_139951329135120_1 odd">
+<td style="text-align: right;"><span class="chempy_M" style="background-color:#ffb6c1; border: 1px solid #c71585; border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">M</span> + <span class="chempy_Pn" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">Pn</span></td>
+<td style="text-align: center;">→</td>
+<td style="text-align: left;"><span class="chempy_Pn" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">Pn</span></td>
+<td style="text-align: left;">&nbsp;331.38</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="chempy_139951329135120_2 even">
+<td style="text-align: right;">2 <span class="chempy_R" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">R</span></td>
+<td style="text-align: center;">→</td>
+<td style="text-align: left;">2 <span class="chempy_D" style="background-color:#90ee90; border: 1px solid #008000; border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">D</span></td>
+<td style="text-align: left;">&nbsp;2.5⋅10<sup>9</sup></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="chempy_139951329135120_3 odd">
+<td style="text-align: right;"><span class="chempy_Pn" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">Pn</span> + <span class="chempy_R" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">R</span></td>
+<td style="text-align: center;">→</td>
+<td style="text-align: left;"><span class="chempy_D" style="background-color:#90ee90; border: 1px solid #008000; border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">D</span> + <span class="chempy_PnD" style="background-color:#90ee90; border: 1px solid #008000; border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">PnD</span></td>
+<td style="text-align: left;">&nbsp;10<sup>8</sup></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="chempy_139951329135120_4 even">
+<td style="text-align: right;">2 <span class="chempy_Pn" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">Pn</span></td>
+<td style="text-align: center;">→</td>
+<td style="text-align: left;">2 <span class="chempy_PnD" style="background-color:#90ee90; border: 1px solid #008000; border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">PnD</span></td>
+<td style="text-align: left;">&nbsp;5⋅10<sup>7</sup></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="chempy_139951329135120_5 odd">
+<td style="text-align: right;">2 <span class="chempy_Pn" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">Pn</span></td>
+<td style="text-align: center;">→</td>
+<td style="text-align: left;"><span class="chempy_PnDPn" style="background-color:#90ee90; border: 1px solid #008000; border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">PnDPn</span></td>
+<td style="text-align: left;">&nbsp;5⋅10<sup>7</sup></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="chempy_139951329135120_6 even">
+<td style="text-align: right;"><span class="chempy_TI" style="background-color:#ffb6c1; border: 1px solid #c71585; border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">TI</span></td>
+<td style="text-align: center;">→</td>
+<td style="text-align: left;">2 <span class="chempy_R" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">R</span></td>
+<td style="text-align: left;">&nbsp;9.2235⋅10<sup>-6</sup></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<script type="text/javascript">
+var cls_names_substances = ["chempy_D", "chempy_M", "chempy_Pn", "chempy_PnD", "chempy_PnDPn", "chempy_R", "chempy_TI"];
+var substance_row_cls_irrel = {"chempy_D": ["chempy_139951329135120_0", "chempy_139951329135120_1", "chempy_139951329135120_4", "chempy_139951329135120_5", "chempy_139951329135120_6"], "chempy_M": ["chempy_139951329135120_2", "chempy_139951329135120_3", "chempy_139951329135120_4", "chempy_139951329135120_5", "chempy_139951329135120_6"], "chempy_Pn": ["chempy_139951329135120_2", "chempy_139951329135120_6"], "chempy_PnD": ["chempy_139951329135120_0", "chempy_139951329135120_1", "chempy_139951329135120_2", "chempy_139951329135120_5", "chempy_139951329135120_6"], "chempy_PnDPn": ["chempy_139951329135120_0", "chempy_139951329135120_1", "chempy_139951329135120_2", "chempy_139951329135120_3", "chempy_139951329135120_4", "chempy_139951329135120_6"], "chempy_R": ["chempy_139951329135120_1", "chempy_139951329135120_4", "chempy_139951329135120_5"], "chempy_TI": ["chempy_139951329135120_0", "chempy_139951329135120_1", "chempy_139951329135120_2", "chempy_139951329135120_3", "chempy_139951329135120_4", "chempy_139951329135120_5"]};
+var elms = {};
+var n = {}, nsubstances = cls_names_substances.length;
+var nirrel = {};
+function changeColor(classname, color) {
+    var curN = n[classname];
+    for(var i = 0; i < curN; i++) {
+        elms[classname][i].style.backgroundColor = color;
+    }
+}
+function toggleVisibility(classname_substance) {
+    var curN = nirrel[classname_substance];
+    for (var i=0; i<curN; i++) {
+        var objs = document.getElementsByClassName(substance_row_cls_irrel[classname_substance][i]);
+        for (var j=0; j<objs.length; ++j){
+            objs[j].style.display = objs[j].style.display == "none" ? "table-row" : "none";
+        }
+    }
+}
+function resetTab(tab){
+    tab.style.border = "0px";
+    var rows = tab.getElementsByTagName('tr');
+    [].forEach.call(rows, function(row){
+        row.style.display = "table-row";
+    });
+    tab.getElementsByTagName('th')[0].innerHTML = tab.ori_header +
+        "<br>(click on species to show a subset of reactions)";
+};
+
+for(var k = 0; k < nsubstances; k++) {
+    var curClass = cls_names_substances[k];
+    var curIrrel = substance_row_cls_irrel[k];
+    elms[curClass] = document.getElementsByClassName(curClass);
+    n[curClass] = elms[curClass].length;
+    nirrel[curClass] = substance_row_cls_irrel[curClass].length;
+    var curN = n[curClass];
+    for(var i = 0; i < curN; i++) {
+        elms[curClass][i].onmouseover = function() {
+            changeColor(this.className, "LightBlue");
+        };
+        elms[curClass][i].onmouseout = function() {
+            changeColor(this.className, "inherit");
+        };
+        elms[curClass][i].onclick = function() {
+            var tab = this.closest("table");
+            resetTab(tab);
+            tab.style.border = "1px dashed #000000";
+            toggleVisibility(this.className);
+            tab.getElementsByTagName('th')[0].innerHTML = tab.ori_header +
+                 "<br>Only showing reactions involving: " + this.innerHTML +
+                 " (double-click to reset)";
+        };
+    }
+};
+var chempy_tabs = document.querySelectorAll('table.chempy_139951329135120');
+[].forEach.call(chempy_tabs, function(tab){
+    tab.ori_header = tab.getElementsByTagName('th')[0].innerHTML;
+    tab.ondblclick = function(){
+        resetTab(this);
+        this.scrollIntoView();
+    };
+});
+[].forEach.call(chempy_tabs, function(tab){
+    resetTab(tab);
+});
+</script>
+</div>
+</div>
+</section>
+<section id="simulation" class="level2">
+<h2 class="anchored" data-anchor-id="simulation">3. Simulation</h2>
+<p><strong>List of the differential equations</strong></p>
+<div id="cell-10" class="cell" data-outputid="90712e30-6429-4390-b91c-8337e960df31" data-scrolled="true" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title { display-mode: "form" }</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the actual and the pseudo reaction systems</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>rsys <span class="op">=</span> rsys_orig <span class="op">+</span> rsys_pseudo</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the differential equation system from the reactions.</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>odesys, extra <span class="op">=</span> get_odesys(rsys)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># List the differential equations</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, exp <span class="kw">in</span> <span class="bu">enumerate</span>(odesys.exprs):</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> odesys.names[index] <span class="op">!=</span> <span class="st">'PR'</span>:</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(odesys.names[index], <span class="st">': '</span>, <span class="ss">f'dy_</span><span class="sc">{</span>index<span class="sc">}</span><span class="ss">/dt'</span>, <span class="st">'= '</span>,  exp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>D :  dy_0/dt =  100000000.0*y_2*y_5 + 5000000000.0*y_5**2
+M :  dy_1/dt =  -331.37843254586*y_1*y_2 - 331.37843254586*y_1*y_5
+Pn :  dy_2/dt =  331.37843254586*y_1*y_5 - 200000000.0*y_2**2 - 100000000.0*y_2*y_5
+PnD :  dy_3/dt =  100000000.0*y_2**2 + 100000000.0*y_2*y_5
+PnDPn :  dy_4/dt =  50000000.0*y_2**2
+R :  dy_5/dt =  -331.37843254586*y_1*y_5 - 100000000.0*y_2*y_5 - 5000000000.0*y_5**2 + 1.47576729074005e-5*y_6
+TI :  dy_6/dt =  -9.22354556712529e-6*y_6
+M1_Pn :  dy_7/dt =  331.37843254586*y_1*y_2 + 331.37843254586*y_1*y_5 - 200000000.0*y_2*y_7 - 100000000.0*y_5*y_7
+M1_PnD :  dy_8/dt =  100000000.0*y_2*y_7 + 100000000.0*y_5*y_7
+M1_PnDPn :  dy_9/dt =  100000000.0*y_2*y_7
+M2_total :  dy_10/dt =  331.37843254586*y_1*y_2 + 331.37843254586*y_1*y_5 + 662.756865091719*y_1*y_7 + 100000000.0*y_7**2</code></pre>
+</div>
+</div>
+<p>The differential equation system includes not only the real species, i.e., those taht appear in the actual reactions, but also the pseudo species, e.g., the 1st and 2nd order moments.</p>
+<div id="cell-12" class="cell" data-outputid="5fba0d84-d8df-41c3-bad4-ee2538c7541e" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title { display-mode: "form" }</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>time</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Integration</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>tout <span class="op">=</span> <span class="bu">sorted</span>(np.concatenate((np.linspace(<span class="dv">0</span>, react_time), np.logspace(<span class="dv">0</span>, np.floor(np.log10(react_time))))))</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> odesys.integrate(tout, c0, integrator<span class="op">=</span><span class="st">'scipy'</span>, method<span class="op">=</span><span class="st">'lsoda'</span>, atol<span class="op">=</span><span class="fl">1e-12</span>, rtol<span class="op">=</span><span class="fl">1e-6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>CPU times: user 118 ms, sys: 8.98 ms, total: 127 ms
+Wall time: 231 ms</code></pre>
+</div>
+</div>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">4. Results</h2>
+<section id="concentration-changes" class="level3">
+<h3 class="anchored" data-anchor-id="concentration-changes">Concentration changes</h3>
+<div id="cell-15" class="cell" data-outputid="e2c17bde-ebb5-4060-f3ca-9dc8939dd8e0" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title { display-mode: "form" }</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the concentrations of species in the reaction system vs time.</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The change of monomer concentration is not included here since monomer conversion will be plotted later.</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>labels<span class="op">=</span>[<span class="st">'(a)'</span>,<span class="st">'(b)'</span>,<span class="st">'(c)'</span>]</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>i<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>fig1, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>     _ <span class="op">=</span> result.plot(names<span class="op">=</span>[k <span class="cf">for</span> k <span class="kw">in</span> rsys_orig.substances <span class="cf">if</span> k <span class="op">!=</span> <span class="st">'CuIsour'</span> \</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                            <span class="kw">and</span> k <span class="op">!=</span> <span class="st">'M'</span> <span class="kw">and</span> k<span class="op">!=</span> <span class="st">'elec'</span> <span class="kw">and</span> k <span class="op">!=</span> <span class="st">'Cu0'</span>], ax<span class="op">=</span>ax)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>     _ <span class="op">=</span> ax.legend(loc<span class="op">=</span><span class="st">'best'</span>,prop<span class="op">=</span>{<span class="st">'size'</span>: <span class="dv">12</span>}) <span class="co"># Set the font size of the legend here.</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>     _ <span class="op">=</span> ax.set_xlabel(<span class="st">'Time (s)'</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>     _ <span class="op">=</span> ax.set_ylabel(<span class="st">'Concentration'</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>     _ <span class="op">=</span> ax.text(<span class="op">-</span><span class="fl">0.1</span>, <span class="dv">1</span>, labels[i], transform<span class="op">=</span>ax.transAxes, fontweight<span class="op">=</span><span class="st">'bold'</span>, va<span class="op">=</span><span class="st">'top'</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>     i<span class="op">+=</span><span class="dv">1</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].ticklabel_format(axis<span class="op">=</span><span class="st">"x"</span>, style<span class="op">=</span><span class="st">"sci"</span>, scilimits<span class="op">=</span>(<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> axes[<span class="dv">1</span>].set_ylim([<span class="fl">1e-10</span>, <span class="fl">1e1</span>])</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> axes[<span class="dv">1</span>].set_xscale(<span class="st">'log'</span>)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> axes[<span class="dv">1</span>].set_yscale(<span class="st">'log'</span>)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> fig1.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="03_Radical_Polymerization_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="meanings-of-the-species-produced-during-the-polymerization" class="level4">
+<h4 class="anchored" data-anchor-id="meanings-of-the-species-produced-during-the-polymerization">Meanings of the species produced during the polymerization</h4>
+<p>R: primary radical either from the thermal initiator<br>
+D: termination product from primary radicals<br>
+Pn: propagating polymer chain with a chain end radical<br>
+PnD: dead polymer chain produced by termination through disproportionation<br>
+PnDPn: dead polymer chain produced by termination through coupling</p>
+<p><strong>Note</strong>: The choice of monomer affects the relative reaction rates of termination by coupling and disproportionation. Additionally, the rate coefficients of termination change with chain length and viscosity. Considering all these factors can be very complicated. To keep things simple for educational purposes, this simulator sets the rate coefficients of termination as constants.</p>
+</section>
+</section>
+<section id="monomer-conversion-vs-time" class="level3">
+<h3 class="anchored" data-anchor-id="monomer-conversion-vs-time">Monomer conversion vs time</h3>
+<div id="cell-18" class="cell" data-scrolled="true" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title { display-mode: "form" }</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Get concentrations and calculate conversion, Mn and Mw/Mn.</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>ConcM <span class="op">=</span> result[<span class="dv">1</span>][:,result.odesys.names.index(<span class="st">'M'</span>)]</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>ConcD <span class="op">=</span> result[<span class="dv">1</span>][:,result.odesys.names.index(<span class="st">'D'</span>)]</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>ConcPnD <span class="op">=</span> result[<span class="dv">1</span>][:,result.odesys.names.index(<span class="st">'PnD'</span>)]</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>ConcPnDPn <span class="op">=</span> result[<span class="dv">1</span>][:,result.odesys.names.index(<span class="st">'PnDPn'</span>)]</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>ConcPn <span class="op">=</span> result[<span class="dv">1</span>][:,result.odesys.names.index(<span class="st">'Pn'</span>)]</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>ConcM2_total <span class="op">=</span> result[<span class="dv">1</span>][:,result.odesys.names.index(<span class="st">'M2_total'</span>)]</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>ConvM <span class="op">=</span>(ConcM[<span class="dv">0</span>]<span class="op">-</span>ConcM)<span class="op">/</span>ConcM[<span class="dv">0</span>]</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>LnM0_M <span class="op">=</span> np.log(ConcM[<span class="dv">0</span>]<span class="op">/</span>ConcM)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>Mn <span class="op">=</span> np.zeros(<span class="bu">len</span>(result[<span class="dv">0</span>]))</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>Mw <span class="op">=</span> np.zeros(<span class="bu">len</span>(result[<span class="dv">0</span>]))</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>Mw_Mn <span class="op">=</span> np.ones(<span class="bu">len</span>(result[<span class="dv">0</span>]))</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>Mn[<span class="dv">1</span>:] <span class="op">=</span> (ConcM[<span class="dv">0</span>]<span class="op">-</span>ConcM[<span class="dv">1</span>:])<span class="op">/</span>(ConcPnD[<span class="dv">1</span>:] <span class="op">+</span> ConcPnDPn[<span class="dv">1</span>:] <span class="op">+</span> ConcPn[<span class="dv">1</span>:])<span class="op">*</span>MM</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>Mw[<span class="dv">1</span>:] <span class="op">=</span> ConcM2_total[<span class="dv">1</span>:]<span class="op">/</span>(ConcM[<span class="dv">0</span>]<span class="op">-</span>ConcM[<span class="dv">1</span>:])<span class="op">*</span>MM</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>Mw_Mn[<span class="dv">1</span>:] <span class="op">=</span> Mw[<span class="dv">1</span>:]<span class="op">/</span>Mn[<span class="dv">1</span>:]</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>result_cal <span class="op">=</span> [result[<span class="dv">0</span>],ConcM,ConvM,LnM0_M,Mn,Mw_Mn]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-19" class="cell" data-outputid="d0859da8-d806-4350-e725-20047afeb24a" data-scrolled="true" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title { display-mode: "form" }</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Monomer conversion vs. time and first order kinetic plots.</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>fig2, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>i<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    ax.ticklabel_format(axis<span class="op">=</span><span class="st">"x"</span>, style<span class="op">=</span><span class="st">"sci"</span>, scilimits<span class="op">=</span>(<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    _ <span class="op">=</span> ax.plot(result_cal[<span class="dv">0</span>], result_cal[i<span class="op">+</span><span class="dv">2</span>])</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    _ <span class="op">=</span> ax.text(<span class="op">-</span><span class="fl">0.1</span>, <span class="dv">1</span>, labels[i], transform<span class="op">=</span>ax.transAxes, fontweight<span class="op">=</span><span class="st">'bold'</span>, va<span class="op">=</span><span class="st">'top'</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    _ <span class="op">=</span> ax.grid()</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> axes[<span class="dv">0</span>].<span class="bu">set</span>(xlabel <span class="op">=</span> <span class="st">'Time (s)'</span>, ylabel<span class="op">=</span><span class="st">'Conversion'</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> axes[<span class="dv">1</span>].<span class="bu">set</span>(xlabel <span class="op">=</span> <span class="st">'Time (s)'</span>, ylabel<span class="op">=</span><span class="st">'Ln([M]0/[M])'</span>)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> fig2.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="03_Radical_Polymerization_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="molecular-weight-and-molecular-weight-distribution." class="level3">
+<h3 class="anchored" data-anchor-id="molecular-weight-and-molecular-weight-distribution.">Molecular weight and molecular weight distribution.</h3>
+<div id="cell-21" class="cell" data-outputid="67bcd2be-ab29-432b-f868-79a34020a375" data-scrolled="true" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title { display-mode: "form" }</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot Mn, Mw/Mn and Tmol% vs. conversion.</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>fig3, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>i<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    _ <span class="op">=</span> ax.plot(result_cal[<span class="dv">2</span>][<span class="dv">1</span>:], result_cal[i<span class="op">+</span><span class="dv">4</span>][<span class="dv">1</span>:])</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    _ <span class="op">=</span> ax.text(<span class="op">-</span><span class="fl">0.1</span>, <span class="dv">1</span>, labels[i], transform<span class="op">=</span>ax.transAxes, fontweight<span class="op">=</span><span class="st">'bold'</span>, va<span class="op">=</span><span class="st">'top'</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    _ <span class="op">=</span> ax.grid()</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> axes[<span class="dv">0</span>].<span class="bu">set</span>(xlabel <span class="op">=</span> <span class="st">'Conversion'</span>, ylabel<span class="op">=</span><span class="st">'Mn'</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].ticklabel_format(axis<span class="op">=</span><span class="st">"y"</span>, style<span class="op">=</span><span class="st">"sci"</span>, scilimits<span class="op">=</span>(<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> axes[<span class="dv">1</span>].<span class="bu">set</span>(xlabel <span class="op">=</span> <span class="st">'Conversion'</span>, ylabel<span class="op">=</span><span class="st">'Mw/Mn'</span>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> fig3.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="03_Radical_Polymerization_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+<div id="cell-23" class="cell" data-outputid="10d712eb-aba0-4deb-fc70-efed598dc520" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title Copyright { display-mode: "form" }</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>copyright <span class="op">=</span> requests.get(<span class="st">"https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/master/copyright.md"</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>Markdown(copyright.text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="10">
+<section id="mit-license" class="level3">
+<h3 class="anchored" data-anchor-id="mit-license">MIT License</h3>
+<p>Copyright (c) 2021 – 2024 Yu Wang</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</section>
+<section id="contact" class="level3">
+<h3 class="anchored" data-anchor-id="contact">Contact</h3>
+<p>Dr.&nbsp;Yu Wang<br>
+Department of Chemistry<br>
+Institute for Materials Research and Innovation<br>
+University of Louisiana at Lafayette<br>
+Lafayette, LA 70504<br>
+Email: yuwang@louisiana.edu</p>
+</section>
+<section id="acknowledgement" class="level3">
+<h3 class="anchored" data-anchor-id="acknowledgement">Acknowledgement</h3>
+<p>This project is sponsored by National Science Foundation (NSF-2142043).</p>
+</section>
+</div>
+</div>
+<div id="cell-24" class="cell" data-outputid="fd614d65-e89b-4918-f95b-72ac91f56078" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title {display-mode: "form" }</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>links <span class="op">=</span> requests.get(<span class="st">"https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/refs/heads/master/links.md"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>Markdown(links.text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="11">
+<hr>
+<section id="links" class="level3">
+<h3 class="anchored" data-anchor-id="links">Links</h3>
+<p><strong><a href="https://wangyu16.github.io/PolymerScienceEducation/">Home page of OVESET</a>:</strong></p>
+<p><img src="https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/refs/heads/master/img/QR_OVESET.svg" alt="OVESET Home Page" width="300"></p>
+<p><strong><a href="https://hackmd.io/@YW2025/HJLiqoHRR">Home page of Study Guide</a></strong></p>
+<p><img src="https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/refs/heads/master/img/QR_PolymerStudyGuide.svg" alt="Introduction to Polymer Science" width="300"></p>
+</section>
+</div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -8,7 +8,9 @@ image: "/img/M05_copolymer_small.png"
 
 ## 1. Link to the simulator
 
-<a href="https://colab.research.google.com/drive/1s3FA-MtXS6-_u8kZxfvj4h8s88yWcCXw?usp=sharing" target="_blank">Radical Copolymerization</a>
+<a href="https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/05_Copolymerization.ipynb" target="_blank">Radical Copolymerization</a>
+
+{{< qrcode https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/05_Copolymerization.ipynb width=250 height=250 >}}
 
 ## 2 Module objectives
 

@@ -8,7 +8,9 @@ image: "/img/M09_branch_small.png"
 
 ## 1. Link to the simulator
 
-<a href="https://colab.research.google.com/drive/1W7-I-zBetNG3Zaqym3i0QcMRoLz42AU-?usp=sharing" target="_blank">Star and branch polymers</a>
+<a href="https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/09_Star_Branched_Polymers.ipynb" target="_blank">Star and branch polymers</a>
+
+{{< qrcode https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/09_Star_Branched_Polymers.ipynb width=250 height=250 >}}
 
 ## 2 Module objectives
 

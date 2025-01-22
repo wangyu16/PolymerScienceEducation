@@ -8,7 +8,9 @@ image: "/img/M06_network_small.png"
 
 ## 1. Link to the simulator
 
-<a href="https://colab.research.google.com/drive/1_33IHo4SbKEuv_MspfMF61goRRIH1qLf?usp=sharing" target="_blank">Network formation</a>
+<a href="https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/06_Network_Formation.ipynb" target="_blank">Network formation</a>
+
+{{< qrcode https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/06_Network_Formation.ipynb width=250 height=250 >}}
 
 ## 2 Module objectives
 

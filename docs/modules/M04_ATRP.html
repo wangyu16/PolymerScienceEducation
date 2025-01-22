@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.30">
+<meta name="generator" content="quarto-1.7.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,15 +33,17 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <link href="../modules/M05_RadCopoly.html" rel="next">
 <link href="../modules/M03_ConvenRad.html" rel="prev">
-<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-3a01e2046221230fdceeea94b1ec5d67.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-1fbc47131a039e0df962caa6cecbb2e1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-4cacd32a1fd9244ec1eef8abc16e8cc9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-b1ed65af9ea3b9097db30d7cb3d87607.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/qrcodejs-v1.0.0/qrcode.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -241,7 +243,17 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="../img/M04_ATRP.png" width="100%"> Adapted with permission from Macromolecules 2003, 36, 6, 1843-1849, Copyright © 2003 American Chemical Society.</p>
 <section id="link-to-the-simulator" class="level2">
 <h2 class="anchored" data-anchor-id="link-to-the-simulator">1. Link to the simulator</h2>
-<p><a href="https://colab.research.google.com/drive/1o5ANmoc_0OmrgjaA0kVo_CQjkLv4hwgW?usp=sharing" target="_blank">Atom Transfer Radical Polymerization</a></p>
+<p><a href="https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/04_ATRP.ipynb" target="_blank">Atom Transfer Radical Polymerization</a></p>
+<div id="" class="qrcode"></div>
+<script type="text/javascript">
+(function() {
+  var script = document.currentScript;
+  var qrcode = script.previousElementSibling;
+  qrcode.qrcode = new QRCode(qrcode, {"colorDark":"#000000","colorLight":"#ffffff","height":"250","text":"https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/04_ATRP.ipynb","width":"250"});
+  script.remove();
+})();
+</script>
+    
 </section>
 <section id="module-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="module-objectives">2 Module objectives</h2>
@@ -431,8 +443,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -543,7 +553,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

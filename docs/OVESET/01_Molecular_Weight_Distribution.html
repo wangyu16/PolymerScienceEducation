@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>molecular_weight_distribution – OVESET</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-1fbc47131a039e0df962caa6cecbb2e1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-b1ed65af9ea3b9097db30d7cb3d87607.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">OVESET</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../fqa.html"> 
+<span class="menu-text">FQA</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M01_MWD.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 1 Molecular Weight Distribution</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M02_Step.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 2 Step Growth Polymerization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M03_ConvenRad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 3 Conventional Radical Polymerization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M04_ATRP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 4 Atom Transfer Radical Polymerization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M05_RadCopoly.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 5 Radical Copolymerization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M06_Network.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 6 Network formation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M07_SingleChain.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 7 Single chain conformation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M08_SelfAvoid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 8 Self-avoid chains</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/M09_StarBranch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Module 9 Star and branched polymers</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#molecular-weight-distribution" id="toc-molecular-weight-distribution" class="nav-link active" data-scroll-target="#molecular-weight-distribution">Molecular Weight Distribution</a>
+  <ul class="collapse">
+  <li><a href="#what-does-this-simulator-do-and-how-to-use-it" id="toc-what-does-this-simulator-do-and-how-to-use-it" class="nav-link" data-scroll-target="#what-does-this-simulator-do-and-how-to-use-it">What does this simulator do and how to use it?</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<p><a href="https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/01_Molecular_Weight_Distribution.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></p>
+<center>
+<a href="https://wangyu16.github.io/PolymerScienceEducation/"><img src="https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/master/Fig/Logo_black.svg" width="150"></a>
+</center>
+<section id="molecular-weight-distribution" class="level1">
+<h1>Molecular Weight Distribution</h1>
+<hr>
+<p>To learn the background knowledge, please visit this <a href="https://hackmd.io/@YW2025/H1x5mWdiA">study guide</a>.</p>
+<section id="what-does-this-simulator-do-and-how-to-use-it" class="level2">
+<h2 class="anchored" data-anchor-id="what-does-this-simulator-do-and-how-to-use-it">What does this simulator do and how to use it?</h2>
+<p>This simulator provides statistical results of step-growth polymerization of AB type monomers and living chain-growth polymerization. Users can choose the polymerization type, the number of monomers in a range of 1000 to 10000, and the number of resulting polymers in a range of 5 to 100. Note: the simulation only deals with a small number of molecules, i.e.&nbsp;<span class="math inline">\(&lt; 10000\)</span>, while the real-world polymerization involves <span class="math inline">\(10^{20}\)</span> molecules. Thus, the distribution of the simulation results are quite different from the real-world polymerization results. Since the purpose of this simulator is to guide students to do average molecular weight calculations, a relatively small number of molecules is appropriate. The students will learn statistics of step-growth polymerization and chain-growth polymerization in more detail in future modules.</p>
+<p>To run the simulator, simply choose the reaction conditions and run all the code cells.</p>
+<p>The result shows two ways to calculate the average molecular weight:</p>
+<ol type="1">
+<li>Use the number fraction and weight fraction of resulting polymers with different chain lengths.</li>
+<li>Through the moments of the molecular weight distribution.</li>
+</ol>
+<p>The program guides you to calculate the number and weight average molecular weights step-by-step.</p>
+<div id="cell-3" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title 1. Install and import packages {display-mode: "form" }</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>capture</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> <span class="st">'sigfig'</span> <span class="kw">in</span> sys.modules:</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>pip install sigfig</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sigfig <span class="im">import</span> <span class="bu">round</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'fivethirtyeight'</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> re <span class="im">import</span> M</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML, display</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-4" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title 2. Simulation conditions { display-mode: "form" }</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Type_of_polymerization <span class="op">=</span> <span class="st">"Step growth polymerization"</span> <span class="co">#@param ["Step growth polymerization", "Living chain growth polymerization"]</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>Number_of_monomers <span class="op">=</span> <span class="dv">8000</span> <span class="co">#@param{type:"slider", min:1000,max:10000,step:1}</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Number_of_polymers <span class="op">=</span> <span class="dv">60</span> <span class="co">#@param{type:"slider", min:5, max:100, step:1}</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>Monomer_molar_mass <span class="op">=</span> <span class="dv">71</span> <span class="co">#@param{type:"slider", min:50, max: 300, step:1}</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-5" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title 3. Simulation { display-mode: "form" }</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> Type_of_polymerization <span class="op">==</span> <span class="st">"Step growth polymerization"</span>:</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  polymers <span class="op">=</span> [<span class="dv">1</span>]<span class="op">*</span>Number_of_monomers</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> <span class="bu">len</span>(polymers) <span class="op">&gt;</span> Number_of_polymers:</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    M_idx <span class="op">=</span> random.sample(<span class="bu">range</span>(<span class="bu">len</span>(polymers)),<span class="dv">2</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    M_idx.sort()</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    polymers[M_idx[<span class="dv">0</span>]]<span class="op">+=</span>polymers[M_idx[<span class="dv">1</span>]]</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    polymers.pop(M_idx[<span class="dv">1</span>])</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  polymers.sort()</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  polymers <span class="op">=</span> [<span class="dv">0</span>]<span class="op">*</span>Number_of_polymers</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(Number_of_monomers):</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    M_idx <span class="op">=</span> random.randint(<span class="dv">0</span>,<span class="bu">len</span>(polymers)<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    polymers[M_idx]<span class="op">+=</span><span class="dv">1</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  polymers.sort()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-6" class="cell" data-outputid="8d4af33e-7801-446a-f1b4-d22a1f7b653a" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title Plot the fractions of each type of polymers. { display-mode: "form" }</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>counter <span class="op">=</span> Counter(polymers)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>DP <span class="op">=</span> np.array(<span class="bu">list</span>(counter.keys()))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>MW <span class="op">=</span> DP<span class="op">*</span>Monomer_molar_mass</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>Num <span class="op">=</span> np.array(<span class="bu">list</span>(counter.values()))</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> pd.DataFrame.from_dict({<span class="st">"DP"</span>: DP, <span class="st">"Molecular weight"</span>: MW, <span class="st">"Number"</span>: Num})</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>results.set_index(<span class="st">"DP"</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>results[<span class="st">"f_N"</span>]<span class="op">=</span>Num<span class="op">/</span>Number_of_polymers</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>results[<span class="st">"MW*f_N"</span>] <span class="op">=</span> MW<span class="op">*</span>results[<span class="st">"f_N"</span>]</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>results[<span class="st">"f_W"</span>]<span class="op">=</span>DP<span class="op">*</span>Num<span class="op">/</span>Number_of_monomers</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>results[<span class="st">"MW*f_W"</span>] <span class="op">=</span> MW<span class="op">*</span>results[<span class="st">"f_W"</span>]</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>Mn_1 <span class="op">=</span> <span class="bu">sum</span>(results[<span class="st">"MW*f_N"</span>])</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>Mw_1 <span class="op">=</span> <span class="bu">sum</span>(results[<span class="st">"MW*f_W"</span>])</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>M0 <span class="op">=</span> <span class="bu">sum</span>(results[<span class="st">"f_N"</span>])</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>M1 <span class="op">=</span> <span class="bu">sum</span>(results[<span class="st">"Molecular weight"</span>]<span class="op">*</span>results[<span class="st">"f_N"</span>])</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>M2 <span class="op">=</span> <span class="bu">sum</span>(results[<span class="st">"Molecular weight"</span>]<span class="op">**</span><span class="dv">2</span><span class="op">*</span>results[<span class="st">"f_N"</span>])</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>M3 <span class="op">=</span> <span class="bu">sum</span>(results[<span class="st">"Molecular weight"</span>]<span class="op">**</span><span class="dv">3</span><span class="op">*</span>results[<span class="st">"f_N"</span>])</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>M4 <span class="op">=</span> <span class="bu">sum</span>(results[<span class="st">"Molecular weight"</span>]<span class="op">**</span><span class="dv">4</span><span class="op">*</span>results[<span class="st">"f_N"</span>])</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>Mn_2 <span class="op">=</span> M1</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>Mw_2 <span class="op">=</span> M2<span class="op">/</span>M1</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> Number_of_polymers <span class="op">&lt;=</span> <span class="dv">30</span>:</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  figWidth<span class="op">=</span><span class="dv">6</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  figWidth<span class="op">=</span>Number_of_polymers<span class="op">*</span><span class="dv">20</span><span class="op">/</span><span class="dv">100</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>results[[<span class="st">"Molecular weight"</span>,<span class="st">"f_N"</span>,<span class="st">"f_W"</span>]].plot(kind<span class="op">=</span><span class="st">'bar'</span>, x<span class="op">=</span><span class="st">"Molecular weight"</span>, figsize<span class="op">=</span>(figWidth,<span class="dv">5</span>))</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Molecular weight"</span>)</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>, ha<span class="op">=</span><span class="st">'left'</span>)</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>plt.legend([<span class="st">'Number fraction ($x_i$)'</span>,<span class="st">'Weight fraction ($w_i$)'</span>], loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="01_Molecular_Weight_Distribution_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-7" class="cell" data-outputid="ff16c4e7-2875-4d42-9e3b-d96b62df6c62" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title 4. Calculation  { display-mode: "form" }</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown </span><span class="al">###</span><span class="co"> Calculation by number and weight fractions</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown Show the number of each type of polymers. \</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown Try to calculate by yourself before moving on.</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>results[[<span class="st">'Molecular weight'</span>,<span class="st">'Number'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+
+  <div id="df-24cd886c-514e-4fcc-a2d0-057aa7523bf6" class="colab-df-container">
+    <div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Molecular weight</th>
+<th data-quarto-table-cell-role="th">Number</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">DP</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>142</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4</td>
+<td>284</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5</td>
+<td>355</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>781</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>994</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>1207</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19</td>
+<td>1349</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">27</td>
+<td>1917</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">29</td>
+<td>2059</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">34</td>
+<td>2414</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">36</td>
+<td>2556</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">42</td>
+<td>2982</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">45</td>
+<td>3195</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">46</td>
+<td>3266</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">50</td>
+<td>3550</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">56</td>
+<td>3976</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">58</td>
+<td>4118</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">63</td>
+<td>4473</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">65</td>
+<td>4615</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">66</td>
+<td>4686</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">69</td>
+<td>4899</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">76</td>
+<td>5396</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">77</td>
+<td>5467</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">79</td>
+<td>5609</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">82</td>
+<td>5822</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">86</td>
+<td>6106</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">88</td>
+<td>6248</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">89</td>
+<td>6319</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">92</td>
+<td>6532</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">96</td>
+<td>6816</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">97</td>
+<td>6887</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">104</td>
+<td>7384</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">107</td>
+<td>7597</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">112</td>
+<td>7952</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">129</td>
+<td>9159</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">131</td>
+<td>9301</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">148</td>
+<td>10508</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">154</td>
+<td>10934</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">167</td>
+<td>11857</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">168</td>
+<td>11928</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">178</td>
+<td>12638</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">213</td>
+<td>15123</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">221</td>
+<td>15691</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">253</td>
+<td>17963</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">264</td>
+<td>18744</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">269</td>
+<td>19099</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">284</td>
+<td>20164</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">294</td>
+<td>20874</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">305</td>
+<td>21655</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">344</td>
+<td>24424</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">353</td>
+<td>25063</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">368</td>
+<td>26128</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">430</td>
+<td>30530</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">436</td>
+<td>30956</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">589</td>
+<td>41819</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-24cd886c-514e-4fcc-a2d0-057aa7523bf6')" title="Convert this dataframe to an interactive table." style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewbox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"></path>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-24cd886c-514e-4fcc-a2d0-057aa7523bf6 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-24cd886c-514e-4fcc-a2d0-057aa7523bf6');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-1c010f25-6093-4ebf-8b9f-cf4d7a39024a">
+  <button class="colab-df-quickchart" onclick="quickchart('df-1c010f25-6093-4ebf-8b9f-cf4d7a39024a')" title="Suggest charts" style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewbox="0 0 24 24" width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"></path>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-1c010f25-6093-4ebf-8b9f-cf4d7a39024a button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+    </div>
+  </div>
+</div>
+</div>
+<div id="cell-8" class="cell" data-outputid="b05b9984-bcdb-457a-cba8-bf65d0a96faf" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#@title {display-mode: "form" }</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown Show number fraction and weight fraction of each type of polymers.</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Define LaTeX column titles</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>latex_column_names <span class="op">=</span> {</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>       <span class="st">'DP'</span>: <span class="st">'$DP$'</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Molecular weight'</span>: <span class="st">'$M_i$'</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Number'</span>: <span class="st">'$n_i$'</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>       <span class="st">'f_N'</span>: <span class="st">'$x_i$'</span>,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>       <span class="st">'MW*f_N'</span>: <span class="st">'$M_i \cdot x_i$'</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>       <span class="st">'f_W'</span>: <span class="st">'$w_i$'</span>,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>       <span class="st">'MW*f_W'</span>: <span class="st">'$M_i \cdot w_i$'</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>   }</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Reset index to make 'DP' a regular column</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> results.reset_index()</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Rename columns (including DP)</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> results.rename(columns<span class="op">=</span>latex_column_names)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Apply styles</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>styles <span class="op">=</span> [</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">dict</span>(selector<span class="op">=</span><span class="st">"th"</span>, props<span class="op">=</span>[(<span class="st">"text-align"</span>, <span class="st">"left"</span>)]),</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">dict</span>(selector<span class="op">=</span><span class="st">"th, td"</span>, props<span class="op">=</span>[(<span class="st">"width"</span>, <span class="st">"150px"</span>)])  <span class="co"># Adjust width as needed</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Convert to HTML and inject MathJax script</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>html_table <span class="op">=</span> results.style.set_table_styles(styles).to_html()</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Add MathJax script</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>html_table <span class="op">=</span> <span class="ss">f"""</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;script type="text/x-mathjax-config"&gt;</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="ss">MathJax.Hub.Config(</span><span class="ch">{{</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="ss">    tex2jax: </span><span class="ch">{{</span><span class="ss">inlineMath: [['$','$'], ['</span><span class="ch">\\</span><span class="ss">(','</span><span class="ch">\\</span><span class="ss">)']]</span><span class="ch">}}</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="ch">}}</span><span class="ss">);</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;/script&gt;</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;script type="text/javascript" async</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="ss">    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"&gt;</span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;/script&gt;</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="sc">{</span>html_table<span class="sc">}</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="ss">"""</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Display the HTML with JavaScript</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>display(HTML(html_table))</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\(','\)']]}
+});
+</script>
+<script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<style type="text/css">
+#T_a5873 th {
+  text-align: left;
+}
+#T_a5873 th {
+  width: 150px;
+}
+#T_a5873  td {
+  width: 150px;
+}
+</style>
+
+<table id="T_a5873" class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_a5873_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">$DP$</th>
+<th id="T_a5873_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">$M_i$</th>
+<th id="T_a5873_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">$n_i$</th>
+<th id="T_a5873_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">$x_i$</th>
+<th id="T_a5873_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">$M_i \cdot x_i$</th>
+<th id="T_a5873_level0_col5" class="col_heading level0 col5" data-quarto-table-cell-role="th">$w_i$</th>
+<th id="T_a5873_level0_col6" class="col_heading level0 col6" data-quarto-table-cell-role="th">$M_i \cdot w_i$</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td id="T_a5873_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0</td>
+<td id="T_a5873_row0_col0" class="data row0 col0">2</td>
+<td id="T_a5873_row0_col1" class="data row0 col1">142</td>
+<td id="T_a5873_row0_col2" class="data row0 col2">1</td>
+<td id="T_a5873_row0_col3" class="data row0 col3">0.016667</td>
+<td id="T_a5873_row0_col4" class="data row0 col4">2.366667</td>
+<td id="T_a5873_row0_col5" class="data row0 col5">0.000250</td>
+<td id="T_a5873_row0_col6" class="data row0 col6">0.035500</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">1</td>
+<td id="T_a5873_row1_col0" class="data row1 col0">4</td>
+<td id="T_a5873_row1_col1" class="data row1 col1">284</td>
+<td id="T_a5873_row1_col2" class="data row1 col2">2</td>
+<td id="T_a5873_row1_col3" class="data row1 col3">0.033333</td>
+<td id="T_a5873_row1_col4" class="data row1 col4">9.466667</td>
+<td id="T_a5873_row1_col5" class="data row1 col5">0.001000</td>
+<td id="T_a5873_row1_col6" class="data row1 col6">0.284000</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">2</td>
+<td id="T_a5873_row2_col0" class="data row2 col0">5</td>
+<td id="T_a5873_row2_col1" class="data row2 col1">355</td>
+<td id="T_a5873_row2_col2" class="data row2 col2">1</td>
+<td id="T_a5873_row2_col3" class="data row2 col3">0.016667</td>
+<td id="T_a5873_row2_col4" class="data row2 col4">5.916667</td>
+<td id="T_a5873_row2_col5" class="data row2 col5">0.000625</td>
+<td id="T_a5873_row2_col6" class="data row2 col6">0.221875</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">3</td>
+<td id="T_a5873_row3_col0" class="data row3 col0">11</td>
+<td id="T_a5873_row3_col1" class="data row3 col1">781</td>
+<td id="T_a5873_row3_col2" class="data row3 col2">1</td>
+<td id="T_a5873_row3_col3" class="data row3 col3">0.016667</td>
+<td id="T_a5873_row3_col4" class="data row3 col4">13.016667</td>
+<td id="T_a5873_row3_col5" class="data row3 col5">0.001375</td>
+<td id="T_a5873_row3_col6" class="data row3 col6">1.073875</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row4" class="row_heading level0 row4" data-quarto-table-cell-role="th">4</td>
+<td id="T_a5873_row4_col0" class="data row4 col0">14</td>
+<td id="T_a5873_row4_col1" class="data row4 col1">994</td>
+<td id="T_a5873_row4_col2" class="data row4 col2">1</td>
+<td id="T_a5873_row4_col3" class="data row4 col3">0.016667</td>
+<td id="T_a5873_row4_col4" class="data row4 col4">16.566667</td>
+<td id="T_a5873_row4_col5" class="data row4 col5">0.001750</td>
+<td id="T_a5873_row4_col6" class="data row4 col6">1.739500</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row5" class="row_heading level0 row5" data-quarto-table-cell-role="th">5</td>
+<td id="T_a5873_row5_col0" class="data row5 col0">17</td>
+<td id="T_a5873_row5_col1" class="data row5 col1">1207</td>
+<td id="T_a5873_row5_col2" class="data row5 col2">1</td>
+<td id="T_a5873_row5_col3" class="data row5 col3">0.016667</td>
+<td id="T_a5873_row5_col4" class="data row5 col4">20.116667</td>
+<td id="T_a5873_row5_col5" class="data row5 col5">0.002125</td>
+<td id="T_a5873_row5_col6" class="data row5 col6">2.564875</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row6" class="row_heading level0 row6" data-quarto-table-cell-role="th">6</td>
+<td id="T_a5873_row6_col0" class="data row6 col0">19</td>
+<td id="T_a5873_row6_col1" class="data row6 col1">1349</td>
+<td id="T_a5873_row6_col2" class="data row6 col2">1</td>
+<td id="T_a5873_row6_col3" class="data row6 col3">0.016667</td>
+<td id="T_a5873_row6_col4" class="data row6 col4">22.483333</td>
+<td id="T_a5873_row6_col5" class="data row6 col5">0.002375</td>
+<td id="T_a5873_row6_col6" class="data row6 col6">3.203875</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row7" class="row_heading level0 row7" data-quarto-table-cell-role="th">7</td>
+<td id="T_a5873_row7_col0" class="data row7 col0">27</td>
+<td id="T_a5873_row7_col1" class="data row7 col1">1917</td>
+<td id="T_a5873_row7_col2" class="data row7 col2">1</td>
+<td id="T_a5873_row7_col3" class="data row7 col3">0.016667</td>
+<td id="T_a5873_row7_col4" class="data row7 col4">31.950000</td>
+<td id="T_a5873_row7_col5" class="data row7 col5">0.003375</td>
+<td id="T_a5873_row7_col6" class="data row7 col6">6.469875</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row8" class="row_heading level0 row8" data-quarto-table-cell-role="th">8</td>
+<td id="T_a5873_row8_col0" class="data row8 col0">29</td>
+<td id="T_a5873_row8_col1" class="data row8 col1">2059</td>
+<td id="T_a5873_row8_col2" class="data row8 col2">1</td>
+<td id="T_a5873_row8_col3" class="data row8 col3">0.016667</td>
+<td id="T_a5873_row8_col4" class="data row8 col4">34.316667</td>
+<td id="T_a5873_row8_col5" class="data row8 col5">0.003625</td>
+<td id="T_a5873_row8_col6" class="data row8 col6">7.463875</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row9" class="row_heading level0 row9" data-quarto-table-cell-role="th">9</td>
+<td id="T_a5873_row9_col0" class="data row9 col0">34</td>
+<td id="T_a5873_row9_col1" class="data row9 col1">2414</td>
+<td id="T_a5873_row9_col2" class="data row9 col2">1</td>
+<td id="T_a5873_row9_col3" class="data row9 col3">0.016667</td>
+<td id="T_a5873_row9_col4" class="data row9 col4">40.233333</td>
+<td id="T_a5873_row9_col5" class="data row9 col5">0.004250</td>
+<td id="T_a5873_row9_col6" class="data row9 col6">10.259500</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row10" class="row_heading level0 row10" data-quarto-table-cell-role="th">10</td>
+<td id="T_a5873_row10_col0" class="data row10 col0">36</td>
+<td id="T_a5873_row10_col1" class="data row10 col1">2556</td>
+<td id="T_a5873_row10_col2" class="data row10 col2">1</td>
+<td id="T_a5873_row10_col3" class="data row10 col3">0.016667</td>
+<td id="T_a5873_row10_col4" class="data row10 col4">42.600000</td>
+<td id="T_a5873_row10_col5" class="data row10 col5">0.004500</td>
+<td id="T_a5873_row10_col6" class="data row10 col6">11.502000</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row11" class="row_heading level0 row11" data-quarto-table-cell-role="th">11</td>
+<td id="T_a5873_row11_col0" class="data row11 col0">42</td>
+<td id="T_a5873_row11_col1" class="data row11 col1">2982</td>
+<td id="T_a5873_row11_col2" class="data row11 col2">1</td>
+<td id="T_a5873_row11_col3" class="data row11 col3">0.016667</td>
+<td id="T_a5873_row11_col4" class="data row11 col4">49.700000</td>
+<td id="T_a5873_row11_col5" class="data row11 col5">0.005250</td>
+<td id="T_a5873_row11_col6" class="data row11 col6">15.655500</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row12" class="row_heading level0 row12" data-quarto-table-cell-role="th">12</td>
+<td id="T_a5873_row12_col0" class="data row12 col0">45</td>
+<td id="T_a5873_row12_col1" class="data row12 col1">3195</td>
+<td id="T_a5873_row12_col2" class="data row12 col2">2</td>
+<td id="T_a5873_row12_col3" class="data row12 col3">0.033333</td>
+<td id="T_a5873_row12_col4" class="data row12 col4">106.500000</td>
+<td id="T_a5873_row12_col5" class="data row12 col5">0.011250</td>
+<td id="T_a5873_row12_col6" class="data row12 col6">35.943750</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row13" class="row_heading level0 row13" data-quarto-table-cell-role="th">13</td>
+<td id="T_a5873_row13_col0" class="data row13 col0">46</td>
+<td id="T_a5873_row13_col1" class="data row13 col1">3266</td>
+<td id="T_a5873_row13_col2" class="data row13 col2">1</td>
+<td id="T_a5873_row13_col3" class="data row13 col3">0.016667</td>
+<td id="T_a5873_row13_col4" class="data row13 col4">54.433333</td>
+<td id="T_a5873_row13_col5" class="data row13 col5">0.005750</td>
+<td id="T_a5873_row13_col6" class="data row13 col6">18.779500</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row14" class="row_heading level0 row14" data-quarto-table-cell-role="th">14</td>
+<td id="T_a5873_row14_col0" class="data row14 col0">50</td>
+<td id="T_a5873_row14_col1" class="data row14 col1">3550</td>
+<td id="T_a5873_row14_col2" class="data row14 col2">1</td>
+<td id="T_a5873_row14_col3" class="data row14 col3">0.016667</td>
+<td id="T_a5873_row14_col4" class="data row14 col4">59.166667</td>
+<td id="T_a5873_row14_col5" class="data row14 col5">0.006250</td>
+<td id="T_a5873_row14_col6" class="data row14 col6">22.187500</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row15" class="row_heading level0 row15" data-quarto-table-cell-role="th">15</td>
+<td id="T_a5873_row15_col0" class="data row15 col0">56</td>
+<td id="T_a5873_row15_col1" class="data row15 col1">3976</td>
+<td id="T_a5873_row15_col2" class="data row15 col2">1</td>
+<td id="T_a5873_row15_col3" class="data row15 col3">0.016667</td>
+<td id="T_a5873_row15_col4" class="data row15 col4">66.266667</td>
+<td id="T_a5873_row15_col5" class="data row15 col5">0.007000</td>
+<td id="T_a5873_row15_col6" class="data row15 col6">27.832000</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row16" class="row_heading level0 row16" data-quarto-table-cell-role="th">16</td>
+<td id="T_a5873_row16_col0" class="data row16 col0">58</td>
+<td id="T_a5873_row16_col1" class="data row16 col1">4118</td>
+<td id="T_a5873_row16_col2" class="data row16 col2">1</td>
+<td id="T_a5873_row16_col3" class="data row16 col3">0.016667</td>
+<td id="T_a5873_row16_col4" class="data row16 col4">68.633333</td>
+<td id="T_a5873_row16_col5" class="data row16 col5">0.007250</td>
+<td id="T_a5873_row16_col6" class="data row16 col6">29.855500</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row17" class="row_heading level0 row17" data-quarto-table-cell-role="th">17</td>
+<td id="T_a5873_row17_col0" class="data row17 col0">63</td>
+<td id="T_a5873_row17_col1" class="data row17 col1">4473</td>
+<td id="T_a5873_row17_col2" class="data row17 col2">1</td>
+<td id="T_a5873_row17_col3" class="data row17 col3">0.016667</td>
+<td id="T_a5873_row17_col4" class="data row17 col4">74.550000</td>
+<td id="T_a5873_row17_col5" class="data row17 col5">0.007875</td>
+<td id="T_a5873_row17_col6" class="data row17 col6">35.224875</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row18" class="row_heading level0 row18" data-quarto-table-cell-role="th">18</td>
+<td id="T_a5873_row18_col0" class="data row18 col0">65</td>
+<td id="T_a5873_row18_col1" class="data row18 col1">4615</td>
+<td id="T_a5873_row18_col2" class="data row18 col2">1</td>
+<td id="T_a5873_row18_col3" class="data row18 col3">0.016667</td>
+<td id="T_a5873_row18_col4" class="data row18 col4">76.916667</td>
+<td id="T_a5873_row18_col5" class="data row18 col5">0.008125</td>
+<td id="T_a5873_row18_col6" class="data row18 col6">37.496875</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row19" class="row_heading level0 row19" data-quarto-table-cell-role="th">19</td>
+<td id="T_a5873_row19_col0" class="data row19 col0">66</td>
+<td id="T_a5873_row19_col1" class="data row19 col1">4686</td>
+<td id="T_a5873_row19_col2" class="data row19 col2">3</td>
+<td id="T_a5873_row19_col3" class="data row19 col3">0.050000</td>
+<td id="T_a5873_row19_col4" class="data row19 col4">234.300000</td>
+<td id="T_a5873_row19_col5" class="data row19 col5">0.024750</td>
+<td id="T_a5873_row19_col6" class="data row19 col6">115.978500</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row20" class="row_heading level0 row20" data-quarto-table-cell-role="th">20</td>
+<td id="T_a5873_row20_col0" class="data row20 col0">69</td>
+<td id="T_a5873_row20_col1" class="data row20 col1">4899</td>
+<td id="T_a5873_row20_col2" class="data row20 col2">1</td>
+<td id="T_a5873_row20_col3" class="data row20 col3">0.016667</td>
+<td id="T_a5873_row20_col4" class="data row20 col4">81.650000</td>
+<td id="T_a5873_row20_col5" class="data row20 col5">0.008625</td>
+<td id="T_a5873_row20_col6" class="data row20 col6">42.253875</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row21" class="row_heading level0 row21" data-quarto-table-cell-role="th">21</td>
+<td id="T_a5873_row21_col0" class="data row21 col0">76</td>
+<td id="T_a5873_row21_col1" class="data row21 col1">5396</td>
+<td id="T_a5873_row21_col2" class="data row21 col2">1</td>
+<td id="T_a5873_row21_col3" class="data row21 col3">0.016667</td>
+<td id="T_a5873_row21_col4" class="data row21 col4">89.933333</td>
+<td id="T_a5873_row21_col5" class="data row21 col5">0.009500</td>
+<td id="T_a5873_row21_col6" class="data row21 col6">51.262000</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row22" class="row_heading level0 row22" data-quarto-table-cell-role="th">22</td>
+<td id="T_a5873_row22_col0" class="data row22 col0">77</td>
+<td id="T_a5873_row22_col1" class="data row22 col1">5467</td>
+<td id="T_a5873_row22_col2" class="data row22 col2">1</td>
+<td id="T_a5873_row22_col3" class="data row22 col3">0.016667</td>
+<td id="T_a5873_row22_col4" class="data row22 col4">91.116667</td>
+<td id="T_a5873_row22_col5" class="data row22 col5">0.009625</td>
+<td id="T_a5873_row22_col6" class="data row22 col6">52.619875</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row23" class="row_heading level0 row23" data-quarto-table-cell-role="th">23</td>
+<td id="T_a5873_row23_col0" class="data row23 col0">79</td>
+<td id="T_a5873_row23_col1" class="data row23 col1">5609</td>
+<td id="T_a5873_row23_col2" class="data row23 col2">1</td>
+<td id="T_a5873_row23_col3" class="data row23 col3">0.016667</td>
+<td id="T_a5873_row23_col4" class="data row23 col4">93.483333</td>
+<td id="T_a5873_row23_col5" class="data row23 col5">0.009875</td>
+<td id="T_a5873_row23_col6" class="data row23 col6">55.388875</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row24" class="row_heading level0 row24" data-quarto-table-cell-role="th">24</td>
+<td id="T_a5873_row24_col0" class="data row24 col0">82</td>
+<td id="T_a5873_row24_col1" class="data row24 col1">5822</td>
+<td id="T_a5873_row24_col2" class="data row24 col2">1</td>
+<td id="T_a5873_row24_col3" class="data row24 col3">0.016667</td>
+<td id="T_a5873_row24_col4" class="data row24 col4">97.033333</td>
+<td id="T_a5873_row24_col5" class="data row24 col5">0.010250</td>
+<td id="T_a5873_row24_col6" class="data row24 col6">59.675500</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row25" class="row_heading level0 row25" data-quarto-table-cell-role="th">25</td>
+<td id="T_a5873_row25_col0" class="data row25 col0">86</td>
+<td id="T_a5873_row25_col1" class="data row25 col1">6106</td>
+<td id="T_a5873_row25_col2" class="data row25 col2">1</td>
+<td id="T_a5873_row25_col3" class="data row25 col3">0.016667</td>
+<td id="T_a5873_row25_col4" class="data row25 col4">101.766667</td>
+<td id="T_a5873_row25_col5" class="data row25 col5">0.010750</td>
+<td id="T_a5873_row25_col6" class="data row25 col6">65.639500</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row26" class="row_heading level0 row26" data-quarto-table-cell-role="th">26</td>
+<td id="T_a5873_row26_col0" class="data row26 col0">88</td>
+<td id="T_a5873_row26_col1" class="data row26 col1">6248</td>
+<td id="T_a5873_row26_col2" class="data row26 col2">1</td>
+<td id="T_a5873_row26_col3" class="data row26 col3">0.016667</td>
+<td id="T_a5873_row26_col4" class="data row26 col4">104.133333</td>
+<td id="T_a5873_row26_col5" class="data row26 col5">0.011000</td>
+<td id="T_a5873_row26_col6" class="data row26 col6">68.728000</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row27" class="row_heading level0 row27" data-quarto-table-cell-role="th">27</td>
+<td id="T_a5873_row27_col0" class="data row27 col0">89</td>
+<td id="T_a5873_row27_col1" class="data row27 col1">6319</td>
+<td id="T_a5873_row27_col2" class="data row27 col2">1</td>
+<td id="T_a5873_row27_col3" class="data row27 col3">0.016667</td>
+<td id="T_a5873_row27_col4" class="data row27 col4">105.316667</td>
+<td id="T_a5873_row27_col5" class="data row27 col5">0.011125</td>
+<td id="T_a5873_row27_col6" class="data row27 col6">70.298875</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row28" class="row_heading level0 row28" data-quarto-table-cell-role="th">28</td>
+<td id="T_a5873_row28_col0" class="data row28 col0">92</td>
+<td id="T_a5873_row28_col1" class="data row28 col1">6532</td>
+<td id="T_a5873_row28_col2" class="data row28 col2">1</td>
+<td id="T_a5873_row28_col3" class="data row28 col3">0.016667</td>
+<td id="T_a5873_row28_col4" class="data row28 col4">108.866667</td>
+<td id="T_a5873_row28_col5" class="data row28 col5">0.011500</td>
+<td id="T_a5873_row28_col6" class="data row28 col6">75.118000</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row29" class="row_heading level0 row29" data-quarto-table-cell-role="th">29</td>
+<td id="T_a5873_row29_col0" class="data row29 col0">96</td>
+<td id="T_a5873_row29_col1" class="data row29 col1">6816</td>
+<td id="T_a5873_row29_col2" class="data row29 col2">1</td>
+<td id="T_a5873_row29_col3" class="data row29 col3">0.016667</td>
+<td id="T_a5873_row29_col4" class="data row29 col4">113.600000</td>
+<td id="T_a5873_row29_col5" class="data row29 col5">0.012000</td>
+<td id="T_a5873_row29_col6" class="data row29 col6">81.792000</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row30" class="row_heading level0 row30" data-quarto-table-cell-role="th">30</td>
+<td id="T_a5873_row30_col0" class="data row30 col0">97</td>
+<td id="T_a5873_row30_col1" class="data row30 col1">6887</td>
+<td id="T_a5873_row30_col2" class="data row30 col2">1</td>
+<td id="T_a5873_row30_col3" class="data row30 col3">0.016667</td>
+<td id="T_a5873_row30_col4" class="data row30 col4">114.783333</td>
+<td id="T_a5873_row30_col5" class="data row30 col5">0.012125</td>
+<td id="T_a5873_row30_col6" class="data row30 col6">83.504875</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row31" class="row_heading level0 row31" data-quarto-table-cell-role="th">31</td>
+<td id="T_a5873_row31_col0" class="data row31 col0">104</td>
+<td id="T_a5873_row31_col1" class="data row31 col1">7384</td>
+<td id="T_a5873_row31_col2" class="data row31 col2">1</td>
+<td id="T_a5873_row31_col3" class="data row31 col3">0.016667</td>
+<td id="T_a5873_row31_col4" class="data row31 col4">123.066667</td>
+<td id="T_a5873_row31_col5" class="data row31 col5">0.013000</td>
+<td id="T_a5873_row31_col6" class="data row31 col6">95.992000</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row32" class="row_heading level0 row32" data-quarto-table-cell-role="th">32</td>
+<td id="T_a5873_row32_col0" class="data row32 col0">107</td>
+<td id="T_a5873_row32_col1" class="data row32 col1">7597</td>
+<td id="T_a5873_row32_col2" class="data row32 col2">1</td>
+<td id="T_a5873_row32_col3" class="data row32 col3">0.016667</td>
+<td id="T_a5873_row32_col4" class="data row32 col4">126.616667</td>
+<td id="T_a5873_row32_col5" class="data row32 col5">0.013375</td>
+<td id="T_a5873_row32_col6" class="data row32 col6">101.609875</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row33" class="row_heading level0 row33" data-quarto-table-cell-role="th">33</td>
+<td id="T_a5873_row33_col0" class="data row33 col0">112</td>
+<td id="T_a5873_row33_col1" class="data row33 col1">7952</td>
+<td id="T_a5873_row33_col2" class="data row33 col2">1</td>
+<td id="T_a5873_row33_col3" class="data row33 col3">0.016667</td>
+<td id="T_a5873_row33_col4" class="data row33 col4">132.533333</td>
+<td id="T_a5873_row33_col5" class="data row33 col5">0.014000</td>
+<td id="T_a5873_row33_col6" class="data row33 col6">111.328000</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row34" class="row_heading level0 row34" data-quarto-table-cell-role="th">34</td>
+<td id="T_a5873_row34_col0" class="data row34 col0">129</td>
+<td id="T_a5873_row34_col1" class="data row34 col1">9159</td>
+<td id="T_a5873_row34_col2" class="data row34 col2">1</td>
+<td id="T_a5873_row34_col3" class="data row34 col3">0.016667</td>
+<td id="T_a5873_row34_col4" class="data row34 col4">152.650000</td>
+<td id="T_a5873_row34_col5" class="data row34 col5">0.016125</td>
+<td id="T_a5873_row34_col6" class="data row34 col6">147.688875</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row35" class="row_heading level0 row35" data-quarto-table-cell-role="th">35</td>
+<td id="T_a5873_row35_col0" class="data row35 col0">131</td>
+<td id="T_a5873_row35_col1" class="data row35 col1">9301</td>
+<td id="T_a5873_row35_col2" class="data row35 col2">1</td>
+<td id="T_a5873_row35_col3" class="data row35 col3">0.016667</td>
+<td id="T_a5873_row35_col4" class="data row35 col4">155.016667</td>
+<td id="T_a5873_row35_col5" class="data row35 col5">0.016375</td>
+<td id="T_a5873_row35_col6" class="data row35 col6">152.303875</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row36" class="row_heading level0 row36" data-quarto-table-cell-role="th">36</td>
+<td id="T_a5873_row36_col0" class="data row36 col0">148</td>
+<td id="T_a5873_row36_col1" class="data row36 col1">10508</td>
+<td id="T_a5873_row36_col2" class="data row36 col2">1</td>
+<td id="T_a5873_row36_col3" class="data row36 col3">0.016667</td>
+<td id="T_a5873_row36_col4" class="data row36 col4">175.133333</td>
+<td id="T_a5873_row36_col5" class="data row36 col5">0.018500</td>
+<td id="T_a5873_row36_col6" class="data row36 col6">194.398000</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row37" class="row_heading level0 row37" data-quarto-table-cell-role="th">37</td>
+<td id="T_a5873_row37_col0" class="data row37 col0">154</td>
+<td id="T_a5873_row37_col1" class="data row37 col1">10934</td>
+<td id="T_a5873_row37_col2" class="data row37 col2">1</td>
+<td id="T_a5873_row37_col3" class="data row37 col3">0.016667</td>
+<td id="T_a5873_row37_col4" class="data row37 col4">182.233333</td>
+<td id="T_a5873_row37_col5" class="data row37 col5">0.019250</td>
+<td id="T_a5873_row37_col6" class="data row37 col6">210.479500</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row38" class="row_heading level0 row38" data-quarto-table-cell-role="th">38</td>
+<td id="T_a5873_row38_col0" class="data row38 col0">167</td>
+<td id="T_a5873_row38_col1" class="data row38 col1">11857</td>
+<td id="T_a5873_row38_col2" class="data row38 col2">1</td>
+<td id="T_a5873_row38_col3" class="data row38 col3">0.016667</td>
+<td id="T_a5873_row38_col4" class="data row38 col4">197.616667</td>
+<td id="T_a5873_row38_col5" class="data row38 col5">0.020875</td>
+<td id="T_a5873_row38_col6" class="data row38 col6">247.514875</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row39" class="row_heading level0 row39" data-quarto-table-cell-role="th">39</td>
+<td id="T_a5873_row39_col0" class="data row39 col0">168</td>
+<td id="T_a5873_row39_col1" class="data row39 col1">11928</td>
+<td id="T_a5873_row39_col2" class="data row39 col2">1</td>
+<td id="T_a5873_row39_col3" class="data row39 col3">0.016667</td>
+<td id="T_a5873_row39_col4" class="data row39 col4">198.800000</td>
+<td id="T_a5873_row39_col5" class="data row39 col5">0.021000</td>
+<td id="T_a5873_row39_col6" class="data row39 col6">250.488000</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row40" class="row_heading level0 row40" data-quarto-table-cell-role="th">40</td>
+<td id="T_a5873_row40_col0" class="data row40 col0">178</td>
+<td id="T_a5873_row40_col1" class="data row40 col1">12638</td>
+<td id="T_a5873_row40_col2" class="data row40 col2">2</td>
+<td id="T_a5873_row40_col3" class="data row40 col3">0.033333</td>
+<td id="T_a5873_row40_col4" class="data row40 col4">421.266667</td>
+<td id="T_a5873_row40_col5" class="data row40 col5">0.044500</td>
+<td id="T_a5873_row40_col6" class="data row40 col6">562.391000</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row41" class="row_heading level0 row41" data-quarto-table-cell-role="th">41</td>
+<td id="T_a5873_row41_col0" class="data row41 col0">213</td>
+<td id="T_a5873_row41_col1" class="data row41 col1">15123</td>
+<td id="T_a5873_row41_col2" class="data row41 col2">1</td>
+<td id="T_a5873_row41_col3" class="data row41 col3">0.016667</td>
+<td id="T_a5873_row41_col4" class="data row41 col4">252.050000</td>
+<td id="T_a5873_row41_col5" class="data row41 col5">0.026625</td>
+<td id="T_a5873_row41_col6" class="data row41 col6">402.649875</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row42" class="row_heading level0 row42" data-quarto-table-cell-role="th">42</td>
+<td id="T_a5873_row42_col0" class="data row42 col0">221</td>
+<td id="T_a5873_row42_col1" class="data row42 col1">15691</td>
+<td id="T_a5873_row42_col2" class="data row42 col2">1</td>
+<td id="T_a5873_row42_col3" class="data row42 col3">0.016667</td>
+<td id="T_a5873_row42_col4" class="data row42 col4">261.516667</td>
+<td id="T_a5873_row42_col5" class="data row42 col5">0.027625</td>
+<td id="T_a5873_row42_col6" class="data row42 col6">433.463875</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row43" class="row_heading level0 row43" data-quarto-table-cell-role="th">43</td>
+<td id="T_a5873_row43_col0" class="data row43 col0">253</td>
+<td id="T_a5873_row43_col1" class="data row43 col1">17963</td>
+<td id="T_a5873_row43_col2" class="data row43 col2">1</td>
+<td id="T_a5873_row43_col3" class="data row43 col3">0.016667</td>
+<td id="T_a5873_row43_col4" class="data row43 col4">299.383333</td>
+<td id="T_a5873_row43_col5" class="data row43 col5">0.031625</td>
+<td id="T_a5873_row43_col6" class="data row43 col6">568.079875</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row44" class="row_heading level0 row44" data-quarto-table-cell-role="th">44</td>
+<td id="T_a5873_row44_col0" class="data row44 col0">264</td>
+<td id="T_a5873_row44_col1" class="data row44 col1">18744</td>
+<td id="T_a5873_row44_col2" class="data row44 col2">1</td>
+<td id="T_a5873_row44_col3" class="data row44 col3">0.016667</td>
+<td id="T_a5873_row44_col4" class="data row44 col4">312.400000</td>
+<td id="T_a5873_row44_col5" class="data row44 col5">0.033000</td>
+<td id="T_a5873_row44_col6" class="data row44 col6">618.552000</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row45" class="row_heading level0 row45" data-quarto-table-cell-role="th">45</td>
+<td id="T_a5873_row45_col0" class="data row45 col0">269</td>
+<td id="T_a5873_row45_col1" class="data row45 col1">19099</td>
+<td id="T_a5873_row45_col2" class="data row45 col2">1</td>
+<td id="T_a5873_row45_col3" class="data row45 col3">0.016667</td>
+<td id="T_a5873_row45_col4" class="data row45 col4">318.316667</td>
+<td id="T_a5873_row45_col5" class="data row45 col5">0.033625</td>
+<td id="T_a5873_row45_col6" class="data row45 col6">642.203875</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row46" class="row_heading level0 row46" data-quarto-table-cell-role="th">46</td>
+<td id="T_a5873_row46_col0" class="data row46 col0">284</td>
+<td id="T_a5873_row46_col1" class="data row46 col1">20164</td>
+<td id="T_a5873_row46_col2" class="data row46 col2">1</td>
+<td id="T_a5873_row46_col3" class="data row46 col3">0.016667</td>
+<td id="T_a5873_row46_col4" class="data row46 col4">336.066667</td>
+<td id="T_a5873_row46_col5" class="data row46 col5">0.035500</td>
+<td id="T_a5873_row46_col6" class="data row46 col6">715.822000</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row47" class="row_heading level0 row47" data-quarto-table-cell-role="th">47</td>
+<td id="T_a5873_row47_col0" class="data row47 col0">294</td>
+<td id="T_a5873_row47_col1" class="data row47 col1">20874</td>
+<td id="T_a5873_row47_col2" class="data row47 col2">1</td>
+<td id="T_a5873_row47_col3" class="data row47 col3">0.016667</td>
+<td id="T_a5873_row47_col4" class="data row47 col4">347.900000</td>
+<td id="T_a5873_row47_col5" class="data row47 col5">0.036750</td>
+<td id="T_a5873_row47_col6" class="data row47 col6">767.119500</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row48" class="row_heading level0 row48" data-quarto-table-cell-role="th">48</td>
+<td id="T_a5873_row48_col0" class="data row48 col0">305</td>
+<td id="T_a5873_row48_col1" class="data row48 col1">21655</td>
+<td id="T_a5873_row48_col2" class="data row48 col2">1</td>
+<td id="T_a5873_row48_col3" class="data row48 col3">0.016667</td>
+<td id="T_a5873_row48_col4" class="data row48 col4">360.916667</td>
+<td id="T_a5873_row48_col5" class="data row48 col5">0.038125</td>
+<td id="T_a5873_row48_col6" class="data row48 col6">825.596875</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row49" class="row_heading level0 row49" data-quarto-table-cell-role="th">49</td>
+<td id="T_a5873_row49_col0" class="data row49 col0">344</td>
+<td id="T_a5873_row49_col1" class="data row49 col1">24424</td>
+<td id="T_a5873_row49_col2" class="data row49 col2">1</td>
+<td id="T_a5873_row49_col3" class="data row49 col3">0.016667</td>
+<td id="T_a5873_row49_col4" class="data row49 col4">407.066667</td>
+<td id="T_a5873_row49_col5" class="data row49 col5">0.043000</td>
+<td id="T_a5873_row49_col6" class="data row49 col6">1050.232000</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row50" class="row_heading level0 row50" data-quarto-table-cell-role="th">50</td>
+<td id="T_a5873_row50_col0" class="data row50 col0">353</td>
+<td id="T_a5873_row50_col1" class="data row50 col1">25063</td>
+<td id="T_a5873_row50_col2" class="data row50 col2">1</td>
+<td id="T_a5873_row50_col3" class="data row50 col3">0.016667</td>
+<td id="T_a5873_row50_col4" class="data row50 col4">417.716667</td>
+<td id="T_a5873_row50_col5" class="data row50 col5">0.044125</td>
+<td id="T_a5873_row50_col6" class="data row50 col6">1105.904875</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row51" class="row_heading level0 row51" data-quarto-table-cell-role="th">51</td>
+<td id="T_a5873_row51_col0" class="data row51 col0">368</td>
+<td id="T_a5873_row51_col1" class="data row51 col1">26128</td>
+<td id="T_a5873_row51_col2" class="data row51 col2">1</td>
+<td id="T_a5873_row51_col3" class="data row51 col3">0.016667</td>
+<td id="T_a5873_row51_col4" class="data row51 col4">435.466667</td>
+<td id="T_a5873_row51_col5" class="data row51 col5">0.046000</td>
+<td id="T_a5873_row51_col6" class="data row51 col6">1201.888000</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row52" class="row_heading level0 row52" data-quarto-table-cell-role="th">52</td>
+<td id="T_a5873_row52_col0" class="data row52 col0">430</td>
+<td id="T_a5873_row52_col1" class="data row52 col1">30530</td>
+<td id="T_a5873_row52_col2" class="data row52 col2">1</td>
+<td id="T_a5873_row52_col3" class="data row52 col3">0.016667</td>
+<td id="T_a5873_row52_col4" class="data row52 col4">508.833333</td>
+<td id="T_a5873_row52_col5" class="data row52 col5">0.053750</td>
+<td id="T_a5873_row52_col6" class="data row52 col6">1640.987500</td>
+</tr>
+<tr class="even">
+<td id="T_a5873_level0_row53" class="row_heading level0 row53" data-quarto-table-cell-role="th">53</td>
+<td id="T_a5873_row53_col0" class="data row53 col0">436</td>
+<td id="T_a5873_row53_col1" class="data row53 col1">30956</td>
+<td id="T_a5873_row53_col2" class="data row53 col2">1</td>
+<td id="T_a5873_row53_col3" class="data row53 col3">0.016667</td>
+<td id="T_a5873_row53_col4" class="data row53 col4">515.933333</td>
+<td id="T_a5873_row53_col5" class="data row53 col5">0.054500</td>
+<td id="T_a5873_row53_col6" class="data row53 col6">1687.102000</td>
+</tr>
+<tr class="odd">
+<td id="T_a5873_level0_row54" class="row_heading level0 row54" data-quarto-table-cell-role="th">54</td>
+<td id="T_a5873_row54_col0" class="data row54 col0">589</td>
+<td id="T_a5873_row54_col1" class="data row54 col1">41819</td>
+<td id="T_a5873_row54_col2" class="data row54 col2">1</td>
+<td id="T_a5873_row54_col3" class="data row54 col3">0.016667</td>
+<td id="T_a5873_row54_col4" class="data row54 col4">696.983333</td>
+<td id="T_a5873_row54_col5" class="data row54 col5">0.073625</td>
+<td id="T_a5873_row54_col6" class="data row54 col6">3078.923875</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<div id="cell-9" class="cell" data-outputid="d87b69c0-2cba-4590-9feb-234473a2e0a3" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title {display-mode: "form" }</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>Markdown(<span class="ss">f"The number average molecular weight ($M_n$) is </span><span class="sc">{</span><span class="bu">round</span>(Mn_1, sigfigs<span class="op">=</span><span class="dv">4</span>)<span class="sc">}</span><span class="ss">, weight average ($M_w$) is </span><span class="sc">{</span><span class="bu">round</span>(Mw_1, sigfigs<span class="op">=</span><span class="dv">4</span>)<span class="sc">}</span><span class="ss">, the molecular weight distribution can be represented by the value of $M_w/M_n$, which is </span><span class="sc">{</span><span class="bu">round</span>(Mw_1<span class="op">/</span>Mn_1,sigfigs<span class="op">=</span><span class="dv">3</span>)<span class="sc">}</span><span class="ss">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="7">
+<p>The number average molecular weight (<span class="math inline">\(M_n\)</span>) is 9467.0, weight average (<span class="math inline">\(M_w\)</span>) is 17900.0, the molecular weight distribution can be represented by the value of <span class="math inline">\(M_w/M_n\)</span>, which is 1.89.</p>
+</div>
+</div>
+<div id="cell-10" class="cell" data-outputid="be3c8f72-2468-4195-aeaa-251a7e62bd28" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title Calculation by moments { display-mode: "form" }</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown The $n$-th moment simply equals:</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown $$Mn=\sum_i M_i^n\times x_i$$</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>Markdown(<span class="ss">f"The number average molecular weight ($M_n$) equals the first moment ($M1$) which is </span><span class="sc">{</span><span class="bu">round</span>(Mn_1, sigfigs<span class="op">=</span><span class="dv">4</span>)<span class="sc">}</span><span class="ss">. The second moment ($M2$) is </span><span class="sc">{</span><span class="bu">round</span>(M2, sigfigs<span class="op">=</span><span class="dv">4</span>)<span class="sc">}</span><span class="ss">. The weight average ($M_w$) equals $M2/M1$ which is </span><span class="sc">{</span><span class="bu">round</span>(Mw_1, sigfigs<span class="op">=</span><span class="dv">4</span>)<span class="sc">}</span><span class="ss">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
+<p>The number average molecular weight (<span class="math inline">\(M_n\)</span>) equals the first moment (<span class="math inline">\(M1\)</span>) which is 9467.0. The second moment (<span class="math inline">\(M2\)</span>) is 169500000.0. The weight average (<span class="math inline">\(M_w\)</span>) equals <span class="math inline">\(M2/M1\)</span> which is 17900.0.</p>
+</div>
+</div>
+<hr>
+<div id="cell-12" class="cell" data-outputid="80a78b6f-886a-43bb-dbd6-58261b5c13f9" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title Copyright { display-mode: "form" }</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>copyright <span class="op">=</span> requests.get(<span class="st">"https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/master/copyright.md"</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>Markdown(copyright.text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
+<section id="mit-license" class="level3">
+<h3 class="anchored" data-anchor-id="mit-license">MIT License</h3>
+<p>Copyright (c) 2021 – 2024 Yu Wang</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</section>
+<section id="contact" class="level3">
+<h3 class="anchored" data-anchor-id="contact">Contact</h3>
+<p>Dr.&nbsp;Yu Wang<br>
+Department of Chemistry<br>
+Institute for Materials Research and Innovation<br>
+University of Louisiana at Lafayette<br>
+Lafayette, LA 70504<br>
+Email: yuwang@louisiana.edu</p>
+</section>
+<section id="acknowledgement" class="level3">
+<h3 class="anchored" data-anchor-id="acknowledgement">Acknowledgement</h3>
+<p>This project is sponsored by National Science Foundation (NSF-2142043).</p>
+</section>
+</div>
+</div>
+<div id="cell-13" class="cell" data-outputid="e16241db-5064-4c36-fa62-781d5ff2d7d9" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title {display-mode: "form" }</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>links <span class="op">=</span> requests.get(<span class="st">"https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/refs/heads/master/links.md"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>Markdown(links.text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="10">
+<hr>
+<section id="links" class="level3">
+<h3 class="anchored" data-anchor-id="links">Links</h3>
+<p><strong><a href="https://wangyu16.github.io/PolymerScienceEducation/">Home page of OVESET</a>:</strong></p>
+<p><img src="https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/refs/heads/master/img/QR_OVESET.svg" alt="OVESET Home Page" width="300"></p>
+<p><strong><a href="https://hackmd.io/@YW2025/HJLiqoHRR">Home page of Study Guide</a></strong></p>
+<p><img src="https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/refs/heads/master/img/QR_PolymerStudyGuide.svg" alt="Introduction to Polymer Science" width="300"></p>
+</section>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -8,7 +8,9 @@ image: "/img/M07_conformation_small.png"
 
 ## 1. Link to the simulator
 
-<a href="https://colab.research.google.com/drive/1huqqGtniBCtVNKPDb8YK-dYstuYLETVo?usp=sharing" target="_blank">Single chain conformation</a>
+<a href="https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/07_Single_Chain_Conformation.ipynb" target="_blank">Single chain conformation</a>
+
+{{< qrcode https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/07_Single_Chain_Conformation.ipynb width=250 height=250 >}}
 
 ## 2 Module objectives
 

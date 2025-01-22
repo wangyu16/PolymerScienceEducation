@@ -10,7 +10,9 @@ Like a snake, avoid running into yourself!
 
 ## 1. Link to the simulator
 
-<a href="https://colab.research.google.com/drive/1ED9QYOoa0fRQlHOnWTEdt7X-3INu5Bic?usp=sharing" target="_blank">Self-avoid chains</a>
+<a href="https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/08_Self_Avoid_Chains.ipynb" target="_blank">Self-avoid chains</a>
+
+{{< qrcode https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/08_Self_Avoid_Chains.ipynb width=250 height=250 >}}
 
 ## 2 Module objectives
 

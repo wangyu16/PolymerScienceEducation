@@ -9,7 +9,9 @@ Adapted with permission from Macromolecules 2003, 36, 6, 1843-1849, Copyright ©
 
 ## 1. Link to the simulator
 
-<a href="https://colab.research.google.com/drive/1o5ANmoc_0OmrgjaA0kVo_CQjkLv4hwgW?usp=sharing" target="_blank">Atom Transfer Radical Polymerization</a>
+<a href="https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/04_ATRP.ipynb" target="_blank">Atom Transfer Radical Polymerization</a>
+
+{{< qrcode https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/04_ATRP.ipynb width=250 height=250 >}}
 
 ## 2 Module objectives
 

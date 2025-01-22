@@ -8,7 +8,9 @@ image: "/img/M03_radical_small.png"
 
 ## 1. Link to the simulator
 
-<a href="https://colab.research.google.com/drive/1gHO8NiHv8euvF2CIhnIYLTG99-GJNVC8?usp=sharing" target="_blank">Conventional Radical Polymerization</a>
+<a href="https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/03_Radical_Polymerization.ipynb" target="_blank">Conventional Radical Polymerization</a>
+
+{{< qrcode https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/03_Radical_Polymerization.ipynb width=250 height=250 >}}
 
 ## 2 Module objectives
 

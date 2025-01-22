@@ -18,6 +18,10 @@ This is a series of **O**pen **V**irtual **E**xperiment **S**imulator **E**ducat
 
 This series includes 9 modules which are: Concept of molecular weight distribution; Chain-growth polymerization kinetics; Conventional radical polymerization kinetics; Kinetics of atom transfer radical polymerization; Copolymerization statistics; Network formation; Single chain conformation; Self-avoid chians; Star and branched polymers. 
 
+| **[Home page of OVESET](https://wangyu16.github.io/PolymerScienceEducation/):** | **[Home page of Study Guide](https://hackmd.io/@YW2025/HJLiqoHRR)** |
+|---|---|
+| <img src="https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/refs/heads/master/img/QR_OVESET.svg" alt="OVESET Home Page" width="300"> | <img src="https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/refs/heads/master/img/QR_PolymerStudyGuide.svg" alt="Introduction to Polymer Science" width="300"> |
+
 ## Objectives
 
 * With the help of the simulation tools, understand the related concepts in polymer science.
@@ -35,7 +39,7 @@ For advanced users, the source code can be downloaded from GitHub. Users can mod
 
 ## Supporting materials
 
-- A study guide, or eBook, titled ["Introduction to Polymer Science"](https://hackmd.io/@YW2025/HJLiqoHRR){target="_blank"} is currently under development and will be freely accessible to everyone on the internet.
+- A study guide titled "Introduction to Polymer Science" is currently under development and will be freely accessible to everyone on the internet (see the link and QR code above).
 - “Polymer Chemistry” (3rd Edition) by Timothy P. Lodge and Paul C. Hiemenz is highly recommended.
 - “Principles of Polymerization” (4th Edition) by George Odian offers a more comprehensive overview of polymerization systems.
 - “Polymer Physics” by M. Rubinstein and Ralph H. Colby is essential for an in-depth understanding of the physics of polymers.
@@ -44,3 +48,5 @@ For advanced users, the source code can be downloaded from GitHub. Users can mod
 ## Publications from this project
 
 * Yu Wang,* Manyu Li, Xiang-Sheng Wang, Amanda Gildersleeve, and Nadia Turki. ATRP Kinetic Simulator: An Online Open Resource Educational Tool Using Jupyter Notebook and Google Colaboratory. *Journal of Chemical Education* **2023** *100* (7), 2770-2775, DOI: 10.1021/acs.jchemed.2c01250.
+
+{{< include modules/_copyright.qmd >}}
