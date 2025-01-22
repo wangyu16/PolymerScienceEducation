@@ -9,6 +9,7 @@
 		// 	"installChromium": "false"
 		// }
 	},
+	"postCreateCommand": "pip install jupyter",
 	"customizations": {
 		"vscode": {
 			"extensions": [
