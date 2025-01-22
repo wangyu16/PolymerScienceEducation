@@ -9,7 +9,7 @@
 		// 	"installChromium": "false"
 		// }
 	},
-	"postCreateCommand": "pip install jupyter",
+	"postCreateCommand": "pip install jupyter" && "quarto install extension jmbuhr/quarto-qrcode",
 	"customizations": {
 		"vscode": {
 			"extensions": [
