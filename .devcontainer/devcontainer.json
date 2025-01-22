@@ -9,7 +9,6 @@
 		// 	"installChromium": "false"
 		// }
 	},
-	"postCreateCommand": "quarto install extension jmbuhr/quarto-qrcode",
 	"customizations": {
 		"vscode": {
 			"extensions": [
