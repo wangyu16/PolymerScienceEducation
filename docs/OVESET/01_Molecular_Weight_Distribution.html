@@ -298,7 +298,7 @@ window.Quarto = {
 <li>Through the moments of the molecular weight distribution.</li>
 </ol>
 <p>The program guides you to calculate the number and weight average molecular weights step-by-step.</p>
-<div id="cell-3" class="cell" data-execution_count="1">
+<div id="cell-3" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title 1. Install and import packages {display-mode: "form" }</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>capture</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
@@ -309,15 +309,17 @@ window.Quarto = {
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'fivethirtyeight'</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> re <span class="im">import</span> M</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML, display</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> datetime</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'fivethirtyeight'</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> re <span class="im">import</span> M</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML, display</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-4" class="cell" data-execution_count="2">
+<div id="cell-4" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title 2. Simulation conditions { display-mode: "form" }</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Type_of_polymerization <span class="op">=</span> <span class="st">"Step growth polymerization"</span> <span class="co">#@param ["Step growth polymerization", "Living chain growth polymerization"]</span></span>
@@ -326,7 +328,7 @@ window.Quarto = {
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>Monomer_molar_mass <span class="op">=</span> <span class="dv">71</span> <span class="co">#@param{type:"slider", min:50, max: 300, step:1}</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-5" class="cell" data-execution_count="3">
+<div id="cell-5" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title 3. Simulation { display-mode: "form" }</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> Type_of_polymerization <span class="op">==</span> <span class="st">"Step growth polymerization"</span>:</span>
@@ -344,7 +346,7 @@ window.Quarto = {
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    polymers[M_idx]<span class="op">+=</span><span class="dv">1</span></span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  polymers.sort()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-6" class="cell" data-outputid="8d4af33e-7801-446a-f1b4-d22a1f7b653a" data-execution_count="4">
+<div id="cell-6" class="cell" data-outputid="38035008-764c-4a5e-9f8b-48e713e5582e" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title Plot the fractions of each type of polymers. { display-mode: "form" }</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>counter <span class="op">=</span> Counter(polymers)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>DP <span class="op">=</span> np.array(<span class="bu">list</span>(counter.keys()))</span>
@@ -389,15 +391,15 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="cell-7" class="cell" data-outputid="ff16c4e7-2875-4d42-9e3b-d96b62df6c62" data-execution_count="5">
+<div id="cell-7" class="cell" data-outputid="8c90ea64-69d6-4a58-8efc-33738f1ee141" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title 4. Calculation  { display-mode: "form" }</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown </span><span class="al">###</span><span class="co"> Calculation by number and weight fractions</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown Show the number of each type of polymers. \</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown Try to calculate by yourself before moving on.</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>results[[<span class="st">'Molecular weight'</span>,<span class="st">'Number'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="17">
 
-  <div id="df-24cd886c-514e-4fcc-a2d0-057aa7523bf6" class="colab-df-container">
+  <div id="df-f5781c6f-33c3-42a3-9cb0-1415a3ddfb98" class="colab-df-container">
     <div>
 
 
@@ -416,24 +418,24 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>142</td>
+<td data-quarto-table-cell-role="th">1</td>
+<td>71</td>
 <td>1</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">4</td>
 <td>284</td>
-<td>2</td>
+<td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">5</td>
-<td>355</td>
+<td data-quarto-table-cell-role="th">6</td>
+<td>426</td>
 <td>1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">11</td>
-<td>781</td>
-<td>1</td>
+<td data-quarto-table-cell-role="th">13</td>
+<td>923</td>
+<td>3</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">14</td>
@@ -441,23 +443,43 @@ window.Quarto = {
 <td>1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">17</td>
-<td>1207</td>
+<td data-quarto-table-cell-role="th">15</td>
+<td>1065</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">19</td>
-<td>1349</td>
-<td>1</td>
+<td data-quarto-table-cell-role="th">24</td>
+<td>1704</td>
+<td>2</td>
 </tr>
 <tr class="even">
+<td data-quarto-table-cell-role="th">26</td>
+<td>1846</td>
+<td>1</td>
+</tr>
+<tr class="odd">
 <td data-quarto-table-cell-role="th">27</td>
 <td>1917</td>
 <td>1</td>
 </tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">28</td>
+<td>1988</td>
+<td>2</td>
+</tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">29</td>
 <td>2059</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">31</td>
+<td>2201</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">33</td>
+<td>2343</td>
 <td>1</td>
 </tr>
 <tr class="even">
@@ -466,73 +488,43 @@ window.Quarto = {
 <td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">36</td>
-<td>2556</td>
-<td>1</td>
-</tr>
-<tr class="even">
 <td data-quarto-table-cell-role="th">42</td>
 <td>2982</td>
 <td>1</td>
 </tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">52</td>
+<td>3692</td>
+<td>1</td>
+</tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">45</td>
-<td>3195</td>
+<td data-quarto-table-cell-role="th">71</td>
+<td>5041</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">72</td>
+<td>5112</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">73</td>
+<td>5183</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">74</td>
+<td>5254</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">76</td>
+<td>5396</td>
 <td>2</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">46</td>
-<td>3266</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">50</td>
-<td>3550</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">56</td>
-<td>3976</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">58</td>
-<td>4118</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">63</td>
-<td>4473</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">65</td>
-<td>4615</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">66</td>
-<td>4686</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">69</td>
-<td>4899</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">76</td>
-<td>5396</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">77</td>
-<td>5467</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">79</td>
-<td>5609</td>
+<td data-quarto-table-cell-role="th">81</td>
+<td>5751</td>
 <td>1</td>
 </tr>
 <tr class="odd">
@@ -541,153 +533,148 @@ window.Quarto = {
 <td>1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">86</td>
-<td>6106</td>
+<td data-quarto-table-cell-role="th">84</td>
+<td>5964</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">88</td>
-<td>6248</td>
+<td data-quarto-table-cell-role="th">99</td>
+<td>7029</td>
 <td>1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">89</td>
-<td>6319</td>
+<td data-quarto-table-cell-role="th">102</td>
+<td>7242</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">92</td>
-<td>6532</td>
+<td data-quarto-table-cell-role="th">103</td>
+<td>7313</td>
 <td>1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">96</td>
-<td>6816</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">97</td>
-<td>6887</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">104</td>
-<td>7384</td>
-<td>1</td>
-</tr>
-<tr class="odd">
 <td data-quarto-table-cell-role="th">107</td>
 <td>7597</td>
 <td>1</td>
 </tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">112</td>
-<td>7952</td>
-<td>1</td>
-</tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">129</td>
-<td>9159</td>
+<td data-quarto-table-cell-role="th">109</td>
+<td>7739</td>
 <td>1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">131</td>
-<td>9301</td>
+<td data-quarto-table-cell-role="th">114</td>
+<td>8094</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">148</td>
-<td>10508</td>
+<td data-quarto-table-cell-role="th">117</td>
+<td>8307</td>
 <td>1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">154</td>
-<td>10934</td>
+<td data-quarto-table-cell-role="th">127</td>
+<td>9017</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">167</td>
-<td>11857</td>
+<td data-quarto-table-cell-role="th">133</td>
+<td>9443</td>
 <td>1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">168</td>
-<td>11928</td>
+<td data-quarto-table-cell-role="th">135</td>
+<td>9585</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">178</td>
-<td>12638</td>
+<td data-quarto-table-cell-role="th">142</td>
+<td>10082</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">143</td>
+<td>10153</td>
 <td>2</td>
 </tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">213</td>
-<td>15123</td>
-<td>1</td>
-</tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">221</td>
-<td>15691</td>
+<td data-quarto-table-cell-role="th">179</td>
+<td>12709</td>
 <td>1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">253</td>
-<td>17963</td>
+<td data-quarto-table-cell-role="th">183</td>
+<td>12993</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">264</td>
-<td>18744</td>
+<td data-quarto-table-cell-role="th">195</td>
+<td>13845</td>
 <td>1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">269</td>
-<td>19099</td>
+<td data-quarto-table-cell-role="th">217</td>
+<td>15407</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">284</td>
-<td>20164</td>
+<td data-quarto-table-cell-role="th">223</td>
+<td>15833</td>
 <td>1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">294</td>
-<td>20874</td>
+<td data-quarto-table-cell-role="th">224</td>
+<td>15904</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">305</td>
-<td>21655</td>
+<td data-quarto-table-cell-role="th">247</td>
+<td>17537</td>
 <td>1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">344</td>
-<td>24424</td>
+<td data-quarto-table-cell-role="th">257</td>
+<td>18247</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">353</td>
-<td>25063</td>
+<td data-quarto-table-cell-role="th">331</td>
+<td>23501</td>
 <td>1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">368</td>
-<td>26128</td>
+<td data-quarto-table-cell-role="th">359</td>
+<td>25489</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">430</td>
-<td>30530</td>
+<td data-quarto-table-cell-role="th">376</td>
+<td>26696</td>
 <td>1</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">436</td>
-<td>30956</td>
+<td data-quarto-table-cell-role="th">394</td>
+<td>27974</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">589</td>
-<td>41819</td>
+<td data-quarto-table-cell-role="th">448</td>
+<td>31808</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">452</td>
+<td>32092</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">504</td>
+<td>35784</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">588</td>
+<td>41748</td>
 <td>1</td>
 </tr>
 </tbody>
@@ -697,7 +684,7 @@ window.Quarto = {
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-24cd886c-514e-4fcc-a2d0-057aa7523bf6')" title="Convert this dataframe to an interactive table." style="display:none;">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-f5781c6f-33c3-42a3-9cb0-1415a3ddfb98')" title="Convert this dataframe to an interactive table." style="display:none;">
 
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewbox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"></path>
@@ -747,12 +734,12 @@ window.Quarto = {
 
     <script>
       const buttonEl =
-        document.querySelector('#df-24cd886c-514e-4fcc-a2d0-057aa7523bf6 button.colab-df-convert');
+        document.querySelector('#df-f5781c6f-33c3-42a3-9cb0-1415a3ddfb98 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-24cd886c-514e-4fcc-a2d0-057aa7523bf6');
+        const element = document.querySelector('#df-f5781c6f-33c3-42a3-9cb0-1415a3ddfb98');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -772,8 +759,8 @@ window.Quarto = {
   </div>
 
 
-<div id="df-1c010f25-6093-4ebf-8b9f-cf4d7a39024a">
-  <button class="colab-df-quickchart" onclick="quickchart('df-1c010f25-6093-4ebf-8b9f-cf4d7a39024a')" title="Suggest charts" style="display:none;">
+<div id="df-d7d7d434-c516-470e-b77e-224248a8311a">
+  <button class="colab-df-quickchart" onclick="quickchart('df-d7d7d434-c516-470e-b77e-224248a8311a')" title="Suggest charts" style="display:none;">
 
 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewbox="0 0 24 24" width="24px">
     <g>
@@ -889,7 +876,7 @@ window.Quarto = {
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-1c010f25-6093-4ebf-8b9f-cf4d7a39024a button');
+        document.querySelector('#df-d7d7d434-c516-470e-b77e-224248a8311a button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -900,53 +887,79 @@ window.Quarto = {
   </div>
 </div>
 </div>
-<div id="cell-8" class="cell" data-outputid="b05b9984-bcdb-457a-cba8-bf65d0a96faf" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#@title {display-mode: "form" }</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown Show number fraction and weight fraction of each type of polymers.</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Define LaTeX column titles</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>latex_column_names <span class="op">=</span> {</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>       <span class="st">'DP'</span>: <span class="st">'$DP$'</span>,</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Molecular weight'</span>: <span class="st">'$M_i$'</span>,</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Number'</span>: <span class="st">'$n_i$'</span>,</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>       <span class="st">'f_N'</span>: <span class="st">'$x_i$'</span>,</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>       <span class="st">'MW*f_N'</span>: <span class="st">'$M_i \cdot x_i$'</span>,</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>       <span class="st">'f_W'</span>: <span class="st">'$w_i$'</span>,</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>       <span class="st">'MW*f_W'</span>: <span class="st">'$M_i \cdot w_i$'</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>   }</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Reset index to make 'DP' a regular column</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> results.reset_index()</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Rename columns (including DP)</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> results.rename(columns<span class="op">=</span>latex_column_names)</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Apply styles</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>styles <span class="op">=</span> [</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">dict</span>(selector<span class="op">=</span><span class="st">"th"</span>, props<span class="op">=</span>[(<span class="st">"text-align"</span>, <span class="st">"left"</span>)]),</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">dict</span>(selector<span class="op">=</span><span class="st">"th, td"</span>, props<span class="op">=</span>[(<span class="st">"width"</span>, <span class="st">"150px"</span>)])  <span class="co"># Adjust width as needed</span></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Convert to HTML and inject MathJax script</span></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>html_table <span class="op">=</span> results.style.set_table_styles(styles).to_html()</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Add MathJax script</span></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>html_table <span class="op">=</span> <span class="ss">f"""</span></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;script type="text/x-mathjax-config"&gt;</span></span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="ss">MathJax.Hub.Config(</span><span class="ch">{{</span></span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="ss">    tex2jax: </span><span class="ch">{{</span><span class="ss">inlineMath: [['$','$'], ['</span><span class="ch">\\</span><span class="ss">(','</span><span class="ch">\\</span><span class="ss">)']]</span><span class="ch">}}</span></span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="ch">}}</span><span class="ss">);</span></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;/script&gt;</span></span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;script type="text/javascript" async</span></span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="ss">    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"&gt;</span></span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;/script&gt;</span></span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="sc">{</span>html_table<span class="sc">}</span></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="ss">"""</span></span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Display the HTML with JavaScript</span></span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>display(HTML(html_table))</span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-8" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title {display-mode: "form" }</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the current timestamp</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>timestamp <span class="op">=</span> datetime.datetime.now().strftime(<span class="st">"%Y%m</span><span class="sc">%d</span><span class="st">_%H%M%S"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the file name with timestamp</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>file_name <span class="op">=</span> <span class="ss">f"polymer_simulation_results_</span><span class="sc">{</span>timestamp<span class="sc">}</span><span class="ss">.csv"</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the results to a CSV file with the timestamped file name</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>results[[<span class="st">'Molecular weight'</span>,<span class="st">'Number'</span>]].to_csv(file_name, index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a dictionary to store the parameters</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> {</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Type_of_polymerization"</span>: Type_of_polymerization,</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Number_of_monomers"</span>: Number_of_monomers,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Number_of_polymers"</span>: Number_of_polymers,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Monomer_molar_mass"</span>: Monomer_molar_mass</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Open the CSV file in append mode and add parameters as a new line</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(file_name, <span class="st">'a'</span>, newline<span class="op">=</span><span class="st">''</span>) <span class="im">as</span> csvfile:</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    writer <span class="op">=</span> csv.writer(csvfile)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    writer.writerow(params.keys())  <span class="co"># Write parameter names as headers</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    writer.writerow(params.values())  <span class="co"># Write parameter values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-9" class="cell" data-outputid="2ab237df-5d34-468a-9989-3dfab353badc" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#@title {display-mode: "form" }</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown Show number fraction and weight fraction of each type of polymers.</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Define LaTeX column titles</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>latex_column_names <span class="op">=</span> {</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>       <span class="st">'DP'</span>: <span class="st">'$DP$'</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Molecular weight'</span>: <span class="st">'$M_i$'</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Number'</span>: <span class="st">'$n_i$'</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>       <span class="st">'f_N'</span>: <span class="st">'$x_i$'</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>       <span class="st">'MW*f_N'</span>: <span class="st">'$M_i \cdot x_i$'</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>       <span class="st">'f_W'</span>: <span class="st">'$w_i$'</span>,</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>       <span class="st">'MW*f_W'</span>: <span class="st">'$M_i \cdot w_i$'</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>   }</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Reset index to make 'DP' a regular column</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> results.reset_index()</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Rename columns (including DP)</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> results.rename(columns<span class="op">=</span>latex_column_names)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Apply styles</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>styles <span class="op">=</span> [</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">dict</span>(selector<span class="op">=</span><span class="st">"th"</span>, props<span class="op">=</span>[(<span class="st">"text-align"</span>, <span class="st">"left"</span>)]),</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">dict</span>(selector<span class="op">=</span><span class="st">"th, td"</span>, props<span class="op">=</span>[(<span class="st">"width"</span>, <span class="st">"150px"</span>)])  <span class="co"># Adjust width as needed</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Convert to HTML and inject MathJax script</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>html_table <span class="op">=</span> results.style.set_table_styles(styles).to_html()</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Add MathJax script</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>html_table <span class="op">=</span> <span class="ss">f"""</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;script type="text/x-mathjax-config"&gt;</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="ss">MathJax.Hub.Config(</span><span class="ch">{{</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a><span class="ss">    tex2jax: </span><span class="ch">{{</span><span class="ss">inlineMath: [['$','$'], ['</span><span class="ch">\\</span><span class="ss">(','</span><span class="ch">\\</span><span class="ss">)']]</span><span class="ch">}}</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="ch">}}</span><span class="ss">);</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;/script&gt;</span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;script type="text/javascript" async</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a><span class="ss">    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"&gt;</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;/script&gt;</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="sc">{</span>html_table<span class="sc">}</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a><span class="ss">"""</span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Display the HTML with JavaScript</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>display(HTML(html_table))</span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
 <script type="text/x-mathjax-config">
@@ -957,580 +970,550 @@ MathJax.Hub.Config({
 <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 <style type="text/css">
-#T_a5873 th {
+#T_ff95b th {
   text-align: left;
 }
-#T_a5873 th {
+#T_ff95b th {
   width: 150px;
 }
-#T_a5873  td {
+#T_ff95b  td {
   width: 150px;
 }
 </style>
 
-<table id="T_a5873" class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table id="T_ff95b" class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
-<th id="T_a5873_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">$DP$</th>
-<th id="T_a5873_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">$M_i$</th>
-<th id="T_a5873_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">$n_i$</th>
-<th id="T_a5873_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">$x_i$</th>
-<th id="T_a5873_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">$M_i \cdot x_i$</th>
-<th id="T_a5873_level0_col5" class="col_heading level0 col5" data-quarto-table-cell-role="th">$w_i$</th>
-<th id="T_a5873_level0_col6" class="col_heading level0 col6" data-quarto-table-cell-role="th">$M_i \cdot w_i$</th>
+<th id="T_ff95b_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">$DP$</th>
+<th id="T_ff95b_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">$M_i$</th>
+<th id="T_ff95b_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">$n_i$</th>
+<th id="T_ff95b_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">$x_i$</th>
+<th id="T_ff95b_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">$M_i \cdot x_i$</th>
+<th id="T_ff95b_level0_col5" class="col_heading level0 col5" data-quarto-table-cell-role="th">$w_i$</th>
+<th id="T_ff95b_level0_col6" class="col_heading level0 col6" data-quarto-table-cell-role="th">$M_i \cdot w_i$</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_a5873_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0</td>
-<td id="T_a5873_row0_col0" class="data row0 col0">2</td>
-<td id="T_a5873_row0_col1" class="data row0 col1">142</td>
-<td id="T_a5873_row0_col2" class="data row0 col2">1</td>
-<td id="T_a5873_row0_col3" class="data row0 col3">0.016667</td>
-<td id="T_a5873_row0_col4" class="data row0 col4">2.366667</td>
-<td id="T_a5873_row0_col5" class="data row0 col5">0.000250</td>
-<td id="T_a5873_row0_col6" class="data row0 col6">0.035500</td>
+<td id="T_ff95b_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0</td>
+<td id="T_ff95b_row0_col0" class="data row0 col0">1</td>
+<td id="T_ff95b_row0_col1" class="data row0 col1">71</td>
+<td id="T_ff95b_row0_col2" class="data row0 col2">1</td>
+<td id="T_ff95b_row0_col3" class="data row0 col3">0.016667</td>
+<td id="T_ff95b_row0_col4" class="data row0 col4">1.183333</td>
+<td id="T_ff95b_row0_col5" class="data row0 col5">0.000125</td>
+<td id="T_ff95b_row0_col6" class="data row0 col6">0.008875</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">1</td>
-<td id="T_a5873_row1_col0" class="data row1 col0">4</td>
-<td id="T_a5873_row1_col1" class="data row1 col1">284</td>
-<td id="T_a5873_row1_col2" class="data row1 col2">2</td>
-<td id="T_a5873_row1_col3" class="data row1 col3">0.033333</td>
-<td id="T_a5873_row1_col4" class="data row1 col4">9.466667</td>
-<td id="T_a5873_row1_col5" class="data row1 col5">0.001000</td>
-<td id="T_a5873_row1_col6" class="data row1 col6">0.284000</td>
+<td id="T_ff95b_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">1</td>
+<td id="T_ff95b_row1_col0" class="data row1 col0">4</td>
+<td id="T_ff95b_row1_col1" class="data row1 col1">284</td>
+<td id="T_ff95b_row1_col2" class="data row1 col2">1</td>
+<td id="T_ff95b_row1_col3" class="data row1 col3">0.016667</td>
+<td id="T_ff95b_row1_col4" class="data row1 col4">4.733333</td>
+<td id="T_ff95b_row1_col5" class="data row1 col5">0.000500</td>
+<td id="T_ff95b_row1_col6" class="data row1 col6">0.142000</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">2</td>
-<td id="T_a5873_row2_col0" class="data row2 col0">5</td>
-<td id="T_a5873_row2_col1" class="data row2 col1">355</td>
-<td id="T_a5873_row2_col2" class="data row2 col2">1</td>
-<td id="T_a5873_row2_col3" class="data row2 col3">0.016667</td>
-<td id="T_a5873_row2_col4" class="data row2 col4">5.916667</td>
-<td id="T_a5873_row2_col5" class="data row2 col5">0.000625</td>
-<td id="T_a5873_row2_col6" class="data row2 col6">0.221875</td>
+<td id="T_ff95b_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">2</td>
+<td id="T_ff95b_row2_col0" class="data row2 col0">6</td>
+<td id="T_ff95b_row2_col1" class="data row2 col1">426</td>
+<td id="T_ff95b_row2_col2" class="data row2 col2">1</td>
+<td id="T_ff95b_row2_col3" class="data row2 col3">0.016667</td>
+<td id="T_ff95b_row2_col4" class="data row2 col4">7.100000</td>
+<td id="T_ff95b_row2_col5" class="data row2 col5">0.000750</td>
+<td id="T_ff95b_row2_col6" class="data row2 col6">0.319500</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">3</td>
-<td id="T_a5873_row3_col0" class="data row3 col0">11</td>
-<td id="T_a5873_row3_col1" class="data row3 col1">781</td>
-<td id="T_a5873_row3_col2" class="data row3 col2">1</td>
-<td id="T_a5873_row3_col3" class="data row3 col3">0.016667</td>
-<td id="T_a5873_row3_col4" class="data row3 col4">13.016667</td>
-<td id="T_a5873_row3_col5" class="data row3 col5">0.001375</td>
-<td id="T_a5873_row3_col6" class="data row3 col6">1.073875</td>
+<td id="T_ff95b_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">3</td>
+<td id="T_ff95b_row3_col0" class="data row3 col0">13</td>
+<td id="T_ff95b_row3_col1" class="data row3 col1">923</td>
+<td id="T_ff95b_row3_col2" class="data row3 col2">3</td>
+<td id="T_ff95b_row3_col3" class="data row3 col3">0.050000</td>
+<td id="T_ff95b_row3_col4" class="data row3 col4">46.150000</td>
+<td id="T_ff95b_row3_col5" class="data row3 col5">0.004875</td>
+<td id="T_ff95b_row3_col6" class="data row3 col6">4.499625</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row4" class="row_heading level0 row4" data-quarto-table-cell-role="th">4</td>
-<td id="T_a5873_row4_col0" class="data row4 col0">14</td>
-<td id="T_a5873_row4_col1" class="data row4 col1">994</td>
-<td id="T_a5873_row4_col2" class="data row4 col2">1</td>
-<td id="T_a5873_row4_col3" class="data row4 col3">0.016667</td>
-<td id="T_a5873_row4_col4" class="data row4 col4">16.566667</td>
-<td id="T_a5873_row4_col5" class="data row4 col5">0.001750</td>
-<td id="T_a5873_row4_col6" class="data row4 col6">1.739500</td>
+<td id="T_ff95b_level0_row4" class="row_heading level0 row4" data-quarto-table-cell-role="th">4</td>
+<td id="T_ff95b_row4_col0" class="data row4 col0">14</td>
+<td id="T_ff95b_row4_col1" class="data row4 col1">994</td>
+<td id="T_ff95b_row4_col2" class="data row4 col2">1</td>
+<td id="T_ff95b_row4_col3" class="data row4 col3">0.016667</td>
+<td id="T_ff95b_row4_col4" class="data row4 col4">16.566667</td>
+<td id="T_ff95b_row4_col5" class="data row4 col5">0.001750</td>
+<td id="T_ff95b_row4_col6" class="data row4 col6">1.739500</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row5" class="row_heading level0 row5" data-quarto-table-cell-role="th">5</td>
-<td id="T_a5873_row5_col0" class="data row5 col0">17</td>
-<td id="T_a5873_row5_col1" class="data row5 col1">1207</td>
-<td id="T_a5873_row5_col2" class="data row5 col2">1</td>
-<td id="T_a5873_row5_col3" class="data row5 col3">0.016667</td>
-<td id="T_a5873_row5_col4" class="data row5 col4">20.116667</td>
-<td id="T_a5873_row5_col5" class="data row5 col5">0.002125</td>
-<td id="T_a5873_row5_col6" class="data row5 col6">2.564875</td>
+<td id="T_ff95b_level0_row5" class="row_heading level0 row5" data-quarto-table-cell-role="th">5</td>
+<td id="T_ff95b_row5_col0" class="data row5 col0">15</td>
+<td id="T_ff95b_row5_col1" class="data row5 col1">1065</td>
+<td id="T_ff95b_row5_col2" class="data row5 col2">1</td>
+<td id="T_ff95b_row5_col3" class="data row5 col3">0.016667</td>
+<td id="T_ff95b_row5_col4" class="data row5 col4">17.750000</td>
+<td id="T_ff95b_row5_col5" class="data row5 col5">0.001875</td>
+<td id="T_ff95b_row5_col6" class="data row5 col6">1.996875</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row6" class="row_heading level0 row6" data-quarto-table-cell-role="th">6</td>
-<td id="T_a5873_row6_col0" class="data row6 col0">19</td>
-<td id="T_a5873_row6_col1" class="data row6 col1">1349</td>
-<td id="T_a5873_row6_col2" class="data row6 col2">1</td>
-<td id="T_a5873_row6_col3" class="data row6 col3">0.016667</td>
-<td id="T_a5873_row6_col4" class="data row6 col4">22.483333</td>
-<td id="T_a5873_row6_col5" class="data row6 col5">0.002375</td>
-<td id="T_a5873_row6_col6" class="data row6 col6">3.203875</td>
+<td id="T_ff95b_level0_row6" class="row_heading level0 row6" data-quarto-table-cell-role="th">6</td>
+<td id="T_ff95b_row6_col0" class="data row6 col0">24</td>
+<td id="T_ff95b_row6_col1" class="data row6 col1">1704</td>
+<td id="T_ff95b_row6_col2" class="data row6 col2">2</td>
+<td id="T_ff95b_row6_col3" class="data row6 col3">0.033333</td>
+<td id="T_ff95b_row6_col4" class="data row6 col4">56.800000</td>
+<td id="T_ff95b_row6_col5" class="data row6 col5">0.006000</td>
+<td id="T_ff95b_row6_col6" class="data row6 col6">10.224000</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row7" class="row_heading level0 row7" data-quarto-table-cell-role="th">7</td>
-<td id="T_a5873_row7_col0" class="data row7 col0">27</td>
-<td id="T_a5873_row7_col1" class="data row7 col1">1917</td>
-<td id="T_a5873_row7_col2" class="data row7 col2">1</td>
-<td id="T_a5873_row7_col3" class="data row7 col3">0.016667</td>
-<td id="T_a5873_row7_col4" class="data row7 col4">31.950000</td>
-<td id="T_a5873_row7_col5" class="data row7 col5">0.003375</td>
-<td id="T_a5873_row7_col6" class="data row7 col6">6.469875</td>
+<td id="T_ff95b_level0_row7" class="row_heading level0 row7" data-quarto-table-cell-role="th">7</td>
+<td id="T_ff95b_row7_col0" class="data row7 col0">26</td>
+<td id="T_ff95b_row7_col1" class="data row7 col1">1846</td>
+<td id="T_ff95b_row7_col2" class="data row7 col2">1</td>
+<td id="T_ff95b_row7_col3" class="data row7 col3">0.016667</td>
+<td id="T_ff95b_row7_col4" class="data row7 col4">30.766667</td>
+<td id="T_ff95b_row7_col5" class="data row7 col5">0.003250</td>
+<td id="T_ff95b_row7_col6" class="data row7 col6">5.999500</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row8" class="row_heading level0 row8" data-quarto-table-cell-role="th">8</td>
-<td id="T_a5873_row8_col0" class="data row8 col0">29</td>
-<td id="T_a5873_row8_col1" class="data row8 col1">2059</td>
-<td id="T_a5873_row8_col2" class="data row8 col2">1</td>
-<td id="T_a5873_row8_col3" class="data row8 col3">0.016667</td>
-<td id="T_a5873_row8_col4" class="data row8 col4">34.316667</td>
-<td id="T_a5873_row8_col5" class="data row8 col5">0.003625</td>
-<td id="T_a5873_row8_col6" class="data row8 col6">7.463875</td>
+<td id="T_ff95b_level0_row8" class="row_heading level0 row8" data-quarto-table-cell-role="th">8</td>
+<td id="T_ff95b_row8_col0" class="data row8 col0">27</td>
+<td id="T_ff95b_row8_col1" class="data row8 col1">1917</td>
+<td id="T_ff95b_row8_col2" class="data row8 col2">1</td>
+<td id="T_ff95b_row8_col3" class="data row8 col3">0.016667</td>
+<td id="T_ff95b_row8_col4" class="data row8 col4">31.950000</td>
+<td id="T_ff95b_row8_col5" class="data row8 col5">0.003375</td>
+<td id="T_ff95b_row8_col6" class="data row8 col6">6.469875</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row9" class="row_heading level0 row9" data-quarto-table-cell-role="th">9</td>
-<td id="T_a5873_row9_col0" class="data row9 col0">34</td>
-<td id="T_a5873_row9_col1" class="data row9 col1">2414</td>
-<td id="T_a5873_row9_col2" class="data row9 col2">1</td>
-<td id="T_a5873_row9_col3" class="data row9 col3">0.016667</td>
-<td id="T_a5873_row9_col4" class="data row9 col4">40.233333</td>
-<td id="T_a5873_row9_col5" class="data row9 col5">0.004250</td>
-<td id="T_a5873_row9_col6" class="data row9 col6">10.259500</td>
+<td id="T_ff95b_level0_row9" class="row_heading level0 row9" data-quarto-table-cell-role="th">9</td>
+<td id="T_ff95b_row9_col0" class="data row9 col0">28</td>
+<td id="T_ff95b_row9_col1" class="data row9 col1">1988</td>
+<td id="T_ff95b_row9_col2" class="data row9 col2">2</td>
+<td id="T_ff95b_row9_col3" class="data row9 col3">0.033333</td>
+<td id="T_ff95b_row9_col4" class="data row9 col4">66.266667</td>
+<td id="T_ff95b_row9_col5" class="data row9 col5">0.007000</td>
+<td id="T_ff95b_row9_col6" class="data row9 col6">13.916000</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row10" class="row_heading level0 row10" data-quarto-table-cell-role="th">10</td>
-<td id="T_a5873_row10_col0" class="data row10 col0">36</td>
-<td id="T_a5873_row10_col1" class="data row10 col1">2556</td>
-<td id="T_a5873_row10_col2" class="data row10 col2">1</td>
-<td id="T_a5873_row10_col3" class="data row10 col3">0.016667</td>
-<td id="T_a5873_row10_col4" class="data row10 col4">42.600000</td>
-<td id="T_a5873_row10_col5" class="data row10 col5">0.004500</td>
-<td id="T_a5873_row10_col6" class="data row10 col6">11.502000</td>
+<td id="T_ff95b_level0_row10" class="row_heading level0 row10" data-quarto-table-cell-role="th">10</td>
+<td id="T_ff95b_row10_col0" class="data row10 col0">29</td>
+<td id="T_ff95b_row10_col1" class="data row10 col1">2059</td>
+<td id="T_ff95b_row10_col2" class="data row10 col2">1</td>
+<td id="T_ff95b_row10_col3" class="data row10 col3">0.016667</td>
+<td id="T_ff95b_row10_col4" class="data row10 col4">34.316667</td>
+<td id="T_ff95b_row10_col5" class="data row10 col5">0.003625</td>
+<td id="T_ff95b_row10_col6" class="data row10 col6">7.463875</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row11" class="row_heading level0 row11" data-quarto-table-cell-role="th">11</td>
-<td id="T_a5873_row11_col0" class="data row11 col0">42</td>
-<td id="T_a5873_row11_col1" class="data row11 col1">2982</td>
-<td id="T_a5873_row11_col2" class="data row11 col2">1</td>
-<td id="T_a5873_row11_col3" class="data row11 col3">0.016667</td>
-<td id="T_a5873_row11_col4" class="data row11 col4">49.700000</td>
-<td id="T_a5873_row11_col5" class="data row11 col5">0.005250</td>
-<td id="T_a5873_row11_col6" class="data row11 col6">15.655500</td>
+<td id="T_ff95b_level0_row11" class="row_heading level0 row11" data-quarto-table-cell-role="th">11</td>
+<td id="T_ff95b_row11_col0" class="data row11 col0">31</td>
+<td id="T_ff95b_row11_col1" class="data row11 col1">2201</td>
+<td id="T_ff95b_row11_col2" class="data row11 col2">2</td>
+<td id="T_ff95b_row11_col3" class="data row11 col3">0.033333</td>
+<td id="T_ff95b_row11_col4" class="data row11 col4">73.366667</td>
+<td id="T_ff95b_row11_col5" class="data row11 col5">0.007750</td>
+<td id="T_ff95b_row11_col6" class="data row11 col6">17.057750</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row12" class="row_heading level0 row12" data-quarto-table-cell-role="th">12</td>
-<td id="T_a5873_row12_col0" class="data row12 col0">45</td>
-<td id="T_a5873_row12_col1" class="data row12 col1">3195</td>
-<td id="T_a5873_row12_col2" class="data row12 col2">2</td>
-<td id="T_a5873_row12_col3" class="data row12 col3">0.033333</td>
-<td id="T_a5873_row12_col4" class="data row12 col4">106.500000</td>
-<td id="T_a5873_row12_col5" class="data row12 col5">0.011250</td>
-<td id="T_a5873_row12_col6" class="data row12 col6">35.943750</td>
+<td id="T_ff95b_level0_row12" class="row_heading level0 row12" data-quarto-table-cell-role="th">12</td>
+<td id="T_ff95b_row12_col0" class="data row12 col0">33</td>
+<td id="T_ff95b_row12_col1" class="data row12 col1">2343</td>
+<td id="T_ff95b_row12_col2" class="data row12 col2">1</td>
+<td id="T_ff95b_row12_col3" class="data row12 col3">0.016667</td>
+<td id="T_ff95b_row12_col4" class="data row12 col4">39.050000</td>
+<td id="T_ff95b_row12_col5" class="data row12 col5">0.004125</td>
+<td id="T_ff95b_row12_col6" class="data row12 col6">9.664875</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row13" class="row_heading level0 row13" data-quarto-table-cell-role="th">13</td>
-<td id="T_a5873_row13_col0" class="data row13 col0">46</td>
-<td id="T_a5873_row13_col1" class="data row13 col1">3266</td>
-<td id="T_a5873_row13_col2" class="data row13 col2">1</td>
-<td id="T_a5873_row13_col3" class="data row13 col3">0.016667</td>
-<td id="T_a5873_row13_col4" class="data row13 col4">54.433333</td>
-<td id="T_a5873_row13_col5" class="data row13 col5">0.005750</td>
-<td id="T_a5873_row13_col6" class="data row13 col6">18.779500</td>
+<td id="T_ff95b_level0_row13" class="row_heading level0 row13" data-quarto-table-cell-role="th">13</td>
+<td id="T_ff95b_row13_col0" class="data row13 col0">34</td>
+<td id="T_ff95b_row13_col1" class="data row13 col1">2414</td>
+<td id="T_ff95b_row13_col2" class="data row13 col2">1</td>
+<td id="T_ff95b_row13_col3" class="data row13 col3">0.016667</td>
+<td id="T_ff95b_row13_col4" class="data row13 col4">40.233333</td>
+<td id="T_ff95b_row13_col5" class="data row13 col5">0.004250</td>
+<td id="T_ff95b_row13_col6" class="data row13 col6">10.259500</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row14" class="row_heading level0 row14" data-quarto-table-cell-role="th">14</td>
-<td id="T_a5873_row14_col0" class="data row14 col0">50</td>
-<td id="T_a5873_row14_col1" class="data row14 col1">3550</td>
-<td id="T_a5873_row14_col2" class="data row14 col2">1</td>
-<td id="T_a5873_row14_col3" class="data row14 col3">0.016667</td>
-<td id="T_a5873_row14_col4" class="data row14 col4">59.166667</td>
-<td id="T_a5873_row14_col5" class="data row14 col5">0.006250</td>
-<td id="T_a5873_row14_col6" class="data row14 col6">22.187500</td>
+<td id="T_ff95b_level0_row14" class="row_heading level0 row14" data-quarto-table-cell-role="th">14</td>
+<td id="T_ff95b_row14_col0" class="data row14 col0">42</td>
+<td id="T_ff95b_row14_col1" class="data row14 col1">2982</td>
+<td id="T_ff95b_row14_col2" class="data row14 col2">1</td>
+<td id="T_ff95b_row14_col3" class="data row14 col3">0.016667</td>
+<td id="T_ff95b_row14_col4" class="data row14 col4">49.700000</td>
+<td id="T_ff95b_row14_col5" class="data row14 col5">0.005250</td>
+<td id="T_ff95b_row14_col6" class="data row14 col6">15.655500</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row15" class="row_heading level0 row15" data-quarto-table-cell-role="th">15</td>
-<td id="T_a5873_row15_col0" class="data row15 col0">56</td>
-<td id="T_a5873_row15_col1" class="data row15 col1">3976</td>
-<td id="T_a5873_row15_col2" class="data row15 col2">1</td>
-<td id="T_a5873_row15_col3" class="data row15 col3">0.016667</td>
-<td id="T_a5873_row15_col4" class="data row15 col4">66.266667</td>
-<td id="T_a5873_row15_col5" class="data row15 col5">0.007000</td>
-<td id="T_a5873_row15_col6" class="data row15 col6">27.832000</td>
+<td id="T_ff95b_level0_row15" class="row_heading level0 row15" data-quarto-table-cell-role="th">15</td>
+<td id="T_ff95b_row15_col0" class="data row15 col0">52</td>
+<td id="T_ff95b_row15_col1" class="data row15 col1">3692</td>
+<td id="T_ff95b_row15_col2" class="data row15 col2">1</td>
+<td id="T_ff95b_row15_col3" class="data row15 col3">0.016667</td>
+<td id="T_ff95b_row15_col4" class="data row15 col4">61.533333</td>
+<td id="T_ff95b_row15_col5" class="data row15 col5">0.006500</td>
+<td id="T_ff95b_row15_col6" class="data row15 col6">23.998000</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row16" class="row_heading level0 row16" data-quarto-table-cell-role="th">16</td>
-<td id="T_a5873_row16_col0" class="data row16 col0">58</td>
-<td id="T_a5873_row16_col1" class="data row16 col1">4118</td>
-<td id="T_a5873_row16_col2" class="data row16 col2">1</td>
-<td id="T_a5873_row16_col3" class="data row16 col3">0.016667</td>
-<td id="T_a5873_row16_col4" class="data row16 col4">68.633333</td>
-<td id="T_a5873_row16_col5" class="data row16 col5">0.007250</td>
-<td id="T_a5873_row16_col6" class="data row16 col6">29.855500</td>
+<td id="T_ff95b_level0_row16" class="row_heading level0 row16" data-quarto-table-cell-role="th">16</td>
+<td id="T_ff95b_row16_col0" class="data row16 col0">71</td>
+<td id="T_ff95b_row16_col1" class="data row16 col1">5041</td>
+<td id="T_ff95b_row16_col2" class="data row16 col2">1</td>
+<td id="T_ff95b_row16_col3" class="data row16 col3">0.016667</td>
+<td id="T_ff95b_row16_col4" class="data row16 col4">84.016667</td>
+<td id="T_ff95b_row16_col5" class="data row16 col5">0.008875</td>
+<td id="T_ff95b_row16_col6" class="data row16 col6">44.738875</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row17" class="row_heading level0 row17" data-quarto-table-cell-role="th">17</td>
-<td id="T_a5873_row17_col0" class="data row17 col0">63</td>
-<td id="T_a5873_row17_col1" class="data row17 col1">4473</td>
-<td id="T_a5873_row17_col2" class="data row17 col2">1</td>
-<td id="T_a5873_row17_col3" class="data row17 col3">0.016667</td>
-<td id="T_a5873_row17_col4" class="data row17 col4">74.550000</td>
-<td id="T_a5873_row17_col5" class="data row17 col5">0.007875</td>
-<td id="T_a5873_row17_col6" class="data row17 col6">35.224875</td>
+<td id="T_ff95b_level0_row17" class="row_heading level0 row17" data-quarto-table-cell-role="th">17</td>
+<td id="T_ff95b_row17_col0" class="data row17 col0">72</td>
+<td id="T_ff95b_row17_col1" class="data row17 col1">5112</td>
+<td id="T_ff95b_row17_col2" class="data row17 col2">2</td>
+<td id="T_ff95b_row17_col3" class="data row17 col3">0.033333</td>
+<td id="T_ff95b_row17_col4" class="data row17 col4">170.400000</td>
+<td id="T_ff95b_row17_col5" class="data row17 col5">0.018000</td>
+<td id="T_ff95b_row17_col6" class="data row17 col6">92.016000</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row18" class="row_heading level0 row18" data-quarto-table-cell-role="th">18</td>
-<td id="T_a5873_row18_col0" class="data row18 col0">65</td>
-<td id="T_a5873_row18_col1" class="data row18 col1">4615</td>
-<td id="T_a5873_row18_col2" class="data row18 col2">1</td>
-<td id="T_a5873_row18_col3" class="data row18 col3">0.016667</td>
-<td id="T_a5873_row18_col4" class="data row18 col4">76.916667</td>
-<td id="T_a5873_row18_col5" class="data row18 col5">0.008125</td>
-<td id="T_a5873_row18_col6" class="data row18 col6">37.496875</td>
+<td id="T_ff95b_level0_row18" class="row_heading level0 row18" data-quarto-table-cell-role="th">18</td>
+<td id="T_ff95b_row18_col0" class="data row18 col0">73</td>
+<td id="T_ff95b_row18_col1" class="data row18 col1">5183</td>
+<td id="T_ff95b_row18_col2" class="data row18 col2">1</td>
+<td id="T_ff95b_row18_col3" class="data row18 col3">0.016667</td>
+<td id="T_ff95b_row18_col4" class="data row18 col4">86.383333</td>
+<td id="T_ff95b_row18_col5" class="data row18 col5">0.009125</td>
+<td id="T_ff95b_row18_col6" class="data row18 col6">47.294875</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row19" class="row_heading level0 row19" data-quarto-table-cell-role="th">19</td>
-<td id="T_a5873_row19_col0" class="data row19 col0">66</td>
-<td id="T_a5873_row19_col1" class="data row19 col1">4686</td>
-<td id="T_a5873_row19_col2" class="data row19 col2">3</td>
-<td id="T_a5873_row19_col3" class="data row19 col3">0.050000</td>
-<td id="T_a5873_row19_col4" class="data row19 col4">234.300000</td>
-<td id="T_a5873_row19_col5" class="data row19 col5">0.024750</td>
-<td id="T_a5873_row19_col6" class="data row19 col6">115.978500</td>
+<td id="T_ff95b_level0_row19" class="row_heading level0 row19" data-quarto-table-cell-role="th">19</td>
+<td id="T_ff95b_row19_col0" class="data row19 col0">74</td>
+<td id="T_ff95b_row19_col1" class="data row19 col1">5254</td>
+<td id="T_ff95b_row19_col2" class="data row19 col2">1</td>
+<td id="T_ff95b_row19_col3" class="data row19 col3">0.016667</td>
+<td id="T_ff95b_row19_col4" class="data row19 col4">87.566667</td>
+<td id="T_ff95b_row19_col5" class="data row19 col5">0.009250</td>
+<td id="T_ff95b_row19_col6" class="data row19 col6">48.599500</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row20" class="row_heading level0 row20" data-quarto-table-cell-role="th">20</td>
-<td id="T_a5873_row20_col0" class="data row20 col0">69</td>
-<td id="T_a5873_row20_col1" class="data row20 col1">4899</td>
-<td id="T_a5873_row20_col2" class="data row20 col2">1</td>
-<td id="T_a5873_row20_col3" class="data row20 col3">0.016667</td>
-<td id="T_a5873_row20_col4" class="data row20 col4">81.650000</td>
-<td id="T_a5873_row20_col5" class="data row20 col5">0.008625</td>
-<td id="T_a5873_row20_col6" class="data row20 col6">42.253875</td>
+<td id="T_ff95b_level0_row20" class="row_heading level0 row20" data-quarto-table-cell-role="th">20</td>
+<td id="T_ff95b_row20_col0" class="data row20 col0">76</td>
+<td id="T_ff95b_row20_col1" class="data row20 col1">5396</td>
+<td id="T_ff95b_row20_col2" class="data row20 col2">2</td>
+<td id="T_ff95b_row20_col3" class="data row20 col3">0.033333</td>
+<td id="T_ff95b_row20_col4" class="data row20 col4">179.866667</td>
+<td id="T_ff95b_row20_col5" class="data row20 col5">0.019000</td>
+<td id="T_ff95b_row20_col6" class="data row20 col6">102.524000</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row21" class="row_heading level0 row21" data-quarto-table-cell-role="th">21</td>
-<td id="T_a5873_row21_col0" class="data row21 col0">76</td>
-<td id="T_a5873_row21_col1" class="data row21 col1">5396</td>
-<td id="T_a5873_row21_col2" class="data row21 col2">1</td>
-<td id="T_a5873_row21_col3" class="data row21 col3">0.016667</td>
-<td id="T_a5873_row21_col4" class="data row21 col4">89.933333</td>
-<td id="T_a5873_row21_col5" class="data row21 col5">0.009500</td>
-<td id="T_a5873_row21_col6" class="data row21 col6">51.262000</td>
+<td id="T_ff95b_level0_row21" class="row_heading level0 row21" data-quarto-table-cell-role="th">21</td>
+<td id="T_ff95b_row21_col0" class="data row21 col0">81</td>
+<td id="T_ff95b_row21_col1" class="data row21 col1">5751</td>
+<td id="T_ff95b_row21_col2" class="data row21 col2">1</td>
+<td id="T_ff95b_row21_col3" class="data row21 col3">0.016667</td>
+<td id="T_ff95b_row21_col4" class="data row21 col4">95.850000</td>
+<td id="T_ff95b_row21_col5" class="data row21 col5">0.010125</td>
+<td id="T_ff95b_row21_col6" class="data row21 col6">58.228875</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row22" class="row_heading level0 row22" data-quarto-table-cell-role="th">22</td>
-<td id="T_a5873_row22_col0" class="data row22 col0">77</td>
-<td id="T_a5873_row22_col1" class="data row22 col1">5467</td>
-<td id="T_a5873_row22_col2" class="data row22 col2">1</td>
-<td id="T_a5873_row22_col3" class="data row22 col3">0.016667</td>
-<td id="T_a5873_row22_col4" class="data row22 col4">91.116667</td>
-<td id="T_a5873_row22_col5" class="data row22 col5">0.009625</td>
-<td id="T_a5873_row22_col6" class="data row22 col6">52.619875</td>
+<td id="T_ff95b_level0_row22" class="row_heading level0 row22" data-quarto-table-cell-role="th">22</td>
+<td id="T_ff95b_row22_col0" class="data row22 col0">82</td>
+<td id="T_ff95b_row22_col1" class="data row22 col1">5822</td>
+<td id="T_ff95b_row22_col2" class="data row22 col2">1</td>
+<td id="T_ff95b_row22_col3" class="data row22 col3">0.016667</td>
+<td id="T_ff95b_row22_col4" class="data row22 col4">97.033333</td>
+<td id="T_ff95b_row22_col5" class="data row22 col5">0.010250</td>
+<td id="T_ff95b_row22_col6" class="data row22 col6">59.675500</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row23" class="row_heading level0 row23" data-quarto-table-cell-role="th">23</td>
-<td id="T_a5873_row23_col0" class="data row23 col0">79</td>
-<td id="T_a5873_row23_col1" class="data row23 col1">5609</td>
-<td id="T_a5873_row23_col2" class="data row23 col2">1</td>
-<td id="T_a5873_row23_col3" class="data row23 col3">0.016667</td>
-<td id="T_a5873_row23_col4" class="data row23 col4">93.483333</td>
-<td id="T_a5873_row23_col5" class="data row23 col5">0.009875</td>
-<td id="T_a5873_row23_col6" class="data row23 col6">55.388875</td>
+<td id="T_ff95b_level0_row23" class="row_heading level0 row23" data-quarto-table-cell-role="th">23</td>
+<td id="T_ff95b_row23_col0" class="data row23 col0">84</td>
+<td id="T_ff95b_row23_col1" class="data row23 col1">5964</td>
+<td id="T_ff95b_row23_col2" class="data row23 col2">1</td>
+<td id="T_ff95b_row23_col3" class="data row23 col3">0.016667</td>
+<td id="T_ff95b_row23_col4" class="data row23 col4">99.400000</td>
+<td id="T_ff95b_row23_col5" class="data row23 col5">0.010500</td>
+<td id="T_ff95b_row23_col6" class="data row23 col6">62.622000</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row24" class="row_heading level0 row24" data-quarto-table-cell-role="th">24</td>
-<td id="T_a5873_row24_col0" class="data row24 col0">82</td>
-<td id="T_a5873_row24_col1" class="data row24 col1">5822</td>
-<td id="T_a5873_row24_col2" class="data row24 col2">1</td>
-<td id="T_a5873_row24_col3" class="data row24 col3">0.016667</td>
-<td id="T_a5873_row24_col4" class="data row24 col4">97.033333</td>
-<td id="T_a5873_row24_col5" class="data row24 col5">0.010250</td>
-<td id="T_a5873_row24_col6" class="data row24 col6">59.675500</td>
+<td id="T_ff95b_level0_row24" class="row_heading level0 row24" data-quarto-table-cell-role="th">24</td>
+<td id="T_ff95b_row24_col0" class="data row24 col0">99</td>
+<td id="T_ff95b_row24_col1" class="data row24 col1">7029</td>
+<td id="T_ff95b_row24_col2" class="data row24 col2">1</td>
+<td id="T_ff95b_row24_col3" class="data row24 col3">0.016667</td>
+<td id="T_ff95b_row24_col4" class="data row24 col4">117.150000</td>
+<td id="T_ff95b_row24_col5" class="data row24 col5">0.012375</td>
+<td id="T_ff95b_row24_col6" class="data row24 col6">86.983875</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row25" class="row_heading level0 row25" data-quarto-table-cell-role="th">25</td>
-<td id="T_a5873_row25_col0" class="data row25 col0">86</td>
-<td id="T_a5873_row25_col1" class="data row25 col1">6106</td>
-<td id="T_a5873_row25_col2" class="data row25 col2">1</td>
-<td id="T_a5873_row25_col3" class="data row25 col3">0.016667</td>
-<td id="T_a5873_row25_col4" class="data row25 col4">101.766667</td>
-<td id="T_a5873_row25_col5" class="data row25 col5">0.010750</td>
-<td id="T_a5873_row25_col6" class="data row25 col6">65.639500</td>
+<td id="T_ff95b_level0_row25" class="row_heading level0 row25" data-quarto-table-cell-role="th">25</td>
+<td id="T_ff95b_row25_col0" class="data row25 col0">102</td>
+<td id="T_ff95b_row25_col1" class="data row25 col1">7242</td>
+<td id="T_ff95b_row25_col2" class="data row25 col2">1</td>
+<td id="T_ff95b_row25_col3" class="data row25 col3">0.016667</td>
+<td id="T_ff95b_row25_col4" class="data row25 col4">120.700000</td>
+<td id="T_ff95b_row25_col5" class="data row25 col5">0.012750</td>
+<td id="T_ff95b_row25_col6" class="data row25 col6">92.335500</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row26" class="row_heading level0 row26" data-quarto-table-cell-role="th">26</td>
-<td id="T_a5873_row26_col0" class="data row26 col0">88</td>
-<td id="T_a5873_row26_col1" class="data row26 col1">6248</td>
-<td id="T_a5873_row26_col2" class="data row26 col2">1</td>
-<td id="T_a5873_row26_col3" class="data row26 col3">0.016667</td>
-<td id="T_a5873_row26_col4" class="data row26 col4">104.133333</td>
-<td id="T_a5873_row26_col5" class="data row26 col5">0.011000</td>
-<td id="T_a5873_row26_col6" class="data row26 col6">68.728000</td>
+<td id="T_ff95b_level0_row26" class="row_heading level0 row26" data-quarto-table-cell-role="th">26</td>
+<td id="T_ff95b_row26_col0" class="data row26 col0">103</td>
+<td id="T_ff95b_row26_col1" class="data row26 col1">7313</td>
+<td id="T_ff95b_row26_col2" class="data row26 col2">1</td>
+<td id="T_ff95b_row26_col3" class="data row26 col3">0.016667</td>
+<td id="T_ff95b_row26_col4" class="data row26 col4">121.883333</td>
+<td id="T_ff95b_row26_col5" class="data row26 col5">0.012875</td>
+<td id="T_ff95b_row26_col6" class="data row26 col6">94.154875</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row27" class="row_heading level0 row27" data-quarto-table-cell-role="th">27</td>
-<td id="T_a5873_row27_col0" class="data row27 col0">89</td>
-<td id="T_a5873_row27_col1" class="data row27 col1">6319</td>
-<td id="T_a5873_row27_col2" class="data row27 col2">1</td>
-<td id="T_a5873_row27_col3" class="data row27 col3">0.016667</td>
-<td id="T_a5873_row27_col4" class="data row27 col4">105.316667</td>
-<td id="T_a5873_row27_col5" class="data row27 col5">0.011125</td>
-<td id="T_a5873_row27_col6" class="data row27 col6">70.298875</td>
+<td id="T_ff95b_level0_row27" class="row_heading level0 row27" data-quarto-table-cell-role="th">27</td>
+<td id="T_ff95b_row27_col0" class="data row27 col0">107</td>
+<td id="T_ff95b_row27_col1" class="data row27 col1">7597</td>
+<td id="T_ff95b_row27_col2" class="data row27 col2">1</td>
+<td id="T_ff95b_row27_col3" class="data row27 col3">0.016667</td>
+<td id="T_ff95b_row27_col4" class="data row27 col4">126.616667</td>
+<td id="T_ff95b_row27_col5" class="data row27 col5">0.013375</td>
+<td id="T_ff95b_row27_col6" class="data row27 col6">101.609875</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row28" class="row_heading level0 row28" data-quarto-table-cell-role="th">28</td>
-<td id="T_a5873_row28_col0" class="data row28 col0">92</td>
-<td id="T_a5873_row28_col1" class="data row28 col1">6532</td>
-<td id="T_a5873_row28_col2" class="data row28 col2">1</td>
-<td id="T_a5873_row28_col3" class="data row28 col3">0.016667</td>
-<td id="T_a5873_row28_col4" class="data row28 col4">108.866667</td>
-<td id="T_a5873_row28_col5" class="data row28 col5">0.011500</td>
-<td id="T_a5873_row28_col6" class="data row28 col6">75.118000</td>
+<td id="T_ff95b_level0_row28" class="row_heading level0 row28" data-quarto-table-cell-role="th">28</td>
+<td id="T_ff95b_row28_col0" class="data row28 col0">109</td>
+<td id="T_ff95b_row28_col1" class="data row28 col1">7739</td>
+<td id="T_ff95b_row28_col2" class="data row28 col2">1</td>
+<td id="T_ff95b_row28_col3" class="data row28 col3">0.016667</td>
+<td id="T_ff95b_row28_col4" class="data row28 col4">128.983333</td>
+<td id="T_ff95b_row28_col5" class="data row28 col5">0.013625</td>
+<td id="T_ff95b_row28_col6" class="data row28 col6">105.443875</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row29" class="row_heading level0 row29" data-quarto-table-cell-role="th">29</td>
-<td id="T_a5873_row29_col0" class="data row29 col0">96</td>
-<td id="T_a5873_row29_col1" class="data row29 col1">6816</td>
-<td id="T_a5873_row29_col2" class="data row29 col2">1</td>
-<td id="T_a5873_row29_col3" class="data row29 col3">0.016667</td>
-<td id="T_a5873_row29_col4" class="data row29 col4">113.600000</td>
-<td id="T_a5873_row29_col5" class="data row29 col5">0.012000</td>
-<td id="T_a5873_row29_col6" class="data row29 col6">81.792000</td>
+<td id="T_ff95b_level0_row29" class="row_heading level0 row29" data-quarto-table-cell-role="th">29</td>
+<td id="T_ff95b_row29_col0" class="data row29 col0">114</td>
+<td id="T_ff95b_row29_col1" class="data row29 col1">8094</td>
+<td id="T_ff95b_row29_col2" class="data row29 col2">1</td>
+<td id="T_ff95b_row29_col3" class="data row29 col3">0.016667</td>
+<td id="T_ff95b_row29_col4" class="data row29 col4">134.900000</td>
+<td id="T_ff95b_row29_col5" class="data row29 col5">0.014250</td>
+<td id="T_ff95b_row29_col6" class="data row29 col6">115.339500</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row30" class="row_heading level0 row30" data-quarto-table-cell-role="th">30</td>
-<td id="T_a5873_row30_col0" class="data row30 col0">97</td>
-<td id="T_a5873_row30_col1" class="data row30 col1">6887</td>
-<td id="T_a5873_row30_col2" class="data row30 col2">1</td>
-<td id="T_a5873_row30_col3" class="data row30 col3">0.016667</td>
-<td id="T_a5873_row30_col4" class="data row30 col4">114.783333</td>
-<td id="T_a5873_row30_col5" class="data row30 col5">0.012125</td>
-<td id="T_a5873_row30_col6" class="data row30 col6">83.504875</td>
+<td id="T_ff95b_level0_row30" class="row_heading level0 row30" data-quarto-table-cell-role="th">30</td>
+<td id="T_ff95b_row30_col0" class="data row30 col0">117</td>
+<td id="T_ff95b_row30_col1" class="data row30 col1">8307</td>
+<td id="T_ff95b_row30_col2" class="data row30 col2">1</td>
+<td id="T_ff95b_row30_col3" class="data row30 col3">0.016667</td>
+<td id="T_ff95b_row30_col4" class="data row30 col4">138.450000</td>
+<td id="T_ff95b_row30_col5" class="data row30 col5">0.014625</td>
+<td id="T_ff95b_row30_col6" class="data row30 col6">121.489875</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row31" class="row_heading level0 row31" data-quarto-table-cell-role="th">31</td>
-<td id="T_a5873_row31_col0" class="data row31 col0">104</td>
-<td id="T_a5873_row31_col1" class="data row31 col1">7384</td>
-<td id="T_a5873_row31_col2" class="data row31 col2">1</td>
-<td id="T_a5873_row31_col3" class="data row31 col3">0.016667</td>
-<td id="T_a5873_row31_col4" class="data row31 col4">123.066667</td>
-<td id="T_a5873_row31_col5" class="data row31 col5">0.013000</td>
-<td id="T_a5873_row31_col6" class="data row31 col6">95.992000</td>
+<td id="T_ff95b_level0_row31" class="row_heading level0 row31" data-quarto-table-cell-role="th">31</td>
+<td id="T_ff95b_row31_col0" class="data row31 col0">127</td>
+<td id="T_ff95b_row31_col1" class="data row31 col1">9017</td>
+<td id="T_ff95b_row31_col2" class="data row31 col2">1</td>
+<td id="T_ff95b_row31_col3" class="data row31 col3">0.016667</td>
+<td id="T_ff95b_row31_col4" class="data row31 col4">150.283333</td>
+<td id="T_ff95b_row31_col5" class="data row31 col5">0.015875</td>
+<td id="T_ff95b_row31_col6" class="data row31 col6">143.144875</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row32" class="row_heading level0 row32" data-quarto-table-cell-role="th">32</td>
-<td id="T_a5873_row32_col0" class="data row32 col0">107</td>
-<td id="T_a5873_row32_col1" class="data row32 col1">7597</td>
-<td id="T_a5873_row32_col2" class="data row32 col2">1</td>
-<td id="T_a5873_row32_col3" class="data row32 col3">0.016667</td>
-<td id="T_a5873_row32_col4" class="data row32 col4">126.616667</td>
-<td id="T_a5873_row32_col5" class="data row32 col5">0.013375</td>
-<td id="T_a5873_row32_col6" class="data row32 col6">101.609875</td>
+<td id="T_ff95b_level0_row32" class="row_heading level0 row32" data-quarto-table-cell-role="th">32</td>
+<td id="T_ff95b_row32_col0" class="data row32 col0">133</td>
+<td id="T_ff95b_row32_col1" class="data row32 col1">9443</td>
+<td id="T_ff95b_row32_col2" class="data row32 col2">1</td>
+<td id="T_ff95b_row32_col3" class="data row32 col3">0.016667</td>
+<td id="T_ff95b_row32_col4" class="data row32 col4">157.383333</td>
+<td id="T_ff95b_row32_col5" class="data row32 col5">0.016625</td>
+<td id="T_ff95b_row32_col6" class="data row32 col6">156.989875</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row33" class="row_heading level0 row33" data-quarto-table-cell-role="th">33</td>
-<td id="T_a5873_row33_col0" class="data row33 col0">112</td>
-<td id="T_a5873_row33_col1" class="data row33 col1">7952</td>
-<td id="T_a5873_row33_col2" class="data row33 col2">1</td>
-<td id="T_a5873_row33_col3" class="data row33 col3">0.016667</td>
-<td id="T_a5873_row33_col4" class="data row33 col4">132.533333</td>
-<td id="T_a5873_row33_col5" class="data row33 col5">0.014000</td>
-<td id="T_a5873_row33_col6" class="data row33 col6">111.328000</td>
+<td id="T_ff95b_level0_row33" class="row_heading level0 row33" data-quarto-table-cell-role="th">33</td>
+<td id="T_ff95b_row33_col0" class="data row33 col0">135</td>
+<td id="T_ff95b_row33_col1" class="data row33 col1">9585</td>
+<td id="T_ff95b_row33_col2" class="data row33 col2">1</td>
+<td id="T_ff95b_row33_col3" class="data row33 col3">0.016667</td>
+<td id="T_ff95b_row33_col4" class="data row33 col4">159.750000</td>
+<td id="T_ff95b_row33_col5" class="data row33 col5">0.016875</td>
+<td id="T_ff95b_row33_col6" class="data row33 col6">161.746875</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row34" class="row_heading level0 row34" data-quarto-table-cell-role="th">34</td>
-<td id="T_a5873_row34_col0" class="data row34 col0">129</td>
-<td id="T_a5873_row34_col1" class="data row34 col1">9159</td>
-<td id="T_a5873_row34_col2" class="data row34 col2">1</td>
-<td id="T_a5873_row34_col3" class="data row34 col3">0.016667</td>
-<td id="T_a5873_row34_col4" class="data row34 col4">152.650000</td>
-<td id="T_a5873_row34_col5" class="data row34 col5">0.016125</td>
-<td id="T_a5873_row34_col6" class="data row34 col6">147.688875</td>
+<td id="T_ff95b_level0_row34" class="row_heading level0 row34" data-quarto-table-cell-role="th">34</td>
+<td id="T_ff95b_row34_col0" class="data row34 col0">142</td>
+<td id="T_ff95b_row34_col1" class="data row34 col1">10082</td>
+<td id="T_ff95b_row34_col2" class="data row34 col2">1</td>
+<td id="T_ff95b_row34_col3" class="data row34 col3">0.016667</td>
+<td id="T_ff95b_row34_col4" class="data row34 col4">168.033333</td>
+<td id="T_ff95b_row34_col5" class="data row34 col5">0.017750</td>
+<td id="T_ff95b_row34_col6" class="data row34 col6">178.955500</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row35" class="row_heading level0 row35" data-quarto-table-cell-role="th">35</td>
-<td id="T_a5873_row35_col0" class="data row35 col0">131</td>
-<td id="T_a5873_row35_col1" class="data row35 col1">9301</td>
-<td id="T_a5873_row35_col2" class="data row35 col2">1</td>
-<td id="T_a5873_row35_col3" class="data row35 col3">0.016667</td>
-<td id="T_a5873_row35_col4" class="data row35 col4">155.016667</td>
-<td id="T_a5873_row35_col5" class="data row35 col5">0.016375</td>
-<td id="T_a5873_row35_col6" class="data row35 col6">152.303875</td>
+<td id="T_ff95b_level0_row35" class="row_heading level0 row35" data-quarto-table-cell-role="th">35</td>
+<td id="T_ff95b_row35_col0" class="data row35 col0">143</td>
+<td id="T_ff95b_row35_col1" class="data row35 col1">10153</td>
+<td id="T_ff95b_row35_col2" class="data row35 col2">2</td>
+<td id="T_ff95b_row35_col3" class="data row35 col3">0.033333</td>
+<td id="T_ff95b_row35_col4" class="data row35 col4">338.433333</td>
+<td id="T_ff95b_row35_col5" class="data row35 col5">0.035750</td>
+<td id="T_ff95b_row35_col6" class="data row35 col6">362.969750</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row36" class="row_heading level0 row36" data-quarto-table-cell-role="th">36</td>
-<td id="T_a5873_row36_col0" class="data row36 col0">148</td>
-<td id="T_a5873_row36_col1" class="data row36 col1">10508</td>
-<td id="T_a5873_row36_col2" class="data row36 col2">1</td>
-<td id="T_a5873_row36_col3" class="data row36 col3">0.016667</td>
-<td id="T_a5873_row36_col4" class="data row36 col4">175.133333</td>
-<td id="T_a5873_row36_col5" class="data row36 col5">0.018500</td>
-<td id="T_a5873_row36_col6" class="data row36 col6">194.398000</td>
+<td id="T_ff95b_level0_row36" class="row_heading level0 row36" data-quarto-table-cell-role="th">36</td>
+<td id="T_ff95b_row36_col0" class="data row36 col0">179</td>
+<td id="T_ff95b_row36_col1" class="data row36 col1">12709</td>
+<td id="T_ff95b_row36_col2" class="data row36 col2">1</td>
+<td id="T_ff95b_row36_col3" class="data row36 col3">0.016667</td>
+<td id="T_ff95b_row36_col4" class="data row36 col4">211.816667</td>
+<td id="T_ff95b_row36_col5" class="data row36 col5">0.022375</td>
+<td id="T_ff95b_row36_col6" class="data row36 col6">284.363875</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row37" class="row_heading level0 row37" data-quarto-table-cell-role="th">37</td>
-<td id="T_a5873_row37_col0" class="data row37 col0">154</td>
-<td id="T_a5873_row37_col1" class="data row37 col1">10934</td>
-<td id="T_a5873_row37_col2" class="data row37 col2">1</td>
-<td id="T_a5873_row37_col3" class="data row37 col3">0.016667</td>
-<td id="T_a5873_row37_col4" class="data row37 col4">182.233333</td>
-<td id="T_a5873_row37_col5" class="data row37 col5">0.019250</td>
-<td id="T_a5873_row37_col6" class="data row37 col6">210.479500</td>
+<td id="T_ff95b_level0_row37" class="row_heading level0 row37" data-quarto-table-cell-role="th">37</td>
+<td id="T_ff95b_row37_col0" class="data row37 col0">183</td>
+<td id="T_ff95b_row37_col1" class="data row37 col1">12993</td>
+<td id="T_ff95b_row37_col2" class="data row37 col2">1</td>
+<td id="T_ff95b_row37_col3" class="data row37 col3">0.016667</td>
+<td id="T_ff95b_row37_col4" class="data row37 col4">216.550000</td>
+<td id="T_ff95b_row37_col5" class="data row37 col5">0.022875</td>
+<td id="T_ff95b_row37_col6" class="data row37 col6">297.214875</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row38" class="row_heading level0 row38" data-quarto-table-cell-role="th">38</td>
-<td id="T_a5873_row38_col0" class="data row38 col0">167</td>
-<td id="T_a5873_row38_col1" class="data row38 col1">11857</td>
-<td id="T_a5873_row38_col2" class="data row38 col2">1</td>
-<td id="T_a5873_row38_col3" class="data row38 col3">0.016667</td>
-<td id="T_a5873_row38_col4" class="data row38 col4">197.616667</td>
-<td id="T_a5873_row38_col5" class="data row38 col5">0.020875</td>
-<td id="T_a5873_row38_col6" class="data row38 col6">247.514875</td>
+<td id="T_ff95b_level0_row38" class="row_heading level0 row38" data-quarto-table-cell-role="th">38</td>
+<td id="T_ff95b_row38_col0" class="data row38 col0">195</td>
+<td id="T_ff95b_row38_col1" class="data row38 col1">13845</td>
+<td id="T_ff95b_row38_col2" class="data row38 col2">1</td>
+<td id="T_ff95b_row38_col3" class="data row38 col3">0.016667</td>
+<td id="T_ff95b_row38_col4" class="data row38 col4">230.750000</td>
+<td id="T_ff95b_row38_col5" class="data row38 col5">0.024375</td>
+<td id="T_ff95b_row38_col6" class="data row38 col6">337.471875</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row39" class="row_heading level0 row39" data-quarto-table-cell-role="th">39</td>
-<td id="T_a5873_row39_col0" class="data row39 col0">168</td>
-<td id="T_a5873_row39_col1" class="data row39 col1">11928</td>
-<td id="T_a5873_row39_col2" class="data row39 col2">1</td>
-<td id="T_a5873_row39_col3" class="data row39 col3">0.016667</td>
-<td id="T_a5873_row39_col4" class="data row39 col4">198.800000</td>
-<td id="T_a5873_row39_col5" class="data row39 col5">0.021000</td>
-<td id="T_a5873_row39_col6" class="data row39 col6">250.488000</td>
+<td id="T_ff95b_level0_row39" class="row_heading level0 row39" data-quarto-table-cell-role="th">39</td>
+<td id="T_ff95b_row39_col0" class="data row39 col0">217</td>
+<td id="T_ff95b_row39_col1" class="data row39 col1">15407</td>
+<td id="T_ff95b_row39_col2" class="data row39 col2">1</td>
+<td id="T_ff95b_row39_col3" class="data row39 col3">0.016667</td>
+<td id="T_ff95b_row39_col4" class="data row39 col4">256.783333</td>
+<td id="T_ff95b_row39_col5" class="data row39 col5">0.027125</td>
+<td id="T_ff95b_row39_col6" class="data row39 col6">417.914875</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row40" class="row_heading level0 row40" data-quarto-table-cell-role="th">40</td>
-<td id="T_a5873_row40_col0" class="data row40 col0">178</td>
-<td id="T_a5873_row40_col1" class="data row40 col1">12638</td>
-<td id="T_a5873_row40_col2" class="data row40 col2">2</td>
-<td id="T_a5873_row40_col3" class="data row40 col3">0.033333</td>
-<td id="T_a5873_row40_col4" class="data row40 col4">421.266667</td>
-<td id="T_a5873_row40_col5" class="data row40 col5">0.044500</td>
-<td id="T_a5873_row40_col6" class="data row40 col6">562.391000</td>
+<td id="T_ff95b_level0_row40" class="row_heading level0 row40" data-quarto-table-cell-role="th">40</td>
+<td id="T_ff95b_row40_col0" class="data row40 col0">223</td>
+<td id="T_ff95b_row40_col1" class="data row40 col1">15833</td>
+<td id="T_ff95b_row40_col2" class="data row40 col2">1</td>
+<td id="T_ff95b_row40_col3" class="data row40 col3">0.016667</td>
+<td id="T_ff95b_row40_col4" class="data row40 col4">263.883333</td>
+<td id="T_ff95b_row40_col5" class="data row40 col5">0.027875</td>
+<td id="T_ff95b_row40_col6" class="data row40 col6">441.344875</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row41" class="row_heading level0 row41" data-quarto-table-cell-role="th">41</td>
-<td id="T_a5873_row41_col0" class="data row41 col0">213</td>
-<td id="T_a5873_row41_col1" class="data row41 col1">15123</td>
-<td id="T_a5873_row41_col2" class="data row41 col2">1</td>
-<td id="T_a5873_row41_col3" class="data row41 col3">0.016667</td>
-<td id="T_a5873_row41_col4" class="data row41 col4">252.050000</td>
-<td id="T_a5873_row41_col5" class="data row41 col5">0.026625</td>
-<td id="T_a5873_row41_col6" class="data row41 col6">402.649875</td>
+<td id="T_ff95b_level0_row41" class="row_heading level0 row41" data-quarto-table-cell-role="th">41</td>
+<td id="T_ff95b_row41_col0" class="data row41 col0">224</td>
+<td id="T_ff95b_row41_col1" class="data row41 col1">15904</td>
+<td id="T_ff95b_row41_col2" class="data row41 col2">1</td>
+<td id="T_ff95b_row41_col3" class="data row41 col3">0.016667</td>
+<td id="T_ff95b_row41_col4" class="data row41 col4">265.066667</td>
+<td id="T_ff95b_row41_col5" class="data row41 col5">0.028000</td>
+<td id="T_ff95b_row41_col6" class="data row41 col6">445.312000</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row42" class="row_heading level0 row42" data-quarto-table-cell-role="th">42</td>
-<td id="T_a5873_row42_col0" class="data row42 col0">221</td>
-<td id="T_a5873_row42_col1" class="data row42 col1">15691</td>
-<td id="T_a5873_row42_col2" class="data row42 col2">1</td>
-<td id="T_a5873_row42_col3" class="data row42 col3">0.016667</td>
-<td id="T_a5873_row42_col4" class="data row42 col4">261.516667</td>
-<td id="T_a5873_row42_col5" class="data row42 col5">0.027625</td>
-<td id="T_a5873_row42_col6" class="data row42 col6">433.463875</td>
+<td id="T_ff95b_level0_row42" class="row_heading level0 row42" data-quarto-table-cell-role="th">42</td>
+<td id="T_ff95b_row42_col0" class="data row42 col0">247</td>
+<td id="T_ff95b_row42_col1" class="data row42 col1">17537</td>
+<td id="T_ff95b_row42_col2" class="data row42 col2">1</td>
+<td id="T_ff95b_row42_col3" class="data row42 col3">0.016667</td>
+<td id="T_ff95b_row42_col4" class="data row42 col4">292.283333</td>
+<td id="T_ff95b_row42_col5" class="data row42 col5">0.030875</td>
+<td id="T_ff95b_row42_col6" class="data row42 col6">541.454875</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row43" class="row_heading level0 row43" data-quarto-table-cell-role="th">43</td>
-<td id="T_a5873_row43_col0" class="data row43 col0">253</td>
-<td id="T_a5873_row43_col1" class="data row43 col1">17963</td>
-<td id="T_a5873_row43_col2" class="data row43 col2">1</td>
-<td id="T_a5873_row43_col3" class="data row43 col3">0.016667</td>
-<td id="T_a5873_row43_col4" class="data row43 col4">299.383333</td>
-<td id="T_a5873_row43_col5" class="data row43 col5">0.031625</td>
-<td id="T_a5873_row43_col6" class="data row43 col6">568.079875</td>
+<td id="T_ff95b_level0_row43" class="row_heading level0 row43" data-quarto-table-cell-role="th">43</td>
+<td id="T_ff95b_row43_col0" class="data row43 col0">257</td>
+<td id="T_ff95b_row43_col1" class="data row43 col1">18247</td>
+<td id="T_ff95b_row43_col2" class="data row43 col2">1</td>
+<td id="T_ff95b_row43_col3" class="data row43 col3">0.016667</td>
+<td id="T_ff95b_row43_col4" class="data row43 col4">304.116667</td>
+<td id="T_ff95b_row43_col5" class="data row43 col5">0.032125</td>
+<td id="T_ff95b_row43_col6" class="data row43 col6">586.184875</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row44" class="row_heading level0 row44" data-quarto-table-cell-role="th">44</td>
-<td id="T_a5873_row44_col0" class="data row44 col0">264</td>
-<td id="T_a5873_row44_col1" class="data row44 col1">18744</td>
-<td id="T_a5873_row44_col2" class="data row44 col2">1</td>
-<td id="T_a5873_row44_col3" class="data row44 col3">0.016667</td>
-<td id="T_a5873_row44_col4" class="data row44 col4">312.400000</td>
-<td id="T_a5873_row44_col5" class="data row44 col5">0.033000</td>
-<td id="T_a5873_row44_col6" class="data row44 col6">618.552000</td>
+<td id="T_ff95b_level0_row44" class="row_heading level0 row44" data-quarto-table-cell-role="th">44</td>
+<td id="T_ff95b_row44_col0" class="data row44 col0">331</td>
+<td id="T_ff95b_row44_col1" class="data row44 col1">23501</td>
+<td id="T_ff95b_row44_col2" class="data row44 col2">1</td>
+<td id="T_ff95b_row44_col3" class="data row44 col3">0.016667</td>
+<td id="T_ff95b_row44_col4" class="data row44 col4">391.683333</td>
+<td id="T_ff95b_row44_col5" class="data row44 col5">0.041375</td>
+<td id="T_ff95b_row44_col6" class="data row44 col6">972.353875</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row45" class="row_heading level0 row45" data-quarto-table-cell-role="th">45</td>
-<td id="T_a5873_row45_col0" class="data row45 col0">269</td>
-<td id="T_a5873_row45_col1" class="data row45 col1">19099</td>
-<td id="T_a5873_row45_col2" class="data row45 col2">1</td>
-<td id="T_a5873_row45_col3" class="data row45 col3">0.016667</td>
-<td id="T_a5873_row45_col4" class="data row45 col4">318.316667</td>
-<td id="T_a5873_row45_col5" class="data row45 col5">0.033625</td>
-<td id="T_a5873_row45_col6" class="data row45 col6">642.203875</td>
+<td id="T_ff95b_level0_row45" class="row_heading level0 row45" data-quarto-table-cell-role="th">45</td>
+<td id="T_ff95b_row45_col0" class="data row45 col0">359</td>
+<td id="T_ff95b_row45_col1" class="data row45 col1">25489</td>
+<td id="T_ff95b_row45_col2" class="data row45 col2">1</td>
+<td id="T_ff95b_row45_col3" class="data row45 col3">0.016667</td>
+<td id="T_ff95b_row45_col4" class="data row45 col4">424.816667</td>
+<td id="T_ff95b_row45_col5" class="data row45 col5">0.044875</td>
+<td id="T_ff95b_row45_col6" class="data row45 col6">1143.818875</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row46" class="row_heading level0 row46" data-quarto-table-cell-role="th">46</td>
-<td id="T_a5873_row46_col0" class="data row46 col0">284</td>
-<td id="T_a5873_row46_col1" class="data row46 col1">20164</td>
-<td id="T_a5873_row46_col2" class="data row46 col2">1</td>
-<td id="T_a5873_row46_col3" class="data row46 col3">0.016667</td>
-<td id="T_a5873_row46_col4" class="data row46 col4">336.066667</td>
-<td id="T_a5873_row46_col5" class="data row46 col5">0.035500</td>
-<td id="T_a5873_row46_col6" class="data row46 col6">715.822000</td>
+<td id="T_ff95b_level0_row46" class="row_heading level0 row46" data-quarto-table-cell-role="th">46</td>
+<td id="T_ff95b_row46_col0" class="data row46 col0">376</td>
+<td id="T_ff95b_row46_col1" class="data row46 col1">26696</td>
+<td id="T_ff95b_row46_col2" class="data row46 col2">1</td>
+<td id="T_ff95b_row46_col3" class="data row46 col3">0.016667</td>
+<td id="T_ff95b_row46_col4" class="data row46 col4">444.933333</td>
+<td id="T_ff95b_row46_col5" class="data row46 col5">0.047000</td>
+<td id="T_ff95b_row46_col6" class="data row46 col6">1254.712000</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row47" class="row_heading level0 row47" data-quarto-table-cell-role="th">47</td>
-<td id="T_a5873_row47_col0" class="data row47 col0">294</td>
-<td id="T_a5873_row47_col1" class="data row47 col1">20874</td>
-<td id="T_a5873_row47_col2" class="data row47 col2">1</td>
-<td id="T_a5873_row47_col3" class="data row47 col3">0.016667</td>
-<td id="T_a5873_row47_col4" class="data row47 col4">347.900000</td>
-<td id="T_a5873_row47_col5" class="data row47 col5">0.036750</td>
-<td id="T_a5873_row47_col6" class="data row47 col6">767.119500</td>
+<td id="T_ff95b_level0_row47" class="row_heading level0 row47" data-quarto-table-cell-role="th">47</td>
+<td id="T_ff95b_row47_col0" class="data row47 col0">394</td>
+<td id="T_ff95b_row47_col1" class="data row47 col1">27974</td>
+<td id="T_ff95b_row47_col2" class="data row47 col2">1</td>
+<td id="T_ff95b_row47_col3" class="data row47 col3">0.016667</td>
+<td id="T_ff95b_row47_col4" class="data row47 col4">466.233333</td>
+<td id="T_ff95b_row47_col5" class="data row47 col5">0.049250</td>
+<td id="T_ff95b_row47_col6" class="data row47 col6">1377.719500</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row48" class="row_heading level0 row48" data-quarto-table-cell-role="th">48</td>
-<td id="T_a5873_row48_col0" class="data row48 col0">305</td>
-<td id="T_a5873_row48_col1" class="data row48 col1">21655</td>
-<td id="T_a5873_row48_col2" class="data row48 col2">1</td>
-<td id="T_a5873_row48_col3" class="data row48 col3">0.016667</td>
-<td id="T_a5873_row48_col4" class="data row48 col4">360.916667</td>
-<td id="T_a5873_row48_col5" class="data row48 col5">0.038125</td>
-<td id="T_a5873_row48_col6" class="data row48 col6">825.596875</td>
+<td id="T_ff95b_level0_row48" class="row_heading level0 row48" data-quarto-table-cell-role="th">48</td>
+<td id="T_ff95b_row48_col0" class="data row48 col0">448</td>
+<td id="T_ff95b_row48_col1" class="data row48 col1">31808</td>
+<td id="T_ff95b_row48_col2" class="data row48 col2">1</td>
+<td id="T_ff95b_row48_col3" class="data row48 col3">0.016667</td>
+<td id="T_ff95b_row48_col4" class="data row48 col4">530.133333</td>
+<td id="T_ff95b_row48_col5" class="data row48 col5">0.056000</td>
+<td id="T_ff95b_row48_col6" class="data row48 col6">1781.248000</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row49" class="row_heading level0 row49" data-quarto-table-cell-role="th">49</td>
-<td id="T_a5873_row49_col0" class="data row49 col0">344</td>
-<td id="T_a5873_row49_col1" class="data row49 col1">24424</td>
-<td id="T_a5873_row49_col2" class="data row49 col2">1</td>
-<td id="T_a5873_row49_col3" class="data row49 col3">0.016667</td>
-<td id="T_a5873_row49_col4" class="data row49 col4">407.066667</td>
-<td id="T_a5873_row49_col5" class="data row49 col5">0.043000</td>
-<td id="T_a5873_row49_col6" class="data row49 col6">1050.232000</td>
+<td id="T_ff95b_level0_row49" class="row_heading level0 row49" data-quarto-table-cell-role="th">49</td>
+<td id="T_ff95b_row49_col0" class="data row49 col0">452</td>
+<td id="T_ff95b_row49_col1" class="data row49 col1">32092</td>
+<td id="T_ff95b_row49_col2" class="data row49 col2">1</td>
+<td id="T_ff95b_row49_col3" class="data row49 col3">0.016667</td>
+<td id="T_ff95b_row49_col4" class="data row49 col4">534.866667</td>
+<td id="T_ff95b_row49_col5" class="data row49 col5">0.056500</td>
+<td id="T_ff95b_row49_col6" class="data row49 col6">1813.198000</td>
 </tr>
 <tr class="odd">
-<td id="T_a5873_level0_row50" class="row_heading level0 row50" data-quarto-table-cell-role="th">50</td>
-<td id="T_a5873_row50_col0" class="data row50 col0">353</td>
-<td id="T_a5873_row50_col1" class="data row50 col1">25063</td>
-<td id="T_a5873_row50_col2" class="data row50 col2">1</td>
-<td id="T_a5873_row50_col3" class="data row50 col3">0.016667</td>
-<td id="T_a5873_row50_col4" class="data row50 col4">417.716667</td>
-<td id="T_a5873_row50_col5" class="data row50 col5">0.044125</td>
-<td id="T_a5873_row50_col6" class="data row50 col6">1105.904875</td>
+<td id="T_ff95b_level0_row50" class="row_heading level0 row50" data-quarto-table-cell-role="th">50</td>
+<td id="T_ff95b_row50_col0" class="data row50 col0">504</td>
+<td id="T_ff95b_row50_col1" class="data row50 col1">35784</td>
+<td id="T_ff95b_row50_col2" class="data row50 col2">1</td>
+<td id="T_ff95b_row50_col3" class="data row50 col3">0.016667</td>
+<td id="T_ff95b_row50_col4" class="data row50 col4">596.400000</td>
+<td id="T_ff95b_row50_col5" class="data row50 col5">0.063000</td>
+<td id="T_ff95b_row50_col6" class="data row50 col6">2254.392000</td>
 </tr>
 <tr class="even">
-<td id="T_a5873_level0_row51" class="row_heading level0 row51" data-quarto-table-cell-role="th">51</td>
-<td id="T_a5873_row51_col0" class="data row51 col0">368</td>
-<td id="T_a5873_row51_col1" class="data row51 col1">26128</td>
-<td id="T_a5873_row51_col2" class="data row51 col2">1</td>
-<td id="T_a5873_row51_col3" class="data row51 col3">0.016667</td>
-<td id="T_a5873_row51_col4" class="data row51 col4">435.466667</td>
-<td id="T_a5873_row51_col5" class="data row51 col5">0.046000</td>
-<td id="T_a5873_row51_col6" class="data row51 col6">1201.888000</td>
-</tr>
-<tr class="odd">
-<td id="T_a5873_level0_row52" class="row_heading level0 row52" data-quarto-table-cell-role="th">52</td>
-<td id="T_a5873_row52_col0" class="data row52 col0">430</td>
-<td id="T_a5873_row52_col1" class="data row52 col1">30530</td>
-<td id="T_a5873_row52_col2" class="data row52 col2">1</td>
-<td id="T_a5873_row52_col3" class="data row52 col3">0.016667</td>
-<td id="T_a5873_row52_col4" class="data row52 col4">508.833333</td>
-<td id="T_a5873_row52_col5" class="data row52 col5">0.053750</td>
-<td id="T_a5873_row52_col6" class="data row52 col6">1640.987500</td>
-</tr>
-<tr class="even">
-<td id="T_a5873_level0_row53" class="row_heading level0 row53" data-quarto-table-cell-role="th">53</td>
-<td id="T_a5873_row53_col0" class="data row53 col0">436</td>
-<td id="T_a5873_row53_col1" class="data row53 col1">30956</td>
-<td id="T_a5873_row53_col2" class="data row53 col2">1</td>
-<td id="T_a5873_row53_col3" class="data row53 col3">0.016667</td>
-<td id="T_a5873_row53_col4" class="data row53 col4">515.933333</td>
-<td id="T_a5873_row53_col5" class="data row53 col5">0.054500</td>
-<td id="T_a5873_row53_col6" class="data row53 col6">1687.102000</td>
-</tr>
-<tr class="odd">
-<td id="T_a5873_level0_row54" class="row_heading level0 row54" data-quarto-table-cell-role="th">54</td>
-<td id="T_a5873_row54_col0" class="data row54 col0">589</td>
-<td id="T_a5873_row54_col1" class="data row54 col1">41819</td>
-<td id="T_a5873_row54_col2" class="data row54 col2">1</td>
-<td id="T_a5873_row54_col3" class="data row54 col3">0.016667</td>
-<td id="T_a5873_row54_col4" class="data row54 col4">696.983333</td>
-<td id="T_a5873_row54_col5" class="data row54 col5">0.073625</td>
-<td id="T_a5873_row54_col6" class="data row54 col6">3078.923875</td>
+<td id="T_ff95b_level0_row51" class="row_heading level0 row51" data-quarto-table-cell-role="th">51</td>
+<td id="T_ff95b_row51_col0" class="data row51 col0">588</td>
+<td id="T_ff95b_row51_col1" class="data row51 col1">41748</td>
+<td id="T_ff95b_row51_col2" class="data row51 col2">1</td>
+<td id="T_ff95b_row51_col3" class="data row51 col3">0.016667</td>
+<td id="T_ff95b_row51_col4" class="data row51 col4">695.800000</td>
+<td id="T_ff95b_row51_col5" class="data row51 col5">0.073500</td>
+<td id="T_ff95b_row51_col6" class="data row51 col6">3068.478000</td>
 </tr>
 </tbody>
 </table>
@@ -1538,33 +1521,33 @@ MathJax.Hub.Config({
 
 </div>
 </div>
-<div id="cell-9" class="cell" data-outputid="d87b69c0-2cba-4590-9feb-234473a2e0a3" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title {display-mode: "form" }</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>Markdown(<span class="ss">f"The number average molecular weight ($M_n$) is </span><span class="sc">{</span><span class="bu">round</span>(Mn_1, sigfigs<span class="op">=</span><span class="dv">4</span>)<span class="sc">}</span><span class="ss">, weight average ($M_w$) is </span><span class="sc">{</span><span class="bu">round</span>(Mw_1, sigfigs<span class="op">=</span><span class="dv">4</span>)<span class="sc">}</span><span class="ss">, the molecular weight distribution can be represented by the value of $M_w/M_n$, which is </span><span class="sc">{</span><span class="bu">round</span>(Mw_1<span class="op">/</span>Mn_1,sigfigs<span class="op">=</span><span class="dv">3</span>)<span class="sc">}</span><span class="ss">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="7">
-<p>The number average molecular weight (<span class="math inline">\(M_n\)</span>) is 9467.0, weight average (<span class="math inline">\(M_w\)</span>) is 17900.0, the molecular weight distribution can be represented by the value of <span class="math inline">\(M_w/M_n\)</span>, which is 1.89.</p>
+<div id="cell-10" class="cell" data-outputid="52cee546-0561-482e-bff2-bda2aee6ce50" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title {display-mode: "form" }</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>Markdown(<span class="ss">f"The number average molecular weight ($M_n$) is </span><span class="sc">{</span><span class="bu">round</span>(Mn_1, sigfigs<span class="op">=</span><span class="dv">4</span>)<span class="sc">}</span><span class="ss">, weight average ($M_w$) is </span><span class="sc">{</span><span class="bu">round</span>(Mw_1, sigfigs<span class="op">=</span><span class="dv">4</span>)<span class="sc">}</span><span class="ss">, the molecular weight distribution can be represented by the value of $M_w/M_n$, which is </span><span class="sc">{</span><span class="bu">round</span>(Mw_1<span class="op">/</span>Mn_1,sigfigs<span class="op">=</span><span class="dv">3</span>)<span class="sc">}</span><span class="ss">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="20">
+<p>The number average molecular weight (<span class="math inline">\(M_n\)</span>) is 9467.0, weight average (<span class="math inline">\(M_w\)</span>) is 19380.0, the molecular weight distribution can be represented by the value of <span class="math inline">\(M_w/M_n\)</span>, which is 2.05.</p>
 </div>
 </div>
-<div id="cell-10" class="cell" data-outputid="be3c8f72-2468-4195-aeaa-251a7e62bd28" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title Calculation by moments { display-mode: "form" }</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown The $n$-th moment simply equals:</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown $$Mn=\sum_i M_i^n\times x_i$$</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>Markdown(<span class="ss">f"The number average molecular weight ($M_n$) equals the first moment ($M1$) which is </span><span class="sc">{</span><span class="bu">round</span>(Mn_1, sigfigs<span class="op">=</span><span class="dv">4</span>)<span class="sc">}</span><span class="ss">. The second moment ($M2$) is </span><span class="sc">{</span><span class="bu">round</span>(M2, sigfigs<span class="op">=</span><span class="dv">4</span>)<span class="sc">}</span><span class="ss">. The weight average ($M_w$) equals $M2/M1$ which is </span><span class="sc">{</span><span class="bu">round</span>(Mw_1, sigfigs<span class="op">=</span><span class="dv">4</span>)<span class="sc">}</span><span class="ss">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="8">
-<p>The number average molecular weight (<span class="math inline">\(M_n\)</span>) equals the first moment (<span class="math inline">\(M1\)</span>) which is 9467.0. The second moment (<span class="math inline">\(M2\)</span>) is 169500000.0. The weight average (<span class="math inline">\(M_w\)</span>) equals <span class="math inline">\(M2/M1\)</span> which is 17900.0.</p>
+<div id="cell-11" class="cell" data-outputid="ccab532b-948a-43a4-8025-e6a88358d24e" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title Calculation by moments { display-mode: "form" }</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown The $n$-th moment simply equals:</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown $$Mn=\sum_i M_i^n\times x_i$$</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>Markdown(<span class="ss">f"The number average molecular weight ($M_n$) equals the first moment ($M1$) which is </span><span class="sc">{</span><span class="bu">round</span>(Mn_1, sigfigs<span class="op">=</span><span class="dv">4</span>)<span class="sc">}</span><span class="ss">. The second moment ($M2$) is </span><span class="sc">{</span><span class="bu">round</span>(M2, sigfigs<span class="op">=</span><span class="dv">4</span>)<span class="sc">}</span><span class="ss">. The weight average ($M_w$) equals $M2/M1$ which is </span><span class="sc">{</span><span class="bu">round</span>(Mw_1, sigfigs<span class="op">=</span><span class="dv">4</span>)<span class="sc">}</span><span class="ss">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="21">
+<p>The number average molecular weight (<span class="math inline">\(M_n\)</span>) equals the first moment (<span class="math inline">\(M1\)</span>) which is 9467.0. The second moment (<span class="math inline">\(M2\)</span>) is 183500000.0. The weight average (<span class="math inline">\(M_w\)</span>) equals <span class="math inline">\(M2/M1\)</span> which is 19380.0.</p>
 </div>
 </div>
 <hr>
-<div id="cell-12" class="cell" data-outputid="80a78b6f-886a-43bb-dbd6-58261b5c13f9" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title Copyright { display-mode: "form" }</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>copyright <span class="op">=</span> requests.get(<span class="st">"https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/master/copyright.md"</span>)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>Markdown(copyright.text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
+<div id="cell-13" class="cell" data-outputid="b1594e63-44b9-4828-c722-1426c232d016" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title Copyright { display-mode: "form" }</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>copyright <span class="op">=</span> requests.get(<span class="st">"https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/master/copyright.md"</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>Markdown(copyright.text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="22">
 <section id="mit-license" class="level3">
 <h3 class="anchored" data-anchor-id="mit-license">MIT License</h3>
 <p>Copyright (c) 2021 – 2024 Yu Wang</p>
@@ -1587,20 +1570,27 @@ Email: yuwang@louisiana.edu</p>
 </section>
 </div>
 </div>
-<div id="cell-13" class="cell" data-outputid="e16241db-5064-4c36-fa62-781d5ff2d7d9" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title {display-mode: "form" }</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>links <span class="op">=</span> requests.get(<span class="st">"https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/refs/heads/master/links.md"</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>Markdown(links.text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="10">
-<hr>
-<section id="links" class="level3">
+<div id="cell-14" class="cell" data-outputid="c559d5bd-9fb1-43c9-fefa-ac3d519e4f10" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title {display-mode: "form" }</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>links <span class="op">=</span> requests.get(<span class="st">"https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/refs/heads/master/links.md"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>Markdown(links.text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="links" class="level3 cell-output cell-output-display cell-output-markdown" data-execution_count="23">
 <h3 class="anchored" data-anchor-id="links">Links</h3>
-<p><strong><a href="https://wangyu16.github.io/PolymerScienceEducation/">Home page of OVESET</a>:</strong></p>
-<p><img src="https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/refs/heads/master/img/QR_OVESET.svg" alt="OVESET Home Page" width="300"></p>
-<p><strong><a href="https://hackmd.io/@YW2025/HJLiqoHRR">Home page of Study Guide</a></strong></p>
-<p><img src="https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/refs/heads/master/img/QR_PolymerStudyGuide.svg" alt="Introduction to Polymer Science" width="300"></p>
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th><strong><a href="https://wangyu16.github.io/PolymerScienceEducation/">Home page of OVESET</a>:</strong></th>
+<th><strong><a href="https://hackmd.io/@YW2025/HJLiqoHRR">Home page of Study Guide</a></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/refs/heads/master/img/QR_OVESET.svg" alt="OVESET Home Page" width="300"></td>
+<td><img src="https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/refs/heads/master/img/QR_PolymerStudyGuide.svg" alt="Introduction to Polymer Science" width="300"></td>
+</tr>
+</tbody>
+</table>
 </section>
-</div>
 </div>
 
 

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.30">
+<meta name="generator" content="quarto-1.7.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -64,15 +64,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-3a01e2046221230fdceeea94b1ec5d67.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-1fbc47131a039e0df962caa6cecbb2e1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-4cacd32a1fd9244ec1eef8abc16e8cc9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-b1ed65af9ea3b9097db30d7cb3d87607.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -266,7 +267,9 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#about-this-program" id="toc-about-this-program" class="nav-link active" data-scroll-target="#about-this-program">About this program</a></li>
+  <li><a href="#atrp-kinetic-simulator---by-the-method-of-moments" id="toc-atrp-kinetic-simulator---by-the-method-of-moments" class="nav-link active" data-scroll-target="#atrp-kinetic-simulator---by-the-method-of-moments">ATRP Kinetic Simulator - by the Method of Moments</a>
+  <ul class="collapse">
+  <li><a href="#about-this-program" id="toc-about-this-program" class="nav-link" data-scroll-target="#about-this-program">About this program</a></li>
   <li><a href="#import-packages" id="toc-import-packages" class="nav-link" data-scroll-target="#import-packages">1. Import packages</a></li>
   <li><a href="#reaction-conditions" id="toc-reaction-conditions" class="nav-link" data-scroll-target="#reaction-conditions">2. Reaction conditions</a></li>
   <li><a href="#construct-the-reaction-system" id="toc-construct-the-reaction-system" class="nav-link" data-scroll-target="#construct-the-reaction-system">3. Construct the reaction system</a></li>
@@ -278,25 +281,23 @@ window.Quarto = {
   <li><a href="#molecular-weight-molecular-weight-distribution-and-mole-percent-loss-of-chain-ends." id="toc-molecular-weight-molecular-weight-distribution-and-mole-percent-loss-of-chain-ends." class="nav-link" data-scroll-target="#molecular-weight-molecular-weight-distribution-and-mole-percent-loss-of-chain-ends.">5.3. Molecular weight, molecular weight distribution and mole percent loss of chain-ends.</a></li>
   </ul></li>
   <li><a href="#export-the-results" id="toc-export-the-results" class="nav-link" data-scroll-target="#export-the-results">6. Export the results</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
 
+<p><a href="https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/ATRP_Kinetic_Simulator_Moments.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></p>
 <center>
-<img src="https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/master/Fig/Logo_black.svg" width="150">
+<a href="https://wangyu16.github.io/PolymerScienceEducation/"><img src="https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/master/Fig/Logo_black.svg" width="150"></a>
 </center>
-#
-<center>
-ATRP Kinetic Simulator - by the Method of Moments
-</center>
-<center>
-12/28/2021
-</center>
+<section id="atrp-kinetic-simulator---by-the-method-of-moments" class="level1">
+<h1>ATRP Kinetic Simulator - by the Method of Moments</h1>
+<p>12/28/2021</p>
 <hr>
 <section id="about-this-program" class="level2">
 <h2 class="anchored" data-anchor-id="about-this-program">About this program</h2>
@@ -321,39 +322,39 @@ python3 -m pytest -rs -W ignore::chempy.ChemPyDeprecationWarning --pyargs chempy
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 'sara' for SARA ATRP;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 'cfa' for ATRP by continuous feeding of activators;</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 'icar' for ICAR ATRP.</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>Poly_type <span class="op">=</span> <span class="st">'normal'</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>Poly_type <span class="op">=</span> <span class="st">'normal'</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">############################    </span></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Set the reaction time #</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">############################ </span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">############################</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a required section.</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Set reaction time limit in seconds. </span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>react_time <span class="op">=</span> <span class="dv">90000</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Set reaction time limit in seconds.</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>react_time <span class="op">=</span> <span class="dv">90000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Similarly, in the following code, only change the green-colored numbers.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the rate coefficients for the addition of the first monomer to the primary radical;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the termination between primary radicals; the termination between a primary radical and a propagating radical. </span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>k_p_R <span class="op">=</span> <span class="fl">1.3e3</span> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>k_t_R <span class="op">=</span> <span class="fl">1e9</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the termination between primary radicals; the termination between a primary radical and a propagating radical.</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>k_p_R <span class="op">=</span> <span class="fl">1.3e3</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>k_t_R <span class="op">=</span> <span class="fl">1e9</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>k_t_R_Pn <span class="op">=</span> <span class="fl">1e9</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In addition, you can change the font size of the plots under “<strong>1. Import packages</strong>” and “<strong>5.1. Concentration changes</strong>”. Change the green-colored numbers only in the following code lines.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plt.rcParams.update({<span class="st">'font.size'</span>: <span class="dv">18</span>}) <span class="co"># Feel free to change the font size in the plots.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>     _ <span class="op">=</span> ax.legend(loc<span class="op">=</span><span class="st">'best'</span>,prop<span class="op">=</span>{<span class="st">'size'</span>: <span class="dv">12</span>}) <span class="co"># Set the font size of the legend here. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>     _ <span class="op">=</span> ax.legend(loc<span class="op">=</span><span class="st">'best'</span>,prop<span class="op">=</span>{<span class="st">'size'</span>: <span class="dv">12</span>}) <span class="co"># Set the font size of the legend here.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>How to run the simulation?</strong></p>
 <p>After specifying the initial reaction conditions, move to the first code cell, i.e., the one under “<strong>1. Import packages</strong>”. Run the code cells one-by-one by using <kbd>Shift</kbd>+<kbd>Enter</kbd>. Alternatively, you can select “Run All” under “Cell” dropdown menu if you use Anaconda, or under “Runtime” dropdown menu if you use Google Colab.</p>
 <hr>
 </section>
 <section id="import-packages" class="level2">
 <h2 class="anchored" data-anchor-id="import-packages">1. Import packages</h2>
-<div id="cell-4" class="cell" data-execution_count="3">
+<div id="cell-5" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>capture</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#@title { display-mode: "form" } </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#@title { display-mode: "form" }</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'google.colab'</span> <span class="kw">in</span> sys.modules: </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'google.colab'</span> <span class="kw">in</span> sys.modules:</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> <span class="st">'chempy'</span> <span class="kw">in</span> sys.modules:</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">!</span>pip install chempy</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> chempy <span class="im">import</span> ReactionSystem, Substance</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> chempy.kinetics.ode <span class="im">import</span> get_odesys </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> chempy.kinetics.ode <span class="im">import</span> get_odesys</span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> defaultdict</span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -365,9 +366,9 @@ python3 -m pytest -rs -W ignore::chempy.ChemPyDeprecationWarning --pyargs chempy
 </section>
 <section id="reaction-conditions" class="level2">
 <h2 class="anchored" data-anchor-id="reaction-conditions">2. Reaction conditions</h2>
-<div id="cell-6" class="cell" data-execution_count="4">
+<div id="cell-7" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">##################################</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Select the type of reaction # </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Select the type of reaction #</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a required section.    #</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">##################################</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Choose the type of polymerization you want to simulate</span></span>
@@ -378,7 +379,7 @@ python3 -m pytest -rs -W ignore::chempy.ChemPyDeprecationWarning --pyargs chempy
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 'eatrp' for electrochemically mediated ATRP;</span></span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 'sara' for SARA ATRP;</span></span>
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 'cfa' for ATRP by continuous feeding of activators;</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 'icar' for ICAR ATRP. </span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 'icar' for ICAR ATRP.</span></span>
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>Poly_type <span class="op">=</span> <span class="st">'normal'</span></span>
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">############</span></span>
@@ -390,27 +391,27 @@ python3 -m pytest -rs -W ignore::chempy.ChemPyDeprecationWarning --pyargs chempy
 <span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>Initiator <span class="op">=</span> <span class="st">'MBrP'</span> <span class="co"># For ICAR ATRP, this value could be set in the form of 'EBrP-AIBN'.</span></span>
 <span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>Temperature <span class="op">=</span> <span class="dv">60</span></span>
 <span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co"># The name of the monomer, ligand, initiator ,and the temperature will not be used in the simulation.</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co"># They are used only as a record in the exported file. </span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co"># They are used only as a record in the exported file.</span></span>
 <span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co">##############################    </span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co">##############################</span></span>
 <span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Set the reaction time   #</span></span>
 <span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a required section.#</span></span>
 <span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="co">##############################</span></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Set reaction time limit in seconds. </span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Set reaction time limit in seconds.</span></span>
 <span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="co"># For a 10 hour reaction, you can set the time as 36000 or 10*3600.</span></span>
 <span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>react_time <span class="op">=</span> <span class="dv">5</span><span class="op">*</span><span class="dv">3600</span></span>
 <span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="co">###########################################################</span></span>
 <span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Set the initial concentrations and rate coefficients #</span></span>
 <span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="co">###########################################################</span></span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="co">##############################</span></span>
 <span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a><span class="co"># 3.1. Monomer concentration #</span></span>
 <span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a required section.#</span></span>
 <span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="co">##############################</span></span>
 <span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the initial concentration of the monomer. All the concentrations are in mol/L unless otherwise specified.</span></span>
 <span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>c0_M <span class="op">=</span> <span class="fl">5.5</span></span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the molecular weight of the monomer. </span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the molecular weight of the monomer.</span></span>
 <span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>MM <span class="op">=</span> <span class="fl">86.09</span></span>
 <span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="co">##################################################################</span></span>
@@ -424,18 +425,18 @@ python3 -m pytest -rs -W ignore::chempy.ChemPyDeprecationWarning --pyargs chempy
 <span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>k_td <span class="op">=</span> <span class="fl">1e7</span></span>
 <span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the rate coefficients for the addition of the first monomer to the primary radical;</span></span>
-<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a><span class="co"># the termination between primary radicals; the termination between a primary radical and a propagating radical. </span></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a><span class="co"># the termination between primary radicals; the termination between a primary radical and a propagating radical.</span></span>
 <span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>k_p_R <span class="op">=</span> k_p</span>
 <span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>k_t_R <span class="op">=</span> <span class="fl">2.5e9</span></span>
-<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>k_t_R_Pn <span class="op">=</span> <span class="fl">1e8</span> </span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>k_t_R_Pn <span class="op">=</span> <span class="fl">1e8</span></span>
 <span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the rate coefficient for chain transfer to monomer.</span></span>
 <span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>k_tr_M <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a><span class="co"># If syrenic type of monomers is used,</span></span>
-<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a><span class="co"># set the rate coefficient of the thermal initiation of the monomer. </span></span>
-<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Leave this value as 0 when you do not want to consider thermal initiation. </span></span>
-<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a><span class="co"># For styrene, the value can be calculated as 2.2e5*exp(-13810/T), where T is the temperature in K. </span></span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a><span class="co"># set the rate coefficient of the thermal initiation of the monomer.</span></span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Leave this value as 0 when you do not want to consider thermal initiation.</span></span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a><span class="co"># For styrene, the value can be calculated as 2.2e5*exp(-13810/T), where T is the temperature in K.</span></span>
 <span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a>k_th_S <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a><span class="co">##############################################################</span></span>
@@ -452,71 +453,71 @@ python3 -m pytest -rs -W ignore::chempy.ChemPyDeprecationWarning --pyargs chempy
 <span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a><span class="co">##############################</span></span>
 <span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a><span class="co"># 3.4. For all kinds of ATRP #</span></span>
 <span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a><span class="co">##############################</span></span>
-<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the initial concentration of RX. </span></span>
-<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a>c0_RX <span class="op">=</span> <span class="fl">0.0275</span> </span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the initial concentration of RX.</span></span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a>c0_RX <span class="op">=</span> <span class="fl">0.0275</span></span>
 <span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the initial concentration of Cu(I) and Cu(II).</span></span>
 <span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume there is a sufficient amount of ligand to coordinate with all Cu(I) and Cu(II),</span></span>
-<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a><span class="co"># and the concentration of free ligand does not affect the reaction kinetics. </span></span>
+<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a><span class="co"># and the concentration of free ligand does not affect the reaction kinetics.</span></span>
 <span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a>c0_CuI <span class="op">=</span> <span class="fl">0.00275</span></span>
 <span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a>c0_CuII <span class="op">=</span> <span class="fl">0.00275</span></span>
 <span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the rate coefficients for activation of RX; deactivation of radical R;  </span></span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the rate coefficients for activation of RX; deactivation of radical R;</span></span>
 <span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a>k_a_0_atrp <span class="op">=</span> <span class="fl">9.6</span></span>
 <span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a>k_d_0_atrp <span class="op">=</span> <span class="fl">1e8</span></span>
-<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the rate coefficient for activation of a polymer with a halogen chain end; </span></span>
-<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a><span class="co"># deactivation of a propagating radical. </span></span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the rate coefficient for activation of a polymer with a halogen chain end;</span></span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a><span class="co"># deactivation of a propagating radical.</span></span>
 <span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a>k_a_atrp <span class="op">=</span> <span class="fl">9.6</span></span>
 <span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a>k_d_atrp <span class="op">=</span> <span class="fl">1e8</span></span>
 <span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a><span class="co">##################################   </span></span>
+<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a><span class="co">##################################</span></span>
 <span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a><span class="co"># 3.4.1. For AGET and ARGET ATRP #</span></span>
 <span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a><span class="co">##################################</span></span>
-<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the initial concentration of the reducing agent. </span></span>
-<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a>c0_Reduc <span class="op">=</span> <span class="fl">2.5e-3</span> </span>
+<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the initial concentration of the reducing agent.</span></span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a>c0_Reduc <span class="op">=</span> <span class="fl">2.5e-3</span></span>
 <span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the reduction rate coefficient</span></span>
-<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a>k_reduc <span class="op">=</span> <span class="fl">1e-1</span> </span>
+<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a>k_reduc <span class="op">=</span> <span class="fl">1e-1</span></span>
 <span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a><span class="co">####################</span></span>
 <span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a><span class="co"># 3.4.2. For eATRP #</span></span>
 <span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a><span class="co">####################</span></span>
-<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the rate coefficient of electronic reduction. </span></span>
-<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a><span class="co"># This will mimic an eATRP process with constant voltage. </span></span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the rate coefficient of electronic reduction.</span></span>
+<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a><span class="co"># This will mimic an eATRP process with constant voltage.</span></span>
 <span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a><span class="co"># CuII is converted to CuI at a rate of k_e_reduc*[CuII].</span></span>
-<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a>k_e_reduc <span class="op">=</span> <span class="fl">1e-7</span> </span>
+<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a>k_e_reduc <span class="op">=</span> <span class="fl">1e-7</span></span>
 <span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a><span class="co">###################</span></span>
 <span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a><span class="co"># 3.4.3. For SARA #</span></span>
 <span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a><span class="co">###################</span></span>
-<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a><span class="co"># set the initial concentration of Cu(0) in cm^2/mL (surface area per unit volume). </span></span>
+<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a><span class="co"># set the initial concentration of Cu(0) in cm^2/mL (surface area per unit volume).</span></span>
 <span id="cb8-125"><a href="#cb8-125" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume the Cu(0) wire or foil is thick enough that there is no apparent consumption during the polymerization.</span></span>
-<span id="cb8-126"><a href="#cb8-126" aria-hidden="true" tabindex="-1"></a>c0_Cu0 <span class="op">=</span> <span class="dv">2</span> </span>
+<span id="cb8-126"><a href="#cb8-126" aria-hidden="true" tabindex="-1"></a>c0_Cu0 <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb8-127"><a href="#cb8-127" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the rate coefficients of Cu(0) activation and comproportionation.</span></span>
-<span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a><span class="co"># Deactivation by Cu(I) and disproportionation are neglected. </span></span>
-<span id="cb8-130"><a href="#cb8-130" aria-hidden="true" tabindex="-1"></a>k_comp <span class="op">=</span> <span class="fl">1e-4</span> </span>
-<span id="cb8-131"><a href="#cb8-131" aria-hidden="true" tabindex="-1"></a>k_a_Cu0 <span class="op">=</span> <span class="fl">1e-4</span> </span>
+<span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a><span class="co"># Deactivation by Cu(I) and disproportionation are neglected.</span></span>
+<span id="cb8-130"><a href="#cb8-130" aria-hidden="true" tabindex="-1"></a>k_comp <span class="op">=</span> <span class="fl">1e-4</span></span>
+<span id="cb8-131"><a href="#cb8-131" aria-hidden="true" tabindex="-1"></a>k_a_Cu0 <span class="op">=</span> <span class="fl">1e-4</span></span>
 <span id="cb8-132"><a href="#cb8-132" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-133"><a href="#cb8-133" aria-hidden="true" tabindex="-1"></a><span class="co">#######################################################</span></span>
 <span id="cb8-134"><a href="#cb8-134" aria-hidden="true" tabindex="-1"></a><span class="co"># 3.4.4. For ATRP by continuous feeding of Activators #</span></span>
 <span id="cb8-135"><a href="#cb8-135" aria-hidden="true" tabindex="-1"></a><span class="co">#######################################################</span></span>
-<span id="cb8-136"><a href="#cb8-136" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the rate coefficient to minic different feeding rate. </span></span>
+<span id="cb8-136"><a href="#cb8-136" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the rate coefficient to minic different feeding rate.</span></span>
 <span id="cb8-137"><a href="#cb8-137" aria-hidden="true" tabindex="-1"></a><span class="co"># CuI concentration will increase at a constant rate of k_cfa.</span></span>
-<span id="cb8-138"><a href="#cb8-138" aria-hidden="true" tabindex="-1"></a><span class="co"># Volume change is neglected. </span></span>
-<span id="cb8-139"><a href="#cb8-139" aria-hidden="true" tabindex="-1"></a>k_cfa <span class="op">=</span> <span class="fl">1.4e-8</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-138"><a href="#cb8-138" aria-hidden="true" tabindex="-1"></a><span class="co"># Volume change is neglected.</span></span>
+<span id="cb8-139"><a href="#cb8-139" aria-hidden="true" tabindex="-1"></a>k_cfa <span class="op">=</span> <span class="fl">1.4e-8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="construct-the-reaction-system" class="level2">
 <h2 class="anchored" data-anchor-id="construct-the-reaction-system">3. Construct the reaction system</h2>
-<div id="cell-8" class="cell" data-execution_count="6">
+<div id="cell-9" class="cell" data-outputid="8ec3cd84-6fcd-42d5-8fad-69b249b907d3" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title { display-mode: "form" }</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Initiate the reaction system with null value. </span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Initiate the reaction system with null value.</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The rsys_orig is the system of the actual reactions.</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># The rsys_pseudo includes the pseudo reactions with pseudo species </span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># The rsys_pseudo includes the pseudo reactions with pseudo species</span></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># which are used to introduce 1st and 2nd order moments</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># and to adjust the reactions to take into account the initiation efficiency, etc. </span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># and to adjust the reactions to take into account the initiation efficiency, etc.</span></span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>rsys_orig <span class="op">=</span> ReactionSystem.from_string(<span class="st">"""</span></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="st">    """</span>, substance_factory<span class="op">=</span>Substance)</span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>rsys_pseudo <span class="op">=</span>  ReactionSystem.from_string(<span class="st">"""</span></span>
@@ -524,12 +525,12 @@ python3 -m pytest -rs -W ignore::chempy.ChemPyDeprecationWarning --pyargs chempy
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial concentrations of monomer, dead chains, radicals, and pseudo species of moments.</span></span>
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>c0 <span class="op">=</span> defaultdict(<span class="bu">float</span>, {<span class="st">'M'</span>: c0_M, <span class="st">'D'</span>: <span class="dv">0</span>, <span class="st">'PnD'</span>: <span class="dv">0</span>, <span class="st">'PnDPn'</span>: <span class="dv">0</span>, <span class="st">'R'</span>: <span class="dv">0</span>, <span class="st">'Pn'</span>: <span class="dv">0</span>, <span class="st">'M1_Pn'</span>: <span class="dv">0</span>, <span class="op">\</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>                         <span class="st">'M1_PnX'</span>: <span class="dv">0</span>, <span class="st">'M1_PnD'</span>: <span class="dv">0</span>, <span class="st">'M1_PnDPn'</span>: <span class="dv">0</span>, <span class="st">'M2_total'</span>: <span class="dv">0</span>}) </span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>                         <span class="st">'M1_PnX'</span>: <span class="dv">0</span>, <span class="st">'M1_PnD'</span>: <span class="dv">0</span>, <span class="st">'M1_PnDPn'</span>: <span class="dv">0</span>, <span class="st">'M2_total'</span>: <span class="dv">0</span>})</span>
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Add propagation and termination reactions to the reaction system. </span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Add propagation and termination reactions to the reaction system.</span></span>
 <span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>rsys_orig <span class="op">+=</span> ReactionSystem.from_string(<span class="ss">f"""</span></span>
 <span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="ss">    R + M -&gt; Pn; </span><span class="sc">{</span>k_p_R<span class="sc">}</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="ss">    Pn + M -&gt; Pn; </span><span class="sc">{</span>k_p<span class="sc">}</span><span class="ss">      </span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="ss">    Pn + M -&gt; Pn; </span><span class="sc">{</span>k_p<span class="sc">}</span></span>
 <span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="ss">    R + R -&gt; D + D; </span><span class="sc">{</span>k_t_R<span class="sc">}</span></span>
 <span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="ss">    Pn + R -&gt; PnD + D; </span><span class="sc">{</span>k_t_R_Pn<span class="sc">}</span></span>
 <span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="ss">    Pn + Pn -&gt; PnD + PnD; </span><span class="sc">{</span>k_td<span class="sc">}</span></span>
@@ -548,8 +549,8 @@ python3 -m pytest -rs -W ignore::chempy.ChemPyDeprecationWarning --pyargs chempy
 <span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="co"># To include chain transfer to monomer</span></span>
 <span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> k_tr_M <span class="op">!=</span><span class="dv">0</span>:</span>
 <span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>        rsys_orig <span class="op">+=</span> ReactionSystem.from_string(<span class="ss">f"""</span></span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="ss">        Pn + M -&gt; PnD + R; </span><span class="sc">{</span>k_tr_M<span class="sc">}</span><span class="ss">            </span></span>
-<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="ss">        """</span>, substance_factory<span class="op">=</span>Substance) </span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="ss">        Pn + M -&gt; PnD + R; </span><span class="sc">{</span>k_tr_M<span class="sc">}</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="ss">        """</span>, substance_factory<span class="op">=</span>Substance)</span>
 <span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>        rsys_pseudo <span class="op">+=</span> ReactionSystem.from_string(<span class="ss">f"""</span></span>
 <span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a><span class="ss">        M1_Pn + M -&gt; M1_PnD + M; </span><span class="sc">{</span>k_tr_M<span class="sc">}</span></span>
 <span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a><span class="ss">    """</span>, substance_factory<span class="op">=</span>Substance)</span>
@@ -557,42 +558,42 @@ python3 -m pytest -rs -W ignore::chempy.ChemPyDeprecationWarning --pyargs chempy
 <span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a><span class="co"># To include the thermal initiaion for styrenic monomers</span></span>
 <span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> k_th_S <span class="op">!=</span> <span class="dv">0</span>:</span>
 <span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>    rsys_orig <span class="op">+=</span> ReactionSystem.from_string(<span class="ss">f"""</span></span>
-<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a><span class="ss">        M + M + M -&gt; R + R; </span><span class="sc">{</span>k_th_S<span class="sc">}</span><span class="ss">            </span></span>
-<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a><span class="ss">        """</span>, substance_factory<span class="op">=</span>Substance) </span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a><span class="ss">        M + M + M -&gt; R + R; </span><span class="sc">{</span>k_th_S<span class="sc">}</span></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a><span class="ss">        """</span>, substance_factory<span class="op">=</span>Substance)</span>
 <span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a><span class="co"># For all kinds of ATRP </span></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a><span class="co"># For all kinds of ATRP</span></span>
 <span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> Poly_type <span class="op">!=</span> <span class="st">'conven'</span>:</span>
 <span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>    c0.update({<span class="st">'RX'</span>: c0_RX, <span class="st">'PnX'</span>:<span class="dv">0</span>, <span class="st">'CuI'</span>: c0_CuI, <span class="st">'CuII'</span>: c0_CuII})</span>
 <span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>    rsys_orig <span class="op">+=</span> ReactionSystem.from_string(<span class="ss">f"""</span></span>
-<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a><span class="ss">        CuI + RX -&gt; CuII + R; </span><span class="sc">{</span>k_a_0_atrp<span class="sc">}</span><span class="ss">     </span></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a><span class="ss">        CuI + RX -&gt; CuII + R; </span><span class="sc">{</span>k_a_0_atrp<span class="sc">}</span></span>
 <span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a><span class="ss">        CuII + R -&gt; CuI + RX; </span><span class="sc">{</span>k_d_0_atrp<span class="sc">}</span></span>
 <span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a><span class="ss">        CuI + PnX -&gt; CuII + Pn; </span><span class="sc">{</span>k_a_atrp<span class="sc">}</span></span>
-<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a><span class="ss">        CuII + Pn -&gt; CuI + PnX; </span><span class="sc">{</span>k_d_atrp<span class="sc">}</span><span class="ss">        </span></span>
-<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a><span class="ss">        """</span>, substance_factory<span class="op">=</span>Substance)  </span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a><span class="ss">        CuII + Pn -&gt; CuI + PnX; </span><span class="sc">{</span>k_d_atrp<span class="sc">}</span></span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a><span class="ss">        """</span>, substance_factory<span class="op">=</span>Substance)</span>
 <span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>    rsys_pseudo <span class="op">+=</span> ReactionSystem.from_string(<span class="ss">f"""</span></span>
 <span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a><span class="ss">        M1_PnX + CuI -&gt; M1_Pn + CuI; </span><span class="sc">{</span>k_a_atrp<span class="sc">}</span></span>
 <span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a><span class="ss">        M1_Pn + CuII -&gt; M1_PnX + CuII; </span><span class="sc">{</span>k_d_atrp<span class="sc">}</span></span>
-<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a><span class="ss">        """</span>, substance_factory<span class="op">=</span>Substance) </span>
-<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a><span class="ss">        """</span>, substance_factory<span class="op">=</span>Substance)</span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a><span class="co"># For AGET and ARGET ATRP</span></span>
 <span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> Poly_type <span class="op">==</span> <span class="st">'arget'</span>:</span>
 <span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>    c0.update({<span class="st">'Reduc'</span>: c0_Reduc, <span class="st">'ReducX'</span>:<span class="dv">0</span>})</span>
 <span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a>    rsys_orig <span class="op">+=</span> ReactionSystem.from_string(<span class="ss">f"""</span></span>
 <span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a><span class="ss">        Reduc + CuII -&gt; ReducX + CuI; </span><span class="sc">{</span>k_reduc<span class="sc">}</span></span>
-<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a><span class="ss">        """</span>, substance_factory<span class="op">=</span>Substance)    </span>
-<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a><span class="co"># For eATRP </span></span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a><span class="ss">        """</span>, substance_factory<span class="op">=</span>Substance)</span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a><span class="co"># For eATRP</span></span>
 <span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> Poly_type <span class="op">==</span> <span class="st">'eatrp'</span>:</span>
-<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a>    c0.update({<span class="st">'elec'</span>: <span class="dv">1</span>})    </span>
+<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a>    c0.update({<span class="st">'elec'</span>: <span class="dv">1</span>})</span>
 <span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a>    rsys_orig <span class="op">+=</span> ReactionSystem.from_string(<span class="ss">f"""</span></span>
 <span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a><span class="ss">        elec + CuII -&gt; CuI + elec; </span><span class="sc">{</span>k_e_reduc<span class="sc">}</span></span>
-<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a><span class="ss">        """</span>, substance_factory<span class="op">=</span>Substance)   </span>
+<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a><span class="ss">        """</span>, substance_factory<span class="op">=</span>Substance)</span>
 <span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a><span class="co"># For SARA ATRP</span></span>
 <span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> Poly_type <span class="op">==</span> <span class="st">'sara'</span>:</span>
-<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a>    c0.update({<span class="st">'Cu0'</span>: c0_Cu0})    </span>
+<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a>    c0.update({<span class="st">'Cu0'</span>: c0_Cu0})</span>
 <span id="cb9-84"><a href="#cb9-84" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a>    rsys_orig <span class="op">+=</span> ReactionSystem.from_string(<span class="ss">f"""</span></span>
 <span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a><span class="ss">        Cu0 + CuII -&gt; CuI + CuI + Cu0; </span><span class="sc">{</span>k_comp<span class="sc">}</span></span>
@@ -601,26 +602,26 @@ python3 -m pytest -rs -W ignore::chempy.ChemPyDeprecationWarning --pyargs chempy
 <span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a><span class="co"># For ATRP by continuous feeding of activators</span></span>
 <span id="cb9-91"><a href="#cb9-91" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> Poly_type <span class="op">==</span> <span class="st">'cfa'</span>:</span>
-<span id="cb9-92"><a href="#cb9-92" aria-hidden="true" tabindex="-1"></a>    c0.update({<span class="st">'CuIsour'</span>: <span class="dv">1</span>})    </span>
+<span id="cb9-92"><a href="#cb9-92" aria-hidden="true" tabindex="-1"></a>    c0.update({<span class="st">'CuIsour'</span>: <span class="dv">1</span>})</span>
 <span id="cb9-93"><a href="#cb9-93" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-94"><a href="#cb9-94" aria-hidden="true" tabindex="-1"></a>    rsys_orig <span class="op">+=</span> ReactionSystem.from_string(<span class="ss">f"""</span></span>
 <span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a><span class="ss">        CuIsour -&gt; CuI + CuIsour; </span><span class="sc">{</span>k_cfa<span class="sc">}</span></span>
-<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a><span class="ss">        """</span>, substance_factory<span class="op">=</span>Substance)  </span>
+<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a><span class="ss">        """</span>, substance_factory<span class="op">=</span>Substance)</span>
 <span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a><span class="co"># For conventional radical polymerization and ICAR ATRP </span></span>
+<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a><span class="co"># For conventional radical polymerization and ICAR ATRP</span></span>
 <span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a><span class="co"># The thermal initiator is consumed with a rate coefficient k_d_TI;</span></span>
 <span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a><span class="co"># however, not all of the primary radicals would involve in propagation.</span></span>
-<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a><span class="co"># To take into account the initiation efficiency, pseudo reactions and a pseudo species 'PR' are introduced. </span></span>
+<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a><span class="co"># To take into account the initiation efficiency, pseudo reactions and a pseudo species 'PR' are introduced.</span></span>
 <span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> Poly_type <span class="op">==</span> <span class="st">'conven'</span> <span class="kw">or</span> Poly_type <span class="op">==</span> <span class="st">'icar'</span>:</span>
-<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a>    c0.update({<span class="st">'TI'</span>: c0_TI, <span class="st">'PR'</span>: <span class="dv">0</span>})   </span>
+<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a>    c0.update({<span class="st">'TI'</span>: c0_TI, <span class="st">'PR'</span>: <span class="dv">0</span>})</span>
 <span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a>    rsys_orig <span class="op">+=</span> ReactionSystem.from_string(<span class="ss">f"""</span></span>
 <span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a><span class="ss">        TI -&gt; R + R; </span><span class="sc">{</span>k_d_TI<span class="sc">}</span></span>
 <span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a><span class="ss">        """</span>, substance_factory<span class="op">=</span>Substance)</span>
 <span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a>    rsys_pseudo <span class="op">+=</span> ReactionSystem.from_string(<span class="ss">f"""</span></span>
 <span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a><span class="ss">        TI -&gt; R + R; </span><span class="sc">{</span><span class="op">-</span>k_d_TI<span class="sc">}</span></span>
-<span id="cb9-109"><a href="#cb9-109" aria-hidden="true" tabindex="-1"></a><span class="ss">        TI -&gt; PR + PR; </span><span class="sc">{</span>k_d_TI<span class="sc">}</span><span class="ss">    </span></span>
+<span id="cb9-109"><a href="#cb9-109" aria-hidden="true" tabindex="-1"></a><span class="ss">        TI -&gt; PR + PR; </span><span class="sc">{</span>k_d_TI<span class="sc">}</span></span>
 <span id="cb9-110"><a href="#cb9-110" aria-hidden="true" tabindex="-1"></a><span class="ss">        TI -&gt; TI + R + R; </span><span class="sc">{</span>f_TI<span class="op">*</span>k_d_TI<span class="sc">}</span></span>
-<span id="cb9-111"><a href="#cb9-111" aria-hidden="true" tabindex="-1"></a><span class="ss">        """</span>, substance_factory<span class="op">=</span>Substance)  </span>
+<span id="cb9-111"><a href="#cb9-111" aria-hidden="true" tabindex="-1"></a><span class="ss">        """</span>, substance_factory<span class="op">=</span>Substance)</span>
 <span id="cb9-112"><a href="#cb9-112" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-113"><a href="#cb9-113" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The initial concentrations of the reagents are:"</span>)</span>
 <span id="cb9-114"><a href="#cb9-114" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key <span class="kw">in</span> c0:</span>
@@ -636,76 +637,76 @@ CuI :  0.00275
 CuII :  0.00275
 The reactions and the rate coefficients are:</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="6">
-<table class="chempy_ReactionSystem chempy_2900239918536 caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<div class="cell-output cell-output-display" data-execution_count="3">
+<table class="chempy_ReactionSystem chempy_132602094100560 caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <tbody>
 <tr class="odd">
 <td colspan="5" style="text-align: center;" data-quarto-table-cell-role="th"></td>
 </tr>
-<tr class="chempy_2900239918536_0 even">
+<tr class="chempy_132602094100560_0 even">
 <td style="text-align: right;"><span class="chempy_M" style="background-color:#ffb6c1; border: 1px solid #c71585; border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">M</span> + <span class="chempy_R" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">R</span></td>
 <td style="text-align: center;">→</td>
 <td style="text-align: left;"><span class="chempy_Pn" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">Pn</span></td>
 <td style="text-align: left;">&nbsp;27254</td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="chempy_2900239918536_1 odd">
+<tr class="chempy_132602094100560_1 odd">
 <td style="text-align: right;"><span class="chempy_M" style="background-color:#ffb6c1; border: 1px solid #c71585; border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">M</span> + <span class="chempy_Pn" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">Pn</span></td>
 <td style="text-align: center;">→</td>
 <td style="text-align: left;"><span class="chempy_Pn" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">Pn</span></td>
 <td style="text-align: left;">&nbsp;27254</td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="chempy_2900239918536_2 even">
+<tr class="chempy_132602094100560_2 even">
 <td style="text-align: right;">2 <span class="chempy_R" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">R</span></td>
 <td style="text-align: center;">→</td>
 <td style="text-align: left;">2 <span class="chempy_D" style="background-color:#90ee90; border: 1px solid #008000; border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">D</span></td>
 <td style="text-align: left;">&nbsp;2.5⋅10<sup>9</sup></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="chempy_2900239918536_3 odd">
+<tr class="chempy_132602094100560_3 odd">
 <td style="text-align: right;"><span class="chempy_Pn" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">Pn</span> + <span class="chempy_R" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">R</span></td>
 <td style="text-align: center;">→</td>
 <td style="text-align: left;"><span class="chempy_D" style="background-color:#90ee90; border: 1px solid #008000; border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">D</span> + <span class="chempy_PnD" style="background-color:#90ee90; border: 1px solid #008000; border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">PnD</span></td>
 <td style="text-align: left;">&nbsp;10<sup>8</sup></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="chempy_2900239918536_4 even">
+<tr class="chempy_132602094100560_4 even">
 <td style="text-align: right;">2 <span class="chempy_Pn" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">Pn</span></td>
 <td style="text-align: center;">→</td>
 <td style="text-align: left;">2 <span class="chempy_PnD" style="background-color:#90ee90; border: 1px solid #008000; border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">PnD</span></td>
 <td style="text-align: left;">&nbsp;10<sup>7</sup></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="chempy_2900239918536_5 odd">
+<tr class="chempy_132602094100560_5 odd">
 <td style="text-align: right;">2 <span class="chempy_Pn" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">Pn</span></td>
 <td style="text-align: center;">→</td>
 <td style="text-align: left;"><span class="chempy_PnDPn" style="background-color:#90ee90; border: 1px solid #008000; border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">PnDPn</span></td>
 <td style="text-align: left;">&nbsp;10<sup>8</sup></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="chempy_2900239918536_6 even">
+<tr class="chempy_132602094100560_6 even">
 <td style="text-align: right;"><span class="chempy_CuI" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">CuI</span> + <span class="chempy_RX" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">RX</span></td>
 <td style="text-align: center;">→</td>
 <td style="text-align: left;"><span class="chempy_CuII" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">CuII</span> + <span class="chempy_R" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">R</span></td>
 <td style="text-align: left;">&nbsp;9.6</td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="chempy_2900239918536_7 odd">
+<tr class="chempy_132602094100560_7 odd">
 <td style="text-align: right;"><span class="chempy_CuII" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">CuII</span> + <span class="chempy_R" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">R</span></td>
 <td style="text-align: center;">→</td>
 <td style="text-align: left;"><span class="chempy_CuI" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">CuI</span> + <span class="chempy_RX" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">RX</span></td>
 <td style="text-align: left;">&nbsp;10<sup>8</sup></td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="chempy_2900239918536_8 even">
+<tr class="chempy_132602094100560_8 even">
 <td style="text-align: right;"><span class="chempy_CuI" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">CuI</span> + <span class="chempy_PnX" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">PnX</span></td>
 <td style="text-align: center;">→</td>
 <td style="text-align: left;"><span class="chempy_CuII" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">CuII</span> + <span class="chempy_Pn" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">Pn</span></td>
 <td style="text-align: left;">&nbsp;9.6</td>
 <td style="text-align: center;"></td>
 </tr>
-<tr class="chempy_2900239918536_9 odd">
+<tr class="chempy_132602094100560_9 odd">
 <td style="text-align: right;"><span class="chempy_CuII" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">CuII</span> + <span class="chempy_Pn" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">Pn</span></td>
 <td style="text-align: center;">→</td>
 <td style="text-align: left;"><span class="chempy_CuI" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">CuI</span> + <span class="chempy_PnX" style="border-radius: 5pt; padding: 0pt 3pt 0pt 3pt;">PnX</span></td>
@@ -716,7 +717,7 @@ The reactions and the rate coefficients are:</code></pre>
 </table>
 <script type="text/javascript">
 var cls_names_substances = ["chempy_D", "chempy_M", "chempy_Pn", "chempy_PnD", "chempy_PnDPn", "chempy_R", "chempy_CuI", "chempy_CuII", "chempy_PnX", "chempy_RX"];
-var substance_row_cls_irrel = {"chempy_D": ["chempy_2900239918536_0", "chempy_2900239918536_1", "chempy_2900239918536_4", "chempy_2900239918536_5", "chempy_2900239918536_6", "chempy_2900239918536_7", "chempy_2900239918536_8", "chempy_2900239918536_9"], "chempy_M": ["chempy_2900239918536_2", "chempy_2900239918536_3", "chempy_2900239918536_4", "chempy_2900239918536_5", "chempy_2900239918536_6", "chempy_2900239918536_7", "chempy_2900239918536_8", "chempy_2900239918536_9"], "chempy_Pn": ["chempy_2900239918536_2", "chempy_2900239918536_6", "chempy_2900239918536_7"], "chempy_PnD": ["chempy_2900239918536_0", "chempy_2900239918536_1", "chempy_2900239918536_2", "chempy_2900239918536_5", "chempy_2900239918536_6", "chempy_2900239918536_7", "chempy_2900239918536_8", "chempy_2900239918536_9"], "chempy_PnDPn": ["chempy_2900239918536_0", "chempy_2900239918536_1", "chempy_2900239918536_2", "chempy_2900239918536_3", "chempy_2900239918536_4", "chempy_2900239918536_6", "chempy_2900239918536_7", "chempy_2900239918536_8", "chempy_2900239918536_9"], "chempy_R": ["chempy_2900239918536_1", "chempy_2900239918536_4", "chempy_2900239918536_5", "chempy_2900239918536_8", "chempy_2900239918536_9"], "chempy_CuI": ["chempy_2900239918536_0", "chempy_2900239918536_1", "chempy_2900239918536_2", "chempy_2900239918536_3", "chempy_2900239918536_4", "chempy_2900239918536_5"], "chempy_CuII": ["chempy_2900239918536_0", "chempy_2900239918536_1", "chempy_2900239918536_2", "chempy_2900239918536_3", "chempy_2900239918536_4", "chempy_2900239918536_5"], "chempy_PnX": ["chempy_2900239918536_0", "chempy_2900239918536_1", "chempy_2900239918536_2", "chempy_2900239918536_3", "chempy_2900239918536_4", "chempy_2900239918536_5", "chempy_2900239918536_6", "chempy_2900239918536_7"], "chempy_RX": ["chempy_2900239918536_0", "chempy_2900239918536_1", "chempy_2900239918536_2", "chempy_2900239918536_3", "chempy_2900239918536_4", "chempy_2900239918536_5", "chempy_2900239918536_8", "chempy_2900239918536_9"]};
+var substance_row_cls_irrel = {"chempy_D": ["chempy_132602094100560_0", "chempy_132602094100560_1", "chempy_132602094100560_4", "chempy_132602094100560_5", "chempy_132602094100560_6", "chempy_132602094100560_7", "chempy_132602094100560_8", "chempy_132602094100560_9"], "chempy_M": ["chempy_132602094100560_2", "chempy_132602094100560_3", "chempy_132602094100560_4", "chempy_132602094100560_5", "chempy_132602094100560_6", "chempy_132602094100560_7", "chempy_132602094100560_8", "chempy_132602094100560_9"], "chempy_Pn": ["chempy_132602094100560_2", "chempy_132602094100560_6", "chempy_132602094100560_7"], "chempy_PnD": ["chempy_132602094100560_0", "chempy_132602094100560_1", "chempy_132602094100560_2", "chempy_132602094100560_5", "chempy_132602094100560_6", "chempy_132602094100560_7", "chempy_132602094100560_8", "chempy_132602094100560_9"], "chempy_PnDPn": ["chempy_132602094100560_0", "chempy_132602094100560_1", "chempy_132602094100560_2", "chempy_132602094100560_3", "chempy_132602094100560_4", "chempy_132602094100560_6", "chempy_132602094100560_7", "chempy_132602094100560_8", "chempy_132602094100560_9"], "chempy_R": ["chempy_132602094100560_1", "chempy_132602094100560_4", "chempy_132602094100560_5", "chempy_132602094100560_8", "chempy_132602094100560_9"], "chempy_CuI": ["chempy_132602094100560_0", "chempy_132602094100560_1", "chempy_132602094100560_2", "chempy_132602094100560_3", "chempy_132602094100560_4", "chempy_132602094100560_5"], "chempy_CuII": ["chempy_132602094100560_0", "chempy_132602094100560_1", "chempy_132602094100560_2", "chempy_132602094100560_3", "chempy_132602094100560_4", "chempy_132602094100560_5"], "chempy_PnX": ["chempy_132602094100560_0", "chempy_132602094100560_1", "chempy_132602094100560_2", "chempy_132602094100560_3", "chempy_132602094100560_4", "chempy_132602094100560_5", "chempy_132602094100560_6", "chempy_132602094100560_7"], "chempy_RX": ["chempy_132602094100560_0", "chempy_132602094100560_1", "chempy_132602094100560_2", "chempy_132602094100560_3", "chempy_132602094100560_4", "chempy_132602094100560_5", "chempy_132602094100560_8", "chempy_132602094100560_9"]};
 var elms = {};
 var n = {}, nsubstances = cls_names_substances.length;
 var nirrel = {};
@@ -770,7 +771,7 @@ for(var k = 0; k < nsubstances; k++) {
         };
     }
 };
-var chempy_tabs = document.querySelectorAll('table.chempy_2900239918536');
+var chempy_tabs = document.querySelectorAll('table.chempy_132602094100560');
 [].forEach.call(chempy_tabs, function(tab){
     tab.ori_header = tab.getElementsByTagName('th')[0].innerHTML;
     tab.ondblclick = function(){
@@ -788,7 +789,7 @@ var chempy_tabs = document.querySelectorAll('table.chempy_2900239918536');
 <section id="simulation" class="level2">
 <h2 class="anchored" data-anchor-id="simulation">4. Simulation</h2>
 <p><strong>List of the differential equations</strong></p>
-<div id="cell-10" class="cell" data-scrolled="true" data-execution_count="7">
+<div id="cell-11" class="cell" data-scrolled="true" data-outputid="20565fb8-7188-4f22-97d8-66f1bab4337e" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title { display-mode: "form" }</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the actual and the pseudo reaction systems</span></span>
@@ -806,7 +807,7 @@ var chempy_tabs = document.querySelectorAll('table.chempy_2900239918536');
 <span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>tout <span class="op">=</span> <span class="bu">sorted</span>(np.concatenate((np.linspace(<span class="dv">0</span>, react_time), np.logspace(<span class="dv">0</span>, np.floor(np.log10(react_time))))))</span>
 <span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> odesys.integrate(tout, c0, integrator<span class="op">=</span><span class="st">'scipy'</span>, method<span class="op">=</span><span class="st">'lsoda'</span>, atol<span class="op">=</span><span class="fl">1e-12</span>, rtol<span class="op">=</span><span class="fl">1e-6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>The differnetioal equations are:
+<pre><code>The differnetial equations are:
 D :  dy_0/dt =  100000000.0*y_2*y_5 + 5000000000.0*y_5**2
 M :  dy_1/dt =  -27254*y_1*y_2 - 27254*y_1*y_5
 Pn :  dy_2/dt =  27254*y_1*y_5 - 220000000.0*y_2**2 - 100000000.0*y_2*y_5 - 100000000.0*y_2*y_7 + 9.6*y_6*y_8
@@ -837,7 +838,7 @@ M1_PnX :  dy_14/dt =  100000000.0*y_10*y_7 - 9.6*y_14*y_6</code></pre>
 <section id="concentration-changes" class="level3">
 <h3 class="anchored" data-anchor-id="concentration-changes">5.1. Concentration changes</h3>
 <p>Plot the concentrations of species in the reaction system vs time. The change of monomer concentration is not included here since monomer conversion will be plotted later.</p>
-<div id="cell-15" class="cell" data-execution_count="8">
+<div id="cell-16" class="cell" data-outputid="a72dacc1-1257-4760-a35e-eef0dce9f622" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title { display-mode: "form" }</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>labels<span class="op">=</span>[<span class="st">'(a)'</span>,<span class="st">'(b)'</span>,<span class="st">'(c)'</span>]</span>
@@ -845,8 +846,8 @@ M1_PnX :  dy_14/dt =  100000000.0*y_10*y_7 - 9.6*y_14*y_6</code></pre>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>fig1, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">5</span>))</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>     _ <span class="op">=</span> result.plot(names<span class="op">=</span>[k <span class="cf">for</span> k <span class="kw">in</span> rsys_orig.substances <span class="cf">if</span> k <span class="op">!=</span> <span class="st">'CuIsour'</span> \</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>                            <span class="kw">and</span> k <span class="op">!=</span> <span class="st">'M'</span> <span class="kw">and</span> k<span class="op">!=</span> <span class="st">'elec'</span> <span class="kw">and</span> k <span class="op">!=</span> <span class="st">'Cu0'</span>], ax<span class="op">=</span>ax) </span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>     _ <span class="op">=</span> ax.legend(loc<span class="op">=</span><span class="st">'best'</span>,prop<span class="op">=</span>{<span class="st">'size'</span>: <span class="dv">12</span>}) <span class="co"># Set the font size of the legend here.    </span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>                            <span class="kw">and</span> k <span class="op">!=</span> <span class="st">'M'</span> <span class="kw">and</span> k<span class="op">!=</span> <span class="st">'elec'</span> <span class="kw">and</span> k <span class="op">!=</span> <span class="st">'Cu0'</span>], ax<span class="op">=</span>ax)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>     _ <span class="op">=</span> ax.legend(loc<span class="op">=</span><span class="st">'best'</span>,prop<span class="op">=</span>{<span class="st">'size'</span>: <span class="dv">12</span>}) <span class="co"># Set the font size of the legend here.</span></span>
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>     _ <span class="op">=</span> ax.set_xlabel(<span class="st">'Time (s)'</span>)</span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>     _ <span class="op">=</span> ax.set_ylabel(<span class="st">'Concentration'</span>)</span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>     _ <span class="op">=</span> ax.text(<span class="op">-</span><span class="fl">0.1</span>, <span class="dv">1</span>, labels[i], transform<span class="op">=</span>ax.transAxes, fontweight<span class="op">=</span><span class="st">'bold'</span>, va<span class="op">=</span><span class="st">'top'</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
@@ -876,7 +877,7 @@ PnX: dormant polymer chain with an active halogen chain-end</p>
 </section>
 <section id="monomer-conversion-vs-time" class="level3">
 <h3 class="anchored" data-anchor-id="monomer-conversion-vs-time">5.2. Monomer conversion vs time</h3>
-<div id="cell-18" class="cell" data-scrolled="true" data-execution_count="9">
+<div id="cell-19" class="cell" data-scrolled="true" data-outputid="4b04bd0e-c1e8-421d-e952-cafc6a6a92b7" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title { display-mode: "form" }</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get concentrations and calculate conversion, Mn and Mw/Mn.</span></span>
@@ -900,7 +901,7 @@ PnX: dormant polymer chain with an active halogen chain-end</p>
 <span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>Mw_Mn <span class="op">=</span> np.ones(<span class="bu">len</span>(result[<span class="dv">0</span>]))</span>
 <span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>Mn[<span class="dv">1</span>:] <span class="op">=</span> (ConcM[<span class="dv">0</span>]<span class="op">-</span>ConcM[<span class="dv">1</span>:])<span class="op">/</span>(ConcPnX[<span class="dv">1</span>:] <span class="op">+</span> ConcPnD[<span class="dv">1</span>:] <span class="op">+</span> ConcPnDPn[<span class="dv">1</span>:] <span class="op">+</span> ConcPn[<span class="dv">1</span>:])<span class="op">*</span>MM</span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>Mw[<span class="dv">1</span>:] <span class="op">=</span> ConcM2_total[<span class="dv">1</span>:]<span class="op">/</span>(ConcM[<span class="dv">0</span>]<span class="op">-</span>ConcM[<span class="dv">1</span>:])<span class="op">*</span>MM    </span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>Mw[<span class="dv">1</span>:] <span class="op">=</span> ConcM2_total[<span class="dv">1</span>:]<span class="op">/</span>(ConcM[<span class="dv">0</span>]<span class="op">-</span>ConcM[<span class="dv">1</span>:])<span class="op">*</span>MM</span>
 <span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>Mw_Mn[<span class="dv">1</span>:] <span class="op">=</span> Mw[<span class="dv">1</span>:]<span class="op">/</span>Mn[<span class="dv">1</span>:]</span>
 <span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Get mole percent of end group loss, i.e., Tmol%.</span></span>
@@ -909,10 +910,10 @@ PnX: dormant polymer chain with an active halogen chain-end</p>
 <span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>    Tmol <span class="op">=</span> <span class="dv">100</span><span class="op">*</span>(ConcD <span class="op">+</span> ConcPnD <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>ConcPnDPn)<span class="op">/</span>result[<span class="dv">1</span>][<span class="dv">0</span>,x]</span>
 <span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>    Tmol <span class="op">=</span> <span class="dv">100</span><span class="op">*</span>np.ones(<span class="bu">len</span>(result[<span class="dv">0</span>]))</span>
-<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>result_cal <span class="op">=</span> [result[<span class="dv">0</span>],ConcM,ConvM,LnM0_M,Mn,Mw_Mn,Tmol]</span>
 <span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Monomer conversion vs. time and first order kinetic plots. </span></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Monomer conversion vs. time and first order kinetic plots.</span></span>
 <span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>fig2, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
 <span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>i<span class="op">=</span><span class="dv">0</span></span>
 <span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
@@ -935,10 +936,10 @@ PnX: dormant polymer chain with an active halogen chain-end</p>
 </section>
 <section id="molecular-weight-molecular-weight-distribution-and-mole-percent-loss-of-chain-ends." class="level3">
 <h3 class="anchored" data-anchor-id="molecular-weight-molecular-weight-distribution-and-mole-percent-loss-of-chain-ends.">5.3. Molecular weight, molecular weight distribution and mole percent loss of chain-ends.</h3>
-<div id="cell-20" class="cell" data-scrolled="true" data-execution_count="10">
+<div id="cell-21" class="cell" data-scrolled="true" data-outputid="54f8a889-4a48-4f39-c55b-ecb8deed631a" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title { display-mode: "form" }</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot Mn, Mw/Mn and Tmol% vs. conversion. </span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot Mn, Mw/Mn and Tmol% vs. conversion.</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>fig3, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>i<span class="op">=</span><span class="dv">0</span></span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
@@ -970,8 +971,8 @@ PnX: dormant polymer chain with an active halogen chain-end</p>
 <section id="export-the-results" class="level2">
 <h2 class="anchored" data-anchor-id="export-the-results">6. Export the results</h2>
 <p>Export the result to a CSV file. If you run this program on your own computer, the CSV file is saved in the same folder as this ipynb file. If you run this program online using Google Colab, you can find the a menu bar on the left side. Click on the fourth one called “Files” and you will see the exported files.</p>
-<div id="cell-23" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title { display-mode: "form" } </span></span>
+<div id="cell-24" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title { display-mode: "form" }</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>now <span class="op">=</span> datetime.datetime.now()</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>filename <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span>now<span class="sc">.</span>strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">-%Hh%Mm%Ss"</span>)<span class="sc">}</span><span class="ss">-ATRP-Simulation-</span><span class="sc">{</span>Poly_type<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>Monomer<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>Solvent<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>Ligand<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>Initiator<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>Temperature<span class="sc">}</span><span class="ss">C.csv'</span></span>
@@ -984,7 +985,7 @@ PnX: dormant polymer chain with an active halogen chain-end</p>
 <span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>        thewriter.writerow([<span class="ss">f'The initiation efficiency of the thermal initiator is </span><span class="sc">{</span>f_TI<span class="sc">}</span><span class="ss">.'</span>])</span>
 <span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> index, exp <span class="kw">in</span> <span class="bu">enumerate</span>(odesys.exprs):</span>
 <span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> odesys.names[index] <span class="op">!=</span> <span class="st">'PR'</span>:</span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>            thewriter.writerow([<span class="ss">f'</span><span class="sc">{</span>odesys<span class="sc">.</span>names[index]<span class="sc">}</span><span class="ss">:'</span>,<span class="ss">f'dy_</span><span class="sc">{</span>index<span class="sc">}</span><span class="ss">/dt = </span><span class="sc">{</span>exp<span class="sc">}</span><span class="ss">'</span>])    </span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>            thewriter.writerow([<span class="ss">f'</span><span class="sc">{</span>odesys<span class="sc">.</span>names[index]<span class="sc">}</span><span class="ss">:'</span>,<span class="ss">f'dy_</span><span class="sc">{</span>index<span class="sc">}</span><span class="ss">/dt = </span><span class="sc">{</span>exp<span class="sc">}</span><span class="ss">'</span>])</span>
 <span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> Poly_type <span class="op">==</span> <span class="st">'conven'</span>:</span>
 <span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>        thewriter.writerow([<span class="st">'Tmol</span><span class="sc">% d</span><span class="st">oes not apply to conventional radical polymerization.'</span>])</span>
 <span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    thewriter.writerow([<span class="st">'time (s)'</span>]<span class="op">+</span>[k <span class="cf">for</span> k <span class="kw">in</span> rsys.substances <span class="cf">if</span> k <span class="op">!=</span> <span class="st">'PR'</span>]<span class="op">+</span>[<span class="st">'conversion'</span>]<span class="op">+</span>[<span class="st">'ln([M]0/[M])'</span>]<span class="op">\</span></span>
@@ -996,7 +997,7 @@ PnX: dormant polymer chain with an active halogen chain-end</p>
 <span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>        i<span class="op">+=</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Export the plots as pdf and png files.</p>
-<div id="cell-25" class="cell" data-execution_count="16">
+<div id="cell-26" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title { display-mode: "form" }</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>fig1.savefig(<span class="ss">f'</span><span class="sc">{</span>now<span class="sc">.</span>strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">-%Hh%Mm%Ss"</span>)<span class="sc">}</span><span class="ss">-concentration.pdf'</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
@@ -1009,22 +1010,21 @@ PnX: dormant polymer chain with an active halogen chain-end</p>
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>fig3.savefig(<span class="ss">f'</span><span class="sc">{</span>now<span class="sc">.</span>strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st">-%Hh%Mm%Ss"</span>)<span class="sc">}</span><span class="ss">-molecular_weight.png'</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>, dpi<span class="op">=</span><span class="dv">600</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
-<center>
-<img src="https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/65e7e0eb7d7fb9af687c84be7015b4f42fd25493/Fig/ATRP_Kinetic_Simulator.svg" width="300">
-</center>
-<div id="cell-28" class="cell" data-tags="[&quot;hide_code&quot;]" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title { display-mode: "form" }</span></span>
+<div id="cell-28" class="cell" data-tags="[&quot;hide_code&quot;]" data-outputid="9844fa1b-cf59-487e-d394-d60c181a6b76" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title Copyright { display-mode: "form" }</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>copyright <span class="op">=</span> requests.get(<span class="st">"https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/master/copyright.md"</span>)</span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>Markdown(copyright.text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="1">
-<p>### Copyright</p>
-<p>This software is designed for polymer science education. Copyright (C) 2021 Yu Wang</p>
-<p>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.<br>
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.<br>
-You should have received a copy of the GNU General Public License along with this program. If not, see https://www.gnu.org/licenses/.</p>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="10">
+<section id="mit-license" class="level3">
+<h3 class="anchored" data-anchor-id="mit-license">MIT License</h3>
+<p>Copyright (c) 2021 – 2024 Yu Wang</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+</section>
 <section id="contact" class="level3">
 <h3 class="anchored" data-anchor-id="contact">Contact</h3>
 <p>Dr.&nbsp;Yu Wang<br>
@@ -1040,8 +1040,31 @@ Email: yuwang@louisiana.edu</p>
 </section>
 </div>
 </div>
+<div id="cell-29" class="cell" data-outputid="a9e3c7ed-b551-4a64-bb19-ced10b25cff2" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title {display-mode: "form" }</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>links <span class="op">=</span> requests.get(<span class="st">"https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/refs/heads/master/links.md"</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>Markdown(links.text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="links" class="level3 cell-output cell-output-display cell-output-markdown" data-execution_count="11">
+<h3 class="anchored" data-anchor-id="links">Links</h3>
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th><strong><a href="https://wangyu16.github.io/PolymerScienceEducation/">Home page of OVESET</a>:</strong></th>
+<th><strong><a href="https://hackmd.io/@YW2025/HJLiqoHRR">Home page of Study Guide</a></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/refs/heads/master/img/QR_OVESET.svg" alt="OVESET Home Page" width="300"></td>
+<td><img src="https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/refs/heads/master/img/QR_PolymerStudyGuide.svg" alt="Introduction to Polymer Science" width="300"></td>
+</tr>
+</tbody>
+</table>
+</section>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1127,8 +1150,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1239,7 +1260,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

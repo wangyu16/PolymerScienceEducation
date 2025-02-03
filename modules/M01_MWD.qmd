@@ -29,7 +29,7 @@ image: "/img/M01_MWD_small.png"
 
 **Series II.** Calculate number average and weight average molecular weights.
 
-* Set the Number_of_polymers in the range between 5 and 20, all the other parameters can be chosen randomly, run the simulation and obtain the list of the number of each type of polymers. Use Excel to calculate the number average molecular weight ($M_n$) and the weight average molecular weight ($M_w$). Calculate the value of $M_w/M_n$.
+* Set the Number_of_polymers in the range between 5 and 20, all the other parameters can be chosen randomly, run the simulation and obtain the list of the number of each type of polymers. Download the files in csv format. Use Excel to open the filese and calculate the number average molecular weight ($M_n$) and the weight average molecular weight ($M_w$). Calculate the value of $M_w/M_n$.
 * Conclude what are the typical values of $M_w/M_n$ for step growth polymerization and living chain growth polymerization?
 
 ## 4. Example practice questions
@@ -44,7 +44,9 @@ image: "/img/M01_MWD_small.png"
 | 2     | 3500       |
 | 1     | 3900       |
 
-2. Which of the following statement is incorrect?
+2. Run a simulation with any random initial conditions. Download the csv file. Calculate the number and weight average molecular weight using Excel. 
+
+3. Which of the following statement is incorrect?
 
 A. If all molecules in a polymer sample have the same molecular weight, the $M_w/M_n$ value equals 0.  
 B. Weight average molecular weight is always equal or greater than number average molecular weight.  
