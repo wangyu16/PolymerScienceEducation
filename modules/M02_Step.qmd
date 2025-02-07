@@ -24,12 +24,12 @@ Perform the following series experiments. In the table 'Type' means Type_of_poly
 
 | Entry | Type | $p$ | n | r_AA_BB | r_RA_N0 | r_RB_N0 |
 |-------|------------------------|-----------------------------|---|---------|---------|---------|
-| 1     | AA and BB              | 0.999                       | 6 | 1       | 0       | 0       |
-| 2     | AA and BB              | 1                           | 6 | 0.99    | 0       | 0       |
-| 3     | AA and BB              | 1                           | 6 | 1       | 0.02    | 0       |
-| 4     | AB                     | 0.999                       | 6 | 1       | 0       | 0       |
-| 5     | AB                     | 1                           | 6 | 1       | 0.02    | 0       |
-| 6     | AB                     | 1                           | 6 | 1       | 0.01    | 0.01    |
+| 1     | AA and BB              | 0.999                       | 5 | 1       | 0       | 0       |
+| 2     | AA and BB              | 0.999                       | 5 | 0.99    | 0       | 0       |
+| 3     | AA and BB              | 0.999                       | 5 | 1       | 0.02    | 0       |
+| 4     | AB                     | 0.999                       | 5 | 1       | 0       | 0       |
+| 5     | AB                     | 0.999                       | 5 | 1       | 0.02    | 0       |
+| 6     | AB                     | 0.999                       | 5 | 1       | 0.01    | 0.01    |
 
 
 1. For each experiment, predict the types of resulting polymers and compare to the simulation results. Compare the number fraction distribution and the weight fraction distribution and tell what are the differences. How does the number average degree of polymerization compare to the weight average one? Mark these average degree of polymerization values in the plot of the weight fraction distribution. How do the average degree of polymerization values compare to the peak value in the distribution?
