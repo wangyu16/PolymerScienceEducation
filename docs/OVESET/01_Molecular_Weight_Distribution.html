@@ -298,7 +298,7 @@ window.Quarto = {
 <li>Through the moments of the molecular weight distribution.</li>
 </ol>
 <p>The program guides you to calculate the number and weight average molecular weights step-by-step.</p>
-<div id="cell-3" class="cell" data-execution_count="13">
+<div id="cell-3" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title 1. Install and import packages {display-mode: "form" }</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>capture</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
@@ -319,7 +319,7 @@ window.Quarto = {
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML, display</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-4" class="cell" data-execution_count="14">
+<div id="cell-4" class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title 2. Simulation conditions { display-mode: "form" }</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Type_of_polymerization <span class="op">=</span> <span class="st">"Step growth polymerization"</span> <span class="co">#@param ["Step growth polymerization", "Living chain growth polymerization"]</span></span>
@@ -328,7 +328,7 @@ window.Quarto = {
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>Monomer_molar_mass <span class="op">=</span> <span class="dv">71</span> <span class="co">#@param{type:"slider", min:50, max: 300, step:1}</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-5" class="cell" data-execution_count="15">
+<div id="cell-5" class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title 3. Simulation { display-mode: "form" }</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> Type_of_polymerization <span class="op">==</span> <span class="st">"Step growth polymerization"</span>:</span>
@@ -346,7 +346,7 @@ window.Quarto = {
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    polymers[M_idx]<span class="op">+=</span><span class="dv">1</span></span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  polymers.sort()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-6" class="cell" data-outputid="38035008-764c-4a5e-9f8b-48e713e5582e" data-execution_count="16">
+<div id="cell-6" class="cell" data-outputid="38035008-764c-4a5e-9f8b-48e713e5582e">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title Plot the fractions of each type of polymers. { display-mode: "form" }</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>counter <span class="op">=</span> Counter(polymers)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>DP <span class="op">=</span> np.array(<span class="bu">list</span>(counter.keys()))</span>
@@ -391,7 +391,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="cell-7" class="cell" data-outputid="8c90ea64-69d6-4a58-8efc-33738f1ee141" data-execution_count="17">
+<div id="cell-7" class="cell" data-outputid="8c90ea64-69d6-4a58-8efc-33738f1ee141">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title 4. Calculation  { display-mode: "form" }</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown </span><span class="al">###</span><span class="co"> Calculation by number and weight fractions</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown Show the number of each type of polymers. \</span></span>
@@ -887,33 +887,34 @@ window.Quarto = {
   </div>
 </div>
 </div>
-<div id="cell-8" class="cell" data-execution_count="18">
+<div id="cell-8" class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title {display-mode: "form" }</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the current timestamp</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>timestamp <span class="op">=</span> datetime.datetime.now().strftime(<span class="st">"%Y%m</span><span class="sc">%d</span><span class="st">_%H%M%S"</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the file name with timestamp</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>file_name <span class="op">=</span> <span class="ss">f"polymer_simulation_results_</span><span class="sc">{</span>timestamp<span class="sc">}</span><span class="ss">.csv"</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the results to a CSV file with the timestamped file name</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>results[[<span class="st">'Molecular weight'</span>,<span class="st">'Number'</span>]].to_csv(file_name, index<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a dictionary to store the parameters</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> {</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Type_of_polymerization"</span>: Type_of_polymerization,</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Number_of_monomers"</span>: Number_of_monomers,</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Number_of_polymers"</span>: Number_of_polymers,</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Monomer_molar_mass"</span>: Monomer_molar_mass</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Open the CSV file in append mode and add parameters as a new line</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(file_name, <span class="st">'a'</span>, newline<span class="op">=</span><span class="st">''</span>) <span class="im">as</span> csvfile:</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    writer <span class="op">=</span> csv.writer(csvfile)</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    writer.writerow(params.keys())  <span class="co"># Write parameter names as headers</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    writer.writerow(params.values())  <span class="co"># Write parameter values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown The results of the simulation as shown in the table above can be downloaded as csv files. In the left panel, click on the fourth icon "Files", you can see them listed there.</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the current timestamp</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>timestamp <span class="op">=</span> datetime.datetime.now().strftime(<span class="st">"%Y%m</span><span class="sc">%d</span><span class="st">_%H%M%S"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the file name with timestamp</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>file_name <span class="op">=</span> <span class="ss">f"polymer_simulation_results_</span><span class="sc">{</span>timestamp<span class="sc">}</span><span class="ss">.csv"</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the results to a CSV file with the timestamped file name</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>results[[<span class="st">'Molecular weight'</span>,<span class="st">'Number'</span>]].to_csv(file_name, index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a dictionary to store the parameters</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> {</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Type_of_polymerization"</span>: Type_of_polymerization,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Number_of_monomers"</span>: Number_of_monomers,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Number_of_polymers"</span>: Number_of_polymers,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Monomer_molar_mass"</span>: Monomer_molar_mass</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Open the CSV file in append mode and add parameters as a new line</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(file_name, <span class="st">'a'</span>, newline<span class="op">=</span><span class="st">''</span>) <span class="im">as</span> csvfile:</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    writer <span class="op">=</span> csv.writer(csvfile)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    writer.writerow(params.keys())  <span class="co"># Write parameter names as headers</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    writer.writerow(params.values())  <span class="co"># Write parameter values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-9" class="cell" data-outputid="2ab237df-5d34-468a-9989-3dfab353badc" data-execution_count="19">
+<div id="cell-9" class="cell" data-outputid="2ab237df-5d34-468a-9989-3dfab353badc">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#@title {display-mode: "form" }</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown Show number fraction and weight fraction of each type of polymers.</span></span>
@@ -1521,7 +1522,7 @@ MathJax.Hub.Config({
 
 </div>
 </div>
-<div id="cell-10" class="cell" data-outputid="52cee546-0561-482e-bff2-bda2aee6ce50" data-execution_count="20">
+<div id="cell-10" class="cell" data-outputid="52cee546-0561-482e-bff2-bda2aee6ce50">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title {display-mode: "form" }</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>Markdown(<span class="ss">f"The number average molecular weight ($M_n$) is </span><span class="sc">{</span><span class="bu">round</span>(Mn_1, sigfigs<span class="op">=</span><span class="dv">4</span>)<span class="sc">}</span><span class="ss">, weight average ($M_w$) is </span><span class="sc">{</span><span class="bu">round</span>(Mw_1, sigfigs<span class="op">=</span><span class="dv">4</span>)<span class="sc">}</span><span class="ss">, the molecular weight distribution can be represented by the value of $M_w/M_n$, which is </span><span class="sc">{</span><span class="bu">round</span>(Mw_1<span class="op">/</span>Mn_1,sigfigs<span class="op">=</span><span class="dv">3</span>)<span class="sc">}</span><span class="ss">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1529,7 +1530,7 @@ MathJax.Hub.Config({
 <p>The number average molecular weight (<span class="math inline">\(M_n\)</span>) is 9467.0, weight average (<span class="math inline">\(M_w\)</span>) is 19380.0, the molecular weight distribution can be represented by the value of <span class="math inline">\(M_w/M_n\)</span>, which is 2.05.</p>
 </div>
 </div>
-<div id="cell-11" class="cell" data-outputid="ccab532b-948a-43a4-8025-e6a88358d24e" data-execution_count="21">
+<div id="cell-11" class="cell" data-outputid="ccab532b-948a-43a4-8025-e6a88358d24e">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title Calculation by moments { display-mode: "form" }</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown The $n$-th moment simply equals:</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#@markdown $$Mn=\sum_i M_i^n\times x_i$$</span></span>
@@ -1540,7 +1541,7 @@ MathJax.Hub.Config({
 </div>
 </div>
 <hr>
-<div id="cell-13" class="cell" data-outputid="b1594e63-44b9-4828-c722-1426c232d016" data-execution_count="22">
+<div id="cell-13" class="cell" data-outputid="b1594e63-44b9-4828-c722-1426c232d016">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title Copyright { display-mode: "form" }</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
@@ -1570,7 +1571,7 @@ Email: yuwang@louisiana.edu</p>
 </section>
 </div>
 </div>
-<div id="cell-14" class="cell" data-outputid="c559d5bd-9fb1-43c9-fefa-ac3d519e4f10" data-execution_count="23">
+<div id="cell-14" class="cell" data-outputid="c559d5bd-9fb1-43c9-fefa-ac3d519e4f10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># @title {display-mode: "form" }</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>links <span class="op">=</span> requests.get(<span class="st">"https://raw.githubusercontent.com/wangyu16/PolymerScienceEducation/refs/heads/master/links.md"</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>Markdown(links.text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
