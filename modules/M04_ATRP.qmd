@@ -9,9 +9,10 @@ Adapted with permission from Macromolecules 2003, 36, 6, 1843-1849, Copyright ©
 
 ## 1. Link to the simulator
 
-<a href="https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/04_ATRP.ipynb" target="_blank">Atom Transfer Radical Polymerization</a>
+<a href="https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/04_ATRP.ipynb" target="_blank">Atom Transfer Radical Polymerization</a> 
 
 {{< qrcode https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/04_ATRP.ipynb width=250 height=250 >}}
+
 
 ## 2 Module objectives
 
@@ -24,6 +25,8 @@ Adapted with permission from Macromolecules 2003, 36, 6, 1843-1849, Copyright ©
 
 Series I to IV are normal ATRP.
 
+> Use this link for normal ATRP with pre-loaded default parameters: <a href="https://colab.research.google.com/github/wangyu16/PolymerScienceEducation/blob/master/OVESET/04_ATRP.ipynb" target="_blank">Normal ATRP</a> 
+
 Every time when you open the simulator, it is set at the default condition. After each series of experiments, close the simulator and reopen it to reset to the default condition.  
 
 For each series of experiments, change the parameters accordingly and observe how would the polymerization results change.
@@ -35,7 +38,11 @@ IV.	Increase initial RX concentration 0.0055 to 0.135.
 
 Series V to VII are ICAR ATRP.
 
-Before each series of experiment close and reopen the simulatior. Then, change the type of polymerization, i.e., Poly_type from 'normal' to 'icar', change both k_a_0_atrp and k_a_atrp from 9.6 to 96, change the values of both c0_CuI and c0_CuII to 0.0001.
+> Use this link for ICAR ATRP with pre-loaded default parameters: <a href="https://colab.research.google.com/gist/wangyu16/3e588c2dc6155c9d6df7104a9d256e80/04_atrp.ipynb" target="_blank">ICAR ATRP</a> (This is the same simulator as above, simply with different initial values of parameters.)
+
+Before starting each series of experiments, close and reopen the simulator (use the second link above) to reset the parameters.
+
+The default conditions for ICAR ATRP differ from those of normal ATRP in the following ways: the polymerization type (`Poly_type`) is changed from 'normal' to 'icar', both `k_a_0_atrp` and `k_a_atrp` are increased from 9.6 to 96, and the values of both `c0_CuI` and `c0_CuII` are set to 0.0001. By using the second link provided above, these parameters will be automatically loaded for ICAR ATRP, so you do not need to adjust them manually.
 
 For each series of experiments, change the parameter accordingly and observe how would the polymerization results change.
 
@@ -55,27 +62,15 @@ In each series experiments, how do the following results change? Explain why.
 
 ## 4. Example practice questions
 
-1.	In a conventional radical polymerization, adding more thermal initiator, e.g., AIBN, and keeping all other reaction conditions not changed, what would happen to the product? Briefly explain your choice.  
-A.	The number average molecular weight would be larger since the polymerization is faster.  
-B.	The number average molecular weight would be smaller while the polymerization is faster.  
-C.	The number average molecular weight would remain more or less the same.  
-D.	The number average molecular weight would change but you need more information to tell if it would be larger or smaller.
-
-2.	In a conventional radical polymerization, raising the reaction temperature and keeping all other reaction conditions not changed, what would happen to the product? Briefly explain your choice.  
-A.	The number average molecular weight would be larger since the polymerization is faster.  
-B.	The number average molecular weight would be smaller while the polymerization is faster.  
-C.	The number average molecular weight would remain more or less the same.  
-D.	The number average molecular weight would change but you need more information to tell if it would be larger or smaller.
-
-3.	Which of the following statement is true?   
+1.	Which of the following statement is true?   
 A. In an ICAR ATRP process, the number of polymers mainly depends on the amount of AIBN added to the system.  
 B.	In an ICAR ATRP process, the theoretical molecular weight of resulting polymers increases linearly with the monomer conversion, thus the number of polymer molecules must also increase linearly with the monomer conversion.  
 C.	In an ICAR ATRP process, the number of polymers mainly depends on the RX type initiator added to the system. The decomposition of AIBN would slightly increase the number of polymers.  
 D.	In an ICAR ATRP process, the decomposition of AIBN adds more monomer chains to the system, which would cause the actual number average molecular weight to be slightly larger than the theoretical value.  
 
-4.	How to calculate the number average molecular weight for a normal ATRP and for an ICAR ATRP, knowing the initial concentrations of RX and monomer, monomer conversion, and the molecular weight of the monomer?  
+2.	How to calculate the number average molecular weight for a normal ATRP and for an ICAR ATRP, knowing the initial concentrations of RX and monomer, monomer conversion, and the molecular weight of the monomer?  
 
-5.	Comparing a conventional radical polymerization and an ICAR ATRP process, which of the following statement(s) is (are) NOT true? The common reagents and their concentrations used in the ICAR ATRP and in conventional radical polymerization are the same. In ICAR ATRP, RX and a trace amount of Cu catalyst are added while in the conventional radical polymerization, they are absent. The reaction temperature and reaction time are the same.  
+3.	Comparing a conventional radical polymerization and an ICAR ATRP process, which of the following statement(s) is (are) NOT true? The common reagents and their concentrations used in the ICAR ATRP and in conventional radical polymerization are the same. In ICAR ATRP, RX and a trace amount of Cu catalyst are added while in the conventional radical polymerization, they are absent. The reaction temperature and reaction time are the same.  
 A.	The monomer conversions in both cases are more or less the same.  
 B.	The amount of termination in both cases is more or less the same.  
 C.	The numbers of polymers in both cases are more or less the same.  
